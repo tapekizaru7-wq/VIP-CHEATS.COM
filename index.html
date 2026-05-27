@@ -34,13 +34,7 @@
       z-index: 0;
     }
 
-    .container {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 2;
-    }
+    .container { max-width: 1480px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
 
     .title {
       font-size: clamp(4.8rem, 11vw, 8.5rem);
@@ -52,33 +46,14 @@
       background-clip: text;
       color: transparent;
       text-shadow: 0 0 50px rgba(255,0,170,0.7);
-      animation: titleGlow 4s ease-in-out infinite alternate;
     }
 
-    @keyframes titleGlow {
-      from { text-shadow: 0 0 30px rgba(255,0,170,0.6); }
-      to { text-shadow: 0 0 70px rgba(0,255,255,0.6); }
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 1.7rem;
-      color: #b0b0ff;
-      margin-bottom: 50px;
-    }
+    .subtitle { text-align: center; font-size: 1.7rem; color: #b0b0ff; margin-bottom: 50px; }
 
     .lang-btn {
-      position: fixed;
-      top: 25px;
-      right: 25px;
-      background: var(--glass);
-      backdrop-filter: blur(16px);
-      padding: 10px 24px;
-      border-radius: 50px;
-      border: 1px solid rgba(255,0,170,0.5);
-      z-index: 1000;
-      font-weight: 600;
-      box-shadow: 0 0 25px rgba(255,0,170,0.4);
+      position: fixed; top: 25px; right: 25px; background: var(--glass); backdrop-filter: blur(16px);
+      padding: 10px 24px; border-radius: 50px; border: 1px solid rgba(255,0,170,0.5); z-index: 1000;
+      font-weight: 600; box-shadow: 0 0 25px rgba(255,0,170,0.4);
     }
 
     .games-grid {
@@ -103,17 +78,36 @@
       box-shadow: 0 0 45px rgba(255,0,170,0.5);
     }
 
-    .game-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
+    /* Нижний блок кнопок */
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 50px 0;
     }
 
+    .social-btn {
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .btn-tg { background: linear-gradient(135deg, #0088cc, #0055aa); }
+    .btn-green { background: linear-gradient(135deg, #00aa44, #008822); }
+    .btn-vk { background: linear-gradient(135deg, #4c75a3, #2a4a7a); }
+    .btn-x { background: linear-gradient(135deg, #1da1f2, #0d7fc9); }
+
+    .social-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(255,0,170,0.4); }
+
     .cheats-panel {
-      position: fixed;
-      right: -460px;
-      top: 0;
-      width: 460px;
-      height: 100vh;
+      position: fixed; right: -460px; top: 0; width: 460px; height: 100vh;
       background: linear-gradient(180deg, #140022, #0a001f);
       border-left: 4px solid #ff00aa;
       box-shadow: -15px 0 50px rgba(255,0,170,0.5);
@@ -134,21 +128,19 @@
     }
 
     .download-btn {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(90deg, #ff00aa, #00ffff);
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      margin-top: 12px;
+      width: 100%; padding: 16px; background: linear-gradient(90deg, #ff00aa, #00ffff);
+      color: #000; font-weight: bold; border: none; border-radius: 14px; cursor: pointer;
+      margin-top: 12px; font-size: 1.1rem;
     }
 
-    .download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #ff00aa;
+    .download-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px #ff00aa; }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,0,170,0.2);
+      color: #888;
     }
   </style>
 </head>
@@ -163,47 +155,40 @@
     <h2 id="subtitle" class="subtitle">Скачать читы и софт 2026</h2>
 
     <div class="games-grid" id="gamesGrid"></div>
+
+    <!-- Нижний блок с кнопками -->
+    <div class="social-buttons">
+      <a href="https://t.me/vipcheatsonly" target="_blank" class="social-btn btn-tg"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://t.me/besp1atno" target="_blank" class="social-btn btn-green"><i class="fab fa-telegram"></i> VIP Халявщик</a>
+      <a href="https://t.me/managervipcheats" target="_blank" class="social-btn btn-tg"><i class="fab fa-telegram"></i> Поддержка</a>
+      <a href="https://vk.com/club235500419" target="_blank" class="social-btn btn-vk"><i class="fab fa-vk"></i> VK</a>
+      <a href="https://x.com/tapekizaru7" target="_blank" class="social-btn btn-x"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+
+    <footer>
+      <p>© 2026 VIP Cheats — Все права защищены</p>
+      <p style="margin-top:10px;">Инструкция по установке в Telegram @vipcheatsonly</p>
+    </footer>
   </div>
 
-  <!-- Панель читов -->
+  <!-- Панель с читами -->
   <div class="cheats-panel" id="cheatsPanel">
     <div id="panelClose" style="position:absolute;top:30px;right:30px;font-size:2.5rem;cursor:pointer;color:#ff00aa;">✕</div>
     <div id="panelContent"></div>
   </div>
 
 <script>
-// ==================== ПОЛНЫЕ ДАННЫЕ ====================
+// ==================== ДАННЫЕ ====================
 const gamesData = [
-  { id: "standoff2", name: "STANDOFF 2", nameEn: "STANDOFF 2", chips: [
-    {name:"Zenin"},{name:"NerestPC"},{name:"Panterium"},{name:"Ultimate"},
-    {name:"Custom"},{name:"Impulse"},{name:"XANTARES"},{name:"Devix"},{name:"Dysphoria"}
-  ]},
-  { id: "cs", name: "CS / CS2 / CS1.6", nameEn: "CS / CS2 / CS1.6", chips: [
-    {name:"Skeet"},{name:"MemeSense"},{name:"NixWare"},{name:"Nonagon"},
-    {name:"AlterNative"},{name:"XONE"},{name:"Midnight"},{name:"EnigmaTech"}
-  ]},
-  { id: "fortnite", name: "Fortnite", nameEn: "Fortnite", chips: [
-    {name:"FortniteExternal"},{name:"FORTNITE"},{name:"FrozenFree"}
-  ]},
-  { id: "minecraft", name: "Minecraft", nameEn: "Minecraft", chips: [
-    {name:"Celestia"},{name:"Nursultan"},{name:"ZENITH"},{name:"Delta"}
-  ]},
-  { id: "gta", name: "GTA", nameEn: "GTA", chips: [
-    {name:"Vanish"},{name:"Altv3V"},{name:"SANLauncher"},{name:"GTA V"},{name:"1337"}
-  ]},
-  { id: "roblox", name: "Roblox", nameEn: "Roblox", chips: [
-    {name:"SeliWare Executor"},{name:"XONE"},{name:"Lunar Hub"}
-  ]},
-  { id: "rust", name: "Rust", nameEn: "Rust", chips: [
-    {name:"DeusHack"},{name:"AquaCheats"},{name:"CAT TECH"},{name:"SUPERIORITY"},{name:"VECTOR EXTERNAL"}
-  ]},
-  { id: "valorant", name: "Valorant", nameEn: "Valorant", chips: [
-    {name:"MEMEZ"},{name:"FULL"}
-  ]},
-  { id: "others", name: "ПО и Прочее", nameEn: "Software & Other", chips: [
-    {name:"Discord Nitro"},{name:"Optimization PC"},{name:"VoiceMod"},
-    {name:"Telegram F1X"},{name:"HWID FIX"},{name:"AI Voice Changer"},{name:"ExitLag"}
-  ]}
+  { id: "standoff2", name: "STANDOFF 2", nameEn: "STANDOFF 2", chips: [{name:"Zenin"},{name:"NerestPC"},{name:"Panterium"},{name:"Ultimate"},{name:"Custom"},{name:"Impulse"},{name:"XANTARES"},{name:"Devix"},{name:"Dysphoria"}] },
+  { id: "cs", name: "CS / CS2 / CS1.6", nameEn: "CS / CS2 / CS1.6", chips: [{name:"Skeet"},{name:"MemeSense"},{name:"NixWare"},{name:"Nonagon"},{name:"AlterNative"},{name:"XONE"},{name:"Midnight"}] },
+  { id: "fortnite", name: "Fortnite", nameEn: "Fortnite", chips: [{name:"FortniteExternal"},{name:"FORTNITE"},{name:"FrozenFree"}] },
+  { id: "minecraft", name: "Minecraft", nameEn: "Minecraft", chips: [{name:"Celestia"},{name:"Nursultan"},{name:"ZENITH"},{name:"Delta"}] },
+  { id: "gta", name: "GTA", nameEn: "GTA", chips: [{name:"Vanish"},{name:"Altv3V"},{name:"SANLauncher"},{name:"GTA V"},{name:"1337"}] },
+  { id: "roblox", name: "Roblox", nameEn: "Roblox", chips: [{name:"SeliWare Executor"},{name:"XONE"},{name:"Lunar Hub"}] },
+  { id: "rust", name: "Rust", nameEn: "Rust", chips: [{name:"DeusHack"},{name:"AquaCheats"},{name:"CAT TECH"},{name:"SUPERIORITY"},{name:"VECTOR EXTERNAL"}] },
+  { id: "valorant", name: "Valorant", nameEn: "Valorant", chips: [{name:"MEMEZ"},{name:"FULL"}] },
+  { id: "others", name: "ПО и Прочее", nameEn: "Software & Other", chips: [{name:"Discord Nitro"},{name:"Optimization PC"},{name:"VoiceMod"},{name:"Telegram F1X"},{name:"HWID FIX"},{name:"AI Voice Changer"},{name:"ExitLag"}] }
 ];
 
 let currentLang = 'ru';
@@ -212,7 +197,7 @@ function downloadLauncher(name) {
   const url = "https://github.com/tapekizaru7-wq/VIP-LAUNCHER/raw/refs/heads/main/VIP%20Launcher.exe";
   const a = document.createElement('a');
   a.href = url;
-  a.download = `VIP_Launcher.exe`;
+  a.download = "VIP_Launcher.exe";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
