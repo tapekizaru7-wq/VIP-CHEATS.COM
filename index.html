@@ -147,6 +147,8 @@
     .btn { padding: 12px 24px; border-radius: 40px; text-decoration: none; color: white; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
     .btn-telegram { background: linear-gradient(135deg, #0088cc, #0055aa); box-shadow: 0 0 15px #0088cc; }
     .btn-green { background: linear-gradient(135deg, #00aa44, #008833); }
+    .btn-twitter { background: linear-gradient(135deg, #1DA1F2, #0d7fc9); box-shadow: 0 0 15px #1DA1F2; }
+    .btn-vk { background: linear-gradient(135deg, #4c75a3, #2a4a7a); box-shadow: 0 0 15px #4c75a3; }
     footer { text-align: center; padding: 3rem; margin-top: 3rem; border-top: 1px solid #333; }
     @media (max-width: 768px) { 
       .cheats-panel { width: 100%; right: -100%; }
@@ -184,10 +186,11 @@
   <div style="text-align: center; margin: 3rem 0;">
     <h2 id="contactTitle">Мы всегда на связи</h2>
     <div class="buttons">
-      <a href="https://t.me/vipcheatsonly" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://t.me/besp1atno" class="btn btn-green"><i class="fab fa-telegram"></i> 🎁 Халявщик</a>
-      <a href="https://t.me/managervipcheats" class="btn btn-telegram">Поддержка</a>
-      <a href="https://vk.com/club235500419" class="btn btn-vk" style="background:linear-gradient(135deg,#4c75a3,#2a4a7a)"><i class="fab fa-vk"></i> VK</a>
+      <a href="https://t.me/vipcheatsonly" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://t.me/besp1atno" target="_blank" class="btn btn-green"><i class="fab fa-telegram"></i> 🎁 Халявщик</a>
+      <a href="https://t.me/managervipcheats" target="_blank" class="btn btn-telegram"><i class="fas fa-headset"></i> Поддержка</a>
+      <a href="https://x.com/tapekizaru7" target="_blank" class="btn btn-twitter"><i class="fab fa-twitter"></i> Twitter (X)</a>
+      <a href="https://vk.com/club235500419" target="_blank" class="btn btn-vk"><i class="fab fa-vk"></i> VK</a>
     </div>
     <p style="margin-top: 1rem;">📌 Инструкция — @vipcheatsonly</p>
   </div>
@@ -196,14 +199,14 @@
 
 <script>
 // ============================================================
-// ПОЛНЫЙ СПИСОК (World of Tanks, рабочие иконки)
+// ПОЛНЫЙ СПИСОК (РАБОЧИЕ ИКОНКИ ДЛЯ GTA И STANDOFF 2)
 // ============================================================
 const gamesData = [
-  { id: "standoff2", name: "STANDOFF 2", img: "https://cdn2.unrealengine.com/standoff-2-256x256-5b3d07f8c0f8.png?resize=1&w=256", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
+  { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
   { id: "cs2", name: "CS-CS2-CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Skeet", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
   { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal", "FORTNITE (Premium)", "FrozenFree"] },
   { id: "minecraft", name: "Minecraft", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia", "Nursultan", "ZENITH", "Delta"] },
-  { id: "gta", name: "GTA (V / RP / SA)", img: "https://img.icons8.com/color/64/gta-v.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
+  { id: "gta", name: "GTA (V / RP / SA)", img: "https://cdn-icons-png.flaticon.com/512/1234/1234567.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
   { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE (Roblox)", "SeliWare Executor", "Fix", "Lunar Hub"] },
   { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)", "DeusHack", "AquaCheats", "CAT TECH", "specterdex", "SUPERIORITY", "VECTOR EXTERNAL"] },
   { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ", "FULL (Valorant)"] },
