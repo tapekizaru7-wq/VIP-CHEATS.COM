@@ -143,9 +143,6 @@
     }
     .halyavshik h2 { color: #00ff44; font-size: 2rem; text-shadow: 0 0 10px #00ff44; }
     .halyavshik-btn { display: inline-block; margin-top: 1.5rem; padding: 15px 40px; background: linear-gradient(135deg, #00ff44, #00aa22); border-radius: 40px; color: white; font-weight: bold; text-decoration: none; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-    .feature { background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(217,70,239,0.3); }
-    .feature h3 { color: #ff85c0; }
     .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
     .btn { padding: 12px 24px; border-radius: 40px; text-decoration: none; color: white; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
     .btn-telegram { background: linear-gradient(135deg, #0088cc, #0055aa); box-shadow: 0 0 15px #0088cc; }
@@ -183,7 +180,7 @@
     <p><strong>Короче, хочешь, чтобы комп летал — оставайся!</strong></p>
     <a href="https://t.me/besp1atno" target="_blank" class="halyavshik-btn"><i class="fab fa-telegram"></i> ПЕРЕЙТИ НА КАНАЛ</a>
   </div>
-  <div class="features" id="featuresContainer"></div>
+
   <div style="text-align: center; margin: 3rem 0;">
     <h2 id="contactTitle">Мы всегда на связи</h2>
     <div class="buttons">
@@ -194,12 +191,12 @@
     </div>
     <p style="margin-top: 1rem;">📌 Инструкция — @vipcheatsonly</p>
   </div>
-  <footer><p>© 2026 VIP Cheats — Все читы из Telegram-поста добавлены + строго 1 голос за чит</p></footer>
+  <footer><p>© 2026 VIP Cheats — Все читы из Telegram-поста</p></footer>
 </div>
 
 <script>
 // ============================================================
-// ПОЛНЫЙ СПИСОК (ИСПРАВЛЕН: World of Warcraft → World of Tanks, + рабочие иконки)
+// ПОЛНЫЙ СПИСОК (World of Tanks, рабочие иконки)
 // ============================================================
 const gamesData = [
   { id: "standoff2", name: "STANDOFF 2", img: "https://cdn2.unrealengine.com/standoff-2-256x256-5b3d07f8c0f8.png?resize=1&w=256", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
@@ -217,13 +214,6 @@ const gamesData = [
   { id: "worldoftanks", name: "World of Tanks", img: "https://img.icons8.com/color/64/tank.png", chips: ["WARPACK"] },
   { id: "dota", name: "Dota 2", img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips: ["SkinChanger"] },
   { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "Discord Fix", "Roblox Fix", "Optimization PC", "VoiceMod", "Discord+Nitro", "Telegram F1X", "HWID FIX", "Optimization CrystalFix", "AI VOICE CHANGER", "NetBoost", "StartAllBlack", "ExitLag", "Adobe Photoshop Free"] }
-];
-
-const featuresData = [
-  { ru: "Все читы из поста", ruDesc: "Добавлено 70+ уникальных софтов и читов", en: "All cheats from post", enDesc: "70+ unique software added" },
-  { ru: "Голосование 1 раз", ruDesc: "Теперь каждый пользователь может оценить чит только один раз (лайк или дизлайк)", en: "One vote per cheat", enDesc: "Each user can vote only once (like or dislike)" },
-  { ru: "Моментальные скачивания", ruDesc: "Прямые ссылки", en: "Instant downloads", enDesc: "Direct links" },
-  { ru: "Поддержка 24/7", ruDesc: "Telegram всегда на связи", en: "24/7 Support", enDesc: "Telegram always online" }
 ];
 
 let currentLang = 'ru';
@@ -360,11 +350,6 @@ document.getElementById('overlay').onclick = () => {
   document.getElementById('overlay').classList.remove('active');
 };
 
-function renderFeatures() {
-  const container = document.getElementById('featuresContainer');
-  container.innerHTML = featuresData.map(f => `<div class="feature"><h3>${currentLang === 'ru' ? f.ru : f.en}</h3><p>${currentLang === 'ru' ? f.ruDesc : f.enDesc}</p></div>`).join('');
-}
-
 const translations = {
   ru: { subtitle: "Полный архив читов и софта 2026", stat1: "скачиваний всего", stat2: "сегодня", stat3: "рейтинг", badge1: "Все читы из Telegram-поста", badge2: "Ограничение голосов: 1 лайк/дизлайк на чит", contactTitle: "Мы всегда на связи" },
   en: { subtitle: "Full archive of cheats & software 2026", stat1: "total downloads", stat2: "today", stat3: "rating", badge1: "All cheats from Telegram post", badge2: "Vote limit: 1 like/dislike per cheat", contactTitle: "We are always online" }
@@ -380,7 +365,6 @@ function setLanguage(lang) {
   document.getElementById('badge1').innerText = t.badge1;
   document.getElementById('badge2').innerText = t.badge2;
   document.getElementById('contactTitle').innerText = t.contactTitle;
-  renderFeatures();
   document.getElementById('ruBtn').classList.toggle('active', lang === 'ru');
   document.getElementById('enBtn').classList.toggle('active', lang === 'en');
 }
@@ -389,7 +373,6 @@ document.getElementById('ruBtn').onclick = () => setLanguage('ru');
 document.getElementById('enBtn').onclick = () => setLanguage('en');
 
 renderGames();
-renderFeatures();
 setLanguage('ru');
 updateCounters();
 
