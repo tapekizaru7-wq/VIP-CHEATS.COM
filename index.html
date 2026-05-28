@@ -41,13 +41,12 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 20px rgba(255,0,255,0.5);
-      animation: neonPulse 1.5s ease-in-out infinite alternate;
-      letter-spacing: 2px;
+      text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+      animation: neonPulse 2s ease-in-out infinite alternate;
     }
     @keyframes neonPulse {
-      0% { text-shadow: 0 0 10px rgba(255,0,255,0.4); }
-      100% { text-shadow: 0 0 40px rgba(255,0,255,0.9), 0 0 60px rgba(217,70,239,0.6); }
+      from { text-shadow: 0 0 20px rgba(255, 0, 255, 0.5); }
+      to { text-shadow: 0 0 50px rgba(255, 0, 255, 0.9); }
     }
     .subtitle { font-size: clamp(1.2rem, 4vw, 1.8rem); color: #ff85c0; margin-top: 1rem; text-align: center; }
     
@@ -77,20 +76,6 @@
     .featured-image { margin: 2rem auto; text-align: center; max-width: 90%; }
     .featured-image img { max-width: 100%; border-radius: 32px; box-shadow: 0 0 45px rgba(255, 133, 192, 0.6); border: 2px solid #ff85c0; }
     
-    .btn-primary {
-      display: inline-block;
-      padding: 12px 32px;
-      background: linear-gradient(135deg, #d946ef, #a21caf);
-      border-radius: 50px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 20px;
-      transition: 0.3s;
-      box-shadow: 0 0 15px #d946ef;
-    }
-    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 25px #d946ef; }
-    
     .games-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -103,7 +88,7 @@
       border: 1px solid rgba(217, 70, 239, 0.4); transition: 0.3s;
       display: flex; align-items: center; gap: 1rem;
     }
-    .game-card:hover { transform: translateY(-5px); border-color: #ff85c0; background: rgba(0,0,0,0.7); }
+    .game-card:hover { transform: translateY(-5px); border-color: #ff85c0; }
     .game-card img { width: 50px; height: 50px; object-fit: contain; border-radius: 12px; background: #0f0f2a; padding: 6px; }
     .game-card h3 { color: #ff85c0; font-size: 1.1rem; }
     .game-card p { font-size: 0.7rem; color: #c0b0dd; }
@@ -137,54 +122,6 @@
     }
     .motivation-block h3 { color: #ffb8e0; margin-bottom: 1rem; }
     
-    /* НОВЫЕ БЛОКИ (ВОДА) */
-    .features-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: center;
-      margin: 50px 0;
-    }
-    .feature-card {
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(8px);
-      padding: 25px;
-      border-radius: 28px;
-      text-align: center;
-      flex: 1;
-      min-width: 200px;
-      border: 1px solid rgba(255,133,192,0.3);
-      transition: 0.3s;
-    }
-    .feature-card:hover { border-color: #ff85c0; transform: translateY(-5px); }
-    .feature-card i { font-size: 2.5rem; color: #ff85c0; margin-bottom: 15px; }
-    .feature-card h3 { color: #ffb8e0; margin-bottom: 10px; }
-    
-    .faq-block {
-      margin: 50px 0;
-    }
-    .faq-item {
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(8px);
-      margin: 15px 0;
-      padding: 20px;
-      border-radius: 20px;
-      border-left: 3px solid #ff85c0;
-    }
-    .faq-item h4 { color: #ff85c0; margin-bottom: 8px; font-size: 1.1rem; }
-    
-    .agreement {
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      border-radius: 30px;
-      padding: 40px;
-      margin: 50px 0 30px;
-      border: 1px solid rgba(255,133,192,0.3);
-    }
-    .agreement h3 { font-size: 1.8rem; margin-bottom: 25px; color: #ff85c0; }
-    .agreement p, .agreement li { margin: 15px 0; line-height: 1.6; color: #ccc; }
-    .agreement ul { padding-left: 30px; }
-    
     .reviews-block {
       background: rgba(170, 0, 255, 0.15); border-radius: 40px; padding: 1.5rem; margin: 2rem 0; text-align: center;
     }
@@ -209,10 +146,6 @@
   <div class="title">VIP CHEATS</div>
   <div class="subtitle" id="mainSubtitle">Читы, софт, плагины — всё в одном месте</div>
   
-  <div style="text-align: center;">
-    <a href="#gamesSection" class="btn-primary" id="chooseGameBtn">🎮 ВЫБРАТЬ ИГРУ</a>
-  </div>
-  
   <div class="stats-bar">
     <div class="stat-item"><div class="stat-number" id="totalCount">847</div><div id="stat1Label">скачиваний</div></div>
     <div class="stat-item"><div class="stat-number" id="todayCount">0</div><div id="stat2Label">сегодня</div></div>
@@ -234,25 +167,7 @@
     <p id="quoteText">Каждый день мы добавляем новые читы и софт. Без конкурсов, без разводов. Просто бери и пользуйся.</p>
   </div>
   
-  <!-- НОВЫЙ БЛОК: ПРЕИМУЩЕСТВА (ВОДА) -->
-  <div class="features-grid">
-    <div class="feature-card"><i class="fas fa-shield-alt"></i><h3 id="feat1Title">Безопасно</h3><p id="feat1Desc">Все файлы проверены, 0/72 на VirusTotal</p></div>
-    <div class="feature-card"><i class="fas fa-sync-alt"></i><h3 id="feat2Title">Обновления</h3><p id="feat2Desc">Ежедневно добавляем новые сборки</p></div>
-    <div class="feature-card"><i class="fas fa-headset"></i><h3 id="feat3Title">Поддержка</h3><p id="feat3Desc">Отвечаем в Telegram в течение часа</p></div>
-    <div class="feature-card"><i class="fas fa-gem"></i><h3 id="feat4Title">Эксклюзив</h3><p id="feat4Desc">Софт, которого нет на других каналах</p></div>
-  </div>
-  
-  <h2 id="gamesSection" style="font-size: 2rem; margin: 40px 0 20px; border-left: 5px solid #ff85c0; padding-left: 20px; scroll-margin-top: 80px;">📌 Все игры и читы</h2>
   <div class="games-grid" id="gamesGrid"></div>
-  
-  <!-- НОВЫЙ БЛОК: FAQ (ВОДА) -->
-  <div class="faq-block">
-    <h2 id="faqTitle" style="font-size: 1.8rem; margin-bottom: 25px;">❓ Часто задаваемые вопросы</h2>
-    <div class="faq-item"><h4 id="q1">🔹 Как скачать чит?</h4><p id="a1">Нажми на любую игру → выбери нужный чит → нажми кнопку «Скачать». Файл начнёт загружаться автоматически.</p></div>
-    <div class="faq-item"><h4 id="q2">🔹 Это действительно бесплатно?</h4><p id="a2">Да, всё абсолютно бесплатно. Единственная просьба — подпишись на наши Telegram-каналы в благодарность.</p></div>
-    <div class="faq-item"><h4 id="q3">🔹 Могут заблокировать аккаунт?</h4><p id="a3">Используй на свой страх и риск. Мы не несём ответственности за возможные блокировки.</p></div>
-    <div class="faq-item"><h4 id="q4">🔹 Как часто обновляются читы?</h4><p id="a4">Мы мониторим обновления ежедневно. После патчей игры читы обновляются в течение 24-48 часов.</p></div>
-  </div>
   
   <div class="halyavshik">
     <i class="fas fa-gift" style="font-size: 2rem; color: #00ff88;"></i>
@@ -268,17 +183,6 @@
     <a href="https://t.me/Callsatall" target="_blank" class="btn-reviews" id="reviewsButton"><i class="fab fa-telegram"></i> Смотреть отзывы в Telegram</a>
   </div>
   
-  <!-- ОГРОМНОЕ ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ -->
-  <div class="agreement" id="agreementBlock">
-    <h3 id="agreeTitle">📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h3>
-    <p id="agreeText1"><strong>1. Общие положения</strong><br>Настоящее Соглашение регулирует использование сайта VIP Cheats (далее — «Сайт»), предоставляющего бесплатные программные модификации («читы») для компьютерных игр. Используя Сайт, вы соглашаетесь с условиями данного документа.</p>
-    <p id="agreeText2"><strong>2. Условия использования</strong><br>2.1. Все материалы предоставляются «как есть». Мы не гарантируем: работоспособность читов (разработчики игр могут блокировать их); отсутствие риска блокировки вашего аккаунта.<br>2.2. Запрещено: распространять читы с Сайта на платной основе; использовать Сайт для распространения вирусов/спама.</p>
-    <p id="agreeText3"><strong>3. Персональные данные</strong><br>При использовании Сайта мы автоматически собираем: IP-адрес; данные cookies (если включены в браузере). Данные не передаются третьим лицам, кроме случаев, требуемых законом РФ.</p>
-    <p id="agreeText4"><strong>4. Монетизация и реклама</strong><br>Сайт может использовать системы показа рекламы. Мы не контролируем содержание рекламных материалов и не несём ответственности за услуги/товары, рекламируемые через баннеры.</p>
-    <p id="agreeText5"><strong>5. Контакты и разрешение споров</strong><br>По вопросам сотрудничества и жалоб обращайтесь: Telegram: @managervipcheats. Споры решаются в соответствии с законодательством Российской Федерации.</p>
-    <p id="agreeText6"><strong>6. Заключительные положения</strong><br>Мы оставляем право изменять Соглашение без предварительного уведомления. Актуальная версия всегда доступна на этой странице.</p>
-  </div>
-  
   <div style="text-align: center;">
     <h2 id="contactTitle">Подписывайся</h2>
     <div class="buttons">
@@ -289,11 +193,11 @@
       <a href="https://vk.com/club235500419" target="_blank" class="btn btn-vk"><i class="fab fa-vk"></i> VK</a>
     </div>
   </div>
-  <footer><p>© VIP Cheats — Читы из Telegram. Подпишись, чтобы ничего не потерять!</p></footer>
+  <footer><p>© VIP Cheats — Читы из Telegram</p></footer>
 </div>
 
 <script>
-// ВСЕ ЧИТЫ (ПОЛНЫЙ СПИСОК, НИЧЕГО НЕ УДАЛЕНО)
+// РЕАЛЬНЫЕ ЧИТЫ (НИКАКОГО ПИЗДЕЖА)
 const gamesData = [
   { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
   { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
@@ -381,16 +285,7 @@ document.getElementById('overlay').onclick = () => {
   document.getElementById('overlay').classList.remove('active');
 };
 
-// КНОПКА "ВЫБРАТЬ ИГРУ" РАБОТАЕТ
-document.getElementById('chooseGameBtn').addEventListener('click', function(e) {
-  e.preventDefault();
-  const gamesSection = document.getElementById('gamesSection');
-  if (gamesSection) {
-    gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-});
-
-// ПОЛНЫЙ ПЕРЕВОД (ВКЛЮЧАЯ НОВЫЕ БЛОКИ)
+// ПЕРЕВОД
 const translations = {
   ru: {
     subtitle: "Читы, софт, плагины — всё в одном месте",
@@ -398,15 +293,45 @@ const translations = {
     badge1: "🔥 Читы из Telegram-поста", badge2: "✅ VirusTotal: чисто", badge3: "🎮 15+ игр",
     quoteTitle: "МЫ СТАРАЕМСЯ ДЛЯ ТЕБЯ",
     quoteText: "Каждый день мы добавляем новые читы и софт. Без конкурсов, без разводов. Просто бери и пользуйся.",
-    feat1Title: "Безопасно", feat1Desc: "Все файлы проверены, 0/72 на VirusTotal",
-    feat2Title: "Обновления", feat2Desc: "Ежедневно добавляем новые сборки",
-    feat3Title: "Поддержка", feat3Desc: "Отвечаем в Telegram в течение часа",
-    feat4Title: "Эксклюзив", feat4Desc: "Софт, которого нет на других каналах",
-    faqTitle: "❓ Часто задаваемые вопросы",
-    q1: "🔹 Как скачать чит?", a1: "Нажми на любую игру → выбери нужный чит → нажми кнопку «Скачать». Файл начнёт загружаться автоматически.",
-    q2: "🔹 Это действительно бесплатно?", a2: "Да, всё абсолютно бесплатно. Единственная просьба — подпишись на наши Telegram-каналы в благодарность.",
-    q3: "🔹 Могут заблокировать аккаунт?", a3: "Используй на свой страх и риск. Мы не несём ответственности за возможные блокировки.",
-    q4: "🔹 Как часто обновляются читы?", a4: "Мы мониторим обновления ежедневно. После патчей игры читы обновляются в течение 24-48 часов.",
     reviewsTitle: "Отзывы", reviewsDesc: "Реальные отзывы наших пользователей — 140+ мнений",
-    reviewsButton: "Смотреть отзывы в Telegram", contactTitle: "Подписывайся",
-    agreeTitle: "📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+    reviewsButton: "Смотреть отзывы в Telegram", contactTitle: "Подписывайся"
+  },
+  en: {
+    subtitle: "Cheats, software, plugins — all in one place",
+    stat1: "downloads", stat2: "today", stat3: "rating",
+    badge1: "🔥 Cheats from Telegram", badge2: "✅ VirusTotal: clean", badge3: "🎮 15+ games",
+    quoteTitle: "WE WORK FOR YOU",
+    quoteText: "Every day we add new cheats and software. No contests, no scams. Just take and use.",
+    reviewsTitle: "Reviews", reviewsDesc: "Real user reviews — 140+ opinions",
+    reviewsButton: "View reviews on Telegram", contactTitle: "Subscribe"
+  }
+};
+
+function setLanguage(lang) {
+  const t = translations[lang];
+  document.getElementById('mainSubtitle').innerText = t.subtitle;
+  document.getElementById('stat1Label').innerText = t.stat1;
+  document.getElementById('stat2Label').innerText = t.stat2;
+  document.getElementById('stat3Label').innerText = t.stat3;
+  document.getElementById('badge1').innerText = t.badge1;
+  document.getElementById('badge2').innerText = t.badge2;
+  document.getElementById('badge3').innerText = t.badge3;
+  document.getElementById('quoteTitle').innerText = t.quoteTitle;
+  document.getElementById('quoteText').innerText = t.quoteText;
+  document.getElementById('reviewsTitle').innerText = t.reviewsTitle;
+  document.getElementById('reviewsDesc').innerText = t.reviewsDesc;
+  document.getElementById('reviewsButton').innerHTML = `<i class="fab fa-telegram"></i> ${t.reviewsButton}`;
+  document.getElementById('contactTitle').innerText = t.contactTitle;
+  document.getElementById('ruBtn').classList.toggle('active', lang === 'ru');
+  document.getElementById('enBtn').classList.toggle('active', lang === 'en');
+}
+
+document.getElementById('ruBtn').onclick = () => setLanguage('ru');
+document.getElementById('enBtn').onclick = () => setLanguage('en');
+
+renderGames();
+setLanguage('ru');
+updateCounters();
+</script>
+</body>
+</html>
