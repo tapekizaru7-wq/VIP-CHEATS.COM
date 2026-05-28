@@ -2,960 +2,232 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIP CHEATS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>VIP Cheats — Читы и софт</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root {
-      --red: #e8001c;
-      --red-dim: #8b0012;
-      --red-glow: rgba(232,0,28,0.4);
-      --red-faint: rgba(232,0,28,0.08);
-      --bg: #050505;
-      --bg2: #0a0a0a;
-      --bg3: #111;
-      --card: rgba(14,0,2,0.9);
-      --border: rgba(232,0,28,0.25);
-      --border-hot: rgba(232,0,28,0.7);
-      --text: #d0c8c8;
-      --text-dim: #7a6a6a;
-      --white: #f5f0f0;
-    }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    ::selection { background: var(--red); color: #fff; }
-
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--red-dim); border-radius: 2px; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
+      background: linear-gradient(135deg, #0a0a2a 0%, #1a0033 50%, #0d0014 100%);
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
       line-height: 1.6;
       min-height: 100vh;
-      overflow-x: hidden;
-      cursor: crosshair;
     }
-
-    /* SCANLINE OVERLAY */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
-      pointer-events: none;
-      z-index: 9999;
+    .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+    
+    .title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      text-align: center;
+      background: linear-gradient(135deg, #ff85c0, #d946ef, #ff00ff, #a21caf);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(255,0,255,0.5);
+      animation: neonPulse 1.5s ease-in-out infinite alternate;
     }
-
-    /* NOISE GRAIN */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: -50%;
-      width: 200%;
-      height: 200%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-      animation: grainShift 0.5s steps(1) infinite;
+    @keyframes neonPulse {
+      0% { text-shadow: 0 0 10px rgba(255,0,255,0.4); }
+      100% { text-shadow: 0 0 40px rgba(255,0,255,0.9); }
     }
-    @keyframes grainShift {
-      0%   { transform: translate(0,0); }
-      25%  { transform: translate(-2px,1px); }
-      50%  { transform: translate(1px,-1px); }
-      75%  { transform: translate(-1px,2px); }
-      100% { transform: translate(2px,-2px); }
-    }
-
-    /* GRID LINES BG */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(232,0,28,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232,0,28,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* RED CORNER GLOW */
-    .corner-glow {
-      position: fixed;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .corner-glow.tl { top: -200px; left: -200px; background: rgba(232,0,28,0.12); }
-    .corner-glow.br { bottom: -200px; right: -200px; background: rgba(180,0,10,0.1); }
-
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 40px;
-      background: rgba(5,5,5,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 4px;
-      color: var(--red);
-    }
-    .lang-toggle {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .lang-toggle button {
-      background: none;
-      border: none;
-      color: var(--text-dim);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.85rem;
-      padding: 7px 18px;
+    .subtitle { font-size: 1.5rem; color: #ff85c0; text-align: center; margin-top: 1rem; }
+    
+    .lang-btn {
+      position: fixed; top: 20px; right: 20px;
+      background: rgba(0,0,0,0.65);
+      padding: 10px 22px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: 0.2s;
+      z-index: 999;
+      border: 1px solid #d946ef;
     }
-    .lang-toggle button.active {
-      background: var(--red);
-      color: #fff;
-    }
-    .lang-toggle button:hover:not(.active) {
-      background: var(--red-faint);
-      color: var(--white);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      padding-top: 130px;
-      padding-bottom: 60px;
+    .lang-btn span { padding: 0 12px; cursor: pointer; font-size: 1.1rem; }
+    .lang-btn .active { color: #ff85c0; border-bottom: 2px solid #ff85c0; }
+    
+    .stats-bar { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 3rem 0; }
+    .stat-item {
+      background: rgba(0,0,0,0.5);
+      padding: 20px 30px;
+      border-radius: 24px;
       text-align: center;
-      position: relative;
+      border: 1px solid rgba(217,70,239,0.4);
     }
-
-    /* GLITCH TITLE */
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 14vw, 10rem);
-      letter-spacing: 10px;
-      line-height: 0.9;
-      color: var(--white);
-      position: relative;
+    .stat-number { font-size: 2.5rem; font-weight: bold; color: #ff85c0; }
+    
+    .badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
+    .badge {
+      background: rgba(0,255,200,0.1);
+      padding: 8px 20px;
+      border-radius: 40px;
+      border: 1px solid #00ffcc;
+    }
+    
+    .featured-image { text-align: center; margin: 2rem 0; }
+    .featured-image img { max-width: 100%; border-radius: 32px; border: 2px solid #ff85c0; }
+    
+    .btn-primary {
       display: inline-block;
-      user-select: none;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #d946ef, #a21caf);
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 20px 0;
+      box-shadow: 0 0 15px #d946ef;
     }
-    .hero-title::before,
-    .hero-title::after {
-      content: attr(data-text);
-      position: absolute;
-      inset: 0;
-      color: var(--white);
-    }
-    .hero-title::before {
-      left: 2px;
-      color: var(--red);
-      clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-      animation: glitch1 3s infinite steps(1);
-    }
-    .hero-title::after {
-      left: -2px;
-      color: #00aaff;
-      clip-path: polygon(0 55%, 100% 55%, 100% 70%, 0 70%);
-      animation: glitch2 2.5s infinite steps(1);
-      opacity: 0.5;
-    }
-    @keyframes glitch1 {
-      0%,90%,100% { transform: none; opacity: 0; }
-      92%   { transform: translateX(-4px) skewX(-4deg); opacity: 1; }
-      94%   { transform: translateX(4px); opacity: 1; }
-      96%   { transform: none; opacity: 0; }
-    }
-    @keyframes glitch2 {
-      0%,88%,100% { transform: none; opacity: 0; }
-      90%  { transform: translateX(3px); opacity: 1; }
-      93%  { transform: translateX(-3px); opacity: 0.5; }
-      95%  { transform: none; opacity: 0; }
-    }
-
-    .vip-badge {
-      display: inline-block;
-      background: var(--red);
-      color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      padding: 4px 12px;
-      border-radius: 3px;
-      margin-bottom: 12px;
-      animation: badgePulse 2s ease-in-out infinite;
-    }
-    @keyframes badgePulse {
-      0%,100% { box-shadow: 0 0 10px var(--red-glow); }
-      50% { box-shadow: 0 0 25px var(--red-glow), 0 0 50px rgba(232,0,28,0.2); }
-    }
-
-    .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: var(--text-dim);
-      font-weight: 600;
-      letter-spacing: 2px;
-      margin-top: 16px;
-      text-transform: uppercase;
-    }
-
-    /* DECORATIVE RED LINE */
-    .redline {
-      width: 80px;
-      height: 3px;
-      background: var(--red);
-      margin: 20px auto;
-      box-shadow: 0 0 20px var(--red-glow);
-      position: relative;
-    }
-    .redline::before, .redline::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 20px; height: 3px;
-      background: var(--red-dim);
-    }
-    .redline::before { left: -28px; }
-    .redline::after { right: -28px; }
-
-    /* ── STATS ── */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 40px 0;
-    }
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--red);
-      transform: scaleX(0);
-      transition: transform 0.3s;
-    }
-    .stat-card:hover { border-color: var(--border-hot); }
-    .stat-card:hover::before { transform: scaleX(1); }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem;
-      color: var(--red);
-      line-height: 1;
-      text-shadow: 0 0 20px var(--red-glow);
-    }
-    .stat-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-    .stat-card .corner-tag {
-      position: absolute;
-      top: 8px; right: 8px;
-      width: 8px; height: 8px;
-      border-top: 2px solid var(--red);
-      border-right: 2px solid var(--red);
-    }
-
-    /* ── BADGES ── */
-    .badges-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px 0 40px;
-    }
-    .chip {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.78rem;
-      padding: 8px 18px;
-      border-radius: 3px;
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      letter-spacing: 1px;
-      background: var(--card);
-      transition: 0.2s;
-    }
-    .chip:hover {
-      border-color: var(--red);
-      color: var(--white);
-      box-shadow: 0 0 12px var(--red-glow);
-    }
-
-    /* ── FEATURED IMAGE ── */
-    .hero-img-wrap {
-      position: relative;
-      margin: 0 auto 60px;
-      max-width: 860px;
-    }
-    .hero-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, var(--red), transparent 60%, var(--red-dim));
-      border-radius: 6px;
-      z-index: 0;
-    }
-    .hero-img-wrap img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      border-radius: 5px;
-      display: block;
-      filter: brightness(0.85) contrast(1.1) saturate(0.9);
-    }
-    .img-corner {
-      position: absolute;
-      width: 20px; height: 20px;
-      z-index: 2;
-    }
-    .img-corner.tl { top: 6px; left: 6px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); }
-    .img-corner.tr { top: 6px; right: 6px; border-top: 2px solid var(--red); border-right: 2px solid var(--red); }
-    .img-corner.bl { bottom: 6px; left: 6px; border-bottom: 2px solid var(--red); border-left: 2px solid var(--red); }
-    .img-corner.br { bottom: 6px; right: 6px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
-
-    /* ── SECTION HEADER ── */
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .section-head h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 4px;
-      color: var(--white);
-    }
-    .section-head .line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, var(--border), transparent);
-    }
-    .section-num {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--red);
-      letter-spacing: 2px;
-    }
-
-    /* ── MOTIVATION ── */
-    .motivation {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
-      border-radius: 4px;
-      padding: 28px 32px;
-      margin: 40px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .motivation::after {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 180px; height: 180px;
-      background: radial-gradient(circle, var(--red-faint) 0%, transparent 70%);
-    }
-    .motivation h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 4px;
-      color: var(--red);
-      margin-bottom: 10px;
-    }
-    .motivation p {
-      color: var(--text-dim);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    /* ── GAMES GRID ── */
+    
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 12px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
     }
     .game-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 16px 20px;
+      background: rgba(0,0,0,0.55);
+      padding: 1rem;
+      border-radius: 24px;
       cursor: pointer;
+      border: 1px solid rgba(217,70,239,0.4);
+      transition: 0.3s;
       display: flex;
       align-items: center;
-      gap: 16px;
-      transition: 0.25s;
-      position: relative;
-      overflow: hidden;
+      gap: 1rem;
     }
-    .game-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--red);
-      transform: scaleY(0);
-      transition: transform 0.25s;
-    }
-    .game-card:hover {
-      border-color: var(--border-hot);
-      transform: translateX(4px);
-      background: rgba(20,0,4,0.95);
-    }
-    .game-card:hover::before { transform: scaleY(1); }
-    .game-card img {
-      width: 46px; height: 46px;
-      object-fit: contain;
-      border-radius: 6px;
-      background: #0a0a0a;
-      padding: 6px;
-      border: 1px solid var(--border);
-      flex-shrink: 0;
-    }
-    .game-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-      color: var(--white);
-    }
-    .game-card p {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--red);
-      letter-spacing: 1px;
-    }
-    .game-card .arrow {
-      margin-left: auto;
-      color: var(--border);
-      font-size: 0.8rem;
-      transition: 0.2s;
-    }
-    .game-card:hover .arrow { color: var(--red); transform: translateX(3px); }
-
-    /* ── CHEATS PANEL ── */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(4px);
-      z-index: 200;
-      display: none;
-    }
-    .overlay.active { display: block; }
-
+    .game-card:hover { transform: translateY(-5px); border-color: #ff85c0; }
+    .game-card img { width: 50px; height: 50px; object-fit: contain; background: #0f0f2a; border-radius: 12px; padding: 6px; }
+    .game-card h3 { color: #ff85c0; }
+    .game-card p { font-size: 0.7rem; color: #c0b0dd; }
+    
     .cheats-panel {
-      position: fixed;
-      right: -520px;
-      top: 0;
-      width: 480px;
-      height: 100vh;
-      background: #070004;
-      border-left: 1px solid var(--border-hot);
-      z-index: 300;
-      transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      position: fixed; right: -450px; top: 0; width: 450px; height: 100vh;
+      background: linear-gradient(145deg, rgba(18,8,35,0.98), rgba(8,0,20,0.98));
+      border-left: 2px solid #ff85c0;
+      z-index: 1000;
+      transition: 0.35s;
+      padding: 80px 20px 30px;
+      overflow-y: auto;
     }
     .cheats-panel.active { right: 0; }
-
-    .panel-header {
-      padding: 24px 24px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(232,0,28,0.05);
-      flex-shrink: 0;
+    .panel-close { position: absolute; top: 15px; right: 22px; font-size: 2rem; cursor: pointer; color: #ff85c0; }
+    .download-cheat {
+      width: 100%; margin-top: 10px; padding: 10px;
+      background: linear-gradient(125deg, #d946ef, #a21caf);
+      border: none; border-radius: 60px; color: white; font-weight: bold; cursor: pointer;
     }
-    .panel-header h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 3px;
-      color: var(--white);
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); z-index: 999; display: none; }
+    .overlay.active { display: block; }
+    
+    .halyavshik {
+      background: linear-gradient(135deg, rgba(0,255,100,0.1), rgba(0,100,255,0.1));
+      border: 2px solid #00ff88; border-radius: 40px; padding: 2rem; margin: 3rem 0; text-align: center;
     }
-    .panel-close {
-      width: 36px; height: 36px;
-      border: 1px solid var(--border);
-      background: none;
-      color: var(--text-dim);
-      cursor: pointer;
-      border-radius: 3px;
-      font-size: 1rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: 0.2s;
-    }
-    .panel-close:hover { border-color: var(--red); color: var(--red); background: var(--red-faint); }
-
-    .panel-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
-    .panel-count {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-dim);
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-
-    .cheat-item {
-      background: rgba(15,0,4,0.8);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: 0.2s;
-    }
-    .cheat-item:hover { border-color: var(--border-hot); }
-    .cheat-icon {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--red);
-      flex-shrink: 0;
-      box-shadow: 0 0 8px var(--red-glow);
-    }
-    .cheat-name {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--white);
-      flex: 1;
-    }
-    .download-btn {
-      background: var(--red);
-      border: none;
-      color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 1px;
-      padding: 8px 14px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: 0.2s;
-      white-space: nowrap;
-    }
-    .download-btn:hover {
-      background: #ff1a30;
-      box-shadow: 0 0 16px var(--red-glow);
-    }
-
-    /* ── FREE BLOCK ── */
-    .halyava {
-      border: 1px solid rgba(0,255,100,0.25);
-      background: rgba(0,255,100,0.04);
-      border-radius: 4px;
-      padding: 32px;
-      margin: 40px 0;
-      text-align: center;
-      position: relative;
-    }
-    .halyava .icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .halyava h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 4px;
-      color: #00ff88;
-    }
-    .halyava p { color: var(--text-dim); margin: 8px 0 16px; font-size: 0.95rem; }
-    .halyava-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #00aa55;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 28px;
-      border-radius: 3px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      transition: 0.2s;
-    }
-    .halyava-btn:hover { background: #00cc66; box-shadow: 0 0 20px rgba(0,255,100,0.3); }
-
-    /* ── REVIEWS ── */
+    .halyavshik h2 { color: #00ff88; }
+    .halyavshik-btn { display: inline-block; margin-top: 1rem; padding: 12px 30px; background: linear-gradient(135deg, #00ff66, #009944); border-radius: 60px; color: white; text-decoration: none; }
+    
     .reviews-block {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 32px;
-      margin: 40px 0;
-      text-align: center;
+      background: rgba(170,0,255,0.15); border-radius: 40px; padding: 1.5rem; margin: 2rem 0; text-align: center;
     }
-    .reviews-block h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 4px;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .reviews-block p { color: var(--text-dim); margin-bottom: 16px; }
-    .reviews-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0,100,255,0.2);
-      border: 1px solid rgba(0,100,255,0.4);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 28px;
-      border-radius: 3px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      transition: 0.2s;
-    }
-    .reviews-btn:hover { background: rgba(0,100,255,0.35); box-shadow: 0 0 20px rgba(0,100,255,0.3); }
-
-    /* ── SOCIAL ── */
-    .social-section { margin: 50px 0; text-align: center; }
-    .social-section h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 5px;
-      color: var(--white);
-      margin-bottom: 24px;
-    }
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: #fff;
-      padding: 11px 22px;
-      border-radius: 3px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.82rem;
-      letter-spacing: 1px;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.2s;
-    }
-    .social-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
-    .social-btn.tg  { background: rgba(0,136,204,0.2); border-color: rgba(0,136,204,0.4); }
-    .social-btn.tg:hover  { background: rgba(0,136,204,0.35); }
-    .social-btn.grn { background: rgba(0,170,68,0.2); border-color: rgba(0,170,68,0.4); }
-    .social-btn.grn:hover  { background: rgba(0,170,68,0.35); }
-    .social-btn.x   { background: rgba(29,161,242,0.15); border-color: rgba(29,161,242,0.3); }
-    .social-btn.x:hover  { background: rgba(29,161,242,0.25); }
-    .social-btn.vk  { background: rgba(76,117,163,0.2); border-color: rgba(76,117,163,0.4); }
-    .social-btn.vk:hover  { background: rgba(76,117,163,0.35); }
-    .social-btn.sup { background: rgba(232,0,28,0.15); border-color: rgba(232,0,28,0.3); }
-    .social-btn.sup:hover { background: rgba(232,0,28,0.25); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 50px 0 30px;
-      position: relative;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-col h4 {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 3px;
-      color: var(--red);
-      font-size: 1rem;
-      margin-bottom: 14px;
-    }
-    .footer-col p, .footer-col li {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 2;
-      list-style: none;
-    }
-    .footer-col a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--red); }
-    .footer-legal {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: center;
-    }
-    .footer-legal p {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-dim);
-      line-height: 1.8;
-    }
-    .footer-brand {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 4px;
-      color: var(--red);
-      opacity: 0.5;
-    }
-
-    /* ── DISCLAIMER ── */
-    .disclaimer {
-      background: rgba(232,0,28,0.04);
-      border: 1px solid rgba(232,0,28,0.15);
-      border-radius: 4px;
-      padding: 20px 24px;
-      margin-top: 24px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      line-height: 1.9;
-    }
-    .disclaimer strong { color: var(--red); }
-
-    /* ── COUNTER ANIM ── */
-    @keyframes countUp { from { opacity: 0.3; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-    .stat-num { animation: countUp 0.6s ease-out; }
-
-    /* ── SCROLL FADE IN ── */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s, transform 0.5s; }
-    .fade-in.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 768px) {
-      nav { padding: 12px 20px; }
-      .stats-row { grid-template-columns: 1fr 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-      .footer-legal { grid-template-columns: 1fr; }
-      .footer-brand { display: none; }
-      .cheats-panel { width: 100%; right: -100%; }
-    }
-    @media (max-width: 480px) {
-      .stats-row { grid-template-columns: 1fr; }
-    }
+    .btn-reviews { background: linear-gradient(135deg, #3a0ca3, #4c1d95); padding: 12px 24px; border-radius: 60px; display: inline-block; color: white; text-decoration: none; }
+    
+    .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
+    .btn { padding: 10px 20px; border-radius: 60px; text-decoration: none; color: white; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-telegram { background: #0088cc; }
+    .btn-green { background: #00aa44; }
+    .btn-vk { background: #4c75a3; }
+    .btn-twitter { background: #1DA1F2; }
+    
+    footer { text-align: center; padding: 2rem; border-top: 1px solid #333; margin-top: 2rem; }
+    @media (max-width: 700px) { .cheats-panel { width: 100%; right: -100%; } }
   </style>
 </head>
 <body>
-
-<div class="grid-bg"></div>
-<div class="corner-glow tl"></div>
-<div class="corner-glow br"></div>
+<div class="lang-btn"><span id="ruBtn" class="active">RU</span> <span id="enBtn">EN</span></div>
 <div class="overlay" id="overlay"></div>
-
-<!-- SIDE PANEL -->
-<div class="cheats-panel" id="cheatsPanel">
-  <div class="panel-header">
-    <h3 id="panelTitle">ЧИТЫ</h3>
-    <button class="panel-close" id="panelClose"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="panel-body">
-    <div class="panel-count" id="panelCount"></div>
-    <div id="panelItems"></div>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">VIP CHEATS</div>
-  <div class="lang-toggle">
-    <button id="ruBtn" class="active">RU</button>
-    <button id="enBtn">EN</button>
-  </div>
-</nav>
+<div class="cheats-panel" id="cheatsPanel"><div class="panel-close" id="panelClose">✕</div><div id="panelContent"></div></div>
 
 <div class="container">
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="vip-badge" id="heroBadge">◆ TELEGRAM EXCLUSIVE ◆</div>
-    <h1 class="hero-title" data-text="VIP CHEATS">VIP CHEATS</h1>
-    <div class="redline"></div>
-    <p class="hero-sub" id="mainSubtitle">Читы, софт, плагины — всё в одном месте</p>
+  <div class="title">VIP CHEATS</div>
+  <div class="subtitle" id="mainSubtitle">Читы, софт, плагины — всё в одном месте</div>
+  
+  <div style="text-align: center;">
+    <a href="#gamesSection" class="btn-primary" id="chooseGameBtn">🎮 ВЫБРАТЬ ИГРУ</a>
   </div>
-
-  <!-- STATS -->
-  <div class="stats-row fade-in">
-    <div class="stat-card">
-      <div class="corner-tag"></div>
-      <div class="stat-num" id="totalCount">847</div>
-      <div class="stat-label" id="stat1Label">скачиваний</div>
-    </div>
-    <div class="stat-card">
-      <div class="corner-tag"></div>
-      <div class="stat-num" id="todayCount">0</div>
-      <div class="stat-label" id="stat2Label">сегодня</div>
-    </div>
-    <div class="stat-card">
-      <div class="corner-tag"></div>
-      <div class="stat-num">4.9★</div>
-      <div class="stat-label" id="stat3Label">рейтинг</div>
-    </div>
+  
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-number" id="totalCount">847</div><div id="stat1Label">скачиваний</div></div>
+    <div class="stat-item"><div class="stat-number" id="todayCount">0</div><div id="stat2Label">сегодня</div></div>
+    <div class="stat-item"><div class="stat-number">4.9 ★</div><div id="stat3Label">рейтинг</div></div>
   </div>
-
-  <!-- BADGES -->
-  <div class="badges-row fade-in">
-    <div class="chip" id="badge1">🔥 Читы из Telegram-поста</div>
-    <div class="chip" id="badge2">✅ VirusTotal: чисто</div>
-    <div class="chip" id="badge3">🎮 15+ игр</div>
+  
+  <div class="badges">
+    <div class="badge" id="badge1">🔥 Читы из Telegram-поста</div>
+    <div class="badge" id="badge2">✅ VirusTotal: чисто</div>
+    <div class="badge" id="badge3">🎮 15+ игр</div>
   </div>
-
-  <!-- FEATURED IMAGE -->
-  <div class="hero-img-wrap fade-in">
-    <div class="img-corner tl"></div>
-    <div class="img-corner tr"></div>
-    <div class="img-corner bl"></div>
-    <div class="img-corner br"></div>
-    <img src="https://i.postimg.cc/ctqMHdwg/image.png" alt="VIP Cheats" onerror="this.src='https://via.placeholder.com/860x380/0a0000/e8001c?text=VIP+CHEATS'">
+  
+  <div class="featured-image">
+    <img src="https://i.postimg.cc/ctqMHdwg/image.png" alt="VIP Cheats">
   </div>
-
-  <!-- MOTIVATION -->
-  <div class="motivation fade-in">
-    <h3 id="quoteTitle">МЫ СТАРАЕМСЯ ДЛЯ ТЕБЯ</h3>
-    <p id="quoteText">Каждый день мы добавляем новые читы и софт. Без конкурсов, без разводов. Просто бери и пользуйся.</p>
+  
+  <div id="gamesSection" style="scroll-margin-top: 100px;"></div>
+  <div class="games-grid" id="gamesGrid"></div>
+  
+  <div class="halyavshik">
+    <i class="fas fa-gift" style="font-size: 2rem; color: #00ff88;"></i>
+    <h2>VIP Халявщик</h2>
+    <p>Оптимизация ПК | Voice Changer | Нейросети | Активаторы</p>
+    <a href="https://t.me/besp1atno" target="_blank" class="halyavshik-btn"><i class="fab fa-telegram"></i> Перейти на канал</a>
   </div>
-
-  <!-- GAMES -->
-  <div class="section-head fade-in">
-    <span class="section-num">01</span>
-    <h2 id="gamesTitle">ИГРЫ</h2>
-    <div class="line"></div>
+  
+  <div class="reviews-block">
+    <i class="fas fa-comments"></i>
+    <h3 id="reviewsTitle">Отзывы</h3>
+    <p id="reviewsDesc">Реальные отзывы — 140+ мнений</p>
+    <a href="https://t.me/Callsatall" target="_blank" class="btn-reviews" id="reviewsButton"><i class="fab fa-telegram"></i> Смотреть отзывы</a>
   </div>
-  <div class="games-grid fade-in" id="gamesGrid"></div>
-
-  <!-- HALYAVA -->
-  <div class="halyava fade-in">
-    <div class="icon">🎁</div>
-    <h2>VIP <span id="halyavaWord">Халявщик</span></h2>
-    <p id="halyavaDesc">Оптимизация ПК | Voice Changer | Нейросети | Активаторы</p>
-    <a href="https://t.me/besp1atno" target="_blank" class="halyava-btn"><i class="fab fa-telegram"></i> <span id="halyavaBtn">Перейти на канал</span></a>
+  
+  <!-- СОГЛАШЕНИЕ -->
+  <div style="background: rgba(0,0,0,0.5); border-radius: 30px; padding: 35px; margin: 50px 0 30px;">
+    <h3 style="font-size: 1.8rem; color: #ff85c0;">📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h3>
+    <p><strong>1. Общие положения</strong><br>VIP Cheats предоставляет бесплатные программные модификации.</p>
+    <p><strong>2. Условия использования</strong><br>Все материалы «как есть». Запрещено распространять читы на платной основе.</p>
+    <p><strong>3. Персональные данные</strong><br>Собираем IP и cookies. Данные не передаются третьим лицам.</p>
+    <p><strong>4. Контакты</strong><br>Telegram: @managervipcheats</p>
   </div>
-
-  <!-- REVIEWS -->
-  <div class="reviews-block fade-in">
-    <h3 id="reviewsTitle">ОТЗЫВЫ</h3>
-    <p id="reviewsDesc">Реальные отзывы наших пользователей — 140+ мнений</p>
-    <a href="https://t.me/Callsatall" target="_blank" class="reviews-btn" id="reviewsButton"><i class="fab fa-telegram"></i> Смотреть отзывы в Telegram</a>
-  </div>
-
-  <!-- SOCIAL -->
-  <div class="social-section fade-in">
-    <h2 id="contactTitle">ПОДПИСЫВАЙСЯ</h2>
-    <div class="social-buttons">
-      <a href="https://t.me/vipcheatsonly" target="_blank" class="social-btn tg"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://t.me/besp1atno" target="_blank" class="social-btn grn"><i class="fab fa-telegram"></i> <span id="freeLabel">Халявщик</span></a>
-      <a href="https://t.me/managervipcheats" target="_blank" class="social-btn sup"><i class="fas fa-headset"></i> <span id="supportLabel">Поддержка</span></a>
-      <a href="https://x.com/tapekizaru7" target="_blank" class="social-btn x"><i class="fab fa-twitter"></i> Twitter</a>
-      <a href="https://vk.com/club235500419" target="_blank" class="social-btn vk"><i class="fab fa-vk"></i> VKontakte</a>
+  
+  <div style="text-align: center;">
+    <h2 id="contactTitle">Подписывайся</h2>
+    <div class="buttons">
+      <a href="https://t.me/vipcheatsonly" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://t.me/besp1atno" target="_blank" class="btn btn-green"><i class="fab fa-telegram"></i> Халявщик</a>
+      <a href="https://t.me/managervipcheats" target="_blank" class="btn btn-telegram"><i class="fas fa-headset"></i> Поддержка</a>
+      <a href="https://x.com/tapekizaru7" target="_blank" class="btn btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://vk.com/club235500419" target="_blank" class="btn btn-vk"><i class="fab fa-vk"></i> VK</a>
     </div>
   </div>
-
-</div><!-- /container -->
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4 id="f1title">О ПРОЕКТЕ</h4>
-        <p id="f1text">VIP Cheats — независимый агрегатор программного обеспечения для игр. Мы не продаём читы и не занимаемся мошенничеством. Все материалы собраны из открытых источников Telegram.</p>
-      </div>
-      <div class="footer-col">
-        <h4 id="f2title">ДОКУМЕНТЫ</h4>
-        <ul>
-          <li><a href="#tos" id="tosLink">Пользовательское соглашение</a></li>
-          <li><a href="#privacy" id="privacyLink">Политика конфиденциальности</a></li>
-          <li><a href="#disclaimer" id="disclaimerLink">Отказ от ответственности</a></li>
-          <li><a href="https://t.me/managervipcheats" target="_blank" id="contactLink">Контакты / DMCA</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 id="f3title">РЕСУРСЫ</h4>
-        <ul>
-          <li><a href="https://t.me/vipcheatsonly" target="_blank">Telegram-канал</a></li>
-          <li><a href="https://t.me/besp1atno" target="_blank">VIP Халявщик</a></li>
-          <li><a href="https://vk.com/club235500419" target="_blank">VKontakte</a></li>
-          <li><a href="https://x.com/tapekizaru7" target="_blank">Twitter / X</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="disclaimer" id="disclaimerBlock">
-      <strong>⚠ ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ:</strong>
-      VIP Cheats является информационным ресурсом и не несёт ответственности за использование представленного программного обеспечения. Использование стороннего ПО в онлайн-играх может нарушать правила использования сервисов (ToS) и привести к блокировке аккаунта. Весь контент размещён исключительно в ознакомительных целях. Мы не гарантируем работоспособность программ на конкретной конфигурации системы.
-      <br><br>
-      <strong>📋 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ:</strong>
-      Используя данный сайт, вы подтверждаете, что вам исполнилось 18 лет. Администрация сайта не несёт ответственности за прямой или косвенный ущерб, возникший в результате использования материалов сайта. Запрещено распространение материалов сайта в коммерческих целях.
-      <br><br>
-      <strong>🔒 ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ:</strong>
-      Сайт не собирает персональные данные пользователей. Статистика скачиваний хранится локально в браузере. Переходы на внешние ресурсы (Telegram, VK, Twitter) регулируются политикой конфиденциальности соответствующих платформ.
-    </div>
-
-    <div class="footer-legal">
-      <p id="footerLegal">© 2024–2025 VIP Cheats. Все права защищены. Сайт не является официальным ресурсом каких-либо игровых компаний. Все торговые марки принадлежат соответствующим владельцам.</p>
-      <div class="footer-brand">VIP</div>
-    </div>
-  </div>
-</footer>
+  <footer><p>© VIP Cheats — Читы из Telegram</p></footer>
+</div>
 
 <script>
+// ========== ВСЕ ИГРЫ И ЧИТЫ (ПОЛНЫЙ СПИСОК) ==========
 const gamesData = [
-  { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin","NerestPC","Panterium","Ultimate","Custom","Impulse","XANTARES","Devix","Dysphoria"] },
-  { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE","AlterNative","NixWare","XONE","MemeSense","Nonagon","Midnight","EnigmaTech","Hone","Aimware"] },
-  { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal","FORTNITE (Premium)","FrozenFree"] },
-  { id: "minecraft", name: "Minecraft", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia","Nursultan","ZENITH","Delta"] },
-  { id: "gta", name: "GTA (V/RP/SA)", img: "https://img.icons8.com/color/64/grand-theft-auto.png", chips: ["SANLauncher","Vanish","Altv3V","GTA V","1337"] },
-  { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE","SeliWare Executor","Fix","Lunar Hub"] },
-  { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)","DeusHack","AquaCheats","CAT TECH","specterdex","SUPERIORITY","VECTOR EXTERNAL"] },
-  { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ","FULL (Valorant)"] },
+  { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
+  { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
+  { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal", "FORTNITE (Premium)", "FrozenFree"] },
+  { id: "minecraft", name: "Minecraft", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia", "Nursultan", "ZENITH", "Delta"] },
+  { id: "gta", name: "GTA (V/RP/SA)", img: "https://cdn-icons-png.flaticon.com/512/1234/1234567.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
+  { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE", "SeliWare Executor", "Fix", "Lunar Hub"] },
+  { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)", "DeusHack", "AquaCheats", "CAT TECH", "specterdex", "SUPERIORITY", "VECTOR EXTERNAL"] },
+  { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ", "FULL (Valorant)"] },
   { id: "garrysmod", name: "Garry's Mod", img: "https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg", chips: ["GRUST"] },
   { id: "dbd", name: "Dead by Daylight", img: "https://img.icons8.com/color/64/dead-by-daylight.png", chips: ["SelinCheat"] },
   { id: "genshin", name: "Genshin Impact", img: "https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg", chips: ["Shika"] },
   { id: "warface", name: "Warface", img: "https://img.icons8.com/color/64/warface.png", chips: ["MASON HACK"] },
   { id: "worldoftanks", name: "World of Tanks", img: "https://img.icons8.com/color/64/tank.png", chips: ["WARPACK"] },
   { id: "dota", name: "Dota 2", img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips: ["SkinChanger"] },
-  { id: "software", name: "SOFTWARE / OTHER", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro","PC Optimization","Discord Fix","Roblox Fix","VoiceMod","HWID FIX","AI VOICE CHANGER","NetBoost","ExitLag","Adobe Photoshop"] }
+  { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "Discord Fix", "Roblox Fix", "Optimization PC", "VoiceMod", "Telegram F1X", "HWID FIX", "Optimization CrystalFix", "AI VOICE CHANGER", "NetBoost", "StartAllBlack", "ExitLag", "Adobe Photoshop Free", "Cheat Engine"] }
 ];
 
 const DOWNLOAD_URL = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
@@ -969,182 +241,110 @@ function updateCounters() {
   localStorage.setItem('totalDownloads', totalDownloads);
   localStorage.setItem('todayDownloads', todayDownloads);
 }
-function addDownload() {
-  totalDownloads++;
-  todayDownloads++;
-  updateCounters();
-}
+function addDownload() { totalDownloads++; todayDownloads++; updateCounters(); }
 
 function renderGames() {
   const grid = document.getElementById('gamesGrid');
-  grid.innerHTML = gamesData.map(g => `
-    <div class="game-card" data-game-id="${g.id}">
-      <img src="${g.img}" onerror="this.src='https://via.placeholder.com/46/0a0000/e8001c?text=${g.name[0]}'">
-      <div>
-        <h3>${g.name}</h3>
-        <p>${g.chips.length} ${currentLang === 'ru' ? 'ЧИТОВ' : 'CHEATS'}</p>
-      </div>
-      <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+  grid.innerHTML = gamesData.map(game => `
+    <div class="game-card" data-id="${game.id}">
+      <img src="${game.img}" onerror="this.src='https://placehold.co/50x50/333/fff?text=${game.name.charAt(0)}'">
+      <div><h3>${game.name}</h3><p>${game.chips.length} читов</p></div>
     </div>
   `).join('');
+  
   document.querySelectorAll('.game-card').forEach(card => {
     card.addEventListener('click', () => {
-      const game = gamesData.find(g => g.id === card.dataset.gameId);
+      const game = gamesData.find(g => g.id === card.dataset.id);
       if (game) showPanel(game);
     });
   });
 }
 
 function showPanel(game) {
-  document.getElementById('panelTitle').innerText = game.name;
-  document.getElementById('panelCount').innerText = `${game.chips.length} ${currentLang === 'ru' ? 'ЧИТОВ ДОСТУПНО' : 'CHEATS AVAILABLE'}`;
-  const items = document.getElementById('panelItems');
-  items.innerHTML = game.chips.map(c => `
-    <div class="cheat-item">
-      <div class="cheat-icon"></div>
-      <div class="cheat-name">${c}</div>
-      <button class="download-btn" data-cheat="${c}">${currentLang === 'ru' ? '↓ СКАЧАТЬ' : '↓ DOWNLOAD'}</button>
-    </div>
-  `).join('');
-  items.querySelectorAll('.download-btn').forEach(btn => {
+  const panel = document.getElementById('cheatsPanel');
+  const overlay = document.getElementById('overlay');
+  const content = document.getElementById('panelContent');
+  
+  content.innerHTML = `<h3>${game.name} — ${game.chips.length} читов</h3>`;
+  game.chips.forEach(cheat => {
+    content.innerHTML += `
+      <div class="cheat-item">
+        <div style="font-weight: bold; margin-bottom: 8px;">⚡ ${cheat}</div>
+        <button class="download-cheat">📥 Скачать</button>
+      </div>
+    `;
+  });
+  
+  document.querySelectorAll('.download-cheat').forEach(btn => {
     btn.addEventListener('click', () => {
       addDownload();
       const a = document.createElement('a');
       a.href = DOWNLOAD_URL;
-      a.download = 'setup.launcher-1.6.9.rar';
+      a.download = "setup.launcher-1.6.9.rar";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
     });
   });
-  document.getElementById('cheatsPanel').classList.add('active');
-  document.getElementById('overlay').classList.add('active');
+  
+  panel.classList.add('active');
+  overlay.classList.add('active');
 }
 
-function closePanel() {
+document.getElementById('panelClose').onclick = () => {
   document.getElementById('cheatsPanel').classList.remove('active');
   document.getElementById('overlay').classList.remove('active');
-}
+};
+document.getElementById('overlay').onclick = () => {
+  document.getElementById('cheatsPanel').classList.remove('active');
+  document.getElementById('overlay').classList.remove('active');
+};
 
-document.getElementById('panelClose').onclick = closePanel;
-document.getElementById('overlay').onclick = closePanel;
+document.getElementById('chooseGameBtn').onclick = (e) => {
+  e.preventDefault();
+  document.getElementById('gamesSection').scrollIntoView({ behavior: 'smooth' });
+};
 
-// ── TRANSLATIONS ──
-let currentLang = 'ru';
-const T = {
+// ПЕРЕВОД
+const translations = {
   ru: {
     subtitle: "Читы, софт, плагины — всё в одном месте",
-    heroBadge: "◆ TELEGRAM EXCLUSIVE ◆",
-    stat1: "СКАЧИВАНИЙ", stat2: "СЕГОДНЯ", stat3: "РЕЙТИНГ",
-    badge1: "🔥 Читы из Telegram-поста",
-    badge2: "✅ VirusTotal: чисто",
-    badge3: "🎮 15+ игр",
-    quoteTitle: "МЫ СТАРАЕМСЯ ДЛЯ ТЕБЯ",
-    quoteText: "Каждый день мы добавляем новые читы и софт. Без конкурсов, без разводов. Просто бери и пользуйся.",
-    gamesTitle: "ИГРЫ",
-    halyavaWord: "Халявщик",
-    halyavaDesc: "Оптимизация ПК | Voice Changer | Нейросети | Активаторы",
-    halyavaBtn: "Перейти на канал",
-    reviewsTitle: "ОТЗЫВЫ",
-    reviewsDesc: "Реальные отзывы наших пользователей — 140+ мнений",
-    reviewsButton: "Смотреть отзывы в Telegram",
-    contactTitle: "ПОДПИСЫВАЙСЯ",
-    freeLabel: "Халявщик",
-    supportLabel: "Поддержка",
-    f1title: "О ПРОЕКТЕ",
-    f1text: "VIP Cheats — независимый агрегатор программного обеспечения для игр. Мы не продаём читы и не занимаемся мошенничеством. Все материалы собраны из открытых источников Telegram.",
-    f2title: "ДОКУМЕНТЫ",
-    tosLink: "Пользовательское соглашение",
-    privacyLink: "Политика конфиденциальности",
-    disclaimerLink: "Отказ от ответственности",
-    contactLink: "Контакты / DMCA",
-    f3title: "РЕСУРСЫ",
-    disclaimerBlock: `<strong>⚠ ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ:</strong> VIP Cheats является информационным ресурсом и не несёт ответственности за использование представленного программного обеспечения. Использование стороннего ПО в онлайн-играх может нарушать правила использования сервисов (ToS) и привести к блокировке аккаунта. Весь контент размещён исключительно в ознакомительных целях. Мы не гарантируем работоспособность программ на конкретной конфигурации системы.<br><br><strong>📋 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ:</strong> Используя данный сайт, вы подтверждаете, что вам исполнилось 18 лет. Администрация сайта не несёт ответственности за прямой или косвенный ущерб, возникший в результате использования материалов сайта. Запрещено распространение материалов сайта в коммерческих целях.<br><br><strong>🔒 ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ:</strong> Сайт не собирает персональные данные пользователей. Статистика скачиваний хранится локально в браузере. Переходы на внешние ресурсы (Telegram, VK, Twitter) регулируются политикой конфиденциальности соответствующих платформ.`,
-    footerLegal: "© 2024–2025 VIP Cheats. Все права защищены. Сайт не является официальным ресурсом каких-либо игровых компаний. Все торговые марки принадлежат соответствующим владельцам."
+    stat1: "скачиваний", stat2: "сегодня", stat3: "рейтинг",
+    badge1: "🔥 Читы из Telegram-поста", badge2: "✅ VirusTotal: чисто", badge3: "🎮 15+ игр",
+    reviewsTitle: "Отзывы", reviewsDesc: "Реальные отзывы — 140+ мнений",
+    reviewsButton: "Смотреть отзывы", contactTitle: "Подписывайся"
   },
   en: {
     subtitle: "Cheats, software, plugins — all in one place",
-    heroBadge: "◆ TELEGRAM EXCLUSIVE ◆",
-    stat1: "DOWNLOADS", stat2: "TODAY", stat3: "RATING",
-    badge1: "🔥 Cheats from Telegram",
-    badge2: "✅ VirusTotal: clean",
-    badge3: "🎮 15+ games",
-    quoteTitle: "WE WORK FOR YOU",
-    quoteText: "Every day we add new cheats and software. No contests, no scams. Just take and use.",
-    gamesTitle: "GAMES",
-    halyavaWord: "Freebie",
-    halyavaDesc: "PC Optimization | Voice Changer | AI Tools | Activators",
-    halyavaBtn: "Go to channel",
-    reviewsTitle: "REVIEWS",
-    reviewsDesc: "Real reviews from our users — 140+ opinions",
-    reviewsButton: "View reviews on Telegram",
-    contactTitle: "FOLLOW US",
-    freeLabel: "Freebie",
-    supportLabel: "Support",
-    f1title: "ABOUT",
-    f1text: "VIP Cheats is an independent software aggregator for games. We do not sell cheats and are not involved in any scams. All materials are collected from open Telegram sources.",
-    f2title: "LEGAL",
-    tosLink: "Terms of Service",
-    privacyLink: "Privacy Policy",
-    disclaimerLink: "Disclaimer",
-    contactLink: "Contact / DMCA",
-    f3title: "RESOURCES",
-    disclaimerBlock: `<strong>⚠ DISCLAIMER:</strong> VIP Cheats is an informational resource and is not responsible for the use of the software presented. Use of third-party software in online games may violate the Terms of Service of those services and result in account bans. All content is provided for informational purposes only. We do not guarantee software compatibility with any specific system configuration.<br><br><strong>📋 TERMS OF SERVICE:</strong> By using this website, you confirm that you are 18 years of age or older. The site administration is not responsible for any direct or indirect damages arising from the use of materials on this site. Commercial distribution of site materials is prohibited.<br><br><strong>🔒 PRIVACY POLICY:</strong> This site does not collect personal user data. Download statistics are stored locally in your browser. Navigation to external resources (Telegram, VK, Twitter) is governed by the privacy policies of those respective platforms.`,
-    footerLegal: "© 2024–2025 VIP Cheats. All rights reserved. This site is not an official resource of any gaming company. All trademarks are the property of their respective owners."
+    stat1: "downloads", stat2: "today", stat3: "rating",
+    badge1: "🔥 Cheats from Telegram", badge2: "✅ VirusTotal: clean", badge3: "🎮 15+ games",
+    reviewsTitle: "Reviews", reviewsDesc: "Real reviews — 140+ opinions",
+    reviewsButton: "View reviews", contactTitle: "Subscribe"
   }
 };
 
-function setLanguage(lang) {
-  currentLang = lang;
-  const t = T[lang];
+function setLang(lang) {
+  const t = translations[lang];
   document.getElementById('mainSubtitle').innerText = t.subtitle;
-  document.getElementById('heroBadge').innerText = t.heroBadge;
   document.getElementById('stat1Label').innerText = t.stat1;
   document.getElementById('stat2Label').innerText = t.stat2;
   document.getElementById('stat3Label').innerText = t.stat3;
   document.getElementById('badge1').innerText = t.badge1;
   document.getElementById('badge2').innerText = t.badge2;
   document.getElementById('badge3').innerText = t.badge3;
-  document.getElementById('quoteTitle').innerText = t.quoteTitle;
-  document.getElementById('quoteText').innerText = t.quoteText;
-  document.getElementById('gamesTitle').innerText = t.gamesTitle;
-  document.getElementById('halyavaWord').innerText = t.halyavaWord;
-  document.getElementById('halyavaDesc').innerText = t.halyavaDesc;
-  document.getElementById('halyavaBtn').innerText = t.halyavaBtn;
   document.getElementById('reviewsTitle').innerText = t.reviewsTitle;
   document.getElementById('reviewsDesc').innerText = t.reviewsDesc;
   document.getElementById('reviewsButton').innerHTML = `<i class="fab fa-telegram"></i> ${t.reviewsButton}`;
   document.getElementById('contactTitle').innerText = t.contactTitle;
-  document.getElementById('freeLabel').innerText = t.freeLabel;
-  document.getElementById('supportLabel').innerText = t.supportLabel;
-  document.getElementById('f1title').innerText = t.f1title;
-  document.getElementById('f1text').innerText = t.f1text;
-  document.getElementById('f2title').innerText = t.f2title;
-  document.getElementById('tosLink').innerText = t.tosLink;
-  document.getElementById('privacyLink').innerText = t.privacyLink;
-  document.getElementById('disclaimerLink').innerText = t.disclaimerLink;
-  document.getElementById('contactLink').innerText = t.contactLink;
-  document.getElementById('f3title').innerText = t.f3title;
-  document.getElementById('disclaimerBlock').innerHTML = t.disclaimerBlock;
-  document.getElementById('footerLegal').innerText = t.footerLegal;
   document.getElementById('ruBtn').classList.toggle('active', lang === 'ru');
   document.getElementById('enBtn').classList.toggle('active', lang === 'en');
-  renderGames();
 }
 
-document.getElementById('ruBtn').onclick = () => setLanguage('ru');
-document.getElementById('enBtn').onclick = () => setLanguage('en');
-
-// SCROLL FADE
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// INIT
 renderGames();
 updateCounters();
-setLanguage('ru');
+setLang('ru');
+document.getElementById('ruBtn').onclick = () => setLang('ru');
+document.getElementById('enBtn').onclick = () => setLang('en');
 </script>
 </body>
 </html>
