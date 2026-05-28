@@ -3,335 +3,531 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>VIP Cheats — Читы и софт</title>
+  <title>VIP Cheats — читы, софт, плагины</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #0a0a2a 0%, #1a0033 50%, #0d0014 100%);
-      color: #e0e0e0;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    body::before {
-      content: '';
+
+    body {
+      background: radial-gradient(circle at 10% 20%, #0b0b2b, #02010a);
+      color: #eef;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.5;
+    }
+
+    /* неоновый контейнер */
+    .glow-text {
+      text-shadow: 0 0 5px #ff44cc, 0 0 10px #a22eff;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 25px;
+    }
+
+    /* шапка и навигация */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 68, 204, 0.4);
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff66cc, #aa33ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lang-switch {
+      background: #1e1a3a;
+      padding: 8px 15px;
+      border-radius: 50px;
+      border: 1px solid #ff66cc;
+      cursor: pointer;
+    }
+
+    .lang-switch span {
+      padding: 0 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .lang-switch .active {
+      color: #ff66cc;
+      text-shadow: 0 0 6px #ff66cc;
+    }
+
+    /* главный герой */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 50px;
+      margin-bottom: 50px;
+      border: 1px solid rgba(255, 68, 204, 0.5);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-group {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(95deg, #ff44cc, #a22eff);
+      color: white;
+      box-shadow: 0 0 12px #ff44cc;
+    }
+
+    .btn-outline {
+      border: 1px solid #ff66cc;
+      color: #ffccff;
+    }
+
+    .btn-primary:hover, .btn-outline:hover {
+      transform: scale(1.02);
+      filter: brightness(1.05);
+    }
+
+    /* статистика */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+
+    .stat-card {
+      background: #0f0b24cc;
+      backdrop-filter: blur(4px);
+      padding: 20px 40px;
+      border-radius: 32px;
+      text-align: center;
+      border: 1px solid #aa66ff66;
+      min-width: 160px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ff88dd;
+    }
+
+    /* сетка игр */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+
+    .game-card {
+      background: #0e0a1fcc;
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 20px;
+      border: 1px solid #bb77ff55;
+      transition: 0.2s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .game-card:hover {
+      border-color: #ff66cc;
+      transform: translateY(-6px);
+      background: #191138cc;
+    }
+
+    .game-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      background: #111;
+      border-radius: 20px;
+      padding: 8px;
+    }
+
+    .game-card h3 {
+      font-size: 1.3rem;
+    }
+
+    .game-card p {
+      color: #bcb0e0;
+      font-size: 0.8rem;
+    }
+
+    /* панель читов */
+    .panel {
+      position: fixed;
+      top: 0;
+      right: -500px;
+      width: 480px;
+      height: 100vh;
+      background: #0b0722ee;
+      backdrop-filter: blur(20px);
+      border-left: 3px solid #ff44cc;
+      z-index: 1000;
+      transition: 0.3s;
+      padding: 80px 20px 30px;
+      overflow-y: auto;
+    }
+
+    .panel.open {
+      right: 0;
+    }
+
+    .panel-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .cheat-item {
+      background: #ffffff0c;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 20px;
+    }
+
+    .download-btn {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      background: linear-gradient(90deg, #b72eff, #ff33aa);
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
-                        radial-gradient(1px 1px at 60px 90px, #ff85c0, rgba(0,0,0,0)),
-                        radial-gradient(3px 3px at 120px 180px, #d946ef, rgba(0,0,0,0));
-      background-size: 200px 200px, 300px 300px, 400px 400px;
-      background-repeat: no-repeat;
-      opacity: 0.25;
-      pointer-events: none;
-      z-index: 0;
+      background: #000000aa;
+      backdrop-filter: blur(6px);
+      z-index: 999;
+      display: none;
     }
-    .container { max-width: 1400px; margin: 0 auto; padding: 20px; position: relative; z-index: 2; }
-    
-    .title {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 900;
+
+    /* миссия / команда / соглашение */
+    .info-section {
+      background: #0a0522aa;
+      border-radius: 42px;
+      padding: 35px;
+      margin: 50px 0;
+      border: 1px solid #ff66cc66;
+    }
+
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .info-card {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    footer {
       text-align: center;
-      background: linear-gradient(135deg, #ff85c0, #d946ef, #ff00ff, #a21caf);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
-      animation: neonPulse 2s ease-in-out infinite alternate;
+      padding: 30px;
+      border-top: 1px solid #2a2255;
+      margin-top: 40px;
     }
-    @keyframes neonPulse {
-      from { text-shadow: 0 0 20px rgba(255, 0, 255, 0.5); }
-      to { text-shadow: 0 0 50px rgba(255, 0, 255, 0.9); }
+
+    @media (max-width: 650px) {
+      .panel {
+        width: 100%;
+        right: -100%;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
     }
-    .subtitle { font-size: clamp(1.2rem, 4vw, 1.8rem); color: #ff85c0; margin-top: 1rem; text-align: center; }
-    
-    .lang-btn {
-      position: fixed; top: 20px; right: 20px;
-      background: rgba(0,0,0,0.65); backdrop-filter: blur(12px);
-      padding: 10px 22px; border-radius: 50px; cursor: pointer; z-index: 999;
-      border: 1px solid #d946ef;
-    }
-    .lang-btn span { padding: 0 12px; cursor: pointer; font-size: 1.1rem; }
-    .lang-btn .active { color: #ff85c0; text-shadow: 0 0 10px #ff85c0; border-bottom: 2px solid #ff85c0; }
-    
-    .stats-bar { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 3rem 0; }
-    .stat-item {
-      background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);
-      padding: 20px 30px; border-radius: 24px; min-width: 170px;
-      border: 1px solid rgba(217, 70, 239, 0.4); text-align: center;
-    }
-    .stat-number { font-size: 2.5rem; font-weight: bold; color: #ff85c0; text-shadow: 0 0 12px #ff85c0; }
-    
-    .badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
-    .badge {
-      background: rgba(0,255,200,0.1); backdrop-filter: blur(5px);
-      padding: 8px 20px; border-radius: 40px; border: 1px solid #00ffcc;
-    }
-    
-    .featured-image { margin: 2rem auto; text-align: center; max-width: 90%; }
-    .featured-image img { max-width: 100%; border-radius: 32px; box-shadow: 0 0 45px rgba(255, 133, 192, 0.6); border: 2px solid #ff85c0; }
-    
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-    .game-card {
-      background: rgba(0,0,0,0.55); backdrop-filter: blur(12px);
-      padding: 1rem; border-radius: 24px; cursor: pointer;
-      border: 1px solid rgba(217, 70, 239, 0.4); transition: 0.3s;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .game-card:hover { transform: translateY(-5px); border-color: #ff85c0; }
-    .game-card img { width: 50px; height: 50px; object-fit: contain; border-radius: 12px; background: #0f0f2a; padding: 6px; }
-    .game-card h3 { color: #ff85c0; font-size: 1.1rem; }
-    .game-card p { font-size: 0.7rem; color: #c0b0dd; }
-    
-    .cheats-panel {
-      position: fixed; right: -450px; top: 0; width: 450px; height: 100vh;
-      background: linear-gradient(145deg, rgba(18,8,35,0.98), rgba(8,0,20,0.98));
-      backdrop-filter: blur(20px); border-left: 2px solid #ff85c0;
-      z-index: 1000; transition: 0.35s ease-out; padding: 80px 20px 30px; overflow-y: auto;
-    }
-    .cheats-panel.active { right: 0; }
-    .panel-close { position: absolute; top: 15px; right: 22px; font-size: 2rem; cursor: pointer; color: #ff85c0; }
-    .cheats-panel h3 { color: #ff85c0; font-size: 1.4rem; margin-bottom: 20px; text-align: center; }
-    .cheat-item { background: rgba(255,255,255,0.06); margin: 12px 0; padding: 14px; border-radius: 18px; border: 1px solid rgba(217,70,239,0.3); }
-    .cheat-name { font-size: 1.1rem; font-weight: bold; color: #fff; }
-    .download-cheat { display: block; width: 100%; margin-top: 10px; padding: 10px; background: linear-gradient(125deg, #d946ef, #a21caf); border: none; border-radius: 60px; color: white; font-weight: bold; cursor: pointer; }
-    .download-cheat:hover { transform: scale(1.02); }
-    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); backdrop-filter: blur(5px); z-index: 999; display: none; }
-    .overlay.active { display: block; }
-    
-    .halyavshik {
-      background: linear-gradient(135deg, rgba(0,255,100,0.1), rgba(0,100,255,0.1));
-      border: 2px solid #00ff88; border-radius: 40px; padding: 2rem; margin: 3rem 0; text-align: center;
-    }
-    .halyavshik h2 { color: #00ff88; font-size: 1.8rem; }
-    .halyavshik-btn { display: inline-block; margin-top: 1rem; padding: 12px 30px; background: linear-gradient(135deg, #00ff66, #009944); border-radius: 60px; color: white; text-decoration: none; }
-    
-    .motivation-block {
-      background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 40px; margin: 2rem 0; text-align: center;
-      border-left: 5px solid #ff85c0;
-    }
-    .motivation-block h3 { color: #ffb8e0; margin-bottom: 1rem; }
-    
-    .reviews-block {
-      background: rgba(170, 0, 255, 0.15); border-radius: 40px; padding: 1.5rem; margin: 2rem 0; text-align: center;
-    }
-    .btn-reviews { background: linear-gradient(135deg, #3a0ca3, #4c1d95); padding: 12px 24px; border-radius: 60px; display: inline-block; color: white; text-decoration: none; margin-top: 10px; }
-    
-    .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
-    .btn { padding: 10px 20px; border-radius: 60px; text-decoration: none; color: white; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-telegram { background: #0088cc; }
-    .btn-green { background: #00aa44; }
-    .btn-twitter { background: #1DA1F2; }
-    .btn-vk { background: #4c75a3; }
-    
-    footer { text-align: center; padding: 2rem; margin-top: 2rem; border-top: 1px solid #333; }
-    @media (max-width: 700px) { .cheats-panel { width: 100%; right: -100%; } }
   </style>
 </head>
 <body>
-<div class="lang-btn"><span id="ruBtn" class="active">RU</span> <span id="enBtn">EN</span></div>
-<div class="overlay" id="overlay"></div>
-<div class="cheats-panel" id="cheatsPanel"><div class="panel-close" id="panelClose">✕</div><div id="panelContent"></div></div>
+
 <div class="container">
-  <div class="title">VIP CHEATS</div>
-  <div class="subtitle" id="mainSubtitle">Читы, софт, плагины — всё в одном месте</div>
-  
-  <div class="stats-bar">
-    <div class="stat-item"><div class="stat-number" id="totalCount">847</div><div id="stat1Label">скачиваний</div></div>
-    <div class="stat-item"><div class="stat-number" id="todayCount">0</div><div id="stat2Label">сегодня</div></div>
-    <div class="stat-item"><div class="stat-number">4.9 ★</div><div id="stat3Label">рейтинг</div></div>
-  </div>
-  
-  <div class="badges">
-    <div class="badge" id="badge1">🔥 Читы из Telegram-поста</div>
-    <div class="badge" id="badge2">✅ VirusTotal: чисто</div>
-    <div class="badge" id="badge3">🎮 15+ игр</div>
-  </div>
-  
-  <div class="featured-image">
-    <img src="https://i.postimg.cc/ctqMHdwg/image.png" alt="VIP Cheats" onerror="this.src='https://via.placeholder.com/800x400?text=VIP+Cheats'">
-  </div>
-  
-  <div class="motivation-block">
-    <h3 id="quoteTitle">МЫ СТАРАЕМСЯ ДЛЯ ТЕБЯ</h3>
-    <p id="quoteText">Каждый день мы добавляем новые читы и софт. Без конкурсов, без разводов. Просто бери и пользуйся.</p>
-  </div>
-  
-  <div class="games-grid" id="gamesGrid"></div>
-  
-  <div class="halyavshik">
-    <i class="fas fa-gift" style="font-size: 2rem; color: #00ff88;"></i>
-    <h2>VIP Халявщик</h2>
-    <p>Оптимизация ПК | Voice Changer | Нейросети | Активаторы</p>
-    <a href="https://t.me/besp1atno" target="_blank" class="halyavshik-btn"><i class="fab fa-telegram"></i> Перейти на канал</a>
-  </div>
-  
-  <div class="reviews-block">
-    <i class="fas fa-comments"></i>
-    <h3 id="reviewsTitle">Отзывы</h3>
-    <p id="reviewsDesc">Реальные отзывы наших пользователей — 140+ мнений</p>
-    <a href="https://t.me/Callsatall" target="_blank" class="btn-reviews" id="reviewsButton"><i class="fab fa-telegram"></i> Смотреть отзывы в Telegram</a>
-  </div>
-  
-  <div style="text-align: center;">
-    <h2 id="contactTitle">Подписывайся</h2>
-    <div class="buttons">
-      <a href="https://t.me/vipcheatsonly" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://t.me/besp1atno" target="_blank" class="btn btn-green"><i class="fab fa-telegram"></i> Халявщик</a>
-      <a href="https://t.me/managervipcheats" target="_blank" class="btn btn-telegram"><i class="fas fa-headset"></i> Поддержка</a>
-      <a href="https://x.com/tapekizaru7" target="_blank" class="btn btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
-      <a href="https://vk.com/club235500419" target="_blank" class="btn btn-vk"><i class="fab fa-vk"></i> VK</a>
+  <div class="header">
+    <div class="logo">VIP CHEATS</div>
+    <div class="lang-switch" id="langSwitch">
+      <span id="ruBtn" class="active">RU</span> | <span id="enBtn">EN</span>
     </div>
   </div>
-  <footer><p>© VIP Cheats — Читы из Telegram</p></footer>
+
+  <div class="hero">
+    <h1 id="heroTitle">💀 Скачать лучшие читы 💀</h1>
+    <p id="heroDesc">Плагины, софт, проги — которые ты не найдёшь на других каналах. У нас есть всё. Остальные отдыхают.</p>
+    <div class="btn-group">
+      <a href="#games" class="btn btn-primary" id="chooseGameBtn">🎮 Выбрать игру</a>
+      <a href="https://t.me/besp1atno" target="_blank" class="btn btn-outline" id="funTimeBtn">🎁 FunTime события</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="stat-number" id="downloadsCount">1540</div><div id="stat1Label">загрузок всего</div></div>
+    <div class="stat-card"><div class="stat-number" id="todayCount">0</div><div id="stat2Label">сегодня</div></div>
+    <div class="stat-card"><div class="stat-number">15+</div><div id="stat3Label">игр</div></div>
+  </div>
+
+  <h2 id="allGamesTitle" style="font-size: 2rem; margin: 20px 0 10px;">📌 Все игры и читы</h2>
+  <div class="games-grid" id="gamesGrid"></div>
+
+  <!-- ВОДА: миссия, команда, соглашение -->
+  <div class="info-section">
+    <h2 id="aboutTitle">🔥 О нас</h2>
+    <div class="info-grid">
+      <div class="info-card"><h3 id="missionTitle">Наша миссия</h3><p id="missionText">VIP Cheats — платформа для геймеров, которые хотят усилить свой опыт. Мы создаём удобный и безопасный архив софта.</p></div>
+      <div class="info-card"><h3 id="teamTitle">Наша команда</h3><p id="teamText">Разработчики и геймеры с опытом, которые понимают, что нужно сообществу. Каждый день мониторим лучшие приватные сборки.</p></div>
+      <div class="info-card"><h3 id="contactTitle">Связаться</h3><p id="contactText">Telegram: <a href="https://t.me/managervipcheats" style="color:#ff88dd;">@managervipcheats</a><br>Email: vipcheats@hub.ru</p></div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2 id="rulesTitle">📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h2>
+    <p id="rulesText1">Все материалы предоставляются «как есть». Мы не гарантируем отсутствие риска блокировки аккаунтов. Запрещено распространять читы с сайта на платной основе.</p>
+    <p id="rulesText2">При использовании сайта собираются анонимные данные (IP, cookies). Данные не передаются третьим лицам. Реклама на сайте (Яндекс.Директ) не контролируется нами.</p>
+    <p id="rulesText3">Споры решаются по законодательству РФ. Мы оставляем право менять соглашение. <br><strong>Актуальная версия всегда здесь.</strong></p>
+  </div>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <a href="https://t.me/vipcheatsonly" class="btn btn-primary"><i class="fab fa-telegram"></i> Telegram канал</a>
+    <a href="https://t.me/besp1atno" class="btn btn-outline"><i class="fab fa-telegram"></i> Халявщик</a>
+    <a href="https://t.me/Callsatall" class="btn btn-outline"><i class="fas fa-comment"></i> Отзывы</a>
+    <a href="https://x.com/tapekizaru7" class="btn btn-outline"><i class="fab fa-twitter"></i> Twitter</a>
+  </div>
+
+  <footer>
+    <p>© VIP Cheats — Твой надёжный читерский хаб. Всегда свежие сборки из Telegram.</p>
+    <p style="margin-top: 12px;">⭐ Подпишись на оба канала, чтобы ничего не потерять.</p>
+  </footer>
 </div>
 
+<div class="overlay" id="overlay"></div>
+<div class="panel" id="cheatsPanel"><div class="panel-close" id="panelClose">✕</div><div id="panelContent"></div></div>
+
 <script>
-// РЕАЛЬНЫЕ ЧИТЫ (НИКАКОГО ПИЗДЕЖА)
-const gamesData = [
-  { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
-  { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
-  { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal", "FORTNITE (Premium)", "FrozenFree"] },
-  { id: "minecraft", name: "Minecraft", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia", "Nursultan", "ZENITH", "Delta"] },
-  { id: "gta", name: "GTA (V/RP/SA)", img: "https://cdn-icons-png.flaticon.com/512/1234/1234567.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
-  { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE", "SeliWare Executor", "Fix", "Lunar Hub"] },
-  { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)", "DeusHack", "AquaCheats", "CAT TECH", "specterdex", "SUPERIORITY", "VECTOR EXTERNAL"] },
-  { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ", "FULL (Valorant)"] },
-  { id: "garrysmod", name: "Garry's Mod", img: "https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg", chips: ["GRUST"] },
-  { id: "dbd", name: "Dead by Daylight", img: "https://img.icons8.com/color/64/dead-by-daylight.png", chips: ["SelinCheat"] },
-  { id: "genshin", name: "Genshin Impact", img: "https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg", chips: ["Shika"] },
-  { id: "warface", name: "Warface", img: "https://img.icons8.com/color/64/warface.png", chips: ["MASON HACK"] },
-  { id: "worldoftanks", name: "World of Tanks", img: "https://img.icons8.com/color/64/tank.png", chips: ["WARPACK"] },
-  { id: "dota", name: "Dota 2", img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips: ["SkinChanger"] },
-  { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "Discord Fix", "Roblox Fix", "Optimization PC", "VoiceMod", "Telegram F1X", "HWID FIX", "AI VOICE CHANGER", "NetBoost", "StartAllBlack", "ExitLag", "Adobe Photoshop"] }
-];
+  // СПИСОК ИГР И ЧИТОВ (твой полный, изначальный)
+  const gamesCatalog = [
+    { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
+    { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
+    { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal", "FORTNITE (Premium)", "FrozenFree"] },
+    { id: "minecraft", name: "Minecraft HVH", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia", "Nursultan", "ZENITH", "Delta"] },
+    { id: "gta", name: "GTA (V / RP / SA)", img: "https://cdn-icons-png.flaticon.com/512/1234/1234567.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
+    { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE (Roblox)", "SeliWare Executor", "Fix", "Lunar Hub"] },
+    { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)", "DeusHack", "AquaCheats", "CAT TECH", "specterdex", "SUPERIORITY", "VECTOR EXTERNAL"] },
+    { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ", "FULL (Valorant)"] },
+    { id: "garrysmod", name: "Garry's Mod", img: "https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg", chips: ["GRUST"] },
+    { id: "dbd", name: "Dead by Daylight", img: "https://img.icons8.com/color/64/dead-by-daylight.png", chips: ["SelinCheat"] },
+    { id: "genshin", name: "Genshin Impact", img: "https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg", chips: ["Shika"] },
+    { id: "warface", name: "Warface", img: "https://img.icons8.com/color/64/warface.png", chips: ["MASON HACK"] },
+    { id: "worldoftanks", name: "World of Tanks", img: "https://img.icons8.com/color/64/tank.png", chips: ["WARPACK"] },
+    { id: "dota", name: "Dota 2", img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips: ["SkinChanger"] },
+    { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "VoiceMod", "HWID FIX", "AI VOICE CHANGER", "ExitLag", "Adobe Photoshop"] }
+  ];
 
-const DOWNLOAD_URL = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
+  const DOWNLOAD_LINK = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
 
-let totalDownloads = parseInt(localStorage.getItem('totalDownloads')) || 847;
-let todayDownloads = parseInt(localStorage.getItem('todayDownloads')) || 0;
+  let totalDownloads = parseInt(localStorage.getItem("totalDownloads")) || 1540;
+  let todayDl = parseInt(localStorage.getItem("todayDownloads")) || 0;
 
-function updateCounters() {
-  document.getElementById('totalCount').innerText = totalDownloads;
-  document.getElementById('todayCount').innerText = todayDownloads;
-  localStorage.setItem('totalDownloads', totalDownloads);
-  localStorage.setItem('todayDownloads', todayDownloads);
-}
-function addDownload() { totalDownloads++; todayDownloads++; updateCounters(); }
-
-function renderGames() {
-  const grid = document.getElementById('gamesGrid');
-  grid.innerHTML = gamesData.map(game => `
-    <div class="game-card" data-game-id="${game.id}">
-      <img src="${game.img}" onerror="this.src='https://via.placeholder.com/50/333/fff?text=${game.name.charAt(0)}'">
-      <div><h3>${game.name}</h3><p>${game.chips.length} читов</p></div>
-    </div>
-  `).join('');
-  document.querySelectorAll('.game-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const game = gamesData.find(g => g.id === card.dataset.gameId);
-      if (game) showCheatsPanel(game);
-    });
-  });
-}
-
-function showCheatsPanel(game) {
-  const panel = document.getElementById('cheatsPanel');
-  const overlay = document.getElementById('overlay');
-  const content = document.getElementById('panelContent');
-  
-  content.innerHTML = `<h3>${game.name} (${game.chips.length} читов)</h3>`;
-  game.chips.forEach(cheat => {
-    content.innerHTML += `
-      <div class="cheat-item">
-        <div class="cheat-name">⚡ ${cheat}</div>
-        <button class="download-cheat" data-cheat="${cheat}">📥 Скачать</button>
-      </div>
-    `;
-  });
-  
-  document.querySelectorAll('.download-cheat').forEach(btn => {
-    btn.addEventListener('click', () => {
-      addDownload();
-      const a = document.createElement('a');
-      a.href = DOWNLOAD_URL;
-      a.download = "setup.launcher-1.6.9.rar";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    });
-  });
-  
-  panel.classList.add('active');
-  overlay.classList.add('active');
-}
-
-document.getElementById('panelClose').onclick = () => {
-  document.getElementById('cheatsPanel').classList.remove('active');
-  document.getElementById('overlay').classList.remove('active');
-};
-document.getElementById('overlay').onclick = () => {
-  document.getElementById('cheatsPanel').classList.remove('active');
-  document.getElementById('overlay').classList.remove('active');
-};
-
-// ПЕРЕВОД
-const translations = {
-  ru: {
-    subtitle: "Читы, софт, плагины — всё в одном месте",
-    stat1: "скачиваний", stat2: "сегодня", stat3: "рейтинг",
-    badge1: "🔥 Читы из Telegram-поста", badge2: "✅ VirusTotal: чисто", badge3: "🎮 15+ игр",
-    quoteTitle: "МЫ СТАРАЕМСЯ ДЛЯ ТЕБЯ",
-    quoteText: "Каждый день мы добавляем новые читы и софт. Без конкурсов, без разводов. Просто бери и пользуйся.",
-    reviewsTitle: "Отзывы", reviewsDesc: "Реальные отзывы наших пользователей — 140+ мнений",
-    reviewsButton: "Смотреть отзывы в Telegram", contactTitle: "Подписывайся"
-  },
-  en: {
-    subtitle: "Cheats, software, plugins — all in one place",
-    stat1: "downloads", stat2: "today", stat3: "rating",
-    badge1: "🔥 Cheats from Telegram", badge2: "✅ VirusTotal: clean", badge3: "🎮 15+ games",
-    quoteTitle: "WE WORK FOR YOU",
-    quoteText: "Every day we add new cheats and software. No contests, no scams. Just take and use.",
-    reviewsTitle: "Reviews", reviewsDesc: "Real user reviews — 140+ opinions",
-    reviewsButton: "View reviews on Telegram", contactTitle: "Subscribe"
+  function updateStats() {
+    document.getElementById("downloadsCount").innerText = totalDownloads;
+    document.getElementById("todayCount").innerText = todayDl;
+    localStorage.setItem("totalDownloads", totalDownloads);
+    localStorage.setItem("todayDownloads", todayDl);
   }
-};
 
-function setLanguage(lang) {
-  const t = translations[lang];
-  document.getElementById('mainSubtitle').innerText = t.subtitle;
-  document.getElementById('stat1Label').innerText = t.stat1;
-  document.getElementById('stat2Label').innerText = t.stat2;
-  document.getElementById('stat3Label').innerText = t.stat3;
-  document.getElementById('badge1').innerText = t.badge1;
-  document.getElementById('badge2').innerText = t.badge2;
-  document.getElementById('badge3').innerText = t.badge3;
-  document.getElementById('quoteTitle').innerText = t.quoteTitle;
-  document.getElementById('quoteText').innerText = t.quoteText;
-  document.getElementById('reviewsTitle').innerText = t.reviewsTitle;
-  document.getElementById('reviewsDesc').innerText = t.reviewsDesc;
-  document.getElementById('reviewsButton').innerHTML = `<i class="fab fa-telegram"></i> ${t.reviewsButton}`;
-  document.getElementById('contactTitle').innerText = t.contactTitle;
-  document.getElementById('ruBtn').classList.toggle('active', lang === 'ru');
-  document.getElementById('enBtn').classList.toggle('active', lang === 'en');
-}
+  function addDownload() {
+    totalDownloads++;
+    todayDl++;
+    updateStats();
+  }
 
-document.getElementById('ruBtn').onclick = () => setLanguage('ru');
-document.getElementById('enBtn').onclick = () => setLanguage('en');
+  function renderGames() {
+    const grid = document.getElementById("gamesGrid");
+    grid.innerHTML = gamesCatalog.map(game => `
+      <div class="game-card" data-id="${game.id}">
+        <img src="${game.img}" onerror="this.src='https://placehold.co/60x60/2a1a4a/fff?text=${game.name.charAt(0)}'">
+        <div><h3>${game.name}</h3><p>${game.chips.length} читов • песочница / PVP</p></div>
+      </div>
+    `).join("");
+    document.querySelectorAll(".game-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const game = gamesCatalog.find(g => g.id === card.dataset.id);
+        if (game) openPanel(game);
+      });
+    });
+  }
 
-renderGames();
-setLanguage('ru');
-updateCounters();
+  function openPanel(game) {
+    const panel = document.getElementById("cheatsPanel");
+    const overlay = document.getElementById("overlay");
+    const content = document.getElementById("panelContent");
+    content.innerHTML = `<h2>${game.name} — ${game.chips.length} читов</h2>`;
+    game.chips.forEach(cheat => {
+      content.innerHTML += `
+        <div class="cheat-item">
+          <div><strong>⚡ ${cheat}</strong></div>
+          <button class="download-btn" data-name="${cheat}">📥 Скачать ${cheat}</button>
+        </div>
+      `;
+    });
+    document.querySelectorAll(".download-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        addDownload();
+        const a = document.createElement("a");
+        a.href = DOWNLOAD_LINK;
+        a.download = "VIP_Cheats_Setup.rar";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    });
+    panel.classList.add("open");
+    overlay.classList.add("open");
+  }
+
+  document.getElementById("panelClose").onclick = () => {
+    document.getElementById("cheatsPanel").classList.remove("open");
+    document.getElementById("overlay").classList.remove("open");
+  };
+  document.getElementById("overlay").onclick = () => {
+    document.getElementById("cheatsPanel").classList.remove("open");
+    document.getElementById("overlay").classList.remove("open");
+  };
+
+  // Мультиязык (полный перевод, включая водянистые тексты)
+  const langData = {
+    ru: {
+      heroTitle: "💀 Скачать лучшие читы 💀",
+      heroDesc: "Плагины, софт, проги — которые ты не найдёшь на других каналах. У нас есть всё. Остальные отдыхают.",
+      chooseGameBtn: "🎮 Выбрать игру",
+      funTimeBtn: "🎁 FunTime события",
+      stat1Label: "загрузок всего",
+      stat2Label: "сегодня",
+      stat3Label: "игр",
+      allGamesTitle: "📌 Все игры и читы",
+      aboutTitle: "🔥 О нас",
+      missionTitle: "Наша миссия",
+      missionText: "VIP Cheats — платформа для геймеров, которые хотят усилить свой опыт. Мы создаём удобный и безопасный архив софта.",
+      teamTitle: "Наша команда",
+      teamText: "Разработчики и геймеры с опытом, которые понимают, что нужно сообществу. Каждый день мониторим лучшие приватные сборки.",
+      contactTitle: "Связаться",
+      contactText: "Telegram: @managervipcheats\nEmail: vipcheats@hub.ru",
+      rulesTitle: "📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ",
+      rulesText1: "Все материалы предоставляются «как есть». Мы не гарантируем отсутствие риска блокировки аккаунтов. Запрещено распространять читы с сайта на платной основе.",
+      rulesText2: "При использовании сайта собираются анонимные данные (IP, cookies). Данные не передаются третьим лицам. Реклама на сайте не контролируется нами.",
+      rulesText3: "Споры решаются по законодательству РФ. Мы оставляем право менять соглашение. Актуальная версия всегда здесь."
+    },
+    en: {
+      heroTitle: "💀 Download best cheats 💀",
+      heroDesc: "Plugins, software, tools — you won't find elsewhere. We have everything. Others are resting.",
+      chooseGameBtn: "🎮 Choose game",
+      funTimeBtn: "🎁 FunTime events",
+      stat1Label: "total downloads",
+      stat2Label: "today",
+      stat3Label: "games",
+      allGamesTitle: "📌 All games & cheats",
+      aboutTitle: "🔥 About us",
+      missionTitle: "Our mission",
+      missionText: "VIP Cheats — platform for gamers who want to enhance their experience. We create a safe archive of software.",
+      teamTitle: "Our team",
+      teamText: "Devs and gamers with experience who understand what the community needs. We monitor private builds daily.",
+      contactTitle: "Contact",
+      contactText: "Telegram: @managervipcheats\nEmail: vipcheats@hub.ru",
+      rulesTitle: "📜 USER AGREEMENT",
+      rulesText1: "All materials are provided 'as is'. We do not guarantee account safety. Redistributing cheats for money is prohibited.",
+      rulesText2: "Anonymous data (IP, cookies) may be collected. Data is not shared with third parties.",
+      rulesText3: "Disputes are resolved under Russian law. We reserve the right to change the agreement. Latest version is always here."
+    }
+  };
+
+  function setLang(lang) {
+    const t = langData[lang];
+    document.getElementById("heroTitle").innerText = t.heroTitle;
+    document.getElementById("heroDesc").innerText = t.heroDesc;
+    document.getElementById("chooseGameBtn").innerText = t.chooseGameBtn;
+    document.getElementById("funTimeBtn").innerText = t.funTimeBtn;
+    document.getElementById("stat1Label").innerText = t.stat1Label;
+    document.getElementById("stat2Label").innerText = t.stat2Label;
+    document.getElementById("stat3Label").innerText = t.stat3Label;
+    document.getElementById("allGamesTitle").innerText = t.allGamesTitle;
+    document.getElementById("aboutTitle").innerText = t.aboutTitle;
+    document.getElementById("missionTitle").innerText = t.missionTitle;
+    document.getElementById("missionText").innerText = t.missionText;
+    document.getElementById("teamTitle").innerText = t.teamTitle;
+    document.getElementById("teamText").innerText = t.teamText;
+    document.getElementById("contactTitle").innerText = t.contactTitle;
+    document.getElementById("contactText").innerHTML = t.contactText.replace(/\n/g, "<br>");
+    document.getElementById("rulesTitle").innerText = t.rulesTitle;
+    document.getElementById("rulesText1").innerText = t.rulesText1;
+    document.getElementById("rulesText2").innerText = t.rulesText2;
+    document.getElementById("rulesText3").innerHTML = t.rulesText3;
+
+    document.getElementById("ruBtn").classList.toggle("active", lang === "ru");
+    document.getElementById("enBtn").classList.toggle("active", lang === "en");
+  }
+
+  document.getElementById("ruBtn").onclick = () => setLang("ru");
+  document.getElementById("enBtn").onclick = () => setLang("en");
+
+  renderGames();
+  updateStats();
+  setLang("ru");
 </script>
 </body>
 </html>
