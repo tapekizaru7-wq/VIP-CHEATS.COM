@@ -6,370 +6,64 @@
   <title>VIP CHEATS — читы, софт, плагины</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #0b0b1a;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
-      line-height: 1.5;
-    }
-
-    /* АНИМАЦИИ И НЕОН */
-    @keyframes neonPulse {
-      0% { text-shadow: 0 0 10px #ff44cc, 0 0 20px #ff44cc; }
-      100% { text-shadow: 0 0 20px #ff44cc, 0 0 40px #ff44cc, 0 0 60px #a22eff; }
-    }
-
-    @keyframes borderGlow {
-      0% { border-color: #ff44cc66; box-shadow: 0 0 0px #ff44cc; }
-      100% { border-color: #ff44cc; box-shadow: 0 0 20px #ff44cc66; }
-    }
-
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 20px 25px;
-    }
-
-    /* ШАПКА */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 15px 0 25px;
-      border-bottom: 2px solid #ff44cc55;
-      margin-bottom: 40px;
-    }
-
-    .logo {
-      font-size: 3rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ff66cc, #ff44cc, #aa33ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: neonPulse 1.5s ease-in-out infinite alternate;
-      letter-spacing: 2px;
-    }
-
-    .lang-switch {
-      background: #1a1a2e;
-      padding: 10px 20px;
-      border-radius: 50px;
-      border: 1px solid #ff44cc;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .lang-switch span {
-      padding: 0 10px;
-      cursor: pointer;
-      font-size: 1.1rem;
-    }
-
-    .lang-switch .active {
-      color: #ff66cc;
-      text-shadow: 0 0 5px #ff66cc;
-    }
-
-    /* ГЕРОЙ */
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #0f0f2a, #050510);
-      border-radius: 40px;
-      margin-bottom: 50px;
-      border: 1px solid #ff44cc66;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      color: #ccc;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(95deg, #ff44cc, #a22eff);
-      color: white;
-      box-shadow: 0 0 15px #ff44cc;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ff44cc;
-    }
-
-    .btn-outline {
-      border: 2px solid #ff66cc;
-      color: #ffccff;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: #ff44cc22;
-      transform: scale(1.02);
-    }
-
-    /* СТАТИСТИКА */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin: 50px 0;
-    }
-
-    .stat-card {
-      background: #0f0b24dd;
-      backdrop-filter: blur(4px);
-      padding: 20px 40px;
-      border-radius: 30px;
-      text-align: center;
-      border: 1px solid #ff66cc66;
-      min-width: 160px;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #ff88dd;
-    }
-
-    /* СЕТКА ИГР */
-    .section-title {
-      font-size: 2rem;
-      margin: 40px 0 20px;
-      border-left: 5px solid #ff44cc;
-      padding-left: 20px;
-    }
-
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px;
-      margin: 30px 0;
-    }
-
-    .game-card {
-      background: #0e0a1f;
-      border-radius: 24px;
-      padding: 18px;
-      border: 1px solid #bb77ff55;
-      transition: 0.2s;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .game-card:hover {
-      border-color: #ff66cc;
-      transform: translateY(-5px);
-      background: #16112e;
-      animation: borderGlow 0.3s ease;
-    }
-
-    .game-card img {
-      width: 55px;
-      height: 55px;
-      object-fit: contain;
-      background: #111;
-      border-radius: 16px;
-      padding: 8px;
-    }
-
-    .game-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-
-    .game-card p {
-      color: #aaa;
-      font-size: 0.8rem;
-    }
-
-    /* МОДАЛЬНОЕ ОКНО (как на CheatHub) */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000000dd;
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: #0f0b22;
-      border-radius: 32px;
-      max-width: 500px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 30px;
-      border: 2px solid #ff44cc;
-      box-shadow: 0 0 50px #ff44cc66;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-
-    .modal-close {
-      cursor: pointer;
-      font-size: 2rem;
-    }
-
-    .modal-cheat {
-      background: #1e1a3a;
-      margin: 12px 0;
-      padding: 12px;
-      border-radius: 20px;
-    }
-
-    .download-modal-btn {
-      width: 100%;
-      margin-top: 8px;
-      padding: 10px;
-      background: linear-gradient(90deg, #ff44cc, #a22eff);
-      border: none;
-      border-radius: 40px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* ВОДА — преимущества, цитата, FAQ */
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin: 60px 0;
-      justify-content: center;
-    }
-
-    .feature {
-      background: #0e0a1faa;
-      padding: 25px;
-      border-radius: 28px;
-      text-align: center;
-      flex: 1;
-      min-width: 200px;
-      border: 1px solid #ff88dd33;
-    }
-
-    .feature i {
-      font-size: 2.5rem;
-      color: #ff66cc;
-      margin-bottom: 15px;
-    }
-
-    .quote-block {
-      background: linear-gradient(135deg, #1a0a2a, #0a0518);
-      padding: 40px;
-      border-radius: 40px;
-      text-align: center;
-      margin: 40px 0;
-      font-size: 1.3rem;
-      font-style: italic;
-      border-left: 8px solid #ff44cc;
-      border-right: 8px solid #ff44cc;
-    }
-
-    .faq {
-      margin: 40px 0;
-    }
-    .faq-item {
-      background: #0e0a1f;
-      margin: 15px 0;
-      padding: 20px;
-      border-radius: 20px;
-    }
-    .faq-item h4 {
-      color: #ff88dd;
-      margin-bottom: 10px;
-    }
-
-    /* ОГРОМНОЕ СОГЛАШЕНИЕ */
-    .agreement {
-      background: #0a0522;
-      border-radius: 30px;
-      padding: 40px;
-      margin: 50px 0 30px;
-      border: 1px solid #334;
-    }
-    .agreement h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-    .agreement p, .agreement li {
-      margin: 12px 0;
-      line-height: 1.5;
-      color: #bbb;
-    }
-    .agreement ul {
-      padding-left: 30px;
-    }
-
-    /* ПОДВАЛ С ССЫЛКАМИ */
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin: 30px 0 20px;
-    }
-    .footer-links a {
-      color: #ff99ee;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid #2a2255;
-      margin-top: 20px;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a14; color: #e0e0e0; font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.5; }
+    @keyframes neon { 0% { text-shadow: 0 0 5px #ff44cc; } 100% { text-shadow: 0 0 20px #ff44cc, 0 0 30px #a22eff; } }
+    .container { max-width: 1300px; margin: 0 auto; padding: 20px; }
+    
+    /* шапка */
+    .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 15px 0 25px; border-bottom: 2px solid #ff44cc55; margin-bottom: 40px; }
+    .logo { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #ff88dd, #ff44cc, #aa66ff); -webkit-background-clip: text; background-clip: text; color: transparent; animation: neon 1.5s infinite alternate; }
+    .lang-switch { background: #1a1a2e; padding: 8px 18px; border-radius: 50px; border: 1px solid #ff44cc; cursor: pointer; }
+    .lang-switch span { padding: 0 10px; cursor: pointer; font-weight: bold; }
+    .lang-switch .active { color: #ff66cc; text-shadow: 0 0 5px #ff66cc; }
+    
+    /* герой */
+    .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #0f0f2a, #050510); border-radius: 40px; margin-bottom: 50px; border: 1px solid #ff44cc66; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
+    .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 25px; color: #ccc; }
+    .btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary { background: linear-gradient(95deg, #ff44cc, #a22eff); color: white; box-shadow: 0 0 15px #ff44cc; }
+    .btn-primary:hover { transform: scale(1.02); }
+    
+    /* статистика */
+    .stats { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 40px 0; }
+    .stat-card { background: #0f0b24dd; backdrop-filter: blur(4px); padding: 18px 35px; border-radius: 28px; text-align: center; border: 1px solid #ff66cc66; }
+    .stat-number { font-size: 2.2rem; font-weight: bold; color: #ff88dd; }
+    
+    /* сетка */
+    .section-title { font-size: 2rem; margin: 40px 0 20px; border-left: 5px solid #ff44cc; padding-left: 20px; scroll-margin-top: 80px; }
+    .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
+    .game-card { background: #0e0a1f; border-radius: 24px; padding: 16px; border: 1px solid #bb77ff55; transition: 0.2s; cursor: pointer; display: flex; align-items: center; gap: 15px; }
+    .game-card:hover { border-color: #ff66cc; transform: translateY(-4px); background: #16112e; }
+    .game-card img { width: 55px; height: 55px; object-fit: contain; background: #111; border-radius: 14px; padding: 8px; }
+    .game-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .game-card p { color: #aaa; font-size: 0.75rem; }
+    
+    /* модалка */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000dd; backdrop-filter: blur(10px); z-index: 1000; justify-content: center; align-items: center; }
+    .modal-content { background: #0f0b22; border-radius: 32px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; padding: 25px; border: 2px solid #ff44cc; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 1.5rem; }
+    .modal-close { cursor: pointer; font-size: 2rem; }
+    .modal-cheat { background: #1e1a3a; margin: 10px 0; padding: 12px; border-radius: 18px; }
+    .download-modal-btn { width: 100%; margin-top: 8px; padding: 8px; background: linear-gradient(90deg, #ff44cc, #a22eff); border: none; border-radius: 40px; color: white; font-weight: bold; cursor: pointer; }
+    
+    /* вода */
+    .features { display: flex; flex-wrap: wrap; gap: 25px; margin: 60px 0; justify-content: center; }
+    .feature { background: #0e0a1faa; padding: 20px; border-radius: 28px; text-align: center; flex: 1; min-width: 180px; border: 1px solid #ff88dd33; }
+    .feature i { font-size: 2rem; color: #ff66cc; margin-bottom: 10px; }
+    .quote-block { background: linear-gradient(135deg, #1a0a2a, #0a0518); padding: 35px; border-radius: 40px; text-align: center; margin: 40px 0; font-style: italic; border-left: 6px solid #ff44cc; border-right: 6px solid #ff44cc; }
+    .faq-item { background: #0e0a1f; margin: 15px 0; padding: 18px; border-radius: 20px; }
+    .faq-item h4 { color: #ff88dd; margin-bottom: 8px; }
+    
+    /* соглашение */
+    .agreement { background: #0a0522; border-radius: 30px; padding: 35px; margin: 50px 0 30px; border: 1px solid #334; }
+    .agreement h3 { font-size: 1.6rem; margin-bottom: 20px; }
+    .agreement p, .agreement li { margin: 10px 0; color: #bbb; }
+    
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 30px 0 20px; }
+    .footer-links a { color: #ff99ee; text-decoration: none; }
+    footer { text-align: center; padding: 25px; border-top: 1px solid #2a2255; margin-top: 20px; }
   </style>
 </head>
 <body>
@@ -377,17 +71,13 @@
 <div class="container">
   <div class="header">
     <div class="logo">VIP CHEATS</div>
-    <div class="lang-switch" id="langSwitch">
-      <span id="ruBtn" class="active">RU</span> | <span id="enBtn">EN</span>
-    </div>
+    <div class="lang-switch" id="langSwitch"><span id="ruBtn" class="active">RU</span> | <span id="enBtn">EN</span></div>
   </div>
 
   <div class="hero">
     <h1 id="heroTitle">💀 Скачать лучшие читы 💀</h1>
     <p id="heroDesc">Плагины, софт, проги — которые ты не найдёшь на других каналах. У нас есть всё. Остальные отдыхают.</p>
-    <div class="btn-group">
-      <a href="#games" class="btn btn-primary" id="chooseGameBtn">🎮 Выбрать игру</a>
-    </div>
+    <a href="#gamesSection" class="btn btn-primary" id="chooseGameBtn">🎮 Выбрать игру</a>
   </div>
 
   <div class="stats">
@@ -396,40 +86,35 @@
     <div class="stat-card"><div class="stat-number">15+</div><div id="stat3Label">игр и софта</div></div>
   </div>
 
-  <h2 class="section-title" id="gamesTitle" style="scroll-margin-top: 80px;">📌 Все игры и читы</h2>
+  <h2 class="section-title" id="gamesSection">📌 Все игры и читы</h2>
   <div class="games-grid" id="gamesGrid"></div>
 
-  <!-- ВОДА: преимущества -->
   <div class="features">
-    <div class="feature"><i class="fas fa-shield-alt"></i><h3 id="feature1Title">Безопасно</h3><p id="feature1Desc">Все файлы проверены, 0/72 на VirusTotal</p></div>
-    <div class="feature"><i class="fas fa-sync-alt"></i><h3 id="feature2Title">Обновления</h3><p id="feature2Desc">Ежедневно добавляем новые сборки</p></div>
-    <div class="feature"><i class="fas fa-headset"></i><h3 id="feature3Title">Поддержка</h3><p id="feature3Desc">Отвечаем в Telegram в течение часа</p></div>
-    <div class="feature"><i class="fas fa-gem"></i><h3 id="feature4Title">Эксклюзив</h3><p id="feature4Desc">Софт, которого нет на других каналах</p></div>
+    <div class="feature"><i class="fas fa-shield-alt"></i><h3 id="f1t">Безопасно</h3><p id="f1d">0/72 на VirusTotal</p></div>
+    <div class="feature"><i class="fas fa-sync-alt"></i><h3 id="f2t">Обновления</h3><p id="f2d">Каждый день</p></div>
+    <div class="feature"><i class="fas fa-headset"></i><h3 id="f3t">Поддержка</h3><p id="f3d">Telegram 24/7</p></div>
+    <div class="feature"><i class="fas fa-gem"></i><h3 id="f4t">Эксклюзив</h3><p id="f4d">Только у нас</p></div>
   </div>
 
   <div class="quote-block">
-    <i class="fas fa-quote-left" style="font-size: 2rem; margin-right: 15px;"></i>
-    <span id="quoteText">«VIP Cheats — это не просто читы. Это сообщество, где каждый находит то, что нужно. Без конкурсов. Без разводов.»</span>
-    <i class="fas fa-quote-right" style="font-size: 2rem; margin-left: 15px;"></i>
+    <i class="fas fa-quote-left"></i> <span id="quoteText">«VIP Cheats — это сообщество, где каждый находит то, что нужно. Без конкурсов. Без разводов.»</span> <i class="fas fa-quote-right"></i>
   </div>
 
-  <!-- FAQ (вода) -->
   <div class="faq">
     <h2 id="faqTitle">❓ Часто задаваемые вопросы</h2>
-    <div class="faq-item"><h4 id="q1">🔹 Как скачать?</h4><p id="a1">Нажми на любую игру → выбери чит → нажми «Скачать». Файл начнёт загружаться с GitHub.</p></div>
-    <div class="faq-item"><h4 id="q2">🔹 Это бесплатно?</h4><p id="a2">Да, всё полностью бесплатно. Единственная просьба — подпишись на наши Telegram-каналы.</p></div>
-    <div class="faq-item"><h4 id="q3">🔹 Банят за читы?</h4><p id="a3">Используй на свой страх и риск. Мы не несём ответственности за блокировки аккаунтов.</p></div>
+    <div class="faq-item"><h4 id="q1">🔹 Как скачать?</h4><p id="a1">Нажми на любую игру → выбери чит → нажми «Скачать».</p></div>
+    <div class="faq-item"><h4 id="q2">🔹 Это бесплатно?</h4><p id="a2">Да. Подпишись на наши Telegram-каналы в благодарность.</p></div>
+    <div class="faq-item"><h4 id="q3">🔹 Банят за читы?</h4><p id="a3">На свой страх и риск. Мы не отвечаем за блокировки.</p></div>
   </div>
 
-  <!-- ОГРОМНОЕ СОГЛАШЕНИЕ -->
   <div class="agreement" id="agreementBlock">
     <h3 id="agreeTitle">📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h3>
-    <p id="agreeText1"><strong>1. Общие положения</strong><br>Настоящее Соглашение регулирует использование сайта VIP Cheats (далее — «Сайт»), предоставляющего бесплатные программные модификации («читы») для компьютерных игр. Используя Сайт, вы соглашаетесь с условиями данного документа.</p>
-    <p id="agreeText2"><strong>2. Условия использования</strong><br>2.1. Все материалы предоставляются «как есть». Мы не гарантируем: работоспособность читов (разработчики игр могут блокировать их); отсутствие риска блокировки вашего аккаунта.<br>2.2. Запрещено: распространять читы с Сайта на платной основе; использовать Сайт для распространения вирусов/спама.</p>
-    <p id="agreeText3"><strong>3. Персональные данные</strong><br>При использовании Сайта мы автоматически собираем: IP-адрес; данные cookies (если включены в браузере). Данные не передаются третьим лицам, кроме случаев, требуемых законом РФ.</p>
-    <p id="agreeText4"><strong>4. Монетизация и реклама</strong><br>Сайт может использовать системы показа рекламы. Мы не контролируем содержание рекламных материалов и не несём ответственности за услуги/товары, рекламируемые через баннеры.</p>
-    <p id="agreeText5"><strong>5. Контакты и разрешение споров</strong><br>По вопросам сотрудничества и жалоб обращайтесь: Telegram: @managervipcheats, Email: vipcheats@hub.ru. Споры решаются в соответствии с законодательством Российской Федерации.</p>
-    <p id="agreeText6"><strong>6. Заключительные положения</strong><br>Мы оставляем право изменять Соглашение без предварительного уведомления. Актуальная версия всегда доступна на этой странице.</p>
+    <p id="agreeText1"><strong>1. Общие положения</strong><br>Настоящее Соглашение регулирует использование сайта VIP Cheats, предоставляющего бесплатные программные модификации («читы») для компьютерных игр. Используя Сайт, вы соглашаетесь с условиями данного документа.</p>
+    <p id="agreeText2"><strong>2. Условия использования</strong><br>2.1. Все материалы предоставляются «как есть». Мы не гарантируем работоспособность читов и отсутствие риска блокировки аккаунта.<br>2.2. Запрещено распространять читы с Сайта на платной основе.</p>
+    <p id="agreeText3"><strong>3. Персональные данные</strong><br>Собираем IP-адрес и cookies. Данные не передаются третьим лицам, кроме случаев, требуемых законом РФ.</p>
+    <p id="agreeText4"><strong>4. Монетизация и реклама</strong><br>Сайт может использовать рекламные сети. Мы не контролируем содержание рекламы.</p>
+    <p id="agreeText5"><strong>5. Контакты</strong><br>Telegram: @managervipcheats, Email: vipcheats@hub.ru. Споры решаются по законодательству РФ.</p>
+    <p id="agreeText6"><strong>6. Заключительные положения</strong><br>Мы оставляем право изменять Соглашение. Актуальная версия всегда здесь.</p>
   </div>
 
   <div class="footer-links">
@@ -440,156 +125,153 @@
     <a href="https://vk.com/club235500419" target="_blank"><i class="fab fa-vk"></i> VK</a>
     <a href="https://t.me/managervipcheats" target="_blank"><i class="fas fa-headset"></i> Поддержка</a>
   </div>
-  <footer>
-    <p>© VIP CHEATS — Абсолютный архив читов, софта и плагинов. Подпишись на наши каналы, чтобы ничего не потерять.</p>
-  </footer>
+  <footer><p>© VIP CHEATS — Подпишись на наши каналы, чтобы ничего не потерять.</p></footer>
 </div>
 
-<!-- Модальное окно -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header"><span id="modalTitle"></span><span class="modal-close" id="modalClose">&times;</span></div>
-    <div id="modalBody"></div>
-  </div>
-</div>
+<div id="modal" class="modal"><div class="modal-content"><div class="modal-header"><span id="modalTitle"></span><span class="modal-close" id="modalClose">&times;</span></div><div id="modalBody"></div></div></div>
 
 <script>
-  // ==================== ПОЛНЫЙ СПИСОК ИГР И ЧИТОВ ====================
-  const gamesCatalog = [
-    { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
-    { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
-    { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal", "FORTNITE (Premium)", "FrozenFree"] },
-    { id: "minecraft", name: "Minecraft HVH", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia", "Nursultan", "ZENITH", "Delta"] },
-    { id: "gta", name: "GTA (V / RP / SA)", img: "https://cdn-icons-png.flaticon.com/512/1234/1234567.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
-    { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE (Roblox)", "SeliWare Executor", "Fix", "Lunar Hub"] },
-    { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)", "DeusHack", "AquaCheats", "CAT TECH", "specterdex", "SUPERIORITY", "VECTOR EXTERNAL"] },
-    { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ", "FULL (Valorant)"] },
-    { id: "garrysmod", name: "Garry's Mod", img: "https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg", chips: ["GRUST"] },
-    { id: "dbd", name: "Dead by Daylight", img: "https://img.icons8.com/color/64/dead-by-daylight.png", chips: ["SelinCheat"] },
-    { id: "genshin", name: "Genshin Impact", img: "https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg", chips: ["Shika"] },
-    { id: "warface", name: "Warface", img: "https://img.icons8.com/color/64/warface.png", chips: ["MASON HACK"] },
-    { id: "worldoftanks", name: "World of Tanks", img: "https://img.icons8.com/color/64/tank.png", chips: ["WARPACK"] },
-    { id: "dota", name: "Dota 2", img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips: ["SkinChanger"] },
-    { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "Discord Fix", "Roblox Fix", "Optimization PC", "VoiceMod", "Telegram F1X", "HWID FIX", "Optimization CrystalFix", "AI VOICE CHANGER", "NetBoost", "StartAllBlack", "ExitLag", "Adobe Photoshop Free", "Cheat Engine"] }
-  ];
+// ==================== ПОЛНЫЙ СПИСОК ИГР (НИЧЕГО НЕ УДАЛЕНО) ====================
+const gamesCatalog = [
+  { id: "standoff2", name: "STANDOFF 2", img: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3e/Standoff_2_logo.png/200px-Standoff_2_logo.png", chips: ["Zenin", "NerestPC", "Panterium", "Ultimate", "Custom", "Impulse", "XANTARES", "Devix", "Dysphoria"] },
+  { id: "cs2", name: "CS2 / CS1.6", img: "https://img.icons8.com/color/64/counter-strike.png", chips: ["Skeet/GAMESENSE", "AlterNative", "NixWare", "XONE", "MemeSense", "Nonagon", "Midnight", "EnigmaTech", "Hone", "Aimware"] },
+  { id: "fortnite", name: "Fortnite", img: "https://img.icons8.com/color/64/fortnite.png", chips: ["FortniteExternal", "FORTNITE (Premium)", "FrozenFree"] },
+  { id: "minecraft", name: "Minecraft HVH", img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png", chips: ["Celestia", "Nursultan", "ZENITH", "Delta"] },
+  { id: "gta", name: "GTA (V / RP / SA)", img: "https://cdn-icons-png.flaticon.com/512/1234/1234567.png", chips: ["SANLauncher", "Vanish", "Altv3V", "GTA V", "1337"] },
+  { id: "roblox", name: "Roblox", img: "https://img.icons8.com/color/64/roblox.png", chips: ["XONE (Roblox)", "SeliWare Executor", "Fix", "Lunar Hub"] },
+  { id: "rust", name: "Rust", img: "https://img.icons8.com/color/64/rust.png", chips: ["Cheat (Rust)", "DeusHack", "AquaCheats", "CAT TECH", "specterdex", "SUPERIORITY", "VECTOR EXTERNAL"] },
+  { id: "valorant", name: "Valorant", img: "https://img.icons8.com/color/64/valorant.png", chips: ["MEMEZ", "FULL (Valorant)"] },
+  { id: "garrysmod", name: "Garry's Mod", img: "https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg", chips: ["GRUST"] },
+  { id: "dbd", name: "Dead by Daylight", img: "https://img.icons8.com/color/64/dead-by-daylight.png", chips: ["SelinCheat"] },
+  { id: "genshin", name: "Genshin Impact", img: "https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg", chips: ["Shika"] },
+  { id: "warface", name: "Warface", img: "https://img.icons8.com/color/64/warface.png", chips: ["MASON HACK"] },
+  { id: "worldoftanks", name: "World of Tanks", img: "https://img.icons8.com/color/64/tank.png", chips: ["WARPACK"] },
+  { id: "dota", name: "Dota 2", img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips: ["SkinChanger"] },
+  { id: "software", name: "ПО / ПРОЧЕЕ", img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips: ["Discord Nitro", "Оптимизация ПК", "Discord Fix", "Roblox Fix", "Optimization PC", "VoiceMod", "Telegram F1X", "HWID FIX", "Optimization CrystalFix", "AI VOICE CHANGER", "NetBoost", "StartAllBlack", "ExitLag", "Adobe Photoshop Free", "Cheat Engine"] }
+];
 
-  const DOWNLOAD_URL = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
+const DOWNLOAD_URL = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
+let totalDownloads = parseInt(localStorage.getItem("totalDownloads")) || 1870;
+let todayDl = parseInt(localStorage.getItem("todayDownloads")) || 0;
 
-  let totalDownloads = parseInt(localStorage.getItem("totalDownloads")) || 1870;
-  let todayDl = parseInt(localStorage.getItem("todayDownloads")) || 0;
+function updateStats() {
+  document.getElementById("downloadsCount").innerText = totalDownloads;
+  document.getElementById("todayCount").innerText = todayDl;
+  localStorage.setItem("totalDownloads", totalDownloads);
+  localStorage.setItem("todayDownloads", todayDl);
+}
+function addDownload() { totalDownloads++; todayDl++; updateStats(); }
 
-  function updateStats() {
-    document.getElementById("downloadsCount").innerText = totalDownloads;
-    document.getElementById("todayCount").innerText = todayDl;
-    localStorage.setItem("totalDownloads", totalDownloads);
-    localStorage.setItem("todayDownloads", todayDl);
-  }
-  function addDownload() { totalDownloads++; todayDl++; updateStats(); }
-
-  function renderGames() {
-    const grid = document.getElementById("gamesGrid");
-    grid.innerHTML = gamesCatalog.map(game => `
-      <div class="game-card" data-id="${game.id}">
-        <img src="${game.img}" onerror="this.src='https://placehold.co/55x55/1e1a3a/fff?text=${game.name.charAt(0)}'">
-        <div><h3>${game.name}</h3><p>${game.chips.length} читов</p></div>
-      </div>
-    `).join("");
-    document.querySelectorAll(".game-card").forEach(card => {
-      card.addEventListener("click", () => {
-        const game = gamesCatalog.find(g => g.id === card.dataset.id);
-        if (game) openModal(game);
-      });
+function renderGames() {
+  const grid = document.getElementById("gamesGrid");
+  grid.innerHTML = gamesCatalog.map(game => `
+    <div class="game-card" data-id="${game.id}">
+      <img src="${game.img}" onerror="this.src='https://placehold.co/55x55/1e1a3a/fff?text=${game.name.charAt(0)}'">
+      <div><h3>${game.name}</h3><p>${game.chips.length} читов</p></div>
+    </div>
+  `).join("");
+  document.querySelectorAll(".game-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const game = gamesCatalog.find(g => g.id === card.dataset.id);
+      if (game) openModal(game);
     });
-  }
+  });
+}
 
-  function openModal(game) {
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalBody = document.getElementById("modalBody");
-    modalTitle.innerText = `${game.name} — ${game.chips.length} читов`;
-    modalBody.innerHTML = "";
-    game.chips.forEach(cheat => {
-      const div = document.createElement("div");
-      div.className = "modal-cheat";
-      div.innerHTML = `<strong>⚡ ${cheat}</strong><button class="download-modal-btn" data-name="${cheat}">📥 Скачать ${cheat}</button>`;
-      modalBody.appendChild(div);
+function openModal(game) {
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalBody = document.getElementById("modalBody");
+  modalTitle.innerText = `${game.name} — ${game.chips.length} читов`;
+  modalBody.innerHTML = "";
+  game.chips.forEach(cheat => {
+    const div = document.createElement("div");
+    div.className = "modal-cheat";
+    div.innerHTML = `<strong>⚡ ${cheat}</strong><button class="download-modal-btn" data-name="${cheat}">📥 Скачать ${cheat}</button>`;
+    modalBody.appendChild(div);
+  });
+  document.querySelectorAll(".download-modal-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      addDownload();
+      const a = document.createElement("a");
+      a.href = DOWNLOAD_URL;
+      a.download = "VIP_Cheats_Setup.rar";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     });
-    document.querySelectorAll(".download-modal-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        addDownload();
-        const a = document.createElement("a");
-        a.href = DOWNLOAD_URL;
-        a.download = "VIP_Cheats_Setup.rar";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      });
-    });
-    modal.style.display = "flex";
+  });
+  modal.style.display = "flex";
+}
+
+document.getElementById("modalClose").onclick = () => document.getElementById("modal").style.display = "none";
+window.onclick = (e) => { if (e.target === document.getElementById("modal")) document.getElementById("modal").style.display = "none"; };
+document.getElementById("chooseGameBtn").onclick = (e) => { e.preventDefault(); document.getElementById("gamesSection").scrollIntoView({ behavior: "smooth" }); };
+
+const translations = {
+  ru: {
+    heroTitle: "💀 Скачать лучшие читы 💀", heroDesc: "Плагины, софт, проги — которые ты не найдёшь на других каналах. У нас есть всё. Остальные отдыхают.",
+    chooseGameBtn: "🎮 Выбрать игру", stat1Label: "загрузок всего", stat2Label: "сегодня", stat3Label: "игр и софта",
+    f1t: "Безопасно", f1d: "0/72 на VirusTotal", f2t: "Обновления", f2d: "Каждый день", f3t: "Поддержка", f3d: "Telegram 24/7", f4t: "Эксклюзив", f4d: "Только у нас",
+    quoteText: "«VIP Cheats — это сообщество, где каждый находит то, что нужно. Без конкурсов. Без разводов.»",
+    faqTitle: "❓ Часто задаваемые вопросы", q1: "🔹 Как скачать?", a1: "Нажми на любую игру → выбери чит → нажми «Скачать».", q2: "🔹 Это бесплатно?", a2: "Да. Подпишись на наши Telegram-каналы в благодарность.", q3: "🔹 Банят за читы?", a3: "На свой страх и риск. Мы не отвечаем за блокировки.",
+    agreeTitle: "📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ",
+    agreeText1: "1. Общие положения\nНастоящее Соглашение регулирует использование сайта VIP Cheats, предоставляющего бесплатные программные модификации («читы») для компьютерных игр. Используя Сайт, вы соглашаетесь с условиями данного документа.",
+    agreeText2: "2. Условия использования\n2.1. Все материалы предоставляются «как есть». Мы не гарантируем работоспособность читов и отсутствие риска блокировки аккаунта.\n2.2. Запрещено распространять читы с Сайта на платной основе.",
+    agreeText3: "3. Персональные данные\nСобираем IP-адрес и cookies. Данные не передаются третьим лицам, кроме случаев, требуемых законом РФ.",
+    agreeText4: "4. Монетизация и реклама\nСайт может использовать рекламные сети. Мы не контролируем содержание рекламы.",
+    agreeText5: "5. Контакты\nTelegram: @managervipcheats, Email: vipcheats@hub.ru. Споры решаются по законодательству РФ.",
+    agreeText6: "6. Заключительные положения\nМы оставляем право изменять Соглашение. Актуальная версия всегда здесь."
+  },
+  en: {
+    heroTitle: "💀 Download best cheats 💀", heroDesc: "Plugins, software, tools — you won't find elsewhere. We have everything. Others are resting.",
+    chooseGameBtn: "🎮 Choose game", stat1Label: "total downloads", stat2Label: "today", stat3Label: "games & tools",
+    f1t: "Safe", f1d: "0/72 on VirusTotal", f2t: "Updates", f2d: "Daily", f3t: "Support", f3d: "Telegram 24/7", f4t: "Exclusive", f4d: "Only here",
+    quoteText: "«VIP Cheats is a community where everyone finds what they need. No contests. No scams.»",
+    faqTitle: "❓ FAQ", q1: "🔹 How to download?", a1: "Click any game → choose cheat → click Download.", q2: "🔹 Is it free?", a2: "Yes. Subscribe to our Telegram channels.", q3: "🔹 Will I get banned?", a3: "Use at your own risk.",
+    agreeTitle: "📜 USER AGREEMENT",
+    agreeText1: "1. General Provisions\nThis agreement governs the use of the VIP Cheats website, which provides free software modifications ('cheats') for computer games. By using the Site, you agree to the terms.",
+    agreeText2: "2. Terms of Use\n2.1. All materials are provided 'as is'.\n2.2. Redistributing cheats for money is prohibited.",
+    agreeText3: "3. Personal Data\nWe collect IP address and cookies. Data is not shared with third parties.",
+    agreeText4: "4. Monetization\nThe Site may use ad networks.",
+    agreeText5: "5. Contacts\nTelegram: @managervipcheats, Email: vipcheats@hub.ru.",
+    agreeText6: "6. Final Provisions\nWe reserve the right to change the Agreement."
   }
+};
 
-  document.getElementById("modalClose").onclick = () => document.getElementById("modal").style.display = "none";
-  window.onclick = (e) => { if (e.target === document.getElementById("modal")) document.getElementById("modal").style.display = "none"; };
-  document.getElementById("chooseGameBtn").onclick = (e) => { e.preventDefault(); document.getElementById("gamesTitle").scrollIntoView({ behavior: "smooth" }); };
+function setLang(lang) {
+  const t = translations[lang];
+  document.getElementById("heroTitle").innerText = t.heroTitle;
+  document.getElementById("heroDesc").innerText = t.heroDesc;
+  document.getElementById("chooseGameBtn").innerHTML = t.chooseGameBtn;
+  document.getElementById("stat1Label").innerText = t.stat1Label;
+  document.getElementById("stat2Label").innerText = t.stat2Label;
+  document.getElementById("stat3Label").innerText = t.stat3Label;
+  document.getElementById("f1t").innerText = t.f1t; document.getElementById("f1d").innerText = t.f1d;
+  document.getElementById("f2t").innerText = t.f2t; document.getElementById("f2d").innerText = t.f2d;
+  document.getElementById("f3t").innerText = t.f3t; document.getElementById("f3d").innerText = t.f3d;
+  document.getElementById("f4t").innerText = t.f4t; document.getElementById("f4d").innerText = t.f4d;
+  document.getElementById("quoteText").innerText = t.quoteText;
+  document.getElementById("faqTitle").innerText = t.faqTitle;
+  document.getElementById("q1").innerText = t.q1; document.getElementById("a1").innerText = t.a1;
+  document.getElementById("q2").innerText = t.q2; document.getElementById("a2").innerText = t.a2;
+  document.getElementById("q3").innerText = t.q3; document.getElementById("a3").innerText = t.a3;
+  document.getElementById("agreeTitle").innerText = t.agreeTitle;
+  document.getElementById("agreeText1").innerHTML = t.agreeText1.replace(/\n/g, "<br>");
+  document.getElementById("agreeText2").innerHTML = t.agreeText2.replace(/\n/g, "<br>");
+  document.getElementById("agreeText3").innerHTML = t.agreeText3.replace(/\n/g, "<br>");
+  document.getElementById("agreeText4").innerHTML = t.agreeText4.replace(/\n/g, "<br>");
+  document.getElementById("agreeText5").innerHTML = t.agreeText5.replace(/\n/g, "<br>");
+  document.getElementById("agreeText6").innerHTML = t.agreeText6.replace(/\n/g, "<br>");
+  document.getElementById("ruBtn").classList.toggle("active", lang === "ru");
+  document.getElementById("enBtn").classList.toggle("active", lang === "en");
+}
 
-  // ==================== ПОЛНЫЙ ПЕРЕВОД ====================
-  const translations = {
-    ru: {
-      heroTitle: "💀 Скачать лучшие читы 💀", heroDesc: "Плагины, софт, проги — которые ты не найдёшь на других каналах. У нас есть всё. Остальные отдыхают.",
-      chooseGameBtn: "🎮 Выбрать игру", stat1Label: "загрузок всего", stat2Label: "сегодня", stat3Label: "игр и софта",
-      gamesTitle: "📌 Все игры и читы",
-      feature1Title: "Безопасно", feature1Desc: "Все файлы проверены, 0/72 на VirusTotal",
-      feature2Title: "Обновления", feature2Desc: "Ежедневно добавляем новые сборки",
-      feature3Title: "Поддержка", feature3Desc: "Отвечаем в Telegram в течение часа",
-      feature4Title: "Эксклюзив", feature4Desc: "Софт, которого нет на других каналах",
-      quoteText: "«VIP Cheats — это не просто читы. Это сообщество, где каждый находит то, что нужно. Без конкурсов. Без разводов.»",
-      faqTitle: "❓ Часто задаваемые вопросы", q1: "🔹 Как скачать?", a1: "Нажми на любую игру → выбери чит → нажми «Скачать». Файл начнёт загружаться с GitHub.",
-      q2: "🔹 Это бесплатно?", a2: "Да, всё полностью бесплатно. Единственная просьба — подпишись на наши Telegram-каналы.",
-      q3: "🔹 Банят за читы?", a3: "Используй на свой страх и риск. Мы не несём ответственности за блокировки аккаунтов.",
-      agreeTitle: "📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ",
-      agreeText1: "1. Общие положения\nНастоящее Соглашение регулирует использование сайта VIP Cheats, предоставляющего бесплатные программные модификации («читы») для компьютерных игр. Используя Сайт, вы соглашаетесь с условиями данного документа.",
-      agreeText2: "2. Условия использования\n2.1. Все материалы предоставляются «как есть». Мы не гарантируем: работоспособность читов; отсутствие риска блокировки аккаунта.\n2.2. Запрещено: распространять читы с Сайта на платной основе; использовать Сайт для распространения вирусов/спама.",
-      agreeText3: "3. Персональные данные\nПри использовании Сайта мы собираем IP-адрес и cookies. Данные не передаются третьим лицам, кроме случаев, требуемых законом РФ.",
-      agreeText4: "4. Монетизация и реклама\nСайт может использовать рекламные сети. Мы не контролируем содержание рекламных материалов.",
-      agreeText5: "5. Контакты\nTelegram: @managervipcheats, Email: vipcheats@hub.ru. Споры решаются по законодательству РФ.",
-      agreeText6: "6. Заключительные положения\nМы оставляем право изменять Соглашение без уведомления. Актуальная версия всегда здесь."
-    },
-    en: {
-      heroTitle: "💀 Download best cheats 💀", heroDesc: "Plugins, software, tools — you won't find elsewhere. We have everything. Others are resting.",
-      chooseGameBtn: "🎮 Choose game", stat1Label: "total downloads", stat2Label: "today", stat3Label: "games & tools",
-      gamesTitle: "📌 All games & cheats",
-      feature1Title: "Safe", feature1Desc: "All files verified, 0/72 on VirusTotal",
-      feature2Title: "Updates", feature2Desc: "New builds added daily",
-      feature3Title: "Support", feature3Desc: "We reply on Telegram within an hour",
-      feature4Title: "Exclusive", feature4Desc: "Software you won't find elsewhere",
-      quoteText: "«VIP Cheats is not just cheats. It's a community where everyone finds what they need. No contests. No scams.»",
-      faqTitle: "❓ Frequently asked questions", q1: "🔹 How to download?", a1: "Click any game → choose cheat → click Download. File will start downloading from GitHub.",
-      q2: "🔹 Is it free?", a2: "Yes, completely free. Just subscribe to our Telegram channels.",
-      q3: "🔹 Will I get banned?", a3: "Use at your own risk. We are not responsible for account bans.",
-      agreeTitle: "📜 USER AGREEMENT",
-      agreeText1: "1. General Provisions\nThis agreement governs the use of the VIP Cheats website, which provides free software modifications ('cheats') for computer games. By using the Site, you agree to the terms of this document.",
-      agreeText2: "2. Terms of Use\n2.1. All materials are provided 'as is'. We do not guarantee: cheat performance; absence of account ban risk.\n2.2. Prohibited: distributing cheats from the Site for a fee; using the Site to spread viruses/spam.",
-      agreeText3: "3. Personal Data\nWhen using the Site, we collect IP address and cookies. Data is not shared with third parties except as required by Russian law.",
-      agreeText4: "4. Monetization and Advertising\nThe Site may use ad networks. We do not control the content of advertising materials.",
-      agreeText5: "5. Contacts\nTelegram: @managervipcheats, Email: vipcheats@hub.ru. Disputes are resolved under Russian law.",
-      agreeText6: "6. Final Provisions\nWe reserve the right to change the Agreement without notice. The current version is always here."
-    }
-  };
-
-  function setLang(lang) {
-    const t = translations[lang];
-    document.getElementById("heroTitle").innerText = t.heroTitle;
-    document.getElementById("heroDesc").innerText = t.heroDesc;
-    document.getElementById("chooseGameBtn").innerHTML = t.chooseGameBtn;
-    document.getElementById("stat1Label").innerText = t.stat1Label;
-    document.getElementById("stat2Label").innerText = t.stat2Label;
-    document.getElementById("stat3Label").innerText = t.stat3Label;
-    document.getElementById("gamesTitle").innerText = t.gamesTitle;
-    document.getElementById("feature1Title").innerText = t.feature1Title;
-    document.getElementById("feature1Desc").innerText = t.feature1Desc;
-    document.getElementById("feature2Title").innerText = t.feature2Title;
-    document.getElementById("feature2Desc").innerText = t.feature2Desc;
-    document.getElementById("feature3Title").innerText = t.feature3Title;
-    document.getElementById("feature3Desc").innerText = t.feature3Desc;
-    document.getElementById("feature4Title").innerText = t.feature4Title;
-    document.getElementById("feature4Desc").
+renderGames();
+updateStats();
+setLang("ru");
+document.getElementById("ruBtn").onclick = () => setLang("ru");
+document.getElementById("enBtn").onclick = () => setLang("en");
+</script>
+</body>
+</html>
