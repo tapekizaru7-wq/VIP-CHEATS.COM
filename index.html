@@ -399,11 +399,11 @@
 
   <div class="stats-bar">
     <div class="stat-item">
-      <div class="stat-number" id="totalCount">847</div>
+      <div class="stat-number" id="totalCount">13,532</div>
       <div class="stat-label" id="stat1Label">DOWNLOADS</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" id="todayCount">0</div>
+      <div class="stat-number" id="todayCount">1,134</div>
       <div class="stat-label" id="stat2Label">TODAY</div>
     </div>
     <div class="stat-item">
@@ -519,7 +519,7 @@
   </div>
 
   <footer>
-    <p>© 2025 VIP Cheats — <span id="footerDesc">Cheats and software from Telegram</span></p>
+    <p>© 2026 VIP Cheats — <span id="footerDesc">Cheats and software from Telegram</span></p>
     <p style="margin-top: 8px; font-size: 0.78rem; color: #604870;">
       <span id="footerNote">Materials are shared for informational purposes</span> ·
       <a href="https://t.me/managervipcheats">@managervipcheats</a>
@@ -556,21 +556,23 @@ const gamesData = [
   { id:"warface", nameKey:"warface", img:"https://img.icons8.com/color/64/warface.png", chips:["MASON HACK"] },
   { id:"worldoftanks", nameKey:"worldoftanks", img:"https://img.icons8.com/color/64/tank.png", chips:["WARPACK"] },
   { id:"dota", nameKey:"dota", img:"https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg", chips:["SkinChanger"] },
-  { id:"software", nameKey:"software", img:"https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips:["Discord Nitro","PC Optimization","Discord Fix","Roblox Fix","VoiceMod","Telegram Fix","HWID FIX","Optimization CrystalFix","AI Voice Changer","NetBoost","StartAllBlack","ExitLag","Adobe Photoshop Free","Cheat Engine","CCleaner Pro 2026","TradingView Pro 2026","Topaz Gigapixel 2026","Adobe Premiere Pro 2026"] }
+  { id:"arcraiders", nameKey:"arcraiders", img:"https://img.icons8.com/color/64/robot.png", chips:["Keitaro"] },
+  { id:"software", nameKey:"software", img:"https://cdn-icons-png.flaticon.com/512/2920/2920277.png", chips:["Discord Nitro","PC Optimization","Discord Fix","Roblox Fix","VoiceMod","Telegram Fix","HWID FIX","Optimization CrystalFix","AI Voice Changer","NetBoost","StartAllBlack","ExitLag","Adobe Photoshop Free","Cheat Engine","CCleaner Pro 2026","TradingView Pro 2026","Topaz Gigapixel 2026","Adobe Premiere Pro 2026","Adobe Creative Cloud","Shotcut"] }
 ];
 
 const gameNames = {
-  ru: { standoff2:"STANDOFF 2", cs2:"CS2 / CS1.6", fortnite:"Fortnite", minecraft:"Minecraft", gta:"GTA (V/RP/SA)", roblox:"Roblox", rust:"Rust", valorant:"Valorant", garrysmod:"Garry's Mod", dbd:"Dead by Daylight", genshin:"Genshin Impact", warface:"Warface", worldoftanks:"World of Tanks", dota:"Dota 2", software:"Другое" },
-  en: { standoff2:"STANDOFF 2", cs2:"CS2 / CS1.6", fortnite:"Fortnite", minecraft:"Minecraft", gta:"GTA (V/RP/SA)", roblox:"Roblox", rust:"Rust", valorant:"Valorant", garrysmod:"Garry's Mod", dbd:"Dead by Daylight", genshin:"Genshin Impact", warface:"Warface", worldoftanks:"World of Tanks", dota:"Dota 2", software:"Others" }
+  ru: { standoff2:"STANDOFF 2", cs2:"CS2 / CS1.6", fortnite:"Fortnite", minecraft:"Minecraft", gta:"GTA (V/RP/SA)", roblox:"Roblox", rust:"Rust", valorant:"Valorant", garrysmod:"Garry's Mod", dbd:"Dead by Daylight", genshin:"Genshin Impact", warface:"Warface", worldoftanks:"World of Tanks", dota:"Dota 2", arcraiders:"Arc Raiders", software:"Другое" },
+  en: { standoff2:"STANDOFF 2", cs2:"CS2 / CS1.6", fortnite:"Fortnite", minecraft:"Minecraft", gta:"GTA (V/RP/SA)", roblox:"Roblox", rust:"Rust", valorant:"Valorant", garrysmod:"Garry's Mod", dbd:"Dead by Daylight", genshin:"Genshin Impact", warface:"Warface", worldoftanks:"World of Tanks", dota:"Dota 2", arcraiders:"Arc Raiders", software:"Others" }
 };
 
 const DOWNLOAD_URL = "https://github.com/tapekizaru7-wq/vipcheats/raw/refs/heads/main/setup.launcher-1.6.9.rar";
-let totalDownloads = parseInt(localStorage.getItem('totalDownloads')) || 847;
-let todayDownloads = parseInt(localStorage.getItem('todayDownloads')) || 0;
+let totalDownloads = Math.max(parseInt(localStorage.getItem('totalDownloads')) || 0, 13532);
+let todayDownloads = Math.max(parseInt(localStorage.getItem('todayDownloads')) || 0, 1134);
 
+function formatNum(n) { return n.toLocaleString('en-US'); }
 function updateCounters() {
-  document.getElementById('totalCount').innerText = totalDownloads;
-  document.getElementById('todayCount').innerText = todayDownloads;
+  document.getElementById('totalCount').innerText = formatNum(totalDownloads);
+  document.getElementById('todayCount').innerText = formatNum(todayDownloads);
   localStorage.setItem('totalDownloads', totalDownloads);
   localStorage.setItem('todayDownloads', todayDownloads);
 }
@@ -777,5 +779,3 @@ setLang('en');
 </script>
 </body>
 </html>
-HTMLEOF
-echo "done"
