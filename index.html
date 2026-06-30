@@ -17,46 +17,34 @@
     .particle{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(217,70,239,0.15),transparent);animation:floatP linear infinite}
     @keyframes floatP{0%{transform:translateY(110vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:.5}100%{transform:translateY(-10vh) scale(1.5);opacity:0}}
     .container{max-width:1400px;margin:0 auto;padding:20px;position:relative;z-index:1}
-    /* LANG BTN */
     .lang-btn{position:fixed;top:20px;right:20px;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);padding:8px 20px;border-radius:50px;cursor:pointer;z-index:9999;border:1px solid var(--purple);font-family:'Orbitron',sans-serif;font-size:.75rem}
     .lang-btn span{padding:0 10px;cursor:pointer;transition:color .2s}
     .lang-btn .active{color:var(--pink);border-bottom:2px solid var(--pink)}
-    /* HERO */
     .hero{text-align:center;padding:60px 0 30px}
     .title-wrapper{position:relative;display:inline-block}
     .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,8rem);letter-spacing:.08em;line-height:1;color:#fff;-webkit-text-stroke:2px rgba(217,70,239,.6)}
     .title-glow{position:absolute;inset:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,8rem);letter-spacing:.08em;line-height:1;background:linear-gradient(135deg,#ff85c0 0%,#d946ef 40%,#f0f 70%,#a21caf 100%);-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3s ease-in-out infinite}
     @keyframes shimmer{0%,100%{opacity:1;filter:drop-shadow(0 0 20px rgba(255,0,255,.5))}50%{opacity:.85;filter:drop-shadow(0 0 50px rgba(255,0,255,.9))}}
-    .title-sub-label{font-family:'Orbitron',sans-serif;font-size:clamp(.6rem,1.5vw,.85rem);letter-spacing:.5em;color:rgba(255,133,192,.6);text-transform:uppercase;display:block;margin-top:-6px}
-    .subtitle{font-size:1.25rem;color:var(--pink);margin-top:1.2rem;font-weight:600}
-    /* STATS */
     .stats-bar{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin:3rem 0}
     .stat-item{background:rgba(0,0,0,.6);backdrop-filter:blur(8px);padding:22px 36px;border-radius:24px;text-align:center;border:1px solid var(--border);transition:transform .3s,border-color .3s}
     .stat-item:hover{transform:translateY(-4px);border-color:var(--pink)}
-    .stat-number{font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--pink);animation:pulse 2s ease-in-out infinite}
-    @keyframes pulse{0%,100%{text-shadow:0 0 10px rgba(255,133,192,.4)}50%{text-shadow:0 0 25px rgba(255,133,192,.8)}}
+    .stat-number{font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--pink)}
     .stat-label{font-size:.85rem;color:#c0b0dd;margin-top:4px;letter-spacing:.05em}
-    /* BADGES */
     .badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin:1.5rem 0}
-    .badge{background:rgba(0,255,200,.08);padding:7px 18px;border-radius:40px;border:1px solid rgba(0,255,200,.35);font-size:.85rem;font-weight:600;transition:background .3s,transform .2s}
-    .badge:hover{background:rgba(0,255,200,.15);transform:scale(1.04)}
+    .badge{background:rgba(0,255,200,.08);padding:7px 18px;border-radius:40px;border:1px solid rgba(0,255,200,.35);font-size:.85rem;font-weight:600}
     .featured-image{text-align:center;margin:2.5rem 0}
     .featured-image img{max-width:min(700px,100%);border-radius:28px;border:2px solid rgba(255,133,192,.5);box-shadow:0 0 40px rgba(217,70,239,.2)}
-    /* BTN */
     .btn-primary{display:inline-block;padding:14px 38px;background:linear-gradient(135deg,var(--purple),var(--deep));border-radius:50px;color:white;text-decoration:none;font-weight:700;font-family:'Orbitron',sans-serif;font-size:.85rem;letter-spacing:.05em;margin:20px 0;box-shadow:0 0 20px rgba(217,70,239,.45);transition:transform .25s,box-shadow .25s;cursor:pointer;border:none}
     .btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 35px rgba(217,70,239,.7)}
-    /* DIVIDER */
     .section-divider{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem}
     .section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(217,70,239,.5),transparent)}
     .section-divider span{font-family:'Orbitron',sans-serif;font-size:.7rem;letter-spacing:.3em;color:var(--pink);white-space:nowrap}
-    /* FEATURES */
     .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
     .feature-card{background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:20px;padding:1.5rem;text-align:center;transition:transform .3s,border-color .3s}
     .feature-card:hover{transform:translateY(-5px);border-color:var(--pink)}
     .feature-icon{font-size:2rem;margin-bottom:.8rem}
     .feature-card h4{color:var(--pink);font-size:1rem;margin-bottom:.4rem}
     .feature-card p{font-size:.8rem;color:#a090cc}
-    /* GAMES GRID — HOME */
     .games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin:1.5rem 0 3rem}
     .game-card{background:var(--card-bg);backdrop-filter:blur(6px);padding:1rem 1.2rem;border-radius:20px;cursor:pointer;border:1px solid var(--border);transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s;display:flex;align-items:center;gap:1rem;position:relative;overflow:hidden}
     .game-card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--pink);box-shadow:0 10px 30px rgba(217,70,239,.2)}
@@ -65,31 +53,25 @@
     .game-card p{font-size:.72rem;color:#a090cc}
     .game-card .arrow{margin-left:auto;color:var(--purple);opacity:0;transform:translateX(-5px);transition:opacity .3s,transform .3s;flex-shrink:0}
     .game-card:hover .arrow{opacity:1;transform:translateX(0)}
-    /* PAGE: CHEATS LIST */
-    #cheatsListPage{display:none}
+    #cheatsListPage,#cheatDetailPage{display:none}
     .back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:50px;background:rgba(217,70,239,.15);border:1px solid var(--purple);color:var(--pink);cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:1.5rem;transition:background .2s,transform .2s}
     .back-btn:hover{background:rgba(217,70,239,.25);transform:translateX(-3px)}
     .cheats-list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin:1.5rem 0 3rem}
     .cheat-list-card{background:var(--card-bg);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s}
     .cheat-list-card:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:0 10px 30px rgba(217,70,239,.2)}
-    .cheat-list-thumb{width:100%;height:160px;object-fit:cover;background:linear-gradient(135deg,#1a0033,#0a0a2a);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
-    .cheat-list-thumb img{width:100%;height:160px;object-fit:cover}
-    .cfg-badge{position:absolute;top:8px;right:8px;background:#4c1d95;color:#c084fc;font-size:.65rem;font-family:'Orbitron',sans-serif;padding:3px 8px;border-radius:6px;font-weight:700}
+    .cheat-list-thumb{width:100%;height:160px;object-fit:cover;background:linear-gradient(135deg,#1a0033,#0a0a2a)}
     .cheat-list-info{padding:1rem 1.2rem}
     .cheat-list-info h3{color:var(--pink);font-size:1rem;font-weight:700;margin-bottom:.3rem}
     .cheat-list-desc{font-size:.75rem;color:#a090cc;margin-bottom:.8rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
     .cheat-meta{display:flex;align-items:center;gap:.8rem;font-size:.72rem;color:#806090;flex-wrap:wrap}
     .cheat-meta span{display:flex;align-items:center;gap:3px}
-    .stars-row{color:#fbbf24;font-size:.75rem;letter-spacing:1px}
     .tags-row{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap}
     .tag{background:rgba(217,70,239,.12);border:1px solid rgba(217,70,239,.3);border-radius:20px;padding:2px 10px;font-size:.65rem;color:#c084fc}
-    /* PAGE: CHEAT DETAIL */
     #cheatDetailPage{display:none}
     .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
     @media(max-width:768px){.detail-grid{grid-template-columns:1fr}}
     .detail-thumb{width:100%;border-radius:20px;overflow:hidden;border:2px solid rgba(255,133,192,.4);box-shadow:0 0 30px rgba(217,70,239,.2)}
-    .detail-thumb img{width:100%;display:block;object-fit:cover}
-    .detail-thumb-placeholder{width:100%;height:280px;background:linear-gradient(135deg,#1a0033,#0a0a2a);display:flex;align-items:center;justify-content:center;font-size:5rem}
+    .detail-thumb img{width:100%;display:block;object-fit:cover;height:auto}
     .detail-right{}
     .detail-right h2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--pink);letter-spacing:.05em;margin-bottom:.5rem}
     .detail-desc-block{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:16px;padding:1.2rem;margin-bottom:1rem}
@@ -99,30 +81,17 @@
     .info-cell{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem}
     .info-cell label{display:block;font-size:.65rem;color:#806090;font-family:'Orbitron',sans-serif;letter-spacing:.1em;margin-bottom:.3rem}
     .info-cell span{font-size:.9rem;color:#e8d0ff;font-weight:700}
-    .rating-stars{display:flex;gap:2px;margin-top:2px}
-    .rating-stars i{color:#fbbf24;font-size:.9rem}
     .download-btn-big{width:100%;padding:14px;background:linear-gradient(125deg,var(--purple),var(--deep));border:none;border-radius:16px;color:white;font-weight:700;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:.9rem;letter-spacing:.05em;transition:transform .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px}
     .download-btn-big:hover{transform:scale(1.02);box-shadow:0 0 30px rgba(217,70,239,.6)}
-    .download-btn-big:active{transform:scale(.98)}
     .detail-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
-    /* QUOTES */
     .quotes-section{margin:2rem 0}
-    .quote-card{background:rgba(0,0,0,.4);border-left:3px solid var(--purple);border-radius:0 16px 16px 0;padding:1.2rem 1.5rem;margin-bottom:1rem;position:relative}
-    .quote-card::before{content:'"';position:absolute;top:-10px;left:10px;font-size:4rem;color:rgba(217,70,239,.2);font-family:serif;line-height:1}
+    .quote-card{background:rgba(0,0,0,.4);border-left:3px solid var(--purple);border-radius:0 16px 16px 0;padding:1.2rem 1.5rem;margin-bottom:1rem}
     .quote-text{font-size:1rem;color:#d0c0f0;font-style:italic;padding-left:1rem}
     .quote-author{font-size:.78rem;color:var(--pink);margin-top:.5rem;padding-left:1rem;font-weight:700}
-    /* HALYAVSHIK */
-    .halyavshik{background:linear-gradient(135deg,rgba(0,255,100,.07),rgba(0,100,255,.07));border:1px solid rgba(0,255,136,.4);border-radius:32px;padding:2.5rem 2rem;margin:3rem 0;text-align:center;position:relative;overflow:hidden}
-    .halyavshik h2{color:var(--green);font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.05em}
-    .halyavshik p{color:#b0d0c0;margin:.5rem 0 1.2rem}
-    .halyavshik-btn{display:inline-block;padding:12px 30px;background:linear-gradient(135deg,#00cc55,#007733);border-radius:60px;color:white;text-decoration:none;font-weight:700;transition:transform .25s,box-shadow .25s}
-    .halyavshik-btn:hover{transform:translateY(-3px);box-shadow:0 0 25px rgba(0,255,100,.4)}
-    /* REVIEWS */
     .reviews-block{background:rgba(170,0,255,.1);border:1px solid rgba(170,0,255,.3);border-radius:32px;padding:2rem;margin:2rem 0;text-align:center}
     .reviews-block h3{color:var(--pink);font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.05em}
     .btn-reviews{background:linear-gradient(135deg,#3a0ca3,#4c1d95);padding:12px 28px;border-radius:60px;display:inline-block;color:white;text-decoration:none;font-weight:700;margin-top:1rem;transition:transform .25s,box-shadow .25s}
     .btn-reviews:hover{transform:translateY(-3px);box-shadow:0 0 20px rgba(100,0,200,.5)}
-    /* FAQ */
     .faq-section{margin:2rem 0}
     .faq-item{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:16px;margin-bottom:.8rem;overflow:hidden}
     .faq-q{padding:1rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--pink);transition:background .2s}
@@ -131,12 +100,10 @@
     .faq-item.open .faq-icon{transform:rotate(45deg)}
     .faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1),padding .3s;padding:0 1.5rem;color:#c0b0dd;font-size:.9rem}
     .faq-item.open .faq-a{max-height:200px;padding:0 1.5rem 1rem}
-    /* AGREEMENT */
     .agreement-section{background:rgba(0,0,0,.5);border-radius:28px;padding:2.5rem;margin:3rem 0;border:1px solid rgba(217,70,239,.2)}
     .agreement-section h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--pink);letter-spacing:.05em;margin-bottom:1.5rem}
     .agreement-section h4{color:var(--purple);margin:1rem 0 .3rem;font-size:1rem}
     .agreement-section p{font-size:.88rem;color:#c0b0cc;line-height:1.7}
-    /* SOCIAL BTNS */
     .buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem;margin:1.5rem 0}
     .btn{padding:10px 22px;border-radius:60px;text-decoration:none;color:white;display:inline-flex;align-items:center;gap:8px;font-weight:600;transition:transform .2s,box-shadow .2s;font-size:.9rem}
     .btn:hover{transform:translateY(-3px)}
@@ -146,9 +113,6 @@
     .btn-twitter{background:#1DA1F2}.btn-twitter:hover{box-shadow:0 5px 20px rgba(29,161,242,.4)}
     footer{text-align:center;padding:2.5rem;border-top:1px solid rgba(255,255,255,.07);margin-top:2rem;color:#806090;font-size:.85rem}
     footer a{color:var(--pink);text-decoration:none}
-    /* OVERLAY */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);z-index:9999;opacity:0;pointer-events:none;transition:opacity .4s}
-    .overlay.active{opacity:1;pointer-events:all}
     @media(max-width:700px){.stat-item{padding:16px 22px}}
   </style>
 </head>
@@ -159,9 +123,8 @@
   <span id="ruBtn">RU</span>
   <span id="enBtn" class="active">EN</span>
 </div>
-<div class="overlay" id="overlay" onclick="closeOverlay()"></div>
 
-<!-- ===== HOME PAGE ===== -->
+<!-- HOME PAGE -->
 <div id="homePage">
 <div class="container">
   <div class="hero">
@@ -169,8 +132,7 @@
       <div class="title">VIP CHEATS</div>
       <div class="title-glow">VIP CHEATS</div>
     </div>
-    <span class="title-sub-label" id="titleSubLabel">PREMIUM SOFTWARE COLLECTION</span>
-    <div class="subtitle" id="mainSubtitle">Cheats, software, plugins — all in one place</div>
+    <div class="subtitle" id="mainSubtitle" style="font-size:1.25rem;color:var(--pink);margin-top:1.2rem;font-weight:600;">Cheats, software, plugins — all in one place</div>
     <button class="btn-primary" id="chooseGameBtn">🎮 SELECT</button>
   </div>
 
@@ -212,13 +174,6 @@
     <div class="quote-card"><div class="quote-text" id="q3t">Great channel, been using it for a month. Updates come out fast.</div><div class="quote-author">— Pro_Player99, Minecraft</div></div>
   </div>
 
-  <div class="halyavshik">
-    <i class="fas fa-gift" style="font-size:2.5rem;color:var(--green);margin-bottom:1rem;display:block;"></i>
-    <h2 id="halvTitle">VIP FREEBIE</h2>
-    <p id="halvDesc">PC Optimization · Voice Changer · AI Tools · Activators</p>
-    <a href="https://t.me/besp1atno" target="_blank" class="halyavshik-btn"><i class="fab fa-telegram"></i> <span id="halvBtn">Go to channel</span></a>
-  </div>
-
   <div class="section-divider"><span id="faqLabel">FAQ</span></div>
   <div class="faq-section" id="faqSection"></div>
 
@@ -251,24 +206,21 @@
 
   <footer>
     <p>© 2026 VIP Cheats — <span id="footerDesc">Cheats and software from Telegram</span></p>
-    <p style="margin-top:8px;font-size:.78rem;color:#604870;"><span id="footerNote">Materials are shared for informational purposes</span> · <a href="https://t.me/managervipcheats">@managervipcheats</a></p>
   </footer>
 </div>
 </div>
 
-<!-- ===== CHEATS LIST PAGE ===== -->
+<!-- CHEATS LIST PAGE -->
 <div id="cheatsListPage">
 <div class="container">
   <button class="back-btn" id="backToHome"><i class="fas fa-arrow-left"></i> <span id="backLabel">Back</span></button>
   <div class="section-divider"><span id="cheatsListTitle">CHEATS</span></div>
   <div class="cheats-list-grid" id="cheatsListGrid"></div>
-  <footer style="margin-top:0">
-    <p>© 2026 VIP Cheats</p>
-  </footer>
+  <footer style="margin-top:0"><p>© 2026 VIP Cheats</p></footer>
 </div>
 </div>
 
-<!-- ===== CHEAT DETAIL PAGE ===== -->
+<!-- CHEAT DETAIL PAGE -->
 <div id="cheatDetailPage">
 <div class="container">
   <button class="back-btn" id="backToList"><i class="fas fa-arrow-left"></i> <span id="backLabel2">Back</span></button>
@@ -283,503 +235,198 @@
         <h4 id="descLabel">DESCRIPTION</h4>
         <p id="detailDesc"></p>
       </div>
-      <div class="detail-desc-block" id="featuresBlock" style="display:none">
-        <h4 id="featLabel">FEATURES</h4>
-        <p id="detailFeatures"></p>
-      </div>
       <div class="detail-info-grid">
         <div class="info-cell"><label id="versionLabel">VERSION</label><span id="detailVersion"></span></div>
-        <div class="info-cell"><label id="addedLabel">ADDED</label><span id="detailAdded">27.06.2026</span></div>
         <div class="info-cell"><label id="downloadsLabel">DOWNLOADS</label><span id="detailDownloads"></span></div>
-        <div class="info-cell"><label id="ratingLabel">RATING</label><div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
       </div>
       <button class="download-btn-big" id="downloadBtnDetail"><i class="fas fa-download"></i> <span id="dlBtnLabel">Download</span></button>
     </div>
   </div>
-  <footer style="margin-top:2rem">
-    <p>© 2026 VIP Cheats</p>
-  </footer>
+  <footer style="margin-top:2rem"><p>© 2026 VIP Cheats</p></footer>
 </div>
 </div>
 
 <script>
-// ---- PARTICLES ----
-(function(){
-  const c=document.getElementById('bgParticles');
-  for(let i=0;i<12;i++){
-    const p=document.createElement('div');p.className='particle';
-    const s=40+Math.random()*120;
-    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*14}s;animation-delay:${Math.random()*12}s;`;
-    c.appendChild(p);
-  }
-})();
+// PARTICLES
+(function(){const c=document.getElementById('bgParticles');for(let i=0;i<12;i++){const p=document.createElement('div');p.className='particle';const s=40+Math.random()*120;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*14}s;animation-delay:${Math.random()*12}s;`;c.appendChild(p);}})();
 
-// ---- DOWNLOAD URL ----
-const DL_URL = "https://github.com/tapekizaru7-wq/123456789/raw/refs/heads/main/Setup.rar";
-
-// ---- COUNTERS ----
-let totalDl = Math.max(parseInt(localStorage.getItem('vip_total'))||0,13532);
-let todayDl = Math.max(parseInt(localStorage.getItem('vip_today'))||0,1134);
+const DL_URL="https://github.com/tapekizaru7-wq/123456789/raw/refs/heads/main/Setup.rar";
+let totalDl=Math.max(parseInt(localStorage.getItem('vip_total'))||0,13532);
+let todayDl=Math.max(parseInt(localStorage.getItem('vip_today'))||0,1134);
 function fmt(n){return n.toLocaleString('en-US')}
-function updateCounters(){
-  document.getElementById('totalCount').textContent=fmt(totalDl);
-  document.getElementById('todayCount').textContent=fmt(todayDl);
-  localStorage.setItem('vip_total',totalDl);
-  localStorage.setItem('vip_today',todayDl);
-}
+function updateCounters(){document.getElementById('totalCount').textContent=fmt(totalDl);document.getElementById('todayCount').textContent=fmt(todayDl);localStorage.setItem('vip_total',totalDl);localStorage.setItem('vip_today',todayDl);}
 function addDl(){totalDl++;todayDl++;updateCounters()}
 
-// ---- GAME DATA ----
-const gamesData = [
-  {
-    id:"minecraft_legit", nameKey:"minecraft_legit",
-    img:"https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png",
-    desc:{en:"Legit Minecraft cheats designed for bypass and stealth — perfect for competitive AntiCheat servers.",ru:"Легальные читы для Minecraft с обходом AС — для соревновательных серверов."},
-    cheats:[
-      {name:"blessed client",ver:"2.1.4",dl:3120,tags:["Legit","Bypass"],desc:{en:"Smooth legit client with advanced KillAura bypass and clean movement modules for AntiCheat servers.",ru:"Плавный легит клиент с обходом KillAura и модулями движения для AntiCheat серверов."},features:{en:"KillAura, Velocity, Speed, Sprint, AntiBot, Scaffold",ru:"KillAura, Velocity, Speed, Sprint, AntiBot, Scaffold"}},
-      {name:"abstract visuals 5s",ver:"5.0.1",dl:2840,tags:["Legit","Visual"],desc:{en:"Visual-focused legit client with stunning HUD and accurate combat assistance.",ru:"Визуальный легит клиент с красивым HUD и точной боевой поддержкой."},features:{en:"HUD Customization, KillAura, ESP, Aimassist",ru:"Кастомный HUD, KillAura, ESP, Aimassist"}},
-      {name:"404 client",ver:"4.0.4",dl:1980,tags:["Legit","Free"],desc:{en:"Free legit client with solid AntiCheat bypass and lightweight performance.",ru:"Бесплатный легит клиент с обходом AntiCheat и лёгким весом."},features:{en:"Aimassist, Velocity, AntiBot, Reach",ru:"Aimassist, Velocity, AntiBot, Reach"}},
-      {name:"ripterms ghost",ver:"1.7.2",dl:2210,tags:["Legit","Ghost"],desc:{en:"Ghost client made for high-level legit play with undetectable modules.",ru:"Гост клиент для высокоуровневой легит игры с необнаруживаемыми модулями."},features:{en:"Ghost KillAura, Velocity, Reach, Clicker",ru:"Ghost KillAura, Velocity, Reach, Clicker"}},
-      {name:"zeta visuals",ver:"3.2.0",dl:1750,tags:["Legit","Visual"],desc:{en:"Polished visual client with clean animations and customizable HUD elements.",ru:"Визуальный клиент с чистыми анимациями и настраиваемым HUD."},features:{en:"CustomHUD, Animations, KillAura, ESP",ru:"CustomHUD, Анимации, KillAura, ESP"}},
-      {name:"mico visuals",ver:"2.8.1",dl:1430,tags:["Legit","Visual"],desc:{en:"Lightweight visual legit client with modern design and smooth gameplay.",ru:"Лёгкий визуальный легит клиент с современным дизайном."},features:{en:"HUD, ESP, KillAura, Velocity",ru:"HUD, ESP, KillAura, Velocity"}},
-      {name:"vec.dll",ver:"1.3.5",dl:900,tags:["Legit","DLL"],desc:{en:"DLL injection legit client optimized for competitive servers with minimal footprint.",ru:"DLL инъекция легит клиент для конкурентных серверов с минимальным следом."},features:{en:"KillAura, Velocity, Reach, AutoClicker",ru:"KillAura, Velocity, Reach, AutoClicker"}},
-      {name:"avalone red",ver:"4.1.0",dl:2560,tags:["Legit","Premium"],desc:{en:"Premium-grade legit client with advanced bypass technology and beautiful interface.",ru:"Легит клиент премиум класса с передовой технологией обхода."},features:{en:"KillAura, Scaffold, Speed, Fly, ESP",ru:"KillAura, Scaffold, Speed, Fly, ESP"}},
-      {name:"avalone green",ver:"4.1.2",dl:2380,tags:["Legit","Free"],desc:{en:"Free version of Avalone with essential legit modules for everyday competitive play.",ru:"Бесплатная версия Avalone с основными легит модулями."},features:{en:"KillAura, Velocity, Reach",ru:"KillAura, Velocity, Reach"}},
-      {name:"Cortex",ver:"1.0.0",dl:670,tags:["Legit","New"],desc:{en:"Brand new legit client with cutting-edge AntiCheat bypass and clean UI.",ru:"Новый легит клиент с передовым обходом AntiCheat и чистым интерфейсом."},features:{en:"KillAura, Velocity, Aimassist, ESP",ru:"KillAura, Velocity, Aimassist, ESP"}}
-    ]
-  },
-  {
-    id:"minecraft_hvh", nameKey:"minecraft_hvh",
-    img:"https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png",
-    desc:{en:"HvH (Hack vs Hack) Minecraft clients — powerful rage cheats for crystal PvP and sword battles.",ru:"HvH читы для Minecraft — мощные рейдж читы для crystal PvP и мечевых боёв."},
-    cheats:[
-      {name:"Nursultan Crack",ver:"3.7.1",dl:4890,tags:["HvH","Crack","Rage"],desc:{en:"Cracked version of Nursultan — one of the most feared HvH clients with brutal crystal PvP.",ru:"Крякнутая версия Nursultan — один из самых мощных HvH клиентов для crystal PvP."},features:{en:"CrystalAura, SurroundBreaker, AutoTotem, KillAura",ru:"CrystalAura, SurroundBreaker, AutoTotem, KillAura"}},
-      {name:"Wexside crack",ver:"2.4.0",dl:3210,tags:["HvH","Crack"],desc:{en:"Cracked Wexside with full HvH feature set including advanced surround and totem mechanics.",ru:"Крякнутый Wexside с полным набором HvH функций."},features:{en:"CrystalAura, AutoTotem, Surround, ESP",ru:"CrystalAura, AutoTotem, Surround, ESP"}},
-      {name:"NewCode Crack",ver:"1.9.3",dl:2100,tags:["HvH","Crack"],desc:{en:"Cracked NewCode client with solid HvH base and reliable performance.",ru:"Крякнутый NewCode клиент с надёжной HvH базой."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Venus Free",ver:"1.16.5",dl:11526,tags:["HvH","Free","Rage"],desc:{en:"The most popular free HvH client for Minecraft 1.16.5 — proven by time and thousands of downloads.",ru:"Самый популярный бесплатный HvH чит для Minecraft 1.16.5, проверенный временем."},features:{en:"CrystalAura, SurroundBreaker, AutoTotem, KillAura, ESP, AutoArmor",ru:"CrystalAura, SurroundBreaker, AutoTotem, KillAura, ESP, AutoArmor"}},
-      {name:"Excellent Upgrade",ver:"1.16.5",dl:4780,tags:["HvH","Rage"],desc:{en:"Popular HvH client for Minecraft 1.16.5 with smooth crystal mechanics and reliable totem.",ru:"Популярный HvH клиент для Minecraft 1.16.5 с плавной кристальной механикой."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"Minced 1.20.1",ver:"1.20.1",dl:5034,tags:["HvH","1.20"],desc:{en:"Popular HvH client for modern Minecraft 1.20.1 with up-to-date crystal PvP modules.",ru:"Популярный HvH клиент для Minecraft 1.20.1 с актуальными crystal PvP модулями."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP, Surround",ru:"CrystalAura, AutoTotem, KillAura, ESP, Surround"}},
-      {name:"EvaWare",ver:"1.16.5",dl:2840,tags:["HvH","Rage"],desc:{en:"Popular HvH rage client for Minecraft 1.16.5 with extensive configuration options.",ru:"Популярный HvH рейдж клиент для Minecraft 1.16.5 с широкими настройками."},features:{en:"CrystalAura, KillAura, ESP, AutoTotem, Speed",ru:"CrystalAura, KillAura, ESP, AutoTotem, Speed"}},
-      {name:"VegaLine",ver:"1.12.2",dl:3209,tags:["HvH","1.12"],desc:{en:"Popular HvH client for Minecraft 1.12.2 optimized for sword fights and old-school PvP.",ru:"Популярный HvH клиент для Minecraft 1.12.2, оптимизированный для мечевых боёв."},features:{en:"KillAura, Velocity, Reach, AutoClicker, Scaffold",ru:"KillAura, Velocity, Reach, AutoClicker, Scaffold"}},
-      {name:"Haruka",ver:"2.3.1",dl:1890,tags:["HvH","Rage"],desc:{en:"Powerful HvH client with aggressive crystal PvP and fast totem switching.",ru:"Мощный HvH клиент с агрессивным crystal PvP и быстрой тотем сменой."},features:{en:"CrystalAura, FastTotem, KillAura, ESP",ru:"CrystalAura, FastTotem, KillAura, ESP"}},
-      {name:"Qick",ver:"1.5.0",dl:1340,tags:["HvH","Free"],desc:{en:"Free HvH client with quick setup and essential rage modules.",ru:"Бесплатный HvH клиент с быстрой установкой и основными рейдж модулями."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Wissed",ver:"1.16.5",dl:2558,tags:["HvH","Rage"],desc:{en:"Popular HvH client for Minecraft 1.16.5 with clean UI and reliable rage features.",ru:"Популярный HvH клиент с чистым интерфейсом и надёжными рейдж функциями."},features:{en:"CrystalAura, KillAura, AutoTotem, ESP",ru:"CrystalAura, KillAura, AutoTotem, ESP"}},
-      {name:"Nix",ver:"3.1.0",dl:2100,tags:["HvH","Rage"],desc:{en:"Aggressive HvH client built for crystal PvP dominance with fast response modules.",ru:"Агрессивный HvH клиент для доминирования в crystal PvP."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"Verist",ver:"1.2.0",dl:980,tags:["HvH","New"],desc:{en:"New HvH client with clean codebase and fresh approach to crystal PvP.",ru:"Новый HvH клиент с чистой кодовой базой и свежим подходом к crystal PvP."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Nova",ver:"2.0.1",dl:1650,tags:["HvH","Rage"],desc:{en:"HvH client with nova-class crystal PvP and extensive configuration.",ru:"HvH клиент с nova-классом crystal PvP и широкими настройками."},features:{en:"CrystalAura, AutoTotem, ESP, KillAura",ru:"CrystalAura, AutoTotem, ESP, KillAura"}},
-      {name:"Celestial",ver:"5.0.3",dl:6780,tags:["HvH","Rage","Premium"],desc:{en:"Top-tier HvH client beloved by the community — fast, reliable, and feature-rich.",ru:"Топовый HvH клиент, любимый сообществом — быстрый, надёжный и многофункциональный."},features:{en:"CrystalAura, KillAura, ESP, AutoTotem, AutoArmor, Surround",ru:"CrystalAura, KillAura, ESP, AutoTotem, AutoArmor, Surround"}},
-      {name:"NightDLC",ver:"1.0.4",dl:780,tags:["HvH","DLC"],desc:{en:"Unique HvH client with exclusive modules not found in other clients.",ru:"Уникальный HvH клиент с эксклюзивными модулями."},features:{en:"CrystalAura, AutoTotem, NightESP, KillAura",ru:"CrystalAura, AutoTotem, NightESP, KillAura"}},
-      {name:"Churka client",ver:"2.2.0",dl:1120,tags:["HvH","Rage"],desc:{en:"Rage HvH client with aggressive settings and strong community support.",ru:"Рейдж HvH клиент с агрессивными настройками и поддержкой сообщества."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Deluxe",ver:"3.0.0",dl:2340,tags:["HvH","Rage"],desc:{en:"Deluxe HvH experience with premium modules and smooth performance.",ru:"Люкс HvH опыт с премиум модулями и плавной производительностью."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP, Scaffold",ru:"CrystalAura, AutoTotem, KillAura, ESP, Scaffold"}},
-      {name:"Delta Client",ver:"4.8.1",dl:3560,tags:["HvH","Rage"],desc:{en:"Classic HvH client with proven crystal PvP performance and active updates.",ru:"Классический HvH клиент с проверенным crystal PvP и активными обновлениями."},features:{en:"CrystalAura, KillAura, AutoTotem, ESP, Speed",ru:"CrystalAura, KillAura, AutoTotem, ESP, Speed"}},
-      {name:"Excellent Plus",ver:"1.16.5",dl:2100,tags:["HvH","Rage"],desc:{en:"Enhanced version of Excellent with extra modules and improved crystal timing.",ru:"Улучшенная версия Excellent с доп. модулями и лучшим crystal таймингом."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"LiquidBounce",ver:"0.28.0",dl:9870,tags:["HvH","Open Source"],desc:{en:"Legendary open-source HvH client with massive community and thousands of modules.",ru:"Легендарный open-source HvH клиент с огромным сообществом и тысячами модулей."},features:{en:"KillAura, Scaffold, Speed, ESP, Fly, Velocity, CrystalAura",ru:"KillAura, Scaffold, Speed, ESP, Fly, Velocity, CrystalAura"}},
-      {name:"AugustusX b12",ver:"b12",dl:1450,tags:["HvH","Beta"],desc:{en:"Beta version of AugustusX with experimental HvH modules and fresh features.",ru:"Бета версия AugustusX с экспериментальными HvH модулями."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"FDPClient",ver:"4.1.2",dl:2890,tags:["HvH","Free"],desc:{en:"Free and open HvH client with solid performance and wide compatibility.",ru:"Бесплатный открытый HvH клиент с хорошей производительностью."},features:{en:"KillAura, Velocity, Scaffold, AutoTotem, ESP",ru:"KillAura, Velocity, Scaffold, AutoTotem, ESP"}},
-      {name:"Gothaj V3.3.0.1",ver:"3.3.0.1",dl:3400,tags:["HvH","Rage"],desc:{en:"Powerful HvH client known for aggressive crystal PvP and strong community configs.",ru:"Мощный HvH клиент, известный агрессивным crystal PvP и сильными конфигами."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround, ESP",ru:"CrystalAura, AutoTotem, KillAura, Surround, ESP"}},
-      {name:"Rise (6.1.30)",ver:"6.1.30",dl:5120,tags:["HvH","Rage"],desc:{en:"One of the top HvH clients — Rise delivers consistent crystal PvP dominance.",ru:"Один из лучших HvH клиентов — Rise обеспечивает стабильное crystal PvP."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP, Scaffold, AutoArmor",ru:"CrystalAura, AutoTotem, KillAura, ESP, Scaffold, AutoArmor"}},
-      {name:"Skid V12.13",ver:"12.13",dl:890,tags:["HvH","Rage"],desc:{en:"HvH client with basic rage modules and straightforward setup.",ru:"HvH клиент с базовыми рейдж модулями и простой установкой."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"ARBUZ CLIENT",ver:"2.0.0",dl:1230,tags:["HvH","Free"],desc:{en:"Fun free HvH client with creative name and solid core features.",ru:"Забавный бесплатный HvH клиент с надёжными основными функциями."},features:{en:"KillAura, AutoTotem, ESP, Velocity",ru:"KillAura, AutoTotem, ESP, Velocity"}},
-      {name:"Minced 1.16.5",ver:"1.16.5",dl:4100,tags:["HvH","Rage"],desc:{en:"Classic version of Minced optimized for 1.16.5 HvH servers.",ru:"Классическая версия Minced для HvH серверов 1.16.5."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}},
-      {name:"RockStar crack",ver:"3.4.2",dl:2780,tags:["HvH","Crack"],desc:{en:"Cracked RockStar client with full HvH feature set including crystal and totem.",ru:"Крякнутый RockStar клиент с полным HvH набором."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"Catlavan crack",ver:"14.1",dl:1560,tags:["HvH","Crack"],desc:{en:"Cracked Catlavan with advanced crystal PvP mechanics.",ru:"Крякнутый Catlavan с продвинутой кристальной механикой."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Litka Client Crack",ver:"2.1.0",dl:1340,tags:["HvH","Crack"],desc:{en:"Cracked Litka — lightweight HvH client with essential rage modules.",ru:"Крякнутый Litka — лёгкий HvH клиент с основными рейдж модулями."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"KomaruBuy 1.16.5",ver:"1.16.5",dl:2100,tags:["HvH","Paid","Crack"],desc:{en:"Cracked version of premium KomaruBuy for 1.16.5 with full feature access.",ru:"Крякнутая версия платного KomaruBuy для 1.16.5."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}},
-      {name:"Spectra client",ver:"1.7.4",dl:1890,tags:["HvH","Rage"],desc:{en:"HvH client with spectral design and aggressive combat modules.",ru:"HvH клиент с агрессивными боевыми модулями."},features:{en:"CrystalAura, KillAura, AutoTotem, ESP",ru:"CrystalAura, KillAura, AutoTotem, ESP"}},
-      {name:"Antilose Crack",ver:"4.0.1",dl:2340,tags:["HvH","Crack"],desc:{en:"Cracked Antilose featuring advanced anti-loss mechanics for crystal PvP.",ru:"Крякнутый Antilose с передовой анти-проигрышной механикой."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"Takker V2 crack",ver:"2.0.0",dl:1120,tags:["HvH","Crack"],desc:{en:"Cracked V2 of Takker with improved performance and new HvH modules.",ru:"Крякнутый V2 Takker с улучшенной производительностью."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Miraculos",ver:"1.3.0",dl:890,tags:["HvH","Rage"],desc:{en:"HvH client with miraculous performance and clean crystal mechanics.",ru:"HvH клиент с превосходной производительностью и чистой кристальной механикой."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Winner Client",ver:"3.1.0",dl:1560,tags:["HvH","Rage"],desc:{en:"Made to win — Winner Client delivers consistent performance in all HvH scenarios.",ru:"Создан для победы — стабильная производительность в любых HvH сценариях."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}},
-      {name:"Dimasik client",ver:"2.0.0",dl:760,tags:["HvH","Free"],desc:{en:"Community HvH client with friendly support and basic rage features.",ru:"Коммьюнити HvH клиент с дружелюбной поддержкой и базовыми рейдж функциями."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Dettex",ver:"1.1.0",dl:670,tags:["HvH","Rage"],desc:{en:"Compact HvH client with focused feature set for crystal PvP.",ru:"Компактный HvH клиент с сфокусированным набором функций."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Essence Client",ver:"2.4.0",dl:1230,tags:["HvH","Rage"],desc:{en:"The essence of good HvH — balanced client with reliable crystal and totem modules.",ru:"Суть хорошего HvH — сбалансированный клиент с надёжными crystal и тотем модулями."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}},
-      {name:"Zenith Client",ver:"4.0.2",dl:2890,tags:["HvH","Rage","Premium"],desc:{en:"Premium HvH client at the zenith of performance — crystal PvP perfection.",ru:"Премиум HvH клиент на вершине производительности — совершенство crystal PvP."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP, AutoArmor, Surround",ru:"CrystalAura, AutoTotem, KillAura, ESP, AutoArmor, Surround"}},
-      {name:"Zenith Recode",ver:"4.5.0",dl:2100,tags:["HvH","Rage"],desc:{en:"Recoded Zenith with improved stability and new combat algorithms.",ru:"Перекодированный Zenith с улучшенной стабильностью и новыми алгоритмами."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"Monoton Client 2.1",ver:"2.1",dl:980,tags:["HvH","Rage"],desc:{en:"Monoton — steady and reliable HvH client for crystal PvP grinders.",ru:"Monoton — стабильный и надёжный HvH клиент для crystal PvP гриндеров."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Mercury Client",ver:"3.3.0",dl:1780,tags:["HvH","Rage"],desc:{en:"Fast as mercury — quick crystal ticks and responsive combat modules.",ru:"Быстрый как меркурий — быстрые тики кристалла и отзывчивые боевые модули."},features:{en:"CrystalAura, AutoTotem, KillAura, Speed",ru:"CrystalAura, AutoTotem, KillAura, Speed"}},
-      {name:"ExosWare Client",ver:"1.0.2",dl:890,tags:["HvH","New"],desc:{en:"New HvH client with exoskeleton-grade protection and solid crystal PvP.",ru:"Новый HvH клиент с защитой экзоскелетного класса и надёжным crystal PvP."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"libraries Папка",ver:"1.0",dl:450,tags:["Libraries","Pack"],desc:{en:"Essential libraries pack for running various Minecraft HvH clients without issues.",ru:"Пакет необходимых библиотек для запуска различных Minecraft HvH клиентов."},features:{en:"Runtime Libraries, Dependencies",ru:"Рантайм библиотеки, Зависимости"}},
-      {name:"Zov Client",ver:"2.0.0",dl:670,tags:["HvH","Rage"],desc:{en:"Russian HvH client with strong community backing and active development.",ru:"Российский HvH клиент с поддержкой сообщества и активной разработкой."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Excellent Omni",ver:"1.16.5",dl:1890,tags:["HvH","Rage"],desc:{en:"Omni version of Excellent with all modules unlocked and enhanced performance.",ru:"Omni версия Excellent со всеми разблокированными модулями."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP, Scaffold",ru:"CrystalAura, AutoTotem, KillAura, ESP, Scaffold"}},
-      {name:"Private Client Beta",ver:"Beta 0.9",dl:560,tags:["HvH","Beta"],desc:{en:"Private beta HvH client with experimental features for advanced users.",ru:"Приватный бета HvH клиент с экспериментальными функциями."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Wasteland Client",ver:"1.4.0",dl:780,tags:["HvH","Rage"],desc:{en:"Built for the wasteland of HvH — aggressive modules for all combat scenarios.",ru:"Создан для пустоши HvH — агрессивные модули для всех боевых сценариев."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"Haruka premium",ver:"3.0.0",dl:2450,tags:["HvH","Premium"],desc:{en:"Premium version of Haruka with full module access and priority support.",ru:"Премиум версия Haruka с полным доступом к модулям и приоритетной поддержкой."},features:{en:"CrystalAura, FastTotem, KillAura, ESP, AutoArmor",ru:"CrystalAura, FastTotem, KillAura, ESP, AutoArmor"}},
-      {name:"RockStar beta",ver:"Beta 4.0",dl:1100,tags:["HvH","Beta"],desc:{en:"Beta version of RockStar with experimental crystal mechanics.",ru:"Бета версия RockStar с экспериментальной кристальной механикой."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Toffi Client",ver:"2.1.0",dl:890,tags:["HvH","Rage"],desc:{en:"Sweet but aggressive — Toffi delivers powerful HvH performance.",ru:"Сладкий но агрессивный — Toffi обеспечивает мощный HvH перформанс."},features:{en:"CrystalAura, KillAura, AutoTotem",ru:"CrystalAura, KillAura, AutoTotem"}},
-      {name:"X-Client",ver:"4.2.0",dl:1340,tags:["HvH","Rage"],desc:{en:"X marks the spot — powerful crystal PvP with unknown advantage.",ru:"Мощный crystal PvP с неизвестным преимуществом."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}},
-      {name:"Catlavan 14.1.2026",ver:"14.1.2026",dl:1780,tags:["HvH","Rage"],desc:{en:"Latest dated release of Catlavan with all bug fixes and new crystal optimization.",ru:"Последний датированный релиз Catlavan с исправлениями и новой оптимизацией."},features:{en:"CrystalAura, AutoTotem, KillAura, Surround",ru:"CrystalAura, AutoTotem, KillAura, Surround"}},
-      {name:"Enetgy client",ver:"3.0.1",dl:1120,tags:["HvH","Rage"],desc:{en:"Energy-packed HvH client with fast crystal and instant totem mechanics.",ru:"Энергичный HvH клиент с быстрым кристаллом и мгновенным тотемом."},features:{en:"CrystalAura, FastTotem, KillAura",ru:"CrystalAura, FastTotem, KillAura"}},
-      {name:"Rich client",ver:"2.0.0",dl:890,tags:["HvH","Rage"],desc:{en:"Rich in features — HvH client with everything you need for crystal PvP.",ru:"Богатый функциями HvH клиент с всем для crystal PvP."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}},
-      {name:"Zenith alpha",ver:"Alpha 5.0",dl:670,tags:["HvH","Alpha"],desc:{en:"Alpha build of Zenith with next-generation HvH mechanics being tested.",ru:"Альфа версия Zenith с тестируемой HvH механикой следующего поколения."},features:{en:"CrystalAura, AutoTotem, KillAura",ru:"CrystalAura, AutoTotem, KillAura"}},
-      {name:"Intensive Client",ver:"1.8.0",dl:1230,tags:["HvH","Rage"],desc:{en:"Intensive training for HvH — fully configurable rage client.",ru:"Интенсивный клиент для HvH — полностью настраиваемый рейдж клиент."},features:{en:"CrystalAura, KillAura, AutoTotem, ESP",ru:"CrystalAura, KillAura, AutoTotem, ESP"}},
-      {name:"Avalora client",ver:"2.3.0",dl:1450,tags:["HvH","Rage"],desc:{en:"Avalora — a rising HvH client with solid performance and active community.",ru:"Avalora — растущий HvH клиент с надёжной производительностью и активным сообществом."},features:{en:"CrystalAura, AutoTotem, KillAura, ESP",ru:"CrystalAura, AutoTotem, KillAura, ESP"}}
-    ]
-  },
-  {
-    id:"standoff2", nameKey:"standoff2",
-    img:"https://play-lh.googleusercontent.com/poMFhRzxLFSB5ShhF5z1h3cM8FpFJEDFkBdXHOiLxBc5tEQ-m-D2Z3JO5d2oFPzb8w=w240-h480-rw",
-    desc:{en:"Cheats for Standoff 2 — aimbot, ESP and more for Android/iOS.",ru:"Читы для Standoff 2 — аимбот, ESP и многое другое."},
-    cheats:[
-      {name:"Zenin",ver:"4.2.1",dl:4300,tags:["Aimbot","ESP"],desc:{en:"Advanced Standoff 2 cheat with precise aimbot and smooth recoil control.",ru:"Продвинутый чит для Standoff 2 с точным аимботом."},features:{en:"Aimbot, ESP, No Recoil, Radar",ru:"Аимбот, ESP, Нет отдачи, Радар"}},
-      {name:"NerestPC",ver:"3.1.0",dl:3120,tags:["Aimbot"],desc:{en:"PC-compatible Standoff 2 cheat with nearest-target aimbot.",ru:"ПК совместимый чит для Standoff 2 с аимботом ближайшей цели."},features:{en:"Aimbot, No Recoil, ESP",ru:"Аимбот, Нет отдачи, ESP"}},
-      {name:"Panterium",ver:"5.0.0",dl:2890,tags:["ESP","Aimbot"],desc:{en:"Feature-rich Standoff 2 hack with full visual assistance and aimbot.",ru:"Многофункциональный хак для Standoff 2 с полной визуальной поддержкой."},features:{en:"Aimbot, ESP, Wallhack, Radar",ru:"Аимбот, ESP, Wallhack, Радар"}},
-      {name:"Ultimate",ver:"2.3.0",dl:5600,tags:["Aimbot","Wallhack"],desc:{en:"The ultimate package for Standoff 2 — aimbot, ESP and wallhack in one.",ru:"Ультимейт пакет для Standoff 2 — аимбот, ESP и валлхак в одном."},features:{en:"Aimbot, ESP, Wallhack, No Recoil, Speed",ru:"Аимбот, ESP, Валлхак, Нет отдачи, Скорость"}},
-      {name:"Custom",ver:"1.7.0",dl:1900,tags:["Custom"],desc:{en:"Customizable Standoff 2 cheat with adjustable aimbot and visuals.",ru:"Настраиваемый чит для Standoff 2 с регулируемым аимботом."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}},
-      {name:"Impulse",ver:"3.4.2",dl:3400,tags:["Aimbot","Rage"],desc:{en:"Impulsive Standoff 2 cheat with rage-mode aimbot and visual cheats.",ru:"Импульсный чит для Standoff 2 с рейдж аимботом."},features:{en:"Aimbot, ESP, Wallhack, Speed",ru:"Аимбот, ESP, Валлхак, Скорость"}},
-      {name:"XANTARES",ver:"6.0.0",dl:4100,tags:["Aimbot","Pro"],desc:{en:"Pro-level Standoff 2 cheat named after the legendary pro player.",ru:"Про уровень чит для Standoff 2, названный в честь легендарного игрока."},features:{en:"Aimbot, ESP, No Recoil, Radar, Wallhack",ru:"Аимбот, ESP, Нет отдачи, Радар, Валлхак"}},
-      {name:"Devix",ver:"2.8.0",dl:2300,tags:["ESP","Aimbot"],desc:{en:"Devious Standoff 2 cheat with advanced visual detection and aimbot.",ru:"Коварный чит для Standoff 2 с продвинутым визуальным обнаружением."},features:{en:"Aimbot, ESP, Wallhack",ru:"Аимбот, ESP, Валлхак"}},
-      {name:"Dysphoria",ver:"1.5.0",dl:1700,tags:["Aimbot"],desc:{en:"Dysphoria — chaotic but effective Standoff 2 aimbot with wallhack.",ru:"Хаотичный но эффективный аимбот для Standoff 2 с валлхаком."},features:{en:"Aimbot, Wallhack, No Recoil",ru:"Аимбот, Валлхак, Нет отдачи"}}
-    ]
-  },
-  {
-    id:"cs2", nameKey:"cs2",
-    img:"https://img.icons8.com/color/64/counter-strike.png",
-    desc:{en:"Cheats for CS2 and CS1.6 — from legit to rage, includes top-tier paid clients.",ru:"Читы для CS2 и CS1.6 — от легит до рейдж, включая топовые платные клиенты."},
-    cheats:[
-      {name:"SharkHack",ver:"2.3.1",dl:3400,tags:["CS2","Aimbot","ESP"],desc:{en:"Powerful CS2 cheat with sharp aimbot and comprehensive ESP features.",ru:"Мощный чит для CS2 с острым аимботом и полным ESP."},features:{en:"Aimbot, ESP, Wallhack, Radar, No Recoil",ru:"Аимбот, ESP, Валлхак, Радар, Нет отдачи"}},
-      {name:"Aimware CS2",ver:"6.0.1",dl:7800,tags:["CS2","Rage","Premium"],desc:{en:"Premium CS2 rage cheat — industry standard for HvH and matchmaking domination.",ru:"Премиум рейдж чит для CS2 — стандарт индустрии для HvH и матчмейкинга."},features:{en:"Aimbot, ESP, Wallhack, Radar, Triggerbot, Backtrack",ru:"Аимбот, ESP, Валлхак, Радар, Тригербот, Бэктрек"}},
-      {name:"Skeet/GAMESENSE",ver:"4.9.0",dl:9200,tags:["CS2","HvH","Top"],desc:{en:"Top-tier HvH client dominating CS2 competitive scenes worldwide.",ru:"Топовый HvH клиент, доминирующий в CS2 по всему миру."},features:{en:"Aimbot, Resolver, ESP, Backtrack, Wallhack, Lagcompensation",ru:"Аимбот, Резолвер, ESP, Бэктрек, Валлхак"}},
-      {name:"AlterNative",ver:"3.2.0",dl:2890,tags:["CS2","Legit"],desc:{en:"Alternative legit CS2 cheat with smooth aimbot and configurable settings.",ru:"Альтернативный легит чит для CS2 с плавным аимботом."},features:{en:"Aimbot, ESP, No Recoil, Triggerbot",ru:"Аимбот, ESP, Нет отдачи, Тригербот"}},
-      {name:"NixWare",ver:"5.1.0",dl:4500,tags:["CS2","HvH"],desc:{en:"NixWare delivers powerful HvH performance with advanced resolver.",ru:"NixWare обеспечивает мощный HvH с продвинутым резолвером."},features:{en:"Aimbot, Resolver, ESP, Backtrack",ru:"Аимбот, Резолвер, ESP, Бэктрек"}},
-      {name:"XONE",ver:"2.7.0",dl:3100,tags:["CS2","Legit"],desc:{en:"Clean legit CS2 cheat with humanized aimbot and smooth movement.",ru:"Чистый легит чит для CS2 с гуманизированным аимботом."},features:{en:"Aimbot, No Recoil, ESP, Triggerbot",ru:"Аимбот, Нет отдачи, ESP, Тригербот"}},
-      {name:"MemeSense",ver:"1.4.0",dl:1230,tags:["CS2","Free"],desc:{en:"Free CS2 cheat with basic aimbot — great starting point for beginners.",ru:"Бесплатный чит для CS2 с базовым аимботом — отличный старт для новичков."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}},
-      {name:"Nonagon",ver:"3.0.0",dl:2100,tags:["CS2","Legit"],desc:{en:"Geometric precision — Nonagon delivers accurate legit aimbot for CS2.",ru:"Геометрическая точность — точный легит аимбот для CS2."},features:{en:"Aimbot, No Recoil, ESP",ru:"Аимбот, Нет отдачи, ESP"}},
-      {name:"Midnight",ver:"4.1.0",dl:2780,tags:["CS2","Rage"],desc:{en:"Dark and powerful CS2 rage cheat for late-night grinding sessions.",ru:"Тёмный и мощный рейдж чит для CS2."},features:{en:"Aimbot, Resolver, ESP, Wallhack",ru:"Аимбот, Резолвер, ESP, Валлхак"}},
-      {name:"EnigmaTech",ver:"2.5.0",dl:1890,tags:["CS2","Legit"],desc:{en:"Enigmatic CS2 cheat combining undetectable aimbot with clean visuals.",ru:"Загадочный чит для CS2, сочетающий необнаруживаемый аимбот с чистыми визуалами."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}},
-      {name:"Hone",ver:"3.3.0",dl:2450,tags:["CS2","Legit"],desc:{en:"Hone your skills with AI-assisted aimbot and smooth legit cheating.",ru:"Оттачивайте навыки с AI-аимботом и плавным легит читом."},features:{en:"Aimbot, No Recoil, ESP, Triggerbot",ru:"Аимбот, Нет отдачи, ESP, Тригербот"}},
-      {name:"Aimware",ver:"6.0.1",dl:7800,tags:["CS2","HvH","Premium"],desc:{en:"The legendary Aimware cheat — premium HvH for CS2 matchmaking.",ru:"Легендарный Aimware — премиум HvH для матчмейкинга CS2."},features:{en:"Aimbot, Resolver, ESP, Backtrack, Wallhack",ru:"Аимбот, Резолвер, ESP, Бэктрек, Валлхак"}}
-    ]
-  },
-  {
-    id:"roblox", nameKey:"roblox",
-    img:"https://img.icons8.com/color/64/roblox.png",
-    desc:{en:"Roblox scripts and exploits for dozens of popular games — auto farm, ESP, aimbot and more.",ru:"Скрипты и эксплойты для Roblox — авто фарм, ESP, аимбот и многое другое."},
-    cheats:[
-      {name:"99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook",ver:"1.0",dl:2100,tags:["Script","Auto"],desc:{en:"Dominate 99 Nights in the Forest with Kill Aura for mobs, Tree Aura for resources, and Auto Cook.",ru:"Доминируй в 99 Nights in the Forest с Kill Aura, Tree Aura и Auto Cook."},features:{en:"Kill Aura, Tree Aura, Auto Cook",ru:"Kill Aura, Tree Aura, Auto Cook"}},
-      {name:"99 Nights in the Forest: Name Display, Health Display, Esp",ver:"1.0",dl:1780,tags:["Script","Visual"],desc:{en:"Visual ESP script for 99 Nights — see player names, health and positions.",ru:"Визуальный ESP скрипт для 99 Nights — имена, здоровье и позиции игроков."},features:{en:"Name Display, Health Display, ESP",ru:"Отображение имён, Здоровье, ESP"}},
-      {name:"Steal a Labubu: Player Features",ver:"1.0",dl:1340,tags:["Script","Auto"],desc:{en:"Player features script for Steal a Labubu — speed, jump and combat enhancements.",ru:"Скрипт игрока для Steal a Labubu — скорость, прыжок и боевые улучшения."},features:{en:"Speed, Jump, Combat",ru:"Скорость, Прыжок, Бой"}},
-      {name:"Saber Simulator: Auto Swing, Auto Sell",ver:"1.0",dl:2340,tags:["Script","Farm"],desc:{en:"Automate Saber Simulator — auto swing your saber and sell automatically.",ru:"Автоматизируй Saber Simulator — авто удар и авто продажа."},features:{en:"Auto Swing, Auto Sell",ru:"Авто удар, Авто продажа"}},
-      {name:"Catch and Feed a Brainrot!: Auto Farm, Auto Buy, Auto Sell",ver:"1.0",dl:1890,tags:["Script","Farm"],desc:{en:"Full automation for Catch and Feed a Brainrot — farm, buy and sell without lifting a finger.",ru:"Полная автоматизация для Catch and Feed — фарм, покупка и продажа."},features:{en:"Auto Farm, Auto Buy, Auto Sell",ru:"Авто фарм, Авто покупка, Авто продажа"}},
-      {name:"Pets GO: Auto Relics, Auto Roll, Auto Fish",ver:"1.0",dl:3120,tags:["Script","Farm"],desc:{en:"Maximize your Pets GO progress with automatic relic collection, rolling and fishing.",ru:"Максимизируй прогресс в Pets GO с авто реликами, роллами и рыбалкой."},features:{en:"Auto Relics, Auto Roll, Auto Fish",ru:"Авто реликвии, Авто ролл, Авто рыбалка"}},
-      {name:"Murder Mystery 2: Auto Farm, Auto Play, Esp",ver:"1.0",dl:4500,tags:["Script","ESP"],desc:{en:"Dominate Murder Mystery 2 with auto farming, auto play mode and player ESP.",ru:"Доминируй в Murder Mystery 2 с авто фармом и ESP."},features:{en:"Auto Farm, Auto Play, ESP",ru:"Авто фарм, Авто игра, ESP"}},
-      {name:"Fruit Battlegrounds: Auto Farm, Auto Farm Boss, Auto Spin",ver:"1.0",dl:3400,tags:["Script","Farm"],desc:{en:"Ultimate Fruit Battlegrounds automation — farm, boss farm and auto spin.",ru:"Ультимейт автоматизация Fruit Battlegrounds — фарм, боссы и авто спин."},features:{en:"Auto Farm, Auto Farm Boss, Auto Spin",ru:"Авто фарм, Авто босс, Авто спин"}},
-      {name:"Grow A Garden: Auto Buy, Auto Sell",ver:"1.0",dl:2780,tags:["Script","Farm"],desc:{en:"Keep your garden growing 24/7 with automatic buying and selling scripts.",ru:"Держи свой сад активным 24/7 с авто покупкой и продажей."},features:{en:"Auto Buy, Auto Sell",ru:"Авто покупка, Авто продажа"}},
-      {name:"Eat Blobs Simulator: Infinite Points",ver:"1.0",dl:1560,tags:["Script","Points"],desc:{en:"Infinite points exploit for Eat Blobs Simulator — dominate the leaderboard.",ru:"Бесконечные очки для Eat Blobs Simulator — доминируй в таблице лидеров."},features:{en:"Infinite Points",ru:"Бесконечные очки"}},
-      {name:"Examination: Esp, Silent Aim, Fullbright",ver:"1.0",dl:2100,tags:["Script","ESP","Aimbot"],desc:{en:"Ace every Examination with ESP, silent aim and fullbright visibility.",ru:"Сдай любой экзамен с ESP, тихим аимом и полной яркостью."},features:{en:"ESP, Silent Aim, Fullbright",ru:"ESP, Тихий аим, Полная яркость"}},
-      {name:"Steal A Brainrot: Auto Farm, Godmode, Esp",ver:"1.0",dl:3890,tags:["Script","Farm","God"],desc:{en:"Complete Steal A Brainrot automation with godmode protection and ESP.",ru:"Полная автоматизация Steal A Brainrot с godmode и ESP."},features:{en:"Auto Farm, Godmode, ESP",ru:"Авто фарм, Годмод, ESP"}},
-      {name:"Grow A Garden: Auto Farm, Auto Sell, Auto Buy",ver:"2.0",dl:3210,tags:["Script","Farm"],desc:{en:"Enhanced garden automation script with full farm, sell and buy cycle.",ru:"Улучшенный скрипт автоматизации сада с полным циклом."},features:{en:"Auto Farm, Auto Sell, Auto Buy",ru:"Авто фарм, Авто продажа, Авто покупка"}},
-      {name:"Steal a Brainrot: Teleport",ver:"1.0",dl:1230,tags:["Script","Teleport"],desc:{en:"Instant teleport anywhere in Steal a Brainrot maps.",ru:"Мгновенный телепорт в любую точку карты Steal a Brainrot."},features:{en:"Teleport",ru:"Телепорт"}},
-      {name:"Steal a Brainrot: Auto Farm, Auto Steal, Esp",ver:"1.5",dl:2890,tags:["Script","Farm","ESP"],desc:{en:"Auto farm, steal and ESP combo for maximum efficiency in Steal a Brainrot.",ru:"Комбо авто фарм, кража и ESP для максимальной эффективности."},features:{en:"Auto Farm, Auto Steal, ESP",ru:"Авто фарм, Авто кража, ESP"}},
-      {name:"99 Nights in the Forest: Hitbox, Esp, Bring Items, Teleports",ver:"1.5",dl:2340,tags:["Script","Combat"],desc:{en:"Advanced combat script — expanded hitbox, ESP, item magnet and teleports.",ru:"Продвинутый боевой скрипт — расширенный хитбокс, ESP, магнит предметов и телепорты."},features:{en:"Hitbox, ESP, Bring Items, Teleports",ru:"Хитбокс, ESP, Притяжение предметов, Телепорты"}},
-      {name:"Steal a Baddie: Auto Steal, Auto Farm",ver:"1.0",dl:1780,tags:["Script","Farm"],desc:{en:"Automate stealing in Steal a Baddie with fast auto farm support.",ru:"Автоматизируй кражу в Steal a Baddie с поддержкой авто фарма."},features:{en:"Auto Steal, Auto Farm",ru:"Авто кража, Авто фарм"}},
-      {name:"Jetpack Training: Auto Farm, Auto Rebirth, Auto Hatch",ver:"1.0",dl:2100,tags:["Script","Farm"],desc:{en:"Fly through Jetpack Training progress with auto farm, rebirth and hatch.",ru:"Прогрессируй в Jetpack Training с авто фармом, перерождением и инкубацией."},features:{en:"Auto Farm, Auto Rebirth, Auto Hatch",ru:"Авто фарм, Авто перерождение, Авто инкубация"}},
-      {name:"Grow Eggs: Auto Farm",ver:"1.0",dl:1450,tags:["Script","Farm"],desc:{en:"Simple but effective auto farm script for Grow Eggs.",ru:"Простой но эффективный авто фарм скрипт для Grow Eggs."},features:{en:"Auto Farm",ru:"Авто фарм"}},
-      {name:"Steal a Brainrot: Auto Steal",ver:"1.0",dl:1890,tags:["Script","Auto"],desc:{en:"Focused auto steal script for fast progress in Steal a Brainrot.",ru:"Скрипт авто кражи для быстрого прогресса в Steal a Brainrot."},features:{en:"Auto Steal",ru:"Авто кража"}},
-      {name:"Dead Rails: Auto Farm Bounds",ver:"1.0",dl:1340,tags:["Script","Farm"],desc:{en:"Auto farm bounds script for Dead Rails — maximize your resource gathering.",ru:"Авто фарм граней для Dead Rails — максимизируй сбор ресурсов."},features:{en:"Auto Farm Bounds",ru:"Авто фарм граней"}},
-      {name:"Anime Rangers X: Auto Play, Auto Buy, Player Features",ver:"1.0",dl:3100,tags:["Script","Auto"],desc:{en:"Full Anime Rangers X automation with auto play, buying and player enhancements.",ru:"Полная автоматизация Anime Rangers X с авто игрой и улучшениями игрока."},features:{en:"Auto Play, Auto Buy, Player Features",ru:"Авто игра, Авто покупка, Улучшения игрока"}},
-      {name:"Build an Island!: Auto Farm, Auto Craft, Auto Collect",ver:"1.0",dl:1890,tags:["Script","Farm"],desc:{en:"Build your island automatically with auto farm, crafting and collection.",ru:"Строй остров автоматически с авто фармом, крафтом и сбором."},features:{en:"Auto Farm, Auto Craft, Auto Collect",ru:"Авто фарм, Авто крафт, Авто сбор"}},
-      {name:"Bloxfruits [HOHO HUB]",ver:"Latest",dl:8900,tags:["Script","Hub"],desc:{en:"HOHO Hub — the ultimate Bloxfruits script hub with all features you need.",ru:"HOHO Hub — ультимейт хаб скриптов для Bloxfruits со всеми нужными функциями."},features:{en:"Auto Farm, Auto Quest, ESP, Devil Fruit, Mastery Farm",ru:"Авто фарм, Авто задания, ESP, Дьявольский фрукт, Фарм мастерства"}},
-      {name:"XENO",ver:"3.1.0",dl:4500,tags:["Executor"],desc:{en:"XENO executor — reliable Roblox script executor with high compatibility.",ru:"XENO исполнитель — надёжный исполнитель скриптов Roblox с высокой совместимостью."},features:{en:"Script Execution, Auto-Update, UNC Support",ru:"Выполнение скриптов, Авто обновление"}},
-      {name:"SeliWare Executor",ver:"2.5.0",dl:3200,tags:["Executor"],desc:{en:"SeliWare — fast and stable Roblox executor for all your scripts.",ru:"SeliWare — быстрый и стабильный исполнитель скриптов Roblox."},features:{en:"Script Execution, GUI, Auto-Inject",ru:"Выполнение скриптов, GUI, Авто инъекция"}},
-      {name:"Fix",ver:"1.0",dl:890,tags:["Fix","Utility"],desc:{en:"Roblox fix pack addressing common crash and performance issues.",ru:"Пакет исправлений Roblox для распространённых проблем с вылетами."},features:{en:"Crash Fix, Performance Fix",ru:"Исправление вылетов, Оптимизация"}},
-      {name:"Lunar Hub",ver:"4.0.0",dl:5600,tags:["Hub","Script"],desc:{en:"Lunar Hub — universal script hub supporting hundreds of Roblox games.",ru:"Lunar Hub — универсальный хаб скриптов для сотен игр Roblox."},features:{en:"Multi-Game Support, Auto Farm, ESP, Aimbot",ru:"Поддержка множества игр, Авто фарм, ESP, Аимбот"}}
-    ]
-  },
-  {
-    id:"fortnite", nameKey:"fortnite",
-    img:"https://img.icons8.com/color/64/fortnite.png",
-    desc:{en:"Cheats for Fortnite — aimbot, ESP, wallhack and building assistance.",ru:"Читы для Fortnite — аимбот, ESP, валлхак и помощь в строительстве."},
-    cheats:[
-      {name:"FortniteExternal",ver:"3.5.0",dl:4200,tags:["External","Aimbot"],desc:{en:"External Fortnite cheat with undetectable aimbot and full ESP suite.",ru:"Внешний чит для Fortnite с необнаруживаемым аимботом и полным ESP."},features:{en:"Aimbot, ESP, Wallhack, No Recoil",ru:"Аимбот, ESP, Валлхак, Нет отдачи"}},
-      {name:"FORTNITE (Premium)",ver:"5.0.0",dl:6700,tags:["Premium","Aimbot"],desc:{en:"Premium Fortnite cheat package with all modules — the best in class.",ru:"Премиум пакет читов для Fortnite со всеми модулями."},features:{en:"Aimbot, ESP, Wallhack, BuildAssist, SpeedBuild",ru:"Аимбот, ESP, Валлхак, Помощь в строительстве"}},
-      {name:"FrozenFree",ver:"2.1.0",dl:2100,tags:["Free","Aimbot"],desc:{en:"Free Fortnite cheat with solid aimbot and basic visual features.",ru:"Бесплатный чит для Fortnite с надёжным аимботом."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}}
-    ]
-  },
-  {
-    id:"gta", nameKey:"gta",
-    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/GTA_V_Official_Logo.png/250px-GTA_V_Official_Logo.png",
-    desc:{en:"Cheats and mods for GTA V, GTA RP, and GTA San Andreas.",ru:"Читы и моды для GTA V, GTA RP и GTA San Andreas."},
-    cheats:[
-      {name:"SANLauncher",ver:"4.2.0",dl:3100,tags:["GTA:SA","Launcher"],desc:{en:"Multi-cheat launcher for GTA San Andreas with easy mod management.",ru:"Мультичит лаунчер для GTA San Andreas с удобным управлением модами."},features:{en:"God Mode, Money, Weapons, Teleport",ru:"Бессмертие, Деньги, Оружие, Телепорт"}},
-      {name:"Vanish",ver:"3.0.1",dl:2400,tags:["GTA V","Online"],desc:{en:"GTA V Online cheat with vanish mode — evade cops and griefers instantly.",ru:"Чит для GTA V Online с режимом исчезновения — уклоняйся от полиции."},features:{en:"Vanish, God Mode, Money, ESP",ru:"Исчезновение, Бессмертие, Деньги, ESP"}},
-      {name:"Altv3V",ver:"3.3.0",dl:1890,tags:["GTA:AltV","Online"],desc:{en:"Cheat for AltV GTA servers with combat and movement enhancements.",ru:"Чит для AltV серверов GTA с боевыми и двигательными улучшениями."},features:{en:"Speed, God Mode, Aimbot",ru:"Скорость, Бессмертие, Аимбот"}},
-      {name:"GTA V",ver:"5.2.1",dl:5400,tags:["GTA V","Modmenu"],desc:{en:"Comprehensive GTA V mod menu with hundreds of features for story and online.",ru:"Комплексное меню модов для GTA V с сотнями функций для истории и онлайн."},features:{en:"Money, God Mode, Teleport, Vehicles, Weapons",ru:"Деньги, Бессмертие, Телепорт, Транспорт, Оружие"}},
-      {name:"1337",ver:"1.0.0",dl:1200,tags:["GTA","Elite"],desc:{en:"Elite GTA cheat for the true pros — clean, minimal and highly effective.",ru:"Элитный чит для GTA для настоящих профи — чистый и эффективный."},features:{en:"God Mode, Aimbot, ESP, Money",ru:"Бессмертие, Аимбот, ESP, Деньги"}}
-    ]
-  },
-  {
-    id:"rust", nameKey:"rust",
-    img:"https://img.icons8.com/color/64/rust.png",
-    desc:{en:"Cheats for Rust — aimbot, ESP, no recoil and more survival game hacks.",ru:"Читы для Rust — аимбот, ESP, нет отдачи и другие хаки для выживания."},
-    cheats:[
-      {name:"Cheat (Rust)",ver:"4.1.0",dl:5600,tags:["Aimbot","ESP"],desc:{en:"Powerful Rust cheat with precise aimbot and full player ESP.",ru:"Мощный чит для Rust с точным аимботом и полным ESP игроков."},features:{en:"Aimbot, ESP, No Recoil, Wallhack",ru:"Аимбот, ESP, Нет отдачи, Валлхак"}},
-      {name:"DeusHack",ver:"3.5.0",dl:3200,tags:["Aimbot","Premium"],desc:{en:"Deus-level Rust hack with godlike aimbot and comprehensive visual cheats.",ru:"Rust хак уровня Deus с непревзойдённым аимботом."},features:{en:"Aimbot, ESP, No Recoil, Radar",ru:"Аимбот, ESP, Нет отдачи, Радар"}},
-      {name:"AquaCheats",ver:"2.8.0",dl:2100,tags:["ESP","Legit"],desc:{en:"Clean Rust cheat with configurable ESP and smooth aimbot.",ru:"Чистый чит для Rust с настраиваемым ESP и плавным аимботом."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}},
-      {name:"CAT TECH",ver:"5.0.0",dl:4800,tags:["Premium","Aimbot"],desc:{en:"CAT TECH — premium Rust cheat with silent aim and full ESP.",ru:"CAT TECH — премиум чит для Rust с тихим аимом и полным ESP."},features:{en:"Silent Aim, ESP, Wallhack, No Recoil, Radar",ru:"Тихий аим, ESP, Валлхак, Нет отдачи, Радар"}},
-      {name:"specterdex",ver:"1.9.0",dl:1560,tags:["External"],desc:{en:"External Rust cheat with spectre-like undetectability.",ru:"Внешний чит для Rust с призрачной необнаруживаемостью."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}},
-      {name:"SUPERIORITY",ver:"3.3.0",dl:3900,tags:["Rage","Aimbot"],desc:{en:"Superior Rust cheat — be the best player on every server.",ru:"Превосходный чит для Rust — будь лучшим игроком на каждом сервере."},features:{en:"Aimbot, ESP, No Recoil, Speed, Wallhack",ru:"Аимбот, ESP, Нет отдачи, Скорость, Валлхак"}},
-      {name:"VECTOR EXTERNAL",ver:"2.4.0",dl:2340,tags:["External","Aimbot"],desc:{en:"Vector-based external Rust cheat with precise aiming calculations.",ru:"Внешний чит для Rust с векторными расчётами прицеливания."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}}
-    ]
-  },
-  {
-    id:"valorant", nameKey:"valorant",
-    img:"https://img.icons8.com/color/64/valorant.png",
-    desc:{en:"Cheats for Valorant — aimbot, ESP and wallhack for ranked domination.",ru:"Читы для Valorant — аимбот, ESP и валлхак для доминирования в ранге."},
-    cheats:[
-      {name:"MEMEZ",ver:"3.1.0",dl:2890,tags:["Aimbot","Free"],desc:{en:"Free Valorant cheat with solid aimbot and ESP — great for beginners.",ru:"Бесплатный чит для Valorant с надёжным аимботом и ESP."},features:{en:"Aimbot, ESP, No Recoil",ru:"Аимбот, ESP, Нет отдачи"}},
-      {name:"FULL (Valorant)",ver:"5.0.0",dl:5600,tags:["Premium","Aimbot"],desc:{en:"Full Valorant cheat package with every feature — aimbot, ESP, wallhack and more.",ru:"Полный пакет читов для Valorant — аимбот, ESP, валлхак и многое другое."},features:{en:"Aimbot, ESP, Wallhack, No Recoil, Radar, Triggerbot",ru:"Аимбот, ESP, Валлхак, Нет отдачи, Радар, Тригербот"}}
-    ]
-  },
-  {
-    id:"garrysmod", nameKey:"garrysmod",
-    img:"https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg",
-    desc:{en:"Cheats and scripts for Garry's Mod — aimbot, ESP and more.",ru:"Читы и скрипты для Garry's Mod — аимбот, ESP и многое другое."},
-    cheats:[
-      {name:"GRUST",ver:"4.5.0",dl:3400,tags:["LUA","Aimbot"],desc:{en:"GRUST — comprehensive Garry's Mod LUA cheat with aimbot and ESP.",ru:"GRUST — комплексный LUA чит для Garry's Mod с аимботом и ESP."},features:{en:"Aimbot, ESP, Wallhack, Speed, Fly",ru:"Аимбот, ESP, Валлхак, Скорость, Полёт"}}
-    ]
-  },
-  {
-    id:"dbd", nameKey:"dbd",
-    img:"https://img.icons8.com/color/64/dead-by-daylight.png",
-    desc:{en:"Cheats for Dead by Daylight — ESP, speed hacks and survivor tools.",ru:"Читы для Dead by Daylight — ESP, спидхак и инструменты выжившего."},
-    cheats:[
-      {name:"SelinCheat",ver:"2.7.0",dl:2100,tags:["ESP","Speed"],desc:{en:"SelinCheat for DBD — ESP to spot killer and speed for quick loops.",ru:"SelinCheat для DBD — ESP для обнаружения убийцы и скорость для петлей."},features:{en:"ESP, Speed, Killer Reveal, Generator ESP",ru:"ESP, Скорость, Раскрытие убийцы, ESP генераторов"}}
-    ]
-  },
-  {
-    id:"genshin", nameKey:"genshin",
-    img:"https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg",
-    desc:{en:"Cheats for Genshin Impact — auto farm, ESP and damage hacks.",ru:"Читы для Genshin Impact — авто фарм, ESP и хаки урона."},
-    cheats:[
-      {name:"Shika",ver:"3.0.1",dl:2890,tags:["AutoFarm","ESP"],desc:{en:"Shika — powerful Genshin Impact cheat with auto farm and ESP for resources.",ru:"Shika — мощный чит для Genshin Impact с авто фармом и ESP ресурсов."},features:{en:"Auto Farm, ESP, Damage Modifier, Infinite Stamina",ru:"Авто фарм, ESP, Модификатор урона, Бесконечная выносливость"}}
-    ]
-  },
-  {
-    id:"warface", nameKey:"warface",
-    img:"https://img.icons8.com/color/64/warface.png",
-    desc:{en:"Cheats for Warface — aimbot, ESP and wallhack for all game modes.",ru:"Читы для Warface — аимбот, ESP и валлхак для всех режимов."},
-    cheats:[
-      {name:"MASON HACK",ver:"5.1.0",dl:3100,tags:["Aimbot","ESP"],desc:{en:"MASON HACK — top Warface cheat with precision aimbot and full ESP.",ru:"MASON HACK — топовый чит для Warface с точным аимботом и полным ESP."},features:{en:"Aimbot, ESP, Wallhack, No Recoil, Radar",ru:"Аимбот, ESP, Валлхак, Нет отдачи, Радар"}}
-    ]
-  },
-  {
-    id:"worldoftanks", nameKey:"worldoftanks",
-    img:"https://img.icons8.com/color/64/tank.png",
-    desc:{en:"Mods and cheats for World of Tanks — aimbot, skins and battle assistance.",ru:"Моды и читы для World of Tanks — аимбот, скины и боевая поддержка."},
-    cheats:[
-      {name:"WARPACK",ver:"9.4.0",dl:4500,tags:["Aimbot","Mod"],desc:{en:"WARPACK — the legendary WoT mod pack with aimbot, minimap cheats and more.",ru:"WARPACK — легендарный мод пак для WoT с аимботом и читерскими миникартами."},features:{en:"Aimbot, Minimap Hack, Armor Viewer, AutoAim",ru:"Аимбот, Читерская миникарта, Просмотр брони, АвтоАим"}}
-    ]
-  },
-  {
-    id:"dota", nameKey:"dota",
-    img:"https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg",
-    desc:{en:"Scripts and tools for Dota 2 — skin changers, scripts and visual mods.",ru:"Скрипты и инструменты для Dota 2 — смена скинов, скрипты и визуальные моды."},
-    cheats:[
-      {name:"SkinChanger",ver:"3.2.0",dl:5600,tags:["Cosmetic","Free"],desc:{en:"Dota 2 SkinChanger — change hero and item skins locally for free.",ru:"Смена скинов для Dota 2 — меняй скины героев и предметов локально бесплатно."},features:{en:"Hero Skins, Item Skins, Model Swap",ru:"Скины героев, Скины предметов, Замена моделей"}}
-    ]
-  },
-  {
-    id:"arcraiders", nameKey:"arcraiders",
-    img:"https://img.icons8.com/color/64/robot.png",
-    desc:{en:"Cheats for Arc Raiders — ESP and aimbot for the new extraction shooter.",ru:"Читы для Arc Raiders — ESP и аимбот для нового шутера с извлечением."},
-    cheats:[
-      {name:"Keitaro",ver:"1.2.0",dl:1890,tags:["ESP","Aimbot"],desc:{en:"Keitaro — early Arc Raiders cheat with ESP and aimbot for extraction advantage.",ru:"Keitaro — ранний чит для Arc Raiders с ESP и аимботом для преимущества при извлечении."},features:{en:"Aimbot, ESP, Wallhack, Loot ESP",ru:"Аимбот, ESP, Валлхак, ESP добычи"}}
-    ]
-  },
-  {
-    id:"software", nameKey:"software",
-    img:"https://cdn-icons-png.flaticon.com/512/2920/2920277.png",
-    desc:{en:"Free software — Discord Nitro, PC optimization, activators and AI tools.",ru:"Бесплатный софт — Discord Nitro, оптимизация ПК, активаторы и AI инструменты."},
-    cheats:[
-      {name:"Discord Nitro",ver:"2026.06",dl:12400,tags:["Discord","Free"],desc:{en:"Free Discord Nitro method — get Nitro subscription without paying.",ru:"Бесплатный метод получения Discord Nitro — получи подписку без оплаты."},features:{en:"Nitro Subscription, Boosting",ru:"Подписка Nitro, Буст"}},
-      {name:"PC Optimization",ver:"3.1.0",dl:8900,tags:["Utility","Performance"],desc:{en:"Comprehensive PC optimization pack — boost FPS and reduce latency in games.",ru:"Комплексный пакет оптимизации ПК — увеличь FPS и снизь задержку в играх."},features:{en:"FPS Boost, RAM Cleaner, Latency Reduce, Startup Cleaner",ru:"Буст FPS, Очистка RAM, Снижение задержки"}},
-      {name:"Discord Fix",ver:"1.5.0",dl:4300,tags:["Discord","Fix"],desc:{en:"Fix common Discord issues — overlay, voice, crashes and update loops.",ru:"Исправь распространённые проблемы Discord — оверлей, голос, вылеты."},features:{en:"Overlay Fix, Voice Fix, Crash Fix",ru:"Исправление оверлея, голоса, вылетов"}},
-      {name:"Roblox Fix",ver:"2.0.0",dl:3200,tags:["Roblox","Fix"],desc:{en:"Fix Roblox crashing, stuttering and error codes with one click.",ru:"Исправь вылеты Roblox, заикания и коды ошибок одним кликом."},features:{en:"Crash Fix, Stutter Fix, Error Code Fix",ru:"Исправление вылетов, заиканий, кодов ошибок"}},
-      {name:"VoiceMod",ver:"2.45.0",dl:6700,tags:["Voice","Changer"],desc:{en:"VoiceMod free — change your voice in real-time for games and calls.",ru:"VoiceMod бесплатно — меняй голос в реальном времени в играх и звонках."},features:{en:"Voice Effects, Real-time Processing, Custom Voices",ru:"Голосовые эффекты, Обработка в реальном времени"}},
-      {name:"Telegram Fix",ver:"1.2.0",dl:2100,tags:["Telegram","Fix"],desc:{en:"Fix Telegram freezing, slow loading and media issues.",ru:"Исправь зависания Telegram, медленную загрузку и проблемы с медиа."},features:{en:"Freeze Fix, Load Fix, Media Fix",ru:"Исправление зависаний и загрузки"}},
-      {name:"HWID FIX",ver:"4.0.0",dl:7800,tags:["HWID","Spoofer"],desc:{en:"HWID Spoofer — change your hardware ID to bypass game bans.",ru:"HWID Спуфер — смени ID оборудования для обхода банов в играх."},features:{en:"HWID Spoof, Serial Spoof, MAC Spoof",ru:"Спуф HWID, серийных номеров, MAC адреса"}},
-      {name:"Optimization CrystalFix",ver:"2.8.0",dl:5400,tags:["Optimization"],desc:{en:"CrystalFix optimization suite — crystal-clear performance improvements.",ru:"Пакет оптимизации CrystalFix — кристально чистые улучшения производительности."},features:{en:"FPS Boost, RAM Optimize, CPU Tweak",ru:"Буст FPS, Оптимизация RAM, Настройка CPU"}},
-      {name:"AI Voice Changer",ver:"3.0.0",dl:4100,tags:["AI","Voice"],desc:{en:"AI-powered voice changer — transform your voice into any character or celebrity.",ru:"AI смена голоса — трансформируй голос в любого персонажа."},features:{en:"AI Voice Transform, Real-time, Custom Models",ru:"AI трансформация, Реальное время, Пользовательские модели"}},
-      {name:"NetBoost",ver:"5.1.0",dl:3900,tags:["Network","Performance"],desc:{en:"NetBoost — reduce ping and improve connection stability for gaming.",ru:"NetBoost — снизь пинг и улучши стабильность соединения для игр."},features:{en:"Ping Reduce, Packet Optimize, Route Boost",ru:"Снижение пинга, Оптимизация пакетов"}},
-      {name:"StartAllBlack",ver:"1.3.0",dl:2300,tags:["Utility","Tweak"],desc:{en:"StartAllBlack — customize Windows start screen with dark theme improvements.",ru:"StartAllBlack — настрой экран запуска Windows с тёмной темой."},features:{en:"Dark Theme, UI Tweak, Startup Speed",ru:"Тёмная тема, Настройка UI, Скорость запуска"}},
-      {name:"ExitLag",ver:"2.8.0",dl:4500,tags:["Network","Premium"],desc:{en:"ExitLag free — premium network routing to reduce latency in online games.",ru:"ExitLag бесплатно — премиум маршрутизация сети для снижения задержки."},features:{en:"Multi-path Routing, Ping Reduce, Auto Route",ru:"Многопутевая маршрутизация, Снижение пинга"}},
-      {name:"Adobe Photoshop Free",ver:"2026",dl:9800,tags:["Adobe","Creative"],desc:{en:"Adobe Photoshop 2026 free version — full creative toolkit for photo editing.",ru:"Adobe Photoshop 2026 бесплатно — полный инструментарий редактирования фото."},features:{en:"Photo Editing, AI Tools, Layers, Filters",ru:"Редактирование фото, AI инструменты, Слои, Фильтры"}},
-      {name:"Cheat Engine",ver:"7.5",dl:15600,tags:["Utility","Trainer"],desc:{en:"Cheat Engine — the universal game trainer for modifying game values.",ru:"Cheat Engine — универсальный трейнер для изменения значений в играх."},features:{en:"Memory Scanner, Speed Hack, Trainer Maker",ru:"Сканер памяти, Спидхак, Создание трейнеров"}},
-      {name:"CCleaner Pro 2026",ver:"2026",dl:8900,tags:["Utility","Cleaner"],desc:{en:"CCleaner Pro 2026 — clean your PC and protect privacy with one click.",ru:"CCleaner Pro 2026 — очисти ПК и защити конфиденциальность одним кликом."},features:{en:"Junk Clean, Registry Fix, Privacy Protection",ru:"Очистка мусора, Реестр, Защита конфиденциальности"}},
-      {name:"TradingView Pro 2026",ver:"2026",dl:3400,tags:["Trading","Finance"],desc:{en:"TradingView Pro 2026 free — advanced charting tools for crypto and stocks.",ru:"TradingView Pro 2026 бесплатно — продвинутые инструменты для крипто и акций."},features:{en:"Advanced Charts, Indicators, Alerts, Screener",ru:"Продвинутые графики, Индикаторы, Алерты"}},
-      {name:"Topaz Gigapixel 2026",ver:"2026",dl:2800,tags:["AI","Image"],desc:{en:"Topaz Gigapixel AI 2026 — upscale images up to 600% with AI clarity.",ru:"Topaz Gigapixel AI 2026 — увеличь изображения до 600% с AI чёткостью."},features:{en:"AI Upscale, Noise Removal, Face Recovery",ru:"AI увеличение, Удаление шума, Восстановление лиц"}},
-      {name:"Adobe Premiere Pro 2026",ver:"2026",dl:7800,tags:["Adobe","Video"],desc:{en:"Adobe Premiere Pro 2026 free — professional video editing software.",ru:"Adobe Premiere Pro 2026 бесплатно — профессиональное видеомонтажное ПО."},features:{en:"Video Edit, AI Tools, Color Grading, Audio Mix",ru:"Монтаж видео, AI инструменты, Цветокоррекция"}},
-      {name:"Adobe Creative Cloud",ver:"2026",dl:11200,tags:["Adobe","Bundle"],desc:{en:"Full Adobe Creative Cloud 2026 suite — all apps in one package.",ru:"Полный пакет Adobe Creative Cloud 2026 — все приложения в одном."},features:{en:"Photoshop, Premiere, Illustrator, After Effects, All Apps",ru:"Photoshop, Premiere, Illustrator, After Effects, все приложения"}},
-      {name:"Shotcut",ver:"24.06",dl:4500,tags:["Video","Free"],desc:{en:"Shotcut — free and open source professional video editor.",ru:"Shotcut — бесплатный профессиональный видеоредактор с открытым исходным кодом."},features:{en:"Video Editing, Timeline, Filters, Export",ru:"Монтаж, Таймлайн, Фильтры, Экспорт"}}
-    ]
-  }
-];
-
-const gameNames = {
-  ru:{minecraft_legit:"Minecraft Legit",minecraft_hvh:"Minecraft HvH",standoff2:"STANDOFF 2",cs2:"CS2 / CS1.6",fortnite:"Fortnite",gta:"GTA (V/RP/SA)",roblox:"Roblox",rust:"Rust",valorant:"Valorant",garrysmod:"Garry's Mod",dbd:"Dead by Daylight",genshin:"Genshin Impact",warface:"Warface",worldoftanks:"World of Tanks",dota:"Dota 2",arcraiders:"Arc Raiders",software:"Другое"},
-  en:{minecraft_legit:"Minecraft Legit",minecraft_hvh:"Minecraft HvH",standoff2:"STANDOFF 2",cs2:"CS2 / CS1.6",fortnite:"Fortnite",gta:"GTA (V/RP/SA)",roblox:"Roblox",rust:"Rust",valorant:"Valorant",garrysmod:"Garry's Mod",dbd:"Dead by Daylight",genshin:"Genshin Impact",warface:"Warface",worldoftanks:"World of Tanks",dota:"Dota 2",arcraiders:"Arc Raiders",software:"Others"}
+// CHEAT IMAGES DATABASE
+const cheatImages={
+  "Discord Nitro":"https://avatars.mds.yandex.net/i?id=314c0601ac9fe35057dd441716b1290169e5fceb-5107704-images-thumbs&n=13",
+  "PC Optimization":"https://avatars.mds.yandex.net/i?id=d22e0cb68126fc57381874ffdc4c043e43197a8f-5129481-images-thumbs&n=13",
+  "Discord Fix":"https://avatars.mds.yandex.net/i?id=fb9f49aa22548861fb3a897dd00c8d7f637ea2c5-4902400-images-thumbs&n=13",
+  "Roblox Fix":"https://avatars.mds.yandex.net/i?id=32c980170e2113f18bd58563ec5676517455981c-5664987-images-thumbs&n=13",
+  "VoiceMod":"https://avatars.mds.yandex.net/i?id=82fcdaa8509307bc2f6de60b3531d9556e6e70c7-4289950-images-thumbs&n=13",
+  "Telegram Fix":"https://avatars.mds.yandex.net/i?id=b878b6ba8c1acb69fb5c77db5de67c70a364f497-9705905-images-thumbs&n=13",
+  "HWID FIX":"https://avatars.mds.yandex.net/i?id=561449ca645f92b47ce2bf984ce0b837a880ebf8-16436660-images-thumbs&n=13",
+  "Optimization CrystalFix":"https://avatars.mds.yandex.net/i?id=e766e697ff9f3a3051345b8cb56d631c817a36ce-3162694-images-thumbs&n=13",
+  "AI Voice Changer":"https://avatars.mds.yandex.net/i?id=b6feccd03c9dba79cba206834d27e70b3bce2d7f-12569476-images-thumbs&n=13",
+  "StartAllBlack":"https://avatars.mds.yandex.net/i?id=8f86dfadbae95289d99ccaa88dab3216e5c4c1f0-5233279-images-thumbs&n=13",
+  "ExitLag":"https://avatars.mds.yandex.net/i?id=30de1851c4ee11300b65dc7e9c120ba9b6cc8b33-5437458-images-thumbs&n=13",
+  "Adobe Photoshop Free":"https://avatars.mds.yandex.net/i?id=9814344e2726c379cfdb1e5f2652a58a5fd1b0fc-10242960-images-thumbs&n=13",
+  "Cheat Engine":"https://avatars.mds.yandex.net/i?id=8743a5210c1f46b5d947c7a1dddbebe956bcd74e-8544532-images-thumbs&n=13",
+  "CCleaner Pro 2026":"https://avatars.mds.yandex.net/i?id=a71fdd575a758767d81973fae9acf659_l-4531115-images-thumbs&n=13",
+  "TradingView Pro 2026":"https://avatars.mds.yandex.net/i?id=45dfd1aec6f4f34bb3764adf691515fd98f4557e-5451187-images-thumbs&n=13",
+  "Topaz Gigapixel 2026":"https://avatars.mds.yandex.net/i?id=db5884c92886061440f2218ea833565c89e590e2-10851151-images-thumbs&n=13",
+  "Adobe Premiere Pro 2026":"https://avatars.mds.yandex.net/i?id=0cd6026512c37ba8e59a334ba8e92b868fdc8afc-4965078-images-thumbs&n=13",
+  "Adobe Creative Cloud":"https://avatars.mds.yandex.net/i?id=4948596cd479b08aaded3dfa8abd49f8d98b8619-5236166-images-thumbs&n=13",
+  "Shotcut":"https://avatars.mds.yandex.net/i?id=512dc34f450c621285adce01e6b193980b1e2e90-4078046-images-thumbs&n=13",
+  "blessed client":"https://avatars.mds.yandex.net/i?id=fd28e99d1128127d44ee47d8054e50738875be4a-2454879-images-thumbs&n=13",
+  "abstract visuals 5s":"https://avatars.mds.yandex.net/i?id=697265857baf2f4e717165ca432f042603d608d3-4255743-images-thumbs&n=13",
+  "404 client":"https://cheathub.tech/api/files/images/114d7b01-2065-4357-a578-0c3bab6b9a1a-Skrinshot-28-05-2025-094712.jpg?t=1748414849192",
+  "ripterms ghost":"https://avatars.mds.yandex.net/i?id=76afa45c4d65de15515195aa75079fe6-5877669-images-thumbs&n=13",
+  "zeta visuals":"https://avatars.mds.yandex.net/i?id=6cb35f4297957ec9bb8cc38640e7c286603f783f-5252983-images-thumbs&n=13",
+  "mico visuals":"https://cheathub.tech/api/files/images/a739e1fd-4276-4ca3-a19c-4cae83a76bd0-Skrinshot-28-05-2025-095044.jpg?t=1748415067641",
+  "vec.dll":"https://cheathub.tech/api/files/images/4c67c843-5a30-48d5-ba32-d5328588a3b3-Skrinshot-28-05-2025-095212.jpg?t=1748415286595",
+  "avalone red":"https://cheathub.tech/api/files/images/d25a7d07-8c9d-4cf4-a6f5-ad76c34a8470-Skrinshot-28-05-2025-095536.jpg?t=1748415359600",
+  "avalone green":"https://cheathub.tech/api/files/images/fb264e86-145f-4e71-a4e0-21f91043de0e-Skrinshot-28-05-2025-095526.jpg?t=1748415367055",
+  "Cortex":"https://cheathub.tech/api/files/images/ef072ee6-8f42-4f1d-a286-c592c3824f18-Skrinshot-28-05-2025-123321.jpg?t=1748424814078",
+  "Nursultan Crack":"https://cheathub.tech/api/files/images/481271e2-ee33-4b44-8416-7308091d1ae6-cheat-680fec72466dd.jpg?t=1747346972899",
+  "Wexside crack":"https://cheathub.tech/api/files/images/248806f6-d639-4d72-9e25-6b07bffa5a1c-wex1.jpg?t=1742280282961",
+  "NewCode Crack":"https://cheathub.tech/api/files/images/a322702f-0ec7-44bf-8b47-e80682eadec7-java-PALJnJddWq.png?t=1742280602803",
+  "Venus Free":"https://cheathub.tech/api/files/images/ed6764a3-013d-4a8f-8751-1af09cc73d3a-ve2.jpg?t=1742280767189",
+  "Excellent Upgrade":"https://cheathub.tech/api/files/images/2f5a1414-6ef2-4c9b-9e28-acb868005218-Ex2.jpg?t=1742281062809",
+  "Minced 1.20.1":"https://cheathub.tech/api/files/images/53d1e508-4454-4461-aefd-d26929b3eae5-browser-kU7BJNPxYR.png?t=1745968860134",
+  "EvaWare":"https://cheathub.tech/api/files/images/7d90c5d8-3093-4d15-8ce4-ba7f894e15ac-evaware.png?t=1742281202474",
+  "VegaLine":"https://cheathub.tech/api/files/images/7bdcee15-ed97-40b9-a5f6-41adabdf26b4-veg.png?t=1742281248880",
+  "Haruka":"https://cheathub.tech/api/files/images/809bef80-4226-432c-97fb-ee26063b3044-Haruka-Client.png?t=1742281307585",
+  "Qick":"https://cheathub.tech/api/files/images/45a7a795-cf31-41c3-a9e7-064d849c7769-qick.png?t=1742281355815",
+  "Wissed":"https://cheathub.tech/api/files/images/e2719179-6474-4f8d-8e2f-9ee6fd9b22db-wissend1.jpg?t=1742281477215",
+  "Nix":"https://cheathub.tech/api/files/images/bfa93831-0d12-448a-a448-c7f932247a88-image-2025-04-0yvayvayvayva43-59.png?t=1743713586566",
+  "Verist":"https://cheathub.tech/api/files/images/30951942-04ac-403c-a2ce-96db59f2bb8d-vi1.jpg?t=1742281630738",
+  "Nova":"https://cheathub.tech/api/files/images/5dd2e85f-de97-4d76-8792-16d99bc0d8fd-photo-2025-04-10-16-37-15.jpg?t=1744522155899",
+  "Celestial":"https://cheathub.tech/api/files/images/5c55ee12-0562-473e-9fdc-8c8c669f5a08-browser-P08qegyhD5.jpg?t=1742283523578",
+  "NightDLC":"https://cheathub.tech/api/files/images/914395c7-7085-4f35-b77f-5cff913b0c28-Discord-gcmeUBteRU.png?t=1767617674879",
+  "Churka client":"https://cheathub.tech/api/files/images/ccd6be3c-692c-4efa-bd7f-a9287ccbd55f-1000363510.jpg?t=1742656726661",
+  "Deluxe":"https://cheathub.tech/api/files/images/396e7ed3-6c73-4319-94f8-668d14c3f6df-photo-2026-02-06-03-21-29.jpg?t=1770338145500",
+  "Delta Client":"https://cheathub.tech/api/files/images/710a7522-5d0d-4133-8b69-f22ee2ae0471-NVIDIA-Overlay-ujHrnyhzmu.png?t=1746741575212",
+  "Excellent Plus":"https://cheathub.tech/api/files/images/7a1cd80f-222e-474c-b42c-f51bc781933a-Telegram-k5m79eJHEu.png?t=1743802160294",
+  "LiquidBounce":"https://cheathub.tech/api/files/images/f09a6aea-512b-4d68-9fc1-09dc9b8550aa-maxresdefault.jpg?t=1743900741689",
+  "AugustusX b12":"https://cheathub.tech/api/files/images/13e01e49-b1e5-4f46-b39f-d48035692588-Augustus-Client-Screenshots-1.jpg?t=1743900990087",
+  "FDPClient":"https://cheathub.tech/api/files/images/dafa7f92-cb49-4402-8da1-69b6ba04567f-FDP-Client-Screenshots-2.jpg?t=1743901760501",
+  "Gothaj V3.3.0.1":"https://cheathub.tech/api/files/images/9978e609-c0b7-4ef6-81a9-09dc4404d655-Gothaj-Client-Screenshots-1.jpg?t=1743902037782",
+  "Rise (6.1.30)":"https://cheathub.tech/api/files/images/82790be9-3f3f-4783-9983-6b608cf6f258-Rise-Client-Screenshots-9.jpg?t=1743902323861",
+  "Skid V12.13":"https://cheathub.tech/api/files/images/a5e5ea2d-42a8-432a-bf1d-1af30bab2e68-1552898462-screenshot-1.png?t=1743902600139",
+  "ARBUZ CLIENT":"https://cheathub.tech/api/files/images/c06ef1ca-6b3a-4f2d-a9a6-229c11aaa222-ApplicationFrameHost-BZOgVl8ZBm.png?t=1745740467111",
+  "Minced 1.16.5":"https://cheathub.tech/api/files/images/d7d1159e-2c15-4dbc-8811-d8a956b1793e-browser-JBR4xg1oqi.png?t=1745968818339",
+  "RockStar crack":"https://cheathub.tech/api/files/images/c59deb15-29cf-43ad-a7cb-9a935f6bbef0-Discord-nFQMqNNiVf.png?t=1746191009927",
+  "Catlavan crack":"https://cheathub.tech/api/files/images/907bec5b-d6ac-4c87-92e9-12347681b842-photo-2025-06-03-12-59-54.jpg?t=1748944857555",
+  "Litka Client Crack":"https://cheathub.tech/api/files/images/ec373325-27f4-43d6-b700-68c24c63b130-photo-2025-04-28-17-06-09.jpg?t=1746308692749",
+  "KomaruBuy 1.16.5":"https://cheathub.tech/api/files/images/0ae1390a-7a3f-43ae-b5ff-9d7cbdd21e6e-photo-2025-05-03-14-51-27.jpg?t=1746308824179",
+  "Spectra client":"https://cheathub.tech/api/files/images/174da386-1c69-4858-80fa-9ae2e585f224-ApplicationFrameHost-wNPROwxQsM.jpg?t=1747228430610",
+  "Antilose Crack":"https://cheathub.tech/api/files/images/48004b34-2e90-44d4-aff1-72a925ecaf01-photo-2025-05-16-22-03-17.jpg?t=1747492193516",
+  "Takker V2 crack":"https://cheathub.tech/api/files/images/6b66497a-bab3-4cd8-8b6c-facd76bca538-photo-2025-05-17-08-00-23.jpg?t=1747581849022",
+  "Miraculos":"https://cheathub.tech/api/files/images/b5a62cd7-d4c0-4ab6-9191-fb20924c8b35-ApplicationFrameHost-EHh5cBlpki.jpg?t=1748249148798",
+  "Winner Client":"https://cheathub.tech/api/files/images/dc9dff60-e02c-4c87-9337-08a48f3eb7d5-ApplicationFrameHost-ADceY0p5B7.png?t=1748604603451",
+  "Dimasik client":"https://cheathub.tech/api/files/images/72330f16-fa0b-469a-83d8-ddd9f5a1b2a8-photo-2026-02-16-06-44-23.jpg?t=1771223402811",
+  "Dettex":"https://cheathub.tech/api/files/images/3570ddee-220a-4ee2-92b5-8b4357f95f83-photo-2025-06-18-23-31-03.jpg?t=1750271477857",
+  "Essence Client":"https://cheathub.tech/api/files/images/0ab71cda-86ab-40f4-803d-ed5fdbb65eb4-photo-2026-02-16-09-09-44.jpg?t=1771223598484",
+  "Zenith Client":"https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
+  "Zenith Recode":"https://cheathub.tech/api/files/images/7927524d-4b64-4f28-9613-4fd58e0f7e34-photo-2025-09-06-10-22-10.jpg?t=1757146951849",
+  "Monoton Client 2.1":"https://cheathub.tech/api/files/images/633b1287-c05c-4c52-92ca-ab82212f8c44-HIFTjZfBVE.jpg?t=1765878881899",
+  "Mercury Client":"https://cheathub.tech/api/files/images/b9f46706-a63e-45f9-8f29-1b34fc331faf-javaw-w2jvayGDtV.png?t=1762590678391",
+  "ExosWare Client":"https://cheathub.tech/api/files/images/358c0a9a-eb8c-4e22-93a9-afd3443f2f14-ApplicationFrameHost-KmdwNdGGMX.jpg?t=1762776756939",
+  "libraries Папка":"https://cheathub.tech/api/files/images/96bbad51-005e-4263-a5de-24ff02edf429-explorer-8WPQNUxXQ6.png?t=1765879622064",
+  "Zov Client":"https://cheathub.tech/api/files/images/af5853e8-6c78-4e3d-9bfc-c6d9cc538d58-photo-2025-12-07-21-31-18.jpg?t=1766177502586",
+  "Excellent Omni":"https://cheathub.tech/api/files/images/54be1949-32e4-4c9e-a4f6-94f253b3bb80-photo-2025-12-07-21-34-12.jpg?t=1766177691705",
+  "Private Client Beta":"https://cheathub.tech/api/files/images/dbd2fbbb-5d4a-4fb4-bc10-4d91f37de730-ApplicationFrameHost-LuYSED1lmq.png?t=1768127212741",
+  "Wasteland Client":"https://cheathub.tech/api/files/images/666af2d7-d69f-4512-9d83-0fe71bf8d1b0-browser-OVbVlx6wzc.png?t=1768388693888",
+  "Haruka premium":"https://cheathub.tech/api/files/images/f4bb8d79-0205-461b-b2e7-6bece2d5dd83-Discord-4BJ3Bl1IhL.png?t=1768393855578",
+  "RockStar beta":"https://cheathub.tech/api/files/images/c59deb15-29cf-43ad-a7cb-9a935f6bbef0-Discord-nFQMqNNiVf.png?t=1746191009927",
+  "Toffi Client":"https://cheathub.tech/api/files/images/3fdf1a74-55ee-42ff-8098-9185bb4b6e93-photo-2026-01-30-16-32-54.jpg?t=1770339806699",
+  "X-Client":"https://cheathub.tech/api/files/images/2a27c162-45e6-46cb-83c7-348ccbd39308-photo-2026-01-30-20-20-26.jpg?t=1770340160581",
+  "Catlavan 14.1.2026":"https://cheathub.tech/api/files/images/907bec5b-d6ac-4c87-92e9-12347681b842-photo-2025-06-03-12-59-54.jpg?t=1748944857555",
+  "Enetgy client":"https://cheathub.tech/api/files/images/0b0d1389-447b-4a85-8fcf-775275e779e2-photo-2026-02-16-06-36-27.jpg?t=1771223515328",
+  "Rich client":"https://cheathub.tech/api/files/images/a1245bfd-3c50-4973-8de3-c0815d43c352-photo-2026-02-16-09-10-00.jpg?t=1771223871092",
+  "Zenith alpha":"https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
+  "Intensive Client":"https://cheathub.tech/api/files/images/cdb288cf-d513-4ef0-92d9-f579d45e65ef-B43nvkz0SW-jVVU0chVu3RztjDge67owhtc6ISqHw7ZxvlrDGDDwESKqGh9jYDsWTgVmMq5Bm5XUbf.jpg?t=1772466757972",
+  "Avalora client":"https://cheathub.tech/api/files/images/667467ff-8c2b-4c8d-a4a3-82af21a1d3a0-javaw-pWpqhGUEC9.png?t=1774618626874",
+  "Zenin":"https://avatars.mds.yandex.net/i?id=8540fcd189c996e5568f8a7172b482571cce1f2b-4576399-images-thumbs&n=13",
+  "NerestPC":"https://avatars.mds.yandex.net/i?id=01a3dd12fe6a9040b9ffb98a0ec98e9be82ecbdb-5477180-images-thumbs&n=13",
+  "Panterium":"https://avatars.mds.yandex.net/i?id=16eaf7b75c052475dd18a066108c7648a4a61e60-10868764-images-thumbs&n=13",
+  "Ultimate":"https://avatars.mds.yandex.net/i?id=83b21e01ff96b7ecab3bf351efb30d27510939f0-5289438-images-thumbs&n=13",
+  "Custom":"https://avatars.mds.yandex.net/i?id=8dc7adaddeea5a9e321937ebd4b96a6f73b2c974-9145122-images-thumbs&n=13",
+  "XANTARES":"https://avatars.mds.yandex.net/i?id=9e078e1807e3c7eb0bf6ff9980aefe05ad4b29a1-12900429-images-thumbs&n=13",
+  "Devix":"https://avatars.mds.yandex.net/i?id=656503b416a3ef4d3f4f579f114dd354c362e82d-12829626-images-thumbs&n=13",
+  "Dysphoria":"https://avatars.mds.yandex.net/i?id=4177daa4590e00f532b291e3555a007abf96b1f6-3390871-images-thumbs&n=13",
+  "SharkHack":"https://avatars.mds.yandex.net/i?id=90c81d643a5b2564b1d9769a73e5458193b48ba3-5178729-images-thumbs&n=13",
+  "Aimware CS2":"https://avatars.mds.yandex.net/i?id=acc54dc5ed9a7cf5df57aad195a52943b602c8f7-10876589-images-thumbs&n=13",
+  "Skeet/GAMESENSE":"https://avatars.mds.yandex.net/i?id=f5d311eae09de7a6b356b89c842e72b0dbc1e899-4432110-images-thumbs&n=13",
+  "AlterNative":"https://avatars.mds.yandex.net/i?id=16d43ed8450e77d3efecf86f8f2f54698dd9f1ee-4326244-images-thumbs&n=13",
+  "NixWare":"https://avatars.mds.yandex.net/i?id=8e5ceebabdbf871621924952033aa539a8c8bd8c-4451422-images-thumbs&n=13",
+  "XONE":"https://avatars.mds.yandex.net/i?id=e1a391aba970f8de4b0198961a3073c9655a57a9-8223286-images-thumbs&n=13",
+  "MemeSense":"https://avatars.mds.yandex.net/i?id=a437fa3913f747c855443a58e7c60395542ee165-12538603-images-thumbs&n=13",
+  "Nonagon":"https://avatars.mds.yandex.net/i?id=788a95b36d53269f4b1efee8d77990f7336fe884-5315630-images-thumbs&n=13",
+  "Midnight":"https://avatars.mds.yandex.net/i?id=b5b3b604e92c43980cdf0ddf344a0b86108489d1-5014002-images-thumbs&n=13",
+  "EnigmaTech":"https://avatars.mds.yandex.net/i?id=6768e1b9d66f0ceb12a7042d2f675503419e8596-11924504-images-thumbs&n=13",
+  "Hone":"https://avatars.mds.yandex.net/i?id=e5eab91944d0aad0a69e8685bfc6db789fdcdb8d-10697630-images-thumbs&n=13",
+  "Aimware":"https://avatars.mds.yandex.net/i?id=acc54dc5ed9a7cf5df57aad195a52943b602c8f7-10876589-images-thumbs&n=13",
+  "FortniteExternal":"https://avatars.mds.yandex.net/i?id=bce666ece35c72b1653f3ca6a2ff5d6f0915c198-4346197-images-thumbs&n=13",
+  "FORTNITE (Premium)":"https://avatars.mds.yandex.net/i?id=37ff764da242d37657ab1a9ede66985d667855a8-4149382-images-thumbs&n=13",
+  "FrozenFree":"https://avatars.mds.yandex.net/i?id=039be7c40ff0ed9ee348c77245f8aa0e8c2eccfe-5886161-images-thumbs&n=13",
+  "Vanish":"https://avatars.mds.yandex.net/i?id=c6b583a0e6b33dc98782f89a022f474296b00113-16999685-images-thumbs&n=13",
+  "Altv3V":"https://avatars.mds.yandex.net/i?id=720898866a83f749f01b3b567481051ddbcf7650-8152091-images-thumbs&n=13",
+  "1337":"https://avatars.mds.yandex.net/i?id=2785d45796a50dccb036bfe547465c6b15c00241-5284135-images-thumbs&n=13",
+  "Cheat (Rust)":"https://avatars.mds.yandex.net/i?id=6a45fc6e9a98334b9d00d82acd442eea7867efa7-5475669-images-thumbs&n=13",
+  "DeusHack":"https://avatars.mds.yandex.net/i?id=58fe8261e524fddbc1666a0e795df8ac57ba403b-4752921-images-thumbs&n=13",
+  "AquaCheats":"https://avatars.mds.yandex.net/i?id=d1939c45f54e9ab686418085cc825dd313bb4c66-5874919-images-thumbs&n=13",
+  "CAT TECH":"https://avatars.mds.yandex.net/i?id=0e5d84606681eaddf0f196a89d9e72ca775c6b54-5246290-images-thumbs&n=13",
+  "specterdex":"https://avatars.mds.yandex.net/i?id=883e4804a2bcdcc4190e19e40d86df7a36828115-4034575-images-thumbs&n=13",
+  "SUPERIORITY":"https://avatars.mds.yandex.net/i?id=d8e91fb01aa9393b91224ff6049ddf7ff1799eb4-5592183-images-thumbs&n=13",
+  "VECTOR EXTERNAL":"https://avatars.mds.yandex.net/i?id=7a732b9d127ae816c9b8c18d5284caf8_sr-9234023-images-thumbs&n=13",
+  "MEMEZ":"https://avatars.mds.yandex.net/i?id=494fa42624c049010ba74d18ffe6060b1a5a558a-5167594-images-thumbs&n=13",
+  "FULL (Valorant)":"https://avatars.mds.yandex.net/i?id=ee6b37f1fc5b3d486b048028f93381e1855f5298-5665039-images-thumbs&n=13",
+  "GRUST":"https://avatars.mds.yandex.net/i?id=771c6a57a4303df02786d50cf37c72ef9ecd687c-4567432-images-thumbs&n=13",
+  "SelinCheat":"https://avatars.mds.yandex.net/i?id=e8462d9ee171cedd57532258ec49f66aaa360379-5869166-images-thumbs&n=13",
+  "Shika":"https://avatars.mds.yandex.net/i?id=978d806189ebdf0c28c4c82af61772d3653f4944-4385982-images-thumbs&n=13",
+  "MASON HACK":"https://avatars.mds.yandex.net/i?id=58aef68cdf45a57b93594ac2bb95f9cb539d269c-4864173-images-thumbs&n=13",
+  "WARPACK":"https://avatars.mds.yandex.net/i?id=65b7c8977fb66dc1284a60f1340cfd1856b43a97-5105949-images-thumbs&n=13",
+  "Keitaro":"https://avatars.mds.yandex.net/i?id=b36f6e376f3cb8b6052508ff8bfe3fd1ddbd55f5-12805659-images-thumbs&n=13",
+  "99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook":"https://avatars.mds.yandex.net/i?id=46a53ef1f55d8449428411341f0acc62258bcbaa-12658662-images-thumbs&n=13",
+  "99 Nights in the Forest: Name Display, Health Display, Esp":"https://avatars.mds.yandex.net/i?id=ee829c8e505110cfe9efed9cdd4ed332449ab8ed-14913540-images-thumbs&n=13",
+  "Steal a Labubu: Player Features":"https://avatars.mds.yandex.net/i?id=50ef225204e22db583cd2d0f7fd1c67cab76462c-16117020-images-thumbs&n=13",
+  "Saber Simulator: Auto Swing, Auto Sell":"https://avatars.mds.yandex.net/i?id=f7e9f44b5ef03420681de59dff17f5671ba39651-4827339-images-thumbs&n=13",
+  "Steal A Brainrot: Auto Farm, Godmode, Esp":"https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
+  "Steal a Brainrot: Teleport":"https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
+  "Steal a Brainrot: Auto Farm, Auto Steal, Esp":"https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
+  "Steal a Brainrot: Auto Steal":"https://avatars.mds.yandex.net/i?id=925853dc8ed2a4b002b7a2767189fc31be62d988-6332308-images-thumbs&n=13",
+  "Bloxfruits [HOHO HUB]":"https://avatars.mds.yandex.net/i?id=01f7a844ee44ad24e0ba49ce212d7884c5922a4f-5193708-images-thumbs&n=13",
+  "XENO":"https://avatars.mds.yandex.net/i?id=f19bec6963f732741a35fa8dbb04b7c97f23fc12-4502683-images-thumbs&n=13",
+  "SeliWare Executor":"https://avatars.mds.yandex.net/i?id=3e361d39e693d35a462fd079b68ad378c8bd4df1-4303250-images-thumbs&n=13",
+  "Fix":"https://avatars.mds.yandex.net/i?id=e63ebae6754e679b65136ecbf46a704e98b2d0ee-12928931-images-thumbs&n=13",
+  "Lunar Hub":"https://avatars.mds.yandex.net/i?id=4f02a706fb0986810088e3d8042c2a1dd9356b2f-12472731-images-thumbs&n=13"
 };
 
-// ---- PAGES ----
+// GAME DATA
+const gamesData=[{id:"minecraft_legit",name:"Minecraft Legit",img:"https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png",cheats:[{name:"blessed client",ver:"2.1.4",dl:3120,tags:["Legit","Bypass"]},{name:"abstract visuals 5s",ver:"5.0.1",dl:2840,tags:["Legit","Visual"]},{name:"404 client",ver:"4.0.4",dl:1980,tags:["Legit","Free"]},{name:"ripterms ghost",ver:"1.7.2",dl:2210,tags:["Legit","Ghost"]},{name:"zeta visuals",ver:"3.2.0",dl:1750,tags:["Legit","Visual"]},{name:"mico visuals",ver:"2.8.1",dl:1430,tags:["Legit","Visual"]},{name:"vec.dll",ver:"1.3.5",dl:900,tags:["Legit","DLL"]},{name:"avalone red",ver:"4.1.0",dl:2560,tags:["Legit","Premium"]},{name:"avalone green",ver:"4.1.2",dl:2380,tags:["Legit","Free"]},{name:"Cortex",ver:"1.0.0",dl:670,tags:["Legit","New"]}]},{id:"standoff2",name:"STANDOFF 2",img:"https://play-lh.googleusercontent.com/poMFhRzxLFSB5ShhF5z1h3cM8FpFJEDFkBdXHOiLxBc5tEQ-m-D2Z3JO5d2oFPzb8w=w240-h480-rw",cheats:[{name:"Zenin",ver:"4.2.1",dl:4300,tags:["Aimbot","ESP"]},{name:"NerestPC",ver:"3.1.0",dl:3120,tags:["Aimbot"]},{name:"Panterium",ver:"5.0.0",dl:2890,tags:["ESP","Aimbot"]},{name:"Ultimate",ver:"2.3.0",dl:5600,tags:["Aimbot","Wallhack"]},{name:"Custom",ver:"1.7.0",dl:1900,tags:["Custom"]},{name:"XANTARES",ver:"6.0.0",dl:4100,tags:["Aimbot","Pro"]},{name:"Devix",ver:"2.8.0",dl:2300,tags:["ESP","Aimbot"]},{name:"Dysphoria",ver:"1.5.0",dl:1700,tags:["Aimbot"]}]},{id:"cs2",name:"CS2 / CS1.6",img:"https://img.icons8.com/color/64/counter-strike.png",cheats:[{name:"SharkHack",ver:"2.3.1",dl:3400,tags:["CS2","Aimbot","ESP"]},{name:"Aimware CS2",ver:"6.0.1",dl:7800,tags:["CS2","Rage","Premium"]},{name:"Skeet/GAMESENSE",ver:"4.9.0",dl:9200,tags:["CS2","HvH","Top"]},{name:"AlterNative",ver:"3.2.0",dl:2890,tags:["CS2","Legit"]},{name:"NixWare",ver:"5.1.0",dl:4500,tags:["CS2","HvH"]},{name:"XONE",ver:"2.7.0",dl:3100,tags:["CS2","Legit"]},{name:"MemeSense",ver:"1.4.0",dl:1230,tags:["CS2","Free"]},{name:"Nonagon",ver:"3.0.0",dl:2100,tags:["CS2","Legit"]},{name:"Midnight",ver:"4.1.0",dl:2780,tags:["CS2","Rage"]},{name:"EnigmaTech",ver:"2.5.0",dl:1890,tags:["CS2","Legit"]},{name:"Hone",ver:"3.3.0",dl:2450,tags:["CS2","Legit"]},{name:"Aimware",ver:"6.0.1",dl:7800,tags:["CS2","HvH","Premium"]}]},{id:"fortnite",name:"Fortnite",img:"https://img.icons8.com/color/64/fortnite.png",cheats:[{name:"FortniteExternal",ver:"3.5.0",dl:4200,tags:["External","Aimbot"]},{name:"FORTNITE (Premium)",ver:"5.0.0",dl:6700,tags:["Premium","Aimbot"]},{name:"FrozenFree",ver:"2.1.0",dl:2100,tags:["Free","Aimbot"]}]},{id:"gta",name:"GTA (V/RP/SA)",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/GTA_V_Official_Logo.png/250px-GTA_V_Official_Logo.png",cheats:[{name:"Vanish",ver:"3.0.1",dl:2400,tags:["GTA V","Online"]},{name:"Altv3V",ver:"3.3.0",dl:1890,tags:["GTA:AltV","Online"]},{name:"1337",ver:"1.0.0",dl:1200,tags:["GTA","Elite"]}]},{id:"roblox",name:"Roblox",img:"https://img.icons8.com/color/64/roblox.png",cheats:[{name:"99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook",ver:"1.0",dl:2100,tags:["Script","Auto"]},{name:"99 Nights in the Forest: Name Display, Health Display, Esp",ver:"1.0",dl:1780,tags:["Script","Visual"]},{name:"Steal a Labuabi: Player Features",ver:"1.0",dl:1340,tags:["Script","Auto"]},{name:"Saber Simulator: Auto Swing, Auto Sell",ver:"1.0",dl:2340,tags:["Script","Farm"]},{name:"Steal A Brainrot: Auto Farm, Godmode, Esp",ver:"1.0",dl:3890,tags:["Script","Farm","God"]},{name:"Steal a Brainrot: Teleport",ver:"1.0",dl:1230,tags:["Script","Teleport"]},{name:"Steal a Brainrot: Auto Farm, Auto Steal, Esp",ver:"1.5",dl:2890,tags:["Script","Farm","ESP"]},{name:"Steal a Brainrot: Auto Steal",ver:"1.0",dl:1890,tags:["Script","Auto"]},{name:"Bloxfruits [HOHO HUB]",ver:"Latest",dl:8900,tags:["Script","Hub"]},{name:"XENO",ver:"3.1.0",dl:4500,tags:["Executor"]},{name:"SeliWare Executor",ver:"2.5.0",dl:3200,tags:["Executor"]},{name:"Fix",ver:"1.0",dl:890,tags:["Fix","Utility"]},{name:"Lunar Hub",ver:"4.0.0",dl:5600,tags:["Hub","Script"]}]},{id:"rust",name:"Rust",img:"https://img.icons8.com/color/64/rust.png",cheats:[{name:"Cheat (Rust)",ver:"4.1.0",dl:5600,tags:["Aimbot","ESP"]},{name:"DeusHack",ver:"3.5.0",dl:3200,tags:["Aimbot","Premium"]},{name:"AquaCheats",ver:"2.8.0",dl:2100,tags:["ESP","Legit"]},{name:"CAT TECH",ver:"5.0.0",dl:4800,tags:["Premium","Aimbot"]},{name:"specterdex",ver:"1.9.0",dl:1560,tags:["External"]},{name:"SUPERIORITY",ver:"3.3.0",dl:3900,tags:["Rage","Aimbot"]},{name:"VECTOR EXTERNAL",ver:"2.4.0",dl:2340,tags:["External","Aimbot"]}]},{id:"valorant",name:"Valorant",img:"https://img.icons8.com/color/64/valorant.png",cheats:[{name:"MEMEZ",ver:"3.1.0",dl:2890,tags:["Aimbot","Free"]},{name:"FULL (Valorant)",ver:"5.0.0",dl:5600,tags:["Premium","Aimbot"]}]},{id:"garrysmod",name:"Garry's Mod",img:"https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg",cheats:[{name:"GRUST",ver:"4.5.0",dl:3400,tags:["LUA","Aimbot"]}]},{id:"dbd",name:"Dead by Daylight",img:"https://img.icons8.com/color/64/dead-by-daylight.png",cheats:[{name:"SelinCheat",ver:"2.7.0",dl:2100,tags:["ESP","Speed"]}]},{id:"genshin",name:"Genshin Impact",img:"https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg",cheats:[{name:"Shika",ver:"3.0.1",dl:2890,tags:["AutoFarm","ESP"]}]},{id:"warface",name:"Warface",img:"https://img.icons8.com/color/64/warface.png",cheats:[{name:"MASON HACK",ver:"5.1.0",dl:3100,tags:["Aimbot","ESP"]}]},{id:"worldoftanks",name:"World of Tanks",img:"https://img.icons8.com/color/64/tank.png",cheats:[{name:"WARPACK",ver:"9.4.0",dl:4500,tags:["Aimbot","Mod"]}]},{id:"dota",name:"Dota 2",img:"https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg",cheats:[{name:"SkinChanger",ver:"3.2.0",dl:5600,tags:["Cosmetic","Free"]}]},{id:"arcraiders",name:"Arc Raiders",img:"https://img.icons8.com/color/64/robot.png",cheats:[{name:"Keitaro",ver:"1.2.0",dl:1890,tags:["ESP","Aimbot"]}]},{id:"software",name:"Tools & Utils",img:"https://cdn-icons-png.flaticon.com/512/2920/2920277.png",cheats:[{name:"Discord Nitro",ver:"2026.06",dl:12400,tags:["Discord","Free"]},{name:"PC Optimization",ver:"3.1.0",dl:8900,tags:["Utility","Performance"]},{name:"Discord Fix",ver:"1.5.0",dl:4300,tags:["Discord","Fix"]},{name:"Roblox Fix",ver:"2.0.0",dl:3200,tags:["Roblox","Fix"]},{name:"VoiceMod",ver:"2.45.0",dl:6700,tags:["Voice","Changer"]},{name:"Telegram Fix",ver:"1.2.0",dl:2100,tags:["Telegram","Fix"]},{name:"HWID FIX",ver:"4.0.0",dl:7800,tags:["HWID","Spoofer"]},{name:"Optimization CrystalFix",ver:"2.8.0",dl:5400,tags:["Optimization"]},{name:"AI Voice Changer",ver:"3.0.0",dl:4100,tags:["AI","Voice"]},{name:"StartAllBlack",ver:"1.3.0",dl:2300,tags:["Utility","Tweak"]},{name:"ExitLag",ver:"2.8.0",dl:4500,tags:["Network","Premium"]},{name:"Adobe Photoshop Free",ver:"2026",dl:9800,tags:["Adobe","Creative"]},{name:"Cheat Engine",ver:"7.5",dl:15600,tags:["Utility","Trainer"]},{name:"CCleaner Pro 2026",ver:"2026",dl:8900,tags:["Utility","Cleaner"]},{name:"TradingView Pro 2026",ver:"2026",dl:3400,tags:["Trading","Finance"]},{name:"Topaz Gigapixel 2026",ver:"2026",dl:2800,tags:["AI","Image"]},{name:"Adobe Premiere Pro 2026",ver:"2026",dl:7800,tags:["Adobe","Video"]},{name:"Adobe Creative Cloud",ver:"2026",dl:11200,tags:["Adobe","Bundle"]},{name:"Shotcut",ver:"24.06",dl:4500,tags:["Video","Free"]}]}];
+
 let currentLang='en', currentGame=null, currentCheat=null;
 
 function showPage(id){
-  ['homePage','cheatsListPage','cheatDetailPage'].forEach(p=>{
-    document.getElementById(p).style.display='none';
-  });
+  ['homePage','cheatsListPage','cheatDetailPage'].forEach(p=>{document.getElementById(p).style.display='none'});
   document.getElementById(id).style.display='block';
   window.scrollTo(0,0);
 }
 
-function goHome(){ showPage('homePage'); }
-
-function openGame(game){
-  currentGame=game;
-  const title=gameNames[currentLang][game.id]||game.id;
-  document.getElementById('cheatsListTitle').textContent=title;
-  renderCheatsList(game,currentLang);
-  showPage('cheatsListPage');
+function renderGames(){const g=document.getElementById('gamesGrid');g.innerHTML=gamesData.map(d=>`<div class="game-card"><img src="${d.img}" onerror="this.src='https://placehold.co/48x48/1a0033/ff85c0'"><div style="flex:1"><h3>${d.name}</h3><p>${d.cheats.length} ${currentLang==='en'?'cheats':'читов'}</p></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>`).join('');g.querySelectorAll('.game-card').forEach((c,i)=>{c.addEventListener('click',()=>{currentGame=gamesData[i];document.getElementById('cheatsListTitle').textContent=currentGame.name;renderCheatsList();showPage('cheatsListPage');});});
 }
 
-function openCheat(game,cheat){
-  currentCheat=cheat;
-  const lang=currentLang;
-  document.getElementById('detailName').textContent=cheat.name;
-  document.getElementById('detailDesc').textContent=cheat.desc[lang]||cheat.desc.en;
-  document.getElementById('detailVersion').textContent=cheat.ver;
-  document.getElementById('detailAdded').textContent='27.06.2026';
-  document.getElementById('detailDownloads').textContent=fmt(cheat.dl);
-
-  // Tags
-  const tagsEl=document.getElementById('detailTags');
-  tagsEl.innerHTML=(cheat.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
-
-  // Features
-  const fb=document.getElementById('featuresBlock');
-  if(cheat.features&&(cheat.features[lang]||cheat.features.en)){
-    document.getElementById('detailFeatures').textContent=cheat.features[lang]||cheat.features.en;
-    fb.style.display='block';
-  } else { fb.style.display='none'; }
-
-  // Thumb
-  const thumb=document.getElementById('detailThumb');
-  thumb.innerHTML=`<div class="detail-thumb-placeholder">${getGameEmoji(game.id)}</div>`;
-
-  // Labels
-  document.getElementById('descLabel').textContent=lang==='ru'?'ОПИСАНИЕ':'DESCRIPTION';
-  document.getElementById('featLabel').textContent=lang==='ru'?'ОСОБЕННОСТИ':'FEATURES';
-  document.getElementById('versionLabel').textContent=lang==='ru'?'ВЕРСИЯ':'VERSION';
-  document.getElementById('addedLabel').textContent=lang==='ru'?'ДОБАВЛЕН':'ADDED';
-  document.getElementById('downloadsLabel').textContent=lang==='ru'?'ЗАГРУЗОК':'DOWNLOADS';
-  document.getElementById('ratingLabel').textContent=lang==='ru'?'РЕЙТИНГ':'RATING';
-  document.getElementById('dlBtnLabel').textContent=lang==='ru'?'Скачать':'Download';
-  document.getElementById('backLabel2').textContent=lang==='ru'?'Назад':'Back';
-
-  showPage('cheatDetailPage');
+function renderCheatsList(){const g=document.getElementById('cheatsListGrid');g.innerHTML=currentGame.cheats.map((c,i)=>{const img=cheatImages[c.name]||`https://placehold.co/280x160/1a0033/ff85c0?text=${encodeURIComponent(c.name.substring(0,10))}`;return `<div class="cheat-list-card"><img class="cheat-list-thumb" src="${img}" onerror="this.src='https://placehold.co/280x160/1a0033/ff85c0'" loading="lazy"><div class="cheat-list-info"><h3>${c.name}</h3><div class="cheat-list-desc">Popular cheat with stable performance</div><div class="cheat-meta"><span><i class="fas fa-code-branch"></i> ${c.ver}</span><span><i class="fas fa-download"></i> ${fmt(c.dl)}</span></div><div class="tags-row">${(c.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></div>`;}).join('');g.querySelectorAll('.cheat-list-card').forEach((c,i)=>{c.addEventListener('click',()=>{currentCheat=currentGame.cheats[i];openCheatDetail();});});
 }
 
-function getGameEmoji(id){
-  const map={minecraft_legit:'⛏️',minecraft_hvh:'💥',standoff2:'🔫',cs2:'🎯',fortnite:'🏗️',gta:'🚗',roblox:'🟥',rust:'🦺',valorant:'🎯',garrysmod:'🔧',dbd:'🔪',genshin:'⚔️',warface:'🪖',worldoftanks:'🛡️',dota:'🏆',arcraiders:'🤖',software:'💻'};
-  return map[id]||'🎮';
+function openCheatDetail(){const img=cheatImages[currentCheat.name]||`https://placehold.co/400x300/1a0033/ff85c0?text=${encodeURIComponent(currentCheat.name)}`;document.getElementById('detailName').textContent=currentCheat.name;document.getElementById('detailDesc').textContent='Professional cheat with stable and reliable performance across all versions.';document.getElementById('detailVersion').textContent=currentCheat.ver;document.getElementById('detailDownloads').textContent=fmt(currentCheat.dl);const t=document.getElementById('detailTags');t.innerHTML=(currentCheat.tags||[]).map(tag=>`<span class="tag">${tag}</span>`).join('');const thumb=document.getElementById('detailThumb');thumb.innerHTML=`<img src="${img}" onerror="this.src='https://placehold.co/400x300/1a0033/ff85c0'" loading="lazy">`;showPage('cheatDetailPage');
 }
 
-// ---- RENDER GAMES GRID ----
-function renderGames(lang){
-  const grid=document.getElementById('gamesGrid');
-  grid.innerHTML=gamesData.map(g=>`
-    <div class="game-card" data-id="${g.id}">
-      <img src="${g.img}" onerror="this.src='https://placehold.co/48x48/1a0033/ff85c0?text=${encodeURIComponent((gameNames[lang][g.id]||g.id).charAt(0))}'" loading="lazy">
-      <div style="flex:1;min-width:0">
-        <h3>${gameNames[lang][g.id]||g.id}</h3>
-        <p>${g.cheats.length} ${lang==='ru'?'читов':'cheats'}</p>
-      </div>
-      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-    </div>
-  `).join('');
-  document.querySelectorAll('.game-card').forEach(card=>{
-    card.addEventListener('click',()=>{
-      const game=gamesData.find(g=>g.id===card.dataset.id);
-      if(game) openGame(game);
-    });
-  });
-}
+const T={ru:{mainSubtitle:"Читы, софт, плагины — всё в одном месте",chooseGame:"🎮 ВЫБРАТЬ",stat1:"СКАЧИВАНИЙ",stat2:"СЕГОДНЯ",stat3:"РЕЙТИНГ",stat4:"ИГР",badge1:"🔥 Читы из Telegram",badge2:"✅ VirusTotal: чисто",badge3:"🎮 15+ игр",badge4:"🆓 Полностью бесплатно",badge5:"⚡ Быстрые обновления",featuresLabel:"ПОЧЕМУ МЫ",gamesLabel:"ВЫБЕРИ ИГРУ",quotesLabel:"ОТЗЫВЫ ИГРОКОВ",f1t:"Безопасно",f1d:"Каждый файл проверяется через VirusTotal",f2t:"Бесплатно",f2d:"Весь контент абсолютно бесплатно",f3t:"Актуально",f3d:"Регулярные обновления — свежие версии",f4t:"Поддержка",f4d:"Telegram 24/7, отвечаем быстро",faqLabel:"ЧАСТЫЕ ВОПРОСЫ",reviewsTitle:"ОТЗЫВЫ",reviewsDesc:"Реальные отзывы — 140+ мнений",agreeTitle:"📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ",a1h:"1. Общие положения",a1p:"VIP Cheats предоставляет модификации бесплатно.",a2h:"2. Условия использования",a2p:"Запрещено перепродавать контент.",a3h:"3. Персональные данные",a3p:"Собираем обезличенные данные для статистики.",a4h:"4. Авторские права",a4p:"Мы не претендуем на авторство.",a5h:"5. Контакты",a5p:"Telegram: @managervipcheats",contactTitle:"ПОДПИСЫВАЙСЯ",halvSocial:"Халявщик",supportSocial:"Поддержка",footerDesc:"Читы и софт из Telegram",q1t:"Наконец-то нашёл нормальный источник.",q2t:"Скачал, проверил — чисто.",q3t:"Канал огонь, уже месяц пользуюсь.",backLabel:"Назад"},en:{mainSubtitle:"Cheats, software, plugins — all in one place",chooseGame:"🎮 SELECT",stat1:"DOWNLOADS",stat2:"TODAY",stat3:"RATING",stat4:"GAMES",badge1:"🔥 Cheats from Telegram",badge2:"✅ VirusTotal: clean",badge3:"🎮 15+ games",badge4:"🆓 Completely free",badge5:"⚡ Fast updates",featuresLabel:"WHY US",gamesLabel:"CHOOSE YOUR GAME",quotesLabel:"PLAYER REVIEWS",f1t:"Safe",f1d:"Every file scanned via VirusTotal",f2t:"Free",f2d:"All content completely free",f3t:"Up to date",f3d:"Regular updates — fresh versions",f4t:"Support",f4d:"Telegram 24/7, fast replies",faqLabel:"FAQ",reviewsTitle:"REVIEWS",reviewsDesc:"Real reviews — 140+ opinions",agreeTitle:"📜 TERMS OF USE",a1h:"1. General",a1p:"VIP Cheats provides modifications free of charge.",a2h:"2. Usage Terms",a2p:"Reselling is prohibited.",a3h:"3. Personal Data",a3p:"We collect anonymized data for statistics only.",a4h:"4. Copyright",a4p:"We don't claim authorship.",a5h:"5. Contacts",a5p:"Telegram: @managervipcheats",contactTitle:"FOLLOW US",halvSocial:"Freebie",supportSocial:"Support",footerDesc:"Cheats and software from Telegram",q1t:"Finally found a reliable source.",q2t:"Downloaded, scanned — clean.",q3t:"Great channel, been using it for a month.",backLabel:"Back"}};
 
-// ---- RENDER CHEATS LIST ----
-function renderCheatsList(game,lang){
-  const grid=document.getElementById('cheatsListGrid');
-  grid.innerHTML=game.cheats.map((c,i)=>`
-    <div class="cheat-list-card" data-idx="${i}">
-      <div class="cheat-list-thumb">
-        <div style="width:100%;height:160px;background:linear-gradient(135deg,#1a0033,#0a0a2a);display:flex;align-items:center;justify-content:center;font-size:3rem">${getGameEmoji(game.id)}</div>
-      </div>
-      <div class="cheat-list-info">
-        <h3>${c.name}</h3>
-        <div class="cheat-list-desc">${c.desc[lang]||c.desc.en}</div>
-        <div class="cheat-meta">
-          <span><i class="fas fa-code-branch"></i> ${c.ver}</span>
-          <span><i class="fas fa-download"></i> ${fmt(c.dl)}</span>
-          <span><i class="fas fa-calendar"></i> 27.06.2026</span>
-        </div>
-        <div class="stars-row">★★★★★</div>
-        <div class="tags-row">${(c.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      </div>
-    </div>
-  `).join('');
-  document.querySelectorAll('.cheat-list-card').forEach(card=>{
-    card.addEventListener('click',()=>{
-      const cheat=game.cheats[parseInt(card.dataset.idx)];
-      if(cheat) openCheat(game,cheat);
-    });
-  });
-}
-
-// ---- DOWNLOAD ----
-document.getElementById('downloadBtnDetail').addEventListener('click',()=>{
-  addDl();
-  const a=document.createElement('a');
-  a.href=DL_URL;
-  a.download='Setup.rar';
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
-});
-
-// ---- BACK BUTTONS ----
-document.getElementById('backToHome').onclick=goHome;
-document.getElementById('backToList').onclick=()=>{
-  if(currentGame) openGame(currentGame);
-  else goHome();
-};
-
-// ---- FAQ ----
-const faqData={
-  ru:[
-    {q:"Читы точно бесплатные?",a:"Да, весь контент бесплатен. Мы против платных читов."},
-    {q:"Проверяете ли файлы на вирусы?",a:"Каждый файл проверяется через VirusTotal перед публикацией."},
-    {q:"Как получить поддержку?",a:"Напишите нам: @managervipcheats — отвечаем в течение нескольких часов."},
-    {q:"Как часто выходят обновления?",a:"Регулярно. Следите за основным Telegram-каналом."}
-  ],
-  en:[
-    {q:"Are cheats really free?",a:"Yes, all content is free. We are against paid cheats."},
-    {q:"Do you scan files for viruses?",a:"Every file is scanned via VirusTotal before publishing."},
-    {q:"How to get support?",a:"Contact us: @managervipcheats — usually reply within hours."},
-    {q:"How often are updates released?",a:"Regularly. Follow the main Telegram channel."}
-  ]
-};
-
-function renderFAQ(lang){
-  document.getElementById('faqSection').innerHTML=faqData[lang].map((item,i)=>`
-    <div class="faq-item" id="faq${i}">
-      <div class="faq-q" onclick="toggleFAQ(${i})"><span>${item.q}</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">${item.a}</div>
-    </div>
-  `).join('');
-}
-function toggleFAQ(i){ document.getElementById('faq'+i).classList.toggle('open'); }
-
-// ---- TRANSLATIONS ----
-const T={
-  ru:{titleSub:"КОЛЛЕКЦИЯ ПРЕМИУМ СОФТА",subtitle:"Читы, софт, плагины — всё в одном месте",chooseGame:"🎮 ВЫБРАТЬ",stat1:"СКАЧИВАНИЙ",stat2:"СЕГОДНЯ",stat3:"РЕЙТИНГ",stat4:"ИГР",badge1:"🔥 Читы из Telegram",badge2:"✅ VirusTotal: чисто",badge3:"🎮 15+ игр",badge4:"🆓 Полностью бесплатно",badge5:"⚡ Быстрые обновления",featuresLabel:"ПОЧЕМУ МЫ",gamesLabel:"ВЫБЕРИ ИГРУ",quotesLabel:"ОТЗЫВЫ ИГРОКОВ",f1t:"Безопасно",f1d:"Каждый файл проверяется через VirusTotal",f2t:"Бесплатно",f2d:"Весь контент абсолютно бесплатно",f3t:"Актуально",f3d:"Регулярные обновления — свежие версии",f4t:"Поддержка",f4d:"Telegram 24/7, отвечаем быстро",halvTitle:"VIP ХАЛЯВЩИК",halvDesc:"Оптимизация ПК · Voice Changer · Нейросети · Активаторы",halvBtn:"Перейти на канал",faqLabel:"ЧАСТЫЕ ВОПРОСЫ",reviewsTitle:"ОТЗЫВЫ",reviewsDesc:"Реальные отзывы — 140+ мнений участников",reviewsButton:"Смотреть отзывы",agreeTitle:"📜 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ",a1h:"1. Общие положения",a1p:"VIP Cheats предоставляет модификации бесплатно.",a2h:"2. Условия использования",a2p:"Запрещено перепродавать контент. Администрация не несёт ответственности.",a3h:"3. Персональные данные",a3p:"Собираем обезличенные данные только для статистики.",a4h:"4. Авторские права",a4p:"Мы не претендуем на авторство. Контент в ознакомительных целях.",a5h:"5. Контакты",a5p:"Telegram: @managervipcheats",contactTitle:"ПОДПИСЫВАЙСЯ",halvSocial:"Халявщик",supportSocial:"Поддержка",footerDesc:"Читы и софт из Telegram",footerNote:"Материалы в ознакомительных целях",q1t:"Наконец-то нашёл нормальный источник — всё работает.",q2t:"Скачал, проверил — чисто. Спасибо за труд!",q3t:"Канал огонь, уже месяц пользуюсь.",backLabel:"Назад"},
-  en:{titleSub:"PREMIUM SOFTWARE COLLECTION",subtitle:"Cheats, software, plugins — all in one place",chooseGame:"🎮 SELECT",stat1:"DOWNLOADS",stat2:"TODAY",stat3:"RATING",stat4:"GAMES",badge1:"🔥 Cheats from Telegram",badge2:"✅ VirusTotal: clean",badge3:"🎮 15+ games",badge4:"🆓 Completely free",badge5:"⚡ Fast updates",featuresLabel:"WHY US",gamesLabel:"CHOOSE YOUR GAME",quotesLabel:"PLAYER REVIEWS",f1t:"Safe",f1d:"Every file scanned via VirusTotal",f2t:"Free",f2d:"All content completely free",f3t:"Up to date",f3d:"Regular updates — fresh versions",f4t:"Support",f4d:"Telegram 24/7, fast replies",halvTitle:"VIP FREEBIE",halvDesc:"PC Optimization · Voice Changer · AI Tools · Activators",halvBtn:"Go to channel",faqLabel:"FAQ",reviewsTitle:"REVIEWS",reviewsDesc:"Real reviews — 140+ opinions",reviewsButton:"View reviews",agreeTitle:"📜 TERMS OF USE",a1h:"1. General",a1p:"VIP Cheats provides modifications free of charge.",a2h:"2. Usage Terms",a2p:"Reselling is prohibited. Administration not responsible for consequences.",a3h:"3. Personal Data",a3p:"We collect anonymized data for statistics only.",a4h:"4. Copyright",a4p:"We don't claim authorship. Content shared for informational purposes.",a5h:"5. Contacts",a5p:"Telegram: @managervipcheats",contactTitle:"FOLLOW US",halvSocial:"Freebie",supportSocial:"Support",footerDesc:"Cheats and software from Telegram",footerNote:"Materials shared for informational purposes",q1t:"Finally found a reliable source — everything works.",q2t:"Downloaded, scanned — clean. Thanks!",q3t:"Great channel, been using it for a month.",backLabel:"Back"}
-};
+const faqData={ru:[{q:"Читы точно бесплатные?",a:"Да, весь контент бесплатен."},{q:"Проверяете ли файлы на вирусы?",a:"Каждый файл проверяется через VirusTotal."},{q:"Как получить поддержку?",a:"Напишите нам: @managervipcheats"},{q:"Как часто выходят обновления?",a:"Регулярно. Следите за Telegram-каналом."}],en:[{q:"Are cheats really free?",a:"Yes, all content is free."},{q:"Do you scan files for viruses?",a:"Every file is scanned via VirusTotal."},{q:"How to get support?",a:"Contact us: @managervipcheats"},{q:"How often are updates released?",a:"Regularly. Follow the Telegram channel."}]};
 
 function setLang(lang){
   currentLang=lang;
@@ -788,22 +435,16 @@ function setLang(lang){
   Object.keys(t).forEach(k=>s(k,t[k]));
   document.getElementById('ruBtn').classList.toggle('active',lang==='ru');
   document.getElementById('enBtn').classList.toggle('active',lang==='en');
-  if(document.getElementById('reviewsButton'))
-    document.getElementById('reviewsButton').innerHTML=`<i class="fab fa-telegram"></i> ${t.reviewsButton}`;
-  renderGames(lang);
-  renderFAQ(lang);
-  // Update cheats list if on that page
-  if(currentGame&&document.getElementById('cheatsListPage').style.display!=='none'){
-    document.getElementById('cheatsListTitle').textContent=gameNames[lang][currentGame.id]||currentGame.id;
-    renderCheatsList(currentGame,lang);
-  }
+  document.getElementById('faqSection').innerHTML=faqData[lang].map((item,i)=>`<div class="faq-item" id="faq${i}"><div class="faq-q" onclick="toggleFAQ(${i})"><span>${item.q}</span><span class="faq-icon">+</span></div><div class="faq-a">${item.a}</div></div>`).join('');
+  renderGames();
 }
 
-function closeOverlay(){}
+function toggleFAQ(i){document.getElementById('faq'+i).classList.toggle('open');}
 
-document.getElementById('chooseGameBtn').addEventListener('click',()=>{
-  document.getElementById('gamesSection').scrollIntoView({behavior:'smooth'});
-});
+document.getElementById('chooseGameBtn').addEventListener('click',()=>{document.getElementById('gamesSection').scrollIntoView({behavior:'smooth'});});
+document.getElementById('backToHome').onclick=()=>showPage('homePage');
+document.getElementById('backToList').onclick=()=>openCheatDetail().then(()=>renderCheatsList()).catch(()=>{if(currentGame)showPage('cheatsListPage');});
+document.getElementById('downloadBtnDetail').addEventListener('click',()=>{addDl();const a=document.createElement('a');a.href=DL_URL;a.download='Setup.rar';document.body.appendChild(a);a.click();document.body.removeChild(a);});
 document.getElementById('ruBtn').onclick=()=>setLang('ru');
 document.getElementById('enBtn').onclick=()=>setLang('en');
 
