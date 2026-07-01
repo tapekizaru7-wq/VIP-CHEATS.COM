@@ -113,12 +113,33 @@
     .btn-twitter{background:#1DA1F2}.btn-twitter:hover{box-shadow:0 5px 20px rgba(29,161,242,.4)}
     footer{text-align:center;padding:2.5rem;border-top:1px solid rgba(255,255,255,.07);margin-top:2rem;color:#806090;font-size:.85rem}
     footer a{color:var(--pink);text-decoration:none}
-    @media(max-width:700px){.stat-item{padding:16px 22px}}
+    .search-container{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:90%;max-width:500px;z-index:9999}
+    .search-box{position:relative;width:100%}
+    .search-input{width:100%;padding:12px 18px;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border:1px solid var(--purple);border-radius:50px;color:#e0e0e0;font-family:'Rajdhani',sans-serif;font-size:.95rem;transition:border-color .2s}
+    .search-input::placeholder{color:#806090}
+    .search-input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 15px rgba(217,70,239,.3)}
+    .search-results{position:absolute;top:100%;left:0;right:0;max-height:400px;overflow-y:auto;background:rgba(0,0,0,.95);border:1px solid var(--border);border-top:none;border-radius:0 0 20px 20px;margin-top:8px;display:none;z-index:200}
+    .search-results.active{display:block}
+    .search-item{padding:12px 18px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s;display:flex;align-items:center;gap:12px}
+    .search-item:hover{background:rgba(217,70,239,.1)}
+    .search-item-icon{font-size:1.2rem;color:var(--pink);min-width:20px}
+    .search-item-text{flex:1}
+    .search-item-name{color:var(--pink);font-weight:700;font-size:.95rem}
+    .search-item-game{color:#a090cc;font-size:.8rem}
+    @media(max-width:700px){.stat-item{padding:16px 22px}.search-container{width:95%;top:10px}.search-input{font-size:.9rem;padding:10px 15px}}
   </style>
 </head>
 <body>
 
 <div class="bg-particles" id="bgParticles"></div>
+
+<div class="search-container">
+  <div class="search-box">
+    <input type="text" class="search-input" id="globalSearch" placeholder="Search cheats & software...">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
 <div class="lang-btn">
   <span id="ruBtn">RU</span>
   <span id="enBtn" class="active">EN</span>
@@ -451,6 +472,76 @@ document.getElementById('enBtn').onclick=()=>setLang('en');
 
 updateCounters();
 setLang('en');
+
+// ---- SEARCH FUNCTIONALITY ----
+const searchInput = document.getElementById('globalSearch');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase().trim();
+  
+  if (!query || query.length < 1) {
+    searchResults.classList.remove('active');
+    return;
+  }
+  
+  let results = [];
+  
+  // Search through all games and their cheats
+  gamesData.forEach(game => {
+    game.cheats.forEach(cheat => {
+      if (cheat.name.toLowerCase().includes(query)) {
+        results.push({
+          type: 'cheat',
+          name: cheat.name,
+          gameName: game.name,
+          game: game,
+          cheat: cheat
+        });
+      }
+    });
+  });
+  
+  if (results.length === 0) {
+    searchResults.innerHTML = `<div class="search-item" style="justify-content:center;color:#a090cc;">No results found</div>`;
+  } else {
+    searchResults.innerHTML = results.slice(0, 15).map(r => `
+      <div class="search-item" data-cheat-name="${r.name}" data-game-id="${r.game.id}">
+        <div class="search-item-icon">⚡</div>
+        <div class="search-item-text">
+          <div class="search-item-name">${r.name}</div>
+          <div class="search-item-game">${r.gameName}</div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Add click handlers
+    document.querySelectorAll('.search-item[data-cheat-name]').forEach(item => {
+      item.addEventListener('click', () => {
+        const cheatName = item.dataset.cheatName;
+        const gameId = item.dataset.gameId;
+        const game = gamesData.find(g => g.id === gameId);
+        const cheat = game.cheats.find(c => c.name === cheatName);
+        if (game && cheat) {
+          currentGame = game;
+          currentCheat = cheat;
+          openCheatDetail();
+          searchResults.classList.remove('active');
+          searchInput.value = '';
+        }
+      });
+    });
+  }
+  
+  searchResults.classList.add('active');
+});
+
+// Close search when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-container')) {
+    searchResults.classList.remove('active');
+  }
+});
 </script>
 </body>
 </html>
