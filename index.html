@@ -422,8 +422,9 @@ const cheatImages={
   "XENO":"https://avatars.mds.yandex.net/i?id=f19bec6963f732741a35fa8dbb04b7c97f23fc12-4502683-images-thumbs&n=13",
   "SeliWare Executor":"https://avatars.mds.yandex.net/i?id=3e361d39e693d35a462fd079b68ad378c8bd4df1-4303250-images-thumbs&n=13",
   "Fix":"https://avatars.mds.yandex.net/i?id=e63ebae6754e679b65136ecbf46a704e98b2d0ee-12928931-images-thumbs&n=13",
-  "Lunar Hub":"https://avatars.mds.yandex.net/i?id=4f02a706fb0986810088e3d8042c2a1dd9356b2f-12472731-images-thumbs&n=13"
-  "https://avatars.mds.yandex.net/i?id=c930ceb12bf73979541f75e8fdca7e11c7a54ffd-10160381-images-thumbs&n=13"
+  "Lunar Hub":"https://avatars.mds.yandex.net/i?id=4f02a706fb0986810088e3d8042c2a1dd9356b2f-12472731-images-thumbs&n=13",
+  // ========== ДОБАВЛЕН SkinChanger С ПРАВИЛЬНОЙ ССЫЛКОЙ ==========
+  "SkinChanger":"https://avatars.mds.yandex.net/i?id=c930ceb12bf73979541f75e8fdca7e11c7a54ffd-10160381-images-thumbs&n=13"
 };
 
 // GAME DATA
@@ -465,7 +466,7 @@ function toggleFAQ(i){document.getElementById('faq'+i).classList.toggle('open');
 
 document.getElementById('chooseGameBtn').addEventListener('click',()=>{document.getElementById('gamesSection').scrollIntoView({behavior:'smooth'});});
 document.getElementById('backToHome').onclick=()=>showPage('homePage');
-document.getElementById('backToList').onclick=()=>openCheatDetail().then(()=>renderCheatsList()).catch(()=>{if(currentGame)showPage('cheatsListPage');});
+document.getElementById('backToList').onclick=()=>{if(currentGame){showPage('cheatsListPage');}};
 document.getElementById('downloadBtnDetail').addEventListener('click',()=>{addDl();const a=document.createElement('a');a.href=DL_URL;a.download='Setup.rar';document.body.appendChild(a);a.click();document.body.removeChild(a);});
 document.getElementById('ruBtn').onclick=()=>setLang('ru');
 document.getElementById('enBtn').onclick=()=>setLang('en');
@@ -487,7 +488,6 @@ searchInput.addEventListener('input', (e) => {
   
   let results = [];
   
-  // Search through all games and their cheats
   gamesData.forEach(game => {
     game.cheats.forEach(cheat => {
       if (cheat.name.toLowerCase().includes(query)) {
@@ -515,7 +515,6 @@ searchInput.addEventListener('input', (e) => {
       </div>
     `).join('');
     
-    // Add click handlers
     document.querySelectorAll('.search-item[data-cheat-name]').forEach(item => {
       item.addEventListener('click', () => {
         const cheatName = item.dataset.cheatName;
@@ -536,7 +535,6 @@ searchInput.addEventListener('input', (e) => {
   searchResults.classList.add('active');
 });
 
-// Close search when clicking outside
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.search-container')) {
     searchResults.classList.remove('active');
