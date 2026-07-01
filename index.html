@@ -278,158 +278,527 @@ function fmt(n){return n.toLocaleString('en-US')}
 function updateCounters(){document.getElementById('totalCount').textContent=fmt(totalDl);document.getElementById('todayCount').textContent=fmt(todayDl);localStorage.setItem('vip_total',totalDl);localStorage.setItem('vip_today',todayDl);}
 function addDl(){totalDl++;todayDl++;updateCounters()}
 
-// CHEAT IMAGES DATABASE
-const cheatImages={
-  "Discord Nitro":"https://avatars.mds.yandex.net/i?id=314c0601ac9fe35057dd441716b1290169e5fceb-5107704-images-thumbs&n=13",
-  "PC Optimization":"https://avatars.mds.yandex.net/i?id=d22e0cb68126fc57381874ffdc4c043e43197a8f-5129481-images-thumbs&n=13",
-  "Discord Fix":"https://avatars.mds.yandex.net/i?id=fb9f49aa22548861fb3a897dd00c8d7f637ea2c5-4902400-images-thumbs&n=13",
-  "Roblox Fix":"https://avatars.mds.yandex.net/i?id=32c980170e2113f18bd58563ec5676517455981c-5664987-images-thumbs&n=13",
-  "VoiceMod":"https://avatars.mds.yandex.net/i?id=82fcdaa8509307bc2f6de60b3531d9556e6e70c7-4289950-images-thumbs&n=13",
-  "Telegram Fix":"https://avatars.mds.yandex.net/i?id=b878b6ba8c1acb69fb5c77db5de67c70a364f497-9705905-images-thumbs&n=13",
-  "HWID FIX":"https://avatars.mds.yandex.net/i?id=561449ca645f92b47ce2bf984ce0b837a880ebf8-16436660-images-thumbs&n=13",
-  "Optimization CrystalFix":"https://avatars.mds.yandex.net/i?id=e766e697ff9f3a3051345b8cb56d631c817a36ce-3162694-images-thumbs&n=13",
-  "AI Voice Changer":"https://avatars.mds.yandex.net/i?id=b6feccd03c9dba79cba206834d27e70b3bce2d7f-12569476-images-thumbs&n=13",
-  "StartAllBlack":"https://avatars.mds.yandex.net/i?id=8f86dfadbae95289d99ccaa88dab3216e5c4c1f0-5233279-images-thumbs&n=13",
-  "ExitLag":"https://avatars.mds.yandex.net/i?id=30de1851c4ee11300b65dc7e9c120ba9b6cc8b33-5437458-images-thumbs&n=13",
-  "Adobe Photoshop Free":"https://avatars.mds.yandex.net/i?id=9814344e2726c379cfdb1e5f2652a58a5fd1b0fc-10242960-images-thumbs&n=13",
-  "Cheat Engine":"https://avatars.mds.yandex.net/i?id=8743a5210c1f46b5d947c7a1dddbebe956bcd74e-8544532-images-thumbs&n=13",
-  "CCleaner Pro 2026":"https://avatars.mds.yandex.net/i?id=a71fdd575a758767d81973fae9acf659_l-4531115-images-thumbs&n=13",
-  "TradingView Pro 2026":"https://avatars.mds.yandex.net/i?id=45dfd1aec6f4f34bb3764adf691515fd98f4557e-5451187-images-thumbs&n=13",
-  "Topaz Gigapixel 2026":"https://avatars.mds.yandex.net/i?id=db5884c92886061440f2218ea833565c89e590e2-10851151-images-thumbs&n=13",
-  "Adobe Premiere Pro 2026":"https://avatars.mds.yandex.net/i?id=0cd6026512c37ba8e59a334ba8e92b868fdc8afc-4965078-images-thumbs&n=13",
-  "Adobe Creative Cloud":"https://avatars.mds.yandex.net/i?id=4948596cd479b08aaded3dfa8abd49f8d98b8619-5236166-images-thumbs&n=13",
-  "Shotcut":"https://avatars.mds.yandex.net/i?id=512dc34f450c621285adce01e6b193980b1e2e90-4078046-images-thumbs&n=13",
-  "blessed client":"https://avatars.mds.yandex.net/i?id=fd28e99d1128127d44ee47d8054e50738875be4a-2454879-images-thumbs&n=13",
-  "abstract visuals 5s":"https://avatars.mds.yandex.net/i?id=697265857baf2f4e717165ca432f042603d608d3-4255743-images-thumbs&n=13",
-  "404 client":"https://cheathub.tech/api/files/images/114d7b01-2065-4357-a578-0c3bab6b9a1a-Skrinshot-28-05-2025-094712.jpg?t=1748414849192",
-  "ripterms ghost":"https://avatars.mds.yandex.net/i?id=76afa45c4d65de15515195aa75079fe6-5877669-images-thumbs&n=13",
-  "zeta visuals":"https://avatars.mds.yandex.net/i?id=6cb35f4297957ec9bb8cc38640e7c286603f783f-5252983-images-thumbs&n=13",
-  "mico visuals":"https://cheathub.tech/api/files/images/a739e1fd-4276-4ca3-a19c-4cae83a76bd0-Skrinshot-28-05-2025-095044.jpg?t=1748415067641",
-  "vec.dll":"https://cheathub.tech/api/files/images/4c67c843-5a30-48d5-ba32-d5328588a3b3-Skrinshot-28-05-2025-095212.jpg?t=1748415286595",
-  "avalone red":"https://cheathub.tech/api/files/images/d25a7d07-8c9d-4cf4-a6f5-ad76c34a8470-Skrinshot-28-05-2025-095536.jpg?t=1748415359600",
-  "avalone green":"https://cheathub.tech/api/files/images/fb264e86-145f-4e71-a4e0-21f91043de0e-Skrinshot-28-05-2025-095526.jpg?t=1748415367055",
-  "Cortex":"https://cheathub.tech/api/files/images/ef072ee6-8f42-4f1d-a286-c592c3824f18-Skrinshot-28-05-2025-123321.jpg?t=1748424814078",
-  "Nursultan Crack":"https://cheathub.tech/api/files/images/481271e2-ee33-4b44-8416-7308091d1ae6-cheat-680fec72466dd.jpg?t=1747346972899",
-  "Wexside crack":"https://cheathub.tech/api/files/images/248806f6-d639-4d72-9e25-6b07bffa5a1c-wex1.jpg?t=1742280282961",
-  "NewCode Crack":"https://cheathub.tech/api/files/images/a322702f-0ec7-44bf-8b47-e80682eadec7-java-PALJnJddWq.png?t=1742280602803",
-  "Venus Free":"https://cheathub.tech/api/files/images/ed6764a3-013d-4a8f-8751-1af09cc73d3a-ve2.jpg?t=1742280767189",
-  "Excellent Upgrade":"https://cheathub.tech/api/files/images/2f5a1414-6ef2-4c9b-9e28-acb868005218-Ex2.jpg?t=1742281062809",
-  "Minced 1.20.1":"https://cheathub.tech/api/files/images/53d1e508-4454-4461-aefd-d26929b3eae5-browser-kU7BJNPxYR.png?t=1745968860134",
-  "EvaWare":"https://cheathub.tech/api/files/images/7d90c5d8-3093-4d15-8ce4-ba7f894e15ac-evaware.png?t=1742281202474",
-  "VegaLine":"https://cheathub.tech/api/files/images/7bdcee15-ed97-40b9-a5f6-41adabdf26b4-veg.png?t=1742281248880",
-  "Haruka":"https://cheathub.tech/api/files/images/809bef80-4226-432c-97fb-ee26063b3044-Haruka-Client.png?t=1742281307585",
-  "Qick":"https://cheathub.tech/api/files/images/45a7a795-cf31-41c3-a9e7-064d849c7769-qick.png?t=1742281355815",
-  "Wissed":"https://cheathub.tech/api/files/images/e2719179-6474-4f8d-8e2f-9ee6fd9b22db-wissend1.jpg?t=1742281477215",
-  "Nix":"https://cheathub.tech/api/files/images/bfa93831-0d12-448a-a448-c7f932247a88-image-2025-04-0yvayvayvayva43-59.png?t=1743713586566",
-  "Verist":"https://cheathub.tech/api/files/images/30951942-04ac-403c-a2ce-96db59f2bb8d-vi1.jpg?t=1742281630738",
-  "Nova":"https://cheathub.tech/api/files/images/5dd2e85f-de97-4d76-8792-16d99bc0d8fd-photo-2025-04-10-16-37-15.jpg?t=1744522155899",
-  "Celestial":"https://cheathub.tech/api/files/images/5c55ee12-0562-473e-9fdc-8c8c669f5a08-browser-P08qegyhD5.jpg?t=1742283523578",
-  "NightDLC":"https://cheathub.tech/api/files/images/914395c7-7085-4f35-b77f-5cff913b0c28-Discord-gcmeUBteRU.png?t=1767617674879",
-  "Churka client":"https://cheathub.tech/api/files/images/ccd6be3c-692c-4efa-bd7f-a9287ccbd55f-1000363510.jpg?t=1742656726661",
-  "Deluxe":"https://cheathub.tech/api/files/images/396e7ed3-6c73-4319-94f8-668d14c3f6df-photo-2026-02-06-03-21-29.jpg?t=1770338145500",
-  "Delta Client":"https://cheathub.tech/api/files/images/710a7522-5d0d-4133-8b69-f22ee2ae0471-NVIDIA-Overlay-ujHrnyhzmu.png?t=1746741575212",
-  "Excellent Plus":"https://cheathub.tech/api/files/images/7a1cd80f-222e-474c-b42c-f51bc781933a-Telegram-k5m79eJHEu.png?t=1743802160294",
-  "LiquidBounce":"https://cheathub.tech/api/files/images/f09a6aea-512b-4d68-9fc1-09dc9b8550aa-maxresdefault.jpg?t=1743900741689",
-  "AugustusX b12":"https://cheathub.tech/api/files/images/13e01e49-b1e5-4f46-b39f-d48035692588-Augustus-Client-Screenshots-1.jpg?t=1743900990087",
-  "FDPClient":"https://cheathub.tech/api/files/images/dafa7f92-cb49-4402-8da1-69b6ba04567f-FDP-Client-Screenshots-2.jpg?t=1743901760501",
-  "Gothaj V3.3.0.1":"https://cheathub.tech/api/files/images/9978e609-c0b7-4ef6-81a9-09dc4404d655-Gothaj-Client-Screenshots-1.jpg?t=1743902037782",
-  "Rise (6.1.30)":"https://cheathub.tech/api/files/images/82790be9-3f3f-4783-9983-6b608cf6f258-Rise-Client-Screenshots-9.jpg?t=1743902323861",
-  "Skid V12.13":"https://cheathub.tech/api/files/images/a5e5ea2d-42a8-432a-bf1d-1af30bab2e68-1552898462-screenshot-1.png?t=1743902600139",
-  "ARBUZ CLIENT":"https://cheathub.tech/api/files/images/c06ef1ca-6b3a-4f2d-a9a6-229c11aaa222-ApplicationFrameHost-BZOgVl8ZBm.png?t=1745740467111",
-  "Minced 1.16.5":"https://cheathub.tech/api/files/images/d7d1159e-2c15-4dbc-8811-d8a956b1793e-browser-JBR4xg1oqi.png?t=1745968818339",
-  "RockStar crack":"https://cheathub.tech/api/files/images/c59deb15-29cf-43ad-a7cb-9a935f6bbef0-Discord-nFQMqNNiVf.png?t=1746191009927",
-  "Catlavan crack":"https://cheathub.tech/api/files/images/907bec5b-d6ac-4c87-92e9-12347681b842-photo-2025-06-03-12-59-54.jpg?t=1748944857555",
-  "Litka Client Crack":"https://cheathub.tech/api/files/images/ec373325-27f4-43d6-b700-68c24c63b130-photo-2025-04-28-17-06-09.jpg?t=1746308692749",
-  "KomaruBuy 1.16.5":"https://cheathub.tech/api/files/images/0ae1390a-7a3f-43ae-b5ff-9d7cbdd21e6e-photo-2025-05-03-14-51-27.jpg?t=1746308824179",
-  "Spectra client":"https://cheathub.tech/api/files/images/174da386-1c69-4858-80fa-9ae2e585f224-ApplicationFrameHost-wNPROwxQsM.jpg?t=1747228430610",
-  "Antilose Crack":"https://cheathub.tech/api/files/images/48004b34-2e90-44d4-aff1-72a925ecaf01-photo-2025-05-16-22-03-17.jpg?t=1747492193516",
-  "Takker V2 crack":"https://cheathub.tech/api/files/images/6b66497a-bab3-4cd8-8b6c-facd76bca538-photo-2025-05-17-08-00-23.jpg?t=1747581849022",
-  "Miraculos":"https://cheathub.tech/api/files/images/b5a62cd7-d4c0-4ab6-9191-fb20924c8b35-ApplicationFrameHost-EHh5cBlpki.jpg?t=1748249148798",
-  "Winner Client":"https://cheathub.tech/api/files/images/dc9dff60-e02c-4c87-9337-08a48f3eb7d5-ApplicationFrameHost-ADceY0p5B7.png?t=1748604603451",
-  "Dimasik client":"https://cheathub.tech/api/files/images/72330f16-fa0b-469a-83d8-ddd9f5a1b2a8-photo-2026-02-16-06-44-23.jpg?t=1771223402811",
-  "Dettex":"https://cheathub.tech/api/files/images/3570ddee-220a-4ee2-92b5-8b4357f95f83-photo-2025-06-18-23-31-03.jpg?t=1750271477857",
-  "Essence Client":"https://cheathub.tech/api/files/images/0ab71cda-86ab-40f4-803d-ed5fdbb65eb4-photo-2026-02-16-09-09-44.jpg?t=1771223598484",
-  "Zenith Client":"https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
-  "Zenith Recode":"https://cheathub.tech/api/files/images/7927524d-4b64-4f28-9613-4fd58e0f7e34-photo-2025-09-06-10-22-10.jpg?t=1757146951849",
-  "Monoton Client 2.1":"https://cheathub.tech/api/files/images/633b1287-c05c-4c52-92ca-ab82212f8c44-HIFTjZfBVE.jpg?t=1765878881899",
-  "Mercury Client":"https://cheathub.tech/api/files/images/b9f46706-a63e-45f9-8f29-1b34fc331faf-javaw-w2jvayGDtV.png?t=1762590678391",
-  "ExosWare Client":"https://cheathub.tech/api/files/images/358c0a9a-eb8c-4e22-93a9-afd3443f2f14-ApplicationFrameHost-KmdwNdGGMX.jpg?t=1762776756939",
-  "libraries Папка":"https://cheathub.tech/api/files/images/96bbad51-005e-4263-a5de-24ff02edf429-explorer-8WPQNUxXQ6.png?t=1765879622064",
-  "Zov Client":"https://cheathub.tech/api/files/images/af5853e8-6c78-4e3d-9bfc-c6d9cc538d58-photo-2025-12-07-21-31-18.jpg?t=1766177502586",
-  "Excellent Omni":"https://cheathub.tech/api/files/images/54be1949-32e4-4c9e-a4f6-94f253b3bb80-photo-2025-12-07-21-34-12.jpg?t=1766177691705",
-  "Private Client Beta":"https://cheathub.tech/api/files/images/dbd2fbbb-5d4a-4fb4-bc10-4d91f37de730-ApplicationFrameHost-LuYSED1lmq.png?t=1768127212741",
-  "Wasteland Client":"https://cheathub.tech/api/files/images/666af2d7-d69f-4512-9d83-0fe71bf8d1b0-browser-OVbVlx6wzc.png?t=1768388693888",
-  "Haruka premium":"https://cheathub.tech/api/files/images/f4bb8d79-0205-461b-b2e7-6bece2d5dd83-Discord-4BJ3Bl1IhL.png?t=1768393855578",
-  "RockStar beta":"https://cheathub.tech/api/files/images/c59deb15-29cf-43ad-a7cb-9a935f6bbef0-Discord-nFQMqNNiVf.png?t=1746191009927",
-  "Toffi Client":"https://cheathub.tech/api/files/images/3fdf1a74-55ee-42ff-8098-9185bb4b6e93-photo-2026-01-30-16-32-54.jpg?t=1770339806699",
-  "X-Client":"https://cheathub.tech/api/files/images/2a27c162-45e6-46cb-83c7-348ccbd39308-photo-2026-01-30-20-20-26.jpg?t=1770340160581",
-  "Catlavan 14.1.2026":"https://cheathub.tech/api/files/images/907bec5b-d6ac-4c87-92e9-12347681b842-photo-2025-06-03-12-59-54.jpg?t=1748944857555",
-  "Enetgy client":"https://cheathub.tech/api/files/images/0b0d1389-447b-4a85-8fcf-775275e779e2-photo-2026-02-16-06-36-27.jpg?t=1771223515328",
-  "Rich client":"https://cheathub.tech/api/files/images/a1245bfd-3c50-4973-8de3-c0815d43c352-photo-2026-02-16-09-10-00.jpg?t=1771223871092",
-  "Zenith alpha":"https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
-  "Intensive Client":"https://cheathub.tech/api/files/images/cdb288cf-d513-4ef0-92d9-f579d45e65ef-B43nvkz0SW-jVVU0chVu3RztjDge67owhtc6ISqHw7ZxvlrDGDDwESKqGh9jYDsWTgVmMq5Bm5XUbf.jpg?t=1772466757972",
-  "Avalora client":"https://cheathub.tech/api/files/images/667467ff-8c2b-4c8d-a4a3-82af21a1d3a0-javaw-pWpqhGUEC9.png?t=1774618626874",
-  "Zenin":"https://avatars.mds.yandex.net/i?id=8540fcd189c996e5568f8a7172b482571cce1f2b-4576399-images-thumbs&n=13",
-  "NerestPC":"https://avatars.mds.yandex.net/i?id=01a3dd12fe6a9040b9ffb98a0ec98e9be82ecbdb-5477180-images-thumbs&n=13",
-  "Panterium":"https://avatars.mds.yandex.net/i?id=16eaf7b75c052475dd18a066108c7648a4a61e60-10868764-images-thumbs&n=13",
-  "Ultimate":"https://avatars.mds.yandex.net/i?id=83b21e01ff96b7ecab3bf351efb30d27510939f0-5289438-images-thumbs&n=13",
-  "Custom":"https://avatars.mds.yandex.net/i?id=8dc7adaddeea5a9e321937ebd4b96a6f73b2c974-9145122-images-thumbs&n=13",
-  "XANTARES":"https://avatars.mds.yandex.net/i?id=9e078e1807e3c7eb0bf6ff9980aefe05ad4b29a1-12900429-images-thumbs&n=13",
-  "Devix":"https://avatars.mds.yandex.net/i?id=656503b416a3ef4d3f4f579f114dd354c362e82d-12829626-images-thumbs&n=13",
-  "Dysphoria":"https://avatars.mds.yandex.net/i?id=4177daa4590e00f532b291e3555a007abf96b1f6-3390871-images-thumbs&n=13",
-  "SharkHack":"https://avatars.mds.yandex.net/i?id=90c81d643a5b2564b1d9769a73e5458193b48ba3-5178729-images-thumbs&n=13",
-  "Aimware CS2":"https://avatars.mds.yandex.net/i?id=acc54dc5ed9a7cf5df57aad195a52943b602c8f7-10876589-images-thumbs&n=13",
-  "Skeet/GAMESENSE":"https://avatars.mds.yandex.net/i?id=f5d311eae09de7a6b356b89c842e72b0dbc1e899-4432110-images-thumbs&n=13",
-  "AlterNative":"https://avatars.mds.yandex.net/i?id=16d43ed8450e77d3efecf86f8f2f54698dd9f1ee-4326244-images-thumbs&n=13",
-  "NixWare":"https://avatars.mds.yandex.net/i?id=8e5ceebabdbf871621924952033aa539a8c8bd8c-4451422-images-thumbs&n=13",
-  "XONE":"https://avatars.mds.yandex.net/i?id=e1a391aba970f8de4b0198961a3073c9655a57a9-8223286-images-thumbs&n=13",
-  "MemeSense":"https://avatars.mds.yandex.net/i?id=a437fa3913f747c855443a58e7c60395542ee165-12538603-images-thumbs&n=13",
-  "Nonagon":"https://avatars.mds.yandex.net/i?id=788a95b36d53269f4b1efee8d77990f7336fe884-5315630-images-thumbs&n=13",
-  "Midnight":"https://avatars.mds.yandex.net/i?id=b5b3b604e92c43980cdf0ddf344a0b86108489d1-5014002-images-thumbs&n=13",
-  "EnigmaTech":"https://avatars.mds.yandex.net/i?id=6768e1b9d66f0ceb12a7042d2f675503419e8596-11924504-images-thumbs&n=13",
-  "Hone":"https://avatars.mds.yandex.net/i?id=e5eab91944d0aad0a69e8685bfc6db789fdcdb8d-10697630-images-thumbs&n=13",
-  "Aimware":"https://avatars.mds.yandex.net/i?id=acc54dc5ed9a7cf5df57aad195a52943b602c8f7-10876589-images-thumbs&n=13",
-  "FortniteExternal":"https://avatars.mds.yandex.net/i?id=bce666ece35c72b1653f3ca6a2ff5d6f0915c198-4346197-images-thumbs&n=13",
-  "FORTNITE (Premium)":"https://avatars.mds.yandex.net/i?id=37ff764da242d37657ab1a9ede66985d667855a8-4149382-images-thumbs&n=13",
-  "FrozenFree":"https://avatars.mds.yandex.net/i?id=039be7c40ff0ed9ee348c77245f8aa0e8c2eccfe-5886161-images-thumbs&n=13",
-  "Vanish":"https://avatars.mds.yandex.net/i?id=c6b583a0e6b33dc98782f89a022f474296b00113-16999685-images-thumbs&n=13",
-  "Altv3V":"https://avatars.mds.yandex.net/i?id=720898866a83f749f01b3b567481051ddbcf7650-8152091-images-thumbs&n=13",
-  "1337":"https://avatars.mds.yandex.net/i?id=2785d45796a50dccb036bfe547465c6b15c00241-5284135-images-thumbs&n=13",
-  "Cheat (Rust)":"https://avatars.mds.yandex.net/i?id=6a45fc6e9a98334b9d00d82acd442eea7867efa7-5475669-images-thumbs&n=13",
-  "DeusHack":"https://avatars.mds.yandex.net/i?id=58fe8261e524fddbc1666a0e795df8ac57ba403b-4752921-images-thumbs&n=13",
-  "AquaCheats":"https://avatars.mds.yandex.net/i?id=d1939c45f54e9ab686418085cc825dd313bb4c66-5874919-images-thumbs&n=13",
-  "CAT TECH":"https://avatars.mds.yandex.net/i?id=0e5d84606681eaddf0f196a89d9e72ca775c6b54-5246290-images-thumbs&n=13",
-  "specterdex":"https://avatars.mds.yandex.net/i?id=883e4804a2bcdcc4190e19e40d86df7a36828115-4034575-images-thumbs&n=13",
-  "SUPERIORITY":"https://avatars.mds.yandex.net/i?id=d8e91fb01aa9393b91224ff6049ddf7ff1799eb4-5592183-images-thumbs&n=13",
-  "VECTOR EXTERNAL":"https://avatars.mds.yandex.net/i?id=7a732b9d127ae816c9b8c18d5284caf8_sr-9234023-images-thumbs&n=13",
-  "MEMEZ":"https://avatars.mds.yandex.net/i?id=494fa42624c049010ba74d18ffe6060b1a5a558a-5167594-images-thumbs&n=13",
-  "FULL (Valorant)":"https://avatars.mds.yandex.net/i?id=ee6b37f1fc5b3d486b048028f93381e1855f5298-5665039-images-thumbs&n=13",
-  "GRUST":"https://avatars.mds.yandex.net/i?id=771c6a57a4303df02786d50cf37c72ef9ecd687c-4567432-images-thumbs&n=13",
-  "SelinCheat":"https://avatars.mds.yandex.net/i?id=e8462d9ee171cedd57532258ec49f66aaa360379-5869166-images-thumbs&n=13",
-  "Shika":"https://avatars.mds.yandex.net/i?id=978d806189ebdf0c28c4c82af61772d3653f4944-4385982-images-thumbs&n=13",
-  "MASON HACK":"https://avatars.mds.yandex.net/i?id=58aef68cdf45a57b93594ac2bb95f9cb539d269c-4864173-images-thumbs&n=13",
-  "WARPACK":"https://avatars.mds.yandex.net/i?id=65b7c8977fb66dc1284a60f1340cfd1856b43a97-5105949-images-thumbs&n=13",
-  "Keitaro":"https://avatars.mds.yandex.net/i?id=b36f6e376f3cb8b6052508ff8bfe3fd1ddbd55f5-12805659-images-thumbs&n=13",
-  "99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook":"https://avatars.mds.yandex.net/i?id=46a53ef1f55d8449428411341f0acc62258bcbaa-12658662-images-thumbs&n=13",
-  "99 Nights in the Forest: Name Display, Health Display, Esp":"https://avatars.mds.yandex.net/i?id=ee829c8e505110cfe9efed9cdd4ed332449ab8ed-14913540-images-thumbs&n=13",
-  "Steal a Labubu: Player Features":"https://avatars.mds.yandex.net/i?id=50ef225204e22db583cd2d0f7fd1c67cab76462c-16117020-images-thumbs&n=13",
-  "Saber Simulator: Auto Swing, Auto Sell":"https://avatars.mds.yandex.net/i?id=f7e9f44b5ef03420681de59dff17f5671ba39651-4827339-images-thumbs&n=13",
-  "Steal A Brainrot: Auto Farm, Godmode, Esp":"https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
-  "Steal a Brainrot: Teleport":"https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
-  "Steal a Brainrot: Auto Farm, Auto Steal, Esp":"https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
-  "Steal a Brainrot: Auto Steal":"https://avatars.mds.yandex.net/i?id=925853dc8ed2a4b002b7a2767189fc31be62d988-6332308-images-thumbs&n=13",
-  "Bloxfruits [HOHO HUB]":"https://avatars.mds.yandex.net/i?id=01f7a844ee44ad24e0ba49ce212d7884c5922a4f-5193708-images-thumbs&n=13",
-  "XENO":"https://avatars.mds.yandex.net/i?id=f19bec6963f732741a35fa8dbb04b7c97f23fc12-4502683-images-thumbs&n=13",
-  "SeliWare Executor":"https://avatars.mds.yandex.net/i?id=3e361d39e693d35a462fd079b68ad378c8bd4df1-4303250-images-thumbs&n=13",
-  "Fix":"https://avatars.mds.yandex.net/i?id=e63ebae6754e679b65136ecbf46a704e98b2d0ee-12928931-images-thumbs&n=13",
-  "Lunar Hub":"https://avatars.mds.yandex.net/i?id=4f02a706fb0986810088e3d8042c2a1dd9356b2f-12472731-images-thumbs&n=13",
-  // ========== ДОБАВЛЕН SkinChanger С ПРАВИЛЬНОЙ ССЫЛКОЙ ==========
-  "SkinChanger":"https://avatars.mds.yandex.net/i?id=c930ceb12bf73979541f75e8fdca7e11c7a54ffd-10160381-images-thumbs&n=13"
+// ============================================================
+// CHEAT IMAGES DATABASE — ВСЕ КАРТИНКИ (обновлено 28.06.2026)
+// ============================================================
+const cheatImages = {
+  // === SOFTWARE / ДРУГОЕ ===
+  "Discord Nitro": "https://avatars.mds.yandex.net/i?id=314c0601ac9fe35057dd441716b1290169e5fceb-5107704-images-thumbs&n=13",
+  "PC Optimization": "https://avatars.mds.yandex.net/i?id=d22e0cb68126fc57381874ffdc4c043e43197a8f-5129481-images-thumbs&n=13",
+  "Discord Fix": "https://avatars.mds.yandex.net/i?id=fb9f49aa22548861fb3a897dd00c8d7f637ea2c5-4902400-images-thumbs&n=13",
+  "Roblox Fix": "https://avatars.mds.yandex.net/i?id=32c980170e2113f18bd58563ec5676517455981c-5664987-images-thumbs&n=13",
+  "VoiceMod": "https://avatars.mds.yandex.net/i?id=82fcdaa8509307bc2f6de60b3531d9556e6e70c7-4289950-images-thumbs&n=13",
+  "Telegram Fix": "https://avatars.mds.yandex.net/i?id=b878b6ba8c1acb69fb5c77db5de67c70a364f497-9705905-images-thumbs&n=13",
+  "HWID FIX": "https://avatars.mds.yandex.net/i?id=561449ca645f92b47ce2bf984ce0b837a880ebf8-16436660-images-thumbs&n=13",
+  "Optimization CrystalFix": "https://avatars.mds.yandex.net/i?id=e766e697ff9f3a3051345b8cb56d631c817a36ce-3162694-images-thumbs&n=13",
+  "AI Voice Changer": "https://avatars.mds.yandex.net/i?id=b6feccd03c9dba79cba206834d27e70b3bce2d7f-12569476-images-thumbs&n=13",
+  "StartAllBlack": "https://avatars.mds.yandex.net/i?id=8f86dfadbae95289d99ccaa88dab3216e5c4c1f0-5233279-images-thumbs&n=13",
+  "ExitLag": "https://avatars.mds.yandex.net/i?id=30de1851c4ee11300b65dc7e9c120ba9b6cc8b33-5437458-images-thumbs&n=13",
+  "Adobe Photoshop Free": "https://avatars.mds.yandex.net/i?id=9814344e2726c379cfdb1e5f2652a58a5fd1b0fc-10242960-images-thumbs&n=13",
+  "Cheat Engine": "https://avatars.mds.yandex.net/i?id=8743a5210c1f46b5d947c7a1dddbebe956bcd74e-8544532-images-thumbs&n=13",
+  "CCleaner Pro 2026": "https://avatars.mds.yandex.net/i?id=a71fdd575a758767d81973fae9acf659_l-4531115-images-thumbs&n=13",
+  "TradingView Pro 2026": "https://avatars.mds.yandex.net/i?id=45dfd1aec6f4f34bb3764adf691515fd98f4557e-5451187-images-thumbs&n=13",
+  "Topaz Gigapixel 2026": "https://avatars.mds.yandex.net/i?id=db5884c92886061440f2218ea833565c89e590e2-10851151-images-thumbs&n=13",
+  "Adobe Premiere Pro 2026": "https://avatars.mds.yandex.net/i?id=0cd6026512c37ba8e59a334ba8e92b868fdc8afc-4965078-images-thumbs&n=13",
+  "Adobe Creative Cloud": "https://avatars.mds.yandex.net/i?id=4948596cd479b08aaded3dfa8abd49f8d98b8619-5236166-images-thumbs&n=13",
+  "Shotcut": "https://avatars.mds.yandex.net/i?id=512dc34f450c621285adce01e6b193980b1e2e90-4078046-images-thumbs&n=13",
+
+  // === MINECRAFT LEGIT ===
+  "blessed client": "https://avatars.mds.yandex.net/i?id=fd28e99d1128127d44ee47d8054e50738875be4a-2454879-images-thumbs&n=13",
+  "abstract visuals 5s": "https://avatars.mds.yandex.net/i?id=697265857baf2f4e717165ca432f042603d608d3-4255743-images-thumbs&n=13",
+  "404 client": "https://cheathub.tech/api/files/images/114d7b01-2065-4357-a578-0c3bab6b9a1a-Skrinshot-28-05-2025-094712.jpg?t=1748414849192",
+  "ripterms ghost": "https://avatars.mds.yandex.net/i?id=76afa45c4d65de15515195aa75079fe6-5877669-images-thumbs&n=13",
+  "zeta visuals": "https://avatars.mds.yandex.net/i?id=6cb35f4297957ec9bb8cc38640e7c286603f783f-5252983-images-thumbs&n=13",
+  "mico visuals": "https://cheathub.tech/api/files/images/a739e1fd-4276-4ca3-a19c-4cae83a76bd0-Skrinshot-28-05-2025-095044.jpg?t=1748415067641",
+  "vec.dll": "https://cheathub.tech/api/files/images/4c67c843-5a30-48d5-ba32-d5328588a3b3-Skrinshot-28-05-2025-095212.jpg?t=1748415286595",
+  "avalone red": "https://cheathub.tech/api/files/images/d25a7d07-8c9d-4cf4-a6f5-ad76c34a8470-Skrinshot-28-05-2025-095536.jpg?t=1748415359600",
+  "avalone green": "https://cheathub.tech/api/files/images/fb264e86-145f-4e71-a4e0-21f91043de0e-Skrinshot-28-05-2025-095526.jpg?t=1748415367055",
+  "Cortex": "https://cheathub.tech/api/files/images/ef072ee6-8f42-4f1d-a286-c592c3824f18-Skrinshot-28-05-2025-123321.jpg?t=1748424814078",
+
+  // === MINECRAFT HVH ===
+  "Nursultan Crack": "https://cheathub.tech/api/files/images/481271e2-ee33-4b44-8416-7308091d1ae6-cheat-680fec72466dd.jpg?t=1747346972899",
+  "Wexside crack": "https://cheathub.tech/api/files/images/248806f6-d639-4d72-9e25-6b07bffa5a1c-wex1.jpg?t=1742280282961",
+  "NewCode Crack": "https://cheathub.tech/api/files/images/a322702f-0ec7-44bf-8b47-e80682eadec7-java-PALJnJddWq.png?t=1742280602803",
+  "Venus Free": "https://cheathub.tech/api/files/images/ed6764a3-013d-4a8f-8751-1af09cc73d3a-ve2.jpg?t=1742280767189",
+  "Excellent Upgrade": "https://cheathub.tech/api/files/images/2f5a1414-6ef2-4c9b-9e28-acb868005218-Ex2.jpg?t=1742281062809",
+  "Minced 1.20.1": "https://cheathub.tech/api/files/images/53d1e508-4454-4461-aefd-d26929b3eae5-browser-kU7BJNPxYR.png?t=1745968860134",
+  "EvaWare": "https://cheathub.tech/api/files/images/7d90c5d8-3093-4d15-8ce4-ba7f894e15ac-evaware.png?t=1742281202474",
+  "VegaLine": "https://cheathub.tech/api/files/images/7bdcee15-ed97-40b9-a5f6-41adabdf26b4-veg.png?t=1742281248880",
+  "Haruka": "https://cheathub.tech/api/files/images/809bef80-4226-432c-97fb-ee26063b3044-Haruka-Client.png?t=1742281307585",
+  "Qick": "https://cheathub.tech/api/files/images/45a7a795-cf31-41c3-a9e7-064d849c7769-qick.png?t=1742281355815",
+  "Wissed": "https://cheathub.tech/api/files/images/e2719179-6474-4f8d-8e2f-9ee6fd9b22db-wissend1.jpg?t=1742281477215",
+  "Nix": "https://cheathub.tech/api/files/images/bfa93831-0d12-448a-a448-c7f932247a88-image-2025-04-0yvayvayvayva43-59.png?t=1743713586566",
+  "Verist": "https://cheathub.tech/api/files/images/30951942-04ac-403c-a2ce-96db59f2bb8d-vi1.jpg?t=1742281630738",
+  "Nova": "https://cheathub.tech/api/files/images/5dd2e85f-de97-4d76-8792-16d99bc0d8fd-photo-2025-04-10-16-37-15.jpg?t=1744522155899",
+  "Celestial": "https://cheathub.tech/api/files/images/5c55ee12-0562-473e-9fdc-8c8c669f5a08-browser-P08qegyhD5.jpg?t=1742283523578",
+  "NightDLC": "https://cheathub.tech/api/files/images/914395c7-7085-4f35-b77f-5cff913b0c28-Discord-gcmeUBteRU.png?t=1767617674879",
+  "Churka client": "https://cheathub.tech/api/files/images/ccd6be3c-692c-4efa-bd7f-a9287ccbd55f-1000363510.jpg?t=1742656726661",
+  "Deluxe": "https://cheathub.tech/api/files/images/396e7ed3-6c73-4319-94f8-668d14c3f6df-photo-2026-02-06-03-21-29.jpg?t=1770338145500",
+  "Delta Client": "https://cheathub.tech/api/files/images/710a7522-5d0d-4133-8b69-f22ee2ae0471-NVIDIA-Overlay-ujHrnyhzmu.png?t=1746741575212",
+  "Excellent Plus": "https://cheathub.tech/api/files/images/7a1cd80f-222e-474c-b42c-f51bc781933a-Telegram-k5m79eJHEu.png?t=1743802160294",
+  "LiquidBounce": "https://cheathub.tech/api/files/images/f09a6aea-512b-4d68-9fc1-09dc9b8550aa-maxresdefault.jpg?t=1743900741689",
+  "AugustusX b12": "https://cheathub.tech/api/files/images/13e01e49-b1e5-4f46-b39f-d48035692588-Augustus-Client-Screenshots-1.jpg?t=1743900990087",
+  "FDPClient": "https://cheathub.tech/api/files/images/dafa7f92-cb49-4402-8da1-69b6ba04567f-FDP-Client-Screenshots-2.jpg?t=1743901760501",
+  "Gothaj V3.3.0.1": "https://cheathub.tech/api/files/images/9978e609-c0b7-4ef6-81a9-09dc4404d655-Gothaj-Client-Screenshots-1.jpg?t=1743902037782",
+  "Rise (6.1.30)": "https://cheathub.tech/api/files/images/82790be9-3f3f-4783-9983-6b608cf6f258-Rise-Client-Screenshots-9.jpg?t=1743902323861",
+  "Skid V12.13": "https://cheathub.tech/api/files/images/a5e5ea2d-42a8-432a-bf1d-1af30bab2e68-1552898462-screenshot-1.png?t=1743902600139",
+  "ARBUZ CLIENT": "https://cheathub.tech/api/files/images/c06ef1ca-6b3a-4f2d-a9a6-229c11aaa222-ApplicationFrameHost-BZOgVl8ZBm.png?t=1745740467111",
+  "Minced 1.16.5": "https://cheathub.tech/api/files/images/d7d1159e-2c15-4dbc-8811-d8a956b1793e-browser-JBR4xg1oqi.png?t=1745968818339",
+  "RockStar crack": "https://cheathub.tech/api/files/images/c59deb15-29cf-43ad-a7cb-9a935f6bbef0-Discord-nFQMqNNiVf.png?t=1746191009927",
+  "Catlavan crack": "https://cheathub.tech/api/files/images/907bec5b-d6ac-4c87-92e9-12347681b842-photo-2025-06-03-12-59-54.jpg?t=1748944857555",
+  "Litka Client Crack": "https://cheathub.tech/api/files/images/ec373325-27f4-43d6-b700-68c24c63b130-photo-2025-04-28-17-06-09.jpg?t=1746308692749",
+  "KomaruBuy 1.16.5": "https://cheathub.tech/api/files/images/0ae1390a-7a3f-43ae-b5ff-9d7cbdd21e6e-photo-2025-05-03-14-51-27.jpg?t=1746308824179",
+  "Spectra client": "https://cheathub.tech/api/files/images/174da386-1c69-4858-80fa-9ae2e585f224-ApplicationFrameHost-wNPROwxQsM.jpg?t=1747228430610",
+  "Antilose Crack": "https://cheathub.tech/api/files/images/48004b34-2e90-44d4-aff1-72a925ecaf01-photo-2025-05-16-22-03-17.jpg?t=1747492193516",
+  "Takker V2 crack": "https://cheathub.tech/api/files/images/6b66497a-bab3-4cd8-8b6c-facd76bca538-photo-2025-05-17-08-00-23.jpg?t=1747581849022",
+  "Miraculos": "https://cheathub.tech/api/files/images/b5a62cd7-d4c0-4ab6-9191-fb20924c8b35-ApplicationFrameHost-EHh5cBlpki.jpg?t=1748249148798",
+  "Winner Client": "https://cheathub.tech/api/files/images/dc9dff60-e02c-4c87-9337-08a48f3eb7d5-ApplicationFrameHost-ADceY0p5B7.png?t=1748604603451",
+  "Dimasik client": "https://cheathub.tech/api/files/images/72330f16-fa0b-469a-83d8-ddd9f5a1b2a8-photo-2026-02-16-06-44-23.jpg?t=1771223402811",
+  "Dettex": "https://cheathub.tech/api/files/images/3570ddee-220a-4ee2-92b5-8b4357f95f83-photo-2025-06-18-23-31-03.jpg?t=1750271477857",
+  "Essence Client": "https://cheathub.tech/api/files/images/0ab71cda-86ab-40f4-803d-ed5fdbb65eb4-photo-2026-02-16-09-09-44.jpg?t=1771223598484",
+  "Zenith Client": "https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
+  "Zenith Recode": "https://cheathub.tech/api/files/images/7927524d-4b64-4f28-9613-4fd58e0f7e34-photo-2025-09-06-10-22-10.jpg?t=1757146951849",
+  "Monoton Client 2.1": "https://cheathub.tech/api/files/images/633b1287-c05c-4c52-92ca-ab82212f8c44-HIFTjZfBVE.jpg?t=1765878881899",
+  "Mercury Client": "https://cheathub.tech/api/files/images/b9f46706-a63e-45f9-8f29-1b34fc331faf-javaw-w2jvayGDtV.png?t=1762590678391",
+  "ExosWare Client": "https://cheathub.tech/api/files/images/358c0a9a-eb8c-4e22-93a9-afd3443f2f14-ApplicationFrameHost-KmdwNdGGMX.jpg?t=1762776756939",
+  "libraries Папка": "https://cheathub.tech/api/files/images/96bbad51-005e-4263-a5de-24ff02edf429-explorer-8WPQNUxXQ6.png?t=1765879622064",
+  "Zov Client": "https://cheathub.tech/api/files/images/af5853e8-6c78-4e3d-9bfc-c6d9cc538d58-photo-2025-12-07-21-31-18.jpg?t=1766177502586",
+  "Excellent Omni": "https://cheathub.tech/api/files/images/54be1949-32e4-4c9e-a4f6-94f253b3bb80-photo-2025-12-07-21-34-12.jpg?t=1766177691705",
+  "Private Client Beta": "https://cheathub.tech/api/files/images/dbd2fbbb-5d4a-4fb4-bc10-4d91f37de730-ApplicationFrameHost-LuYSED1lmq.png?t=1768127212741",
+  "Wasteland Client": "https://cheathub.tech/api/files/images/666af2d7-d69f-4512-9d83-0fe71bf8d1b0-browser-OVbVlx6wzc.png?t=1768388693888",
+  "Haruka premium": "https://cheathub.tech/api/files/images/f4bb8d79-0205-461b-b2e7-6bece2d5dd83-Discord-4BJ3Bl1IhL.png?t=1768393855578",
+  "RockStar beta": "https://cheathub.tech/api/files/images/c59deb15-29cf-43ad-a7cb-9a935f6bbef0-Discord-nFQMqNNiVf.png?t=1746191009927",
+  "Toffi Client": "https://cheathub.tech/api/files/images/3fdf1a74-55ee-42ff-8098-9185bb4b6e93-photo-2026-01-30-16-32-54.jpg?t=1770339806699",
+  "X-Client": "https://cheathub.tech/api/files/images/2a27c162-45e6-46cb-83c7-348ccbd39308-photo-2026-01-30-20-20-26.jpg?t=1770340160581",
+  "Catlavan 14.1.2026": "https://cheathub.tech/api/files/images/907bec5b-d6ac-4c87-92e9-12347681b842-photo-2025-06-03-12-59-54.jpg?t=1748944857555",
+  "Enetgy client": "https://cheathub.tech/api/files/images/0b0d1389-447b-4a85-8fcf-775275e779e2-photo-2026-02-16-06-36-27.jpg?t=1771223515328",
+  "Rich client": "https://cheathub.tech/api/files/images/a1245bfd-3c50-4973-8de3-c0815d43c352-photo-2026-02-16-09-10-00.jpg?t=1771223871092",
+  "Zenith alpha": "https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
+  "Intensive Client": "https://cheathub.tech/api/files/images/cdb288cf-d513-4ef0-92d9-f579d45e65ef-B43nvkz0SW-jVVU0chVu3RztjDge67owhtc6ISqHw7ZxvlrDGDDwESKqGh9jYDsWTgVmMq5Bm5XUbf.jpg?t=1772466757972",
+  "Avalora client": "https://cheathub.tech/api/files/images/667467ff-8c2b-4c8d-a4a3-82af21a1d3a0-javaw-pWpqhGUEC9.png?t=1774618626874",
+
+  // === STANDOFF 2 ===
+  "Zenin": "https://avatars.mds.yandex.net/i?id=8540fcd189c996e5568f8a7172b482571cce1f2b-4576399-images-thumbs&n=13",
+  "NerestPC": "https://avatars.mds.yandex.net/i?id=01a3dd12fe6a9040b9ffb98a0ec98e9be82ecbdb-5477180-images-thumbs&n=13",
+  "Panterium": "https://avatars.mds.yandex.net/i?id=16eaf7b75c052475dd18a066108c7648a4a61e60-10868764-images-thumbs&n=13",
+  "Ultimate": "https://avatars.mds.yandex.net/i?id=83b21e01ff96b7ecab3bf351efb30d27510939f0-5289438-images-thumbs&n=13",
+  "Custom": "https://avatars.mds.yandex.net/i?id=8dc7adaddeea5a9e321937ebd4b96a6f73b2c974-9145122-images-thumbs&n=13",
+  "XANTARES": "https://avatars.mds.yandex.net/i?id=9e078e1807e3c7eb0bf6ff9980aefe05ad4b29a1-12900429-images-thumbs&n=13",
+  "Devix": "https://avatars.mds.yandex.net/i?id=656503b416a3ef4d3f4f579f114dd354c362e82d-12829626-images-thumbs&n=13",
+  "Dysphoria": "https://avatars.mds.yandex.net/i?id=4177daa4590e00f532b291e3555a007abf96b1f6-3390871-images-thumbs&n=13",
+
+  // === CS2 / CS1.6 ===
+  "SharkHack": "https://avatars.mds.yandex.net/i?id=90c81d643a5b2564b1d9769a73e5458193b48ba3-5178729-images-thumbs&n=13",
+  "Aimware CS2": "https://avatars.mds.yandex.net/i?id=acc54dc5ed9a7cf5df57aad195a52943b602c8f7-10876589-images-thumbs&n=13",
+  "Skeet/GAMESENSE": "https://avatars.mds.yandex.net/i?id=f5d311eae09de7a6b356b89c842e72b0dbc1e899-4432110-images-thumbs&n=13",
+  "AlterNative": "https://avatars.mds.yandex.net/i?id=16d43ed8450e77d3efecf86f8f2f54698dd9f1ee-4326244-images-thumbs&n=13",
+  "NixWare": "https://avatars.mds.yandex.net/i?id=8e5ceebabdbf871621924952033aa539a8c8bd8c-4451422-images-thumbs&n=13",
+  "XONE": "https://avatars.mds.yandex.net/i?id=e1a391aba970f8de4b0198961a3073c9655a57a9-8223286-images-thumbs&n=13",
+  "MemeSense": "https://avatars.mds.yandex.net/i?id=a437fa3913f747c855443a58e7c60395542ee165-12538603-images-thumbs&n=13",
+  "Nonagon": "https://avatars.mds.yandex.net/i?id=788a95b36d53269f4b1efee8d77990f7336fe884-5315630-images-thumbs&n=13",
+  "Midnight": "https://avatars.mds.yandex.net/i?id=b5b3b604e92c43980cdf0ddf344a0b86108489d1-5014002-images-thumbs&n=13",
+  "EnigmaTech": "https://avatars.mds.yandex.net/i?id=6768e1b9d66f0ceb12a7042d2f675503419e8596-11924504-images-thumbs&n=13",
+  "Hone": "https://avatars.mds.yandex.net/i?id=e5eab91944d0aad0a69e8685bfc6db789fdcdb8d-10697630-images-thumbs&n=13",
+  "Aimware": "https://avatars.mds.yandex.net/i?id=acc54dc5ed9a7cf5df57aad195a52943b602c8f7-10876589-images-thumbs&n=13",
+
+  // === FORTNITE ===
+  "FortniteExternal": "https://avatars.mds.yandex.net/i?id=bce666ece35c72b1653f3ca6a2ff5d6f0915c198-4346197-images-thumbs&n=13",
+  "FORTNITE (Premium)": "https://avatars.mds.yandex.net/i?id=37ff764da242d37657ab1a9ede66985d667855a8-4149382-images-thumbs&n=13",
+  "FrozenFree": "https://avatars.mds.yandex.net/i?id=039be7c40ff0ed9ee348c77245f8aa0e8c2eccfe-5886161-images-thumbs&n=13",
+
+  // === GTA (V/RP/SA) ===
+  "Vanish": "https://avatars.mds.yandex.net/i?id=c6b583a0e6b33dc98782f89a022f474296b00113-16999685-images-thumbs&n=13",
+  "Altv3V": "https://avatars.mds.yandex.net/i?id=720898866a83f749f01b3b567481051ddbcf7650-8152091-images-thumbs&n=13",
+  "1337": "https://avatars.mds.yandex.net/i?id=2785d45796a50dccb036bfe547465c6b15c00241-5284135-images-thumbs&n=13",
+
+  // === ROBLOX ===
+  "99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook": "https://avatars.mds.yandex.net/i?id=46a53ef1f55d8449428411341f0acc62258bcbaa-12658662-images-thumbs&n=13",
+  "99 Nights in the Forest: Name Display, Health Display, Esp": "https://avatars.mds.yandex.net/i?id=ee829c8e505110cfe9efed9cdd4ed332449ab8ed-14913540-images-thumbs&n=13",
+  "Steal a Labubu: Player Features": "https://avatars.mds.yandex.net/i?id=50ef225204e22db583cd2d0f7fd1c67cab76462c-16117020-images-thumbs&n=13",
+  "Saber Simulator: Auto Swing, Auto Sell": "https://avatars.mds.yandex.net/i?id=f7e9f44b5ef03420681de59dff17f5671ba39651-4827339-images-thumbs&n=13",
+  "Steal A Brainrot: Auto Farm, Godmode, Esp": "https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
+  "Steal a Brainrot: Teleport": "https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
+  "Steal a Brainrot: Auto Farm, Auto Steal, Esp": "https://avatars.mds.yandex.net/i?id=9f7bf7d290c74b73074c7daa41a525bbd7e22abf-2806623-images-thumbs&n=13",
+  "Steal a Brainrot: Auto Steal": "https://avatars.mds.yandex.net/i?id=925853dc8ed2a4b002b7a2767189fc31be62d988-6332308-images-thumbs&n=13",
+  "Bloxfruits [HOHO HUB]": "https://avatars.mds.yandex.net/i?id=01f7a844ee44ad24e0ba49ce212d7884c5922a4f-5193708-images-thumbs&n=13",
+  "XENO": "https://avatars.mds.yandex.net/i?id=f19bec6963f732741a35fa8dbb04b7c97f23fc12-4502683-images-thumbs&n=13",
+  "SeliWare Executor": "https://avatars.mds.yandex.net/i?id=3e361d39e693d35a462fd079b68ad378c8bd4df1-4303250-images-thumbs&n=13",
+  "Fix": "https://avatars.mds.yandex.net/i?id=e63ebae6754e679b65136ecbf46a704e98b2d0ee-12928931-images-thumbs&n=13",
+  "Lunar Hub": "https://avatars.mds.yandex.net/i?id=4f02a706fb0986810088e3d8042c2a1dd9356b2f-12472731-images-thumbs&n=13",
+
+  // === НОВЫЕ РОБЛОКС ЧИТЫ (добавлены 28.06.2026) ===
+  "Catch and Feed a Brainrot!: Auto Farm, Auto Buy, Auto Sell": "https://placehold.co/280x160/1a0033/ff85c0?text=Catch+and+Feed",
+  "Pets GO: Auto Relics, Auto Roll, Auto Fish": "https://placehold.co/280x160/1a0033/ff85c0?text=Pets+GO",
+  "Murder Mystery 2: Auto Farm, Auto Play, Esp": "https://placehold.co/280x160/1a0033/ff85c0?text=Murder+Mystery+2",
+  "Fruit Battlegrounds: Auto Farm, Auto Farm Boss, Auto Spin": "https://placehold.co/280x160/1a0033/ff85c0?text=Fruit+Battlegrounds",
+  "Grow A Garden: Auto Buy, Auto Sell": "https://placehold.co/280x160/1a0033/ff85c0?text=Grow+A+Garden",
+  "Eat Blobs Simulator: Infinite Points": "https://placehold.co/280x160/1a0033/ff85c0?text=Eat+Blobs",
+  "Examination: Esp, Silent Aim, Fullbright": "https://placehold.co/280x160/1a0033/ff85c0?text=Examination",
+  "Grow A Garden: Auto Farm, Auto Sell, Auto Buy": "https://placehold.co/280x160/1a0033/ff85c0?text=Grow+A+Garden+v2",
+  "99 Nights in the Forest: Hitbox, Esp, Bring Items, Teleports": "https://placehold.co/280x160/1a0033/ff85c0?text=99+Nights+Hitbox",
+  "Steal a Baddie: Auto Steal, Auto Farm": "https://placehold.co/280x160/1a0033/ff85c0?text=Steal+a+Baddie",
+  "Jetpack Training: Auto Farm, Auto Rebirth, Auto Hatch": "https://placehold.co/280x160/1a0033/ff85c0?text=Jetpack+Training",
+  "Grow Eggs: Auto Farm": "https://placehold.co/280x160/1a0033/ff85c0?text=Grow+Eggs",
+  "Dead Rails: Auto Farm Bounds": "https://placehold.co/280x160/1a0033/ff85c0?text=Dead+Rails",
+  "Anime Rangers X: Auto Play, Auto Buy, Player Features": "https://placehold.co/280x160/1a0033/ff85c0?text=Anime+Rangers",
+  "Build an Island!: Auto Farm, Auto Craft, Auto Collect": "https://placehold.co/280x160/1a0033/ff85c0?text=Build+an+Island",
+
+  // === RUST ===
+  "Cheat (Rust)": "https://avatars.mds.yandex.net/i?id=6a45fc6e9a98334b9d00d82acd442eea7867efa7-5475669-images-thumbs&n=13",
+  "DeusHack": "https://avatars.mds.yandex.net/i?id=58fe8261e524fddbc1666a0e795df8ac57ba403b-4752921-images-thumbs&n=13",
+  "AquaCheats": "https://avatars.mds.yandex.net/i?id=d1939c45f54e9ab686418085cc825dd313bb4c66-5874919-images-thumbs&n=13",
+  "CAT TECH": "https://avatars.mds.yandex.net/i?id=0e5d84606681eaddf0f196a89d9e72ca775c6b54-5246290-images-thumbs&n=13",
+  "specterdex": "https://avatars.mds.yandex.net/i?id=883e4804a2bcdcc4190e19e40d86df7a36828115-4034575-images-thumbs&n=13",
+  "SUPERIORITY": "https://avatars.mds.yandex.net/i?id=d8e91fb01aa9393b91224ff6049ddf7ff1799eb4-5592183-images-thumbs&n=13",
+  "VECTOR EXTERNAL": "https://avatars.mds.yandex.net/i?id=7a732b9d127ae816c9b8c18d5284caf8_sr-9234023-images-thumbs&n=13",
+
+  // === VALORANT ===
+  "MEMEZ": "https://avatars.mds.yandex.net/i?id=494fa42624c049010ba74d18ffe6060b1a5a558a-5167594-images-thumbs&n=13",
+  "FULL (Valorant)": "https://avatars.mds.yandex.net/i?id=ee6b37f1fc5b3d486b048028f93381e1855f5298-5665039-images-thumbs&n=13",
+
+  // === GARRY'S MOD ===
+  "GRUST": "https://avatars.mds.yandex.net/i?id=771c6a57a4303df02786d50cf37c72ef9ecd687c-4567432-images-thumbs&n=13",
+
+  // === DEAD BY DAYLIGHT ===
+  "SelinCheat": "https://avatars.mds.yandex.net/i?id=e8462d9ee171cedd57532258ec49f66aaa360379-5869166-images-thumbs&n=13",
+
+  // === GENSHIN IMPACT ===
+  "Shika": "https://avatars.mds.yandex.net/i?id=978d806189ebdf0c28c4c82af61772d3653f4944-4385982-images-thumbs&n=13",
+
+  // === WARFACE ===
+  "MASON HACK": "https://avatars.mds.yandex.net/i?id=58aef68cdf45a57b93594ac2bb95f9cb539d269c-4864173-images-thumbs&n=13",
+
+  // === WORLD OF TANKS ===
+  "WARPACK": "https://avatars.mds.yandex.net/i?id=65b7c8977fb66dc1284a60f1340cfd1856b43a97-5105949-images-thumbs&n=13",
+
+  // === DOTA 2 ===
+  "SkinChanger": "https://avatars.mds.yandex.net/i?id=c930ceb12bf73979541f75e8fdca7e11c7a54ffd-10160381-images-thumbs&n=13",
+
+  // === ARC RAIDERS ===
+  "Keitaro": "https://avatars.mds.yandex.net/i?id=b36f6e376f3cb8b6052508ff8bfe3fd1ddbd55f5-12805659-images-thumbs&n=13"
 };
 
-// GAME DATA
-const gamesData=[{id:"minecraft_legit",name:"Minecraft Legit",img:"https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png",cheats:[{name:"blessed client",ver:"2.1.4",dl:3120,tags:["Legit","Bypass"]},{name:"abstract visuals 5s",ver:"5.0.1",dl:2840,tags:["Legit","Visual"]},{name:"404 client",ver:"4.0.4",dl:1980,tags:["Legit","Free"]},{name:"ripterms ghost",ver:"1.7.2",dl:2210,tags:["Legit","Ghost"]},{name:"zeta visuals",ver:"3.2.0",dl:1750,tags:["Legit","Visual"]},{name:"mico visuals",ver:"2.8.1",dl:1430,tags:["Legit","Visual"]},{name:"vec.dll",ver:"1.3.5",dl:900,tags:["Legit","DLL"]},{name:"avalone red",ver:"4.1.0",dl:2560,tags:["Legit","Premium"]},{name:"avalone green",ver:"4.1.2",dl:2380,tags:["Legit","Free"]},{name:"Cortex",ver:"1.0.0",dl:670,tags:["Legit","New"]}]},{id:"standoff2",name:"STANDOFF 2",img:"https://play-lh.googleusercontent.com/poMFhRzxLFSB5ShhF5z1h3cM8FpFJEDFkBdXHOiLxBc5tEQ-m-D2Z3JO5d2oFPzb8w=w240-h480-rw",cheats:[{name:"Zenin",ver:"4.2.1",dl:4300,tags:["Aimbot","ESP"]},{name:"NerestPC",ver:"3.1.0",dl:3120,tags:["Aimbot"]},{name:"Panterium",ver:"5.0.0",dl:2890,tags:["ESP","Aimbot"]},{name:"Ultimate",ver:"2.3.0",dl:5600,tags:["Aimbot","Wallhack"]},{name:"Custom",ver:"1.7.0",dl:1900,tags:["Custom"]},{name:"XANTARES",ver:"6.0.0",dl:4100,tags:["Aimbot","Pro"]},{name:"Devix",ver:"2.8.0",dl:2300,tags:["ESP","Aimbot"]},{name:"Dysphoria",ver:"1.5.0",dl:1700,tags:["Aimbot"]}]},{id:"cs2",name:"CS2 / CS1.6",img:"https://img.icons8.com/color/64/counter-strike.png",cheats:[{name:"SharkHack",ver:"2.3.1",dl:3400,tags:["CS2","Aimbot","ESP"]},{name:"Aimware CS2",ver:"6.0.1",dl:7800,tags:["CS2","Rage","Premium"]},{name:"Skeet/GAMESENSE",ver:"4.9.0",dl:9200,tags:["CS2","HvH","Top"]},{name:"AlterNative",ver:"3.2.0",dl:2890,tags:["CS2","Legit"]},{name:"NixWare",ver:"5.1.0",dl:4500,tags:["CS2","HvH"]},{name:"XONE",ver:"2.7.0",dl:3100,tags:["CS2","Legit"]},{name:"MemeSense",ver:"1.4.0",dl:1230,tags:["CS2","Free"]},{name:"Nonagon",ver:"3.0.0",dl:2100,tags:["CS2","Legit"]},{name:"Midnight",ver:"4.1.0",dl:2780,tags:["CS2","Rage"]},{name:"EnigmaTech",ver:"2.5.0",dl:1890,tags:["CS2","Legit"]},{name:"Hone",ver:"3.3.0",dl:2450,tags:["CS2","Legit"]},{name:"Aimware",ver:"6.0.1",dl:7800,tags:["CS2","HvH","Premium"]}]},{id:"fortnite",name:"Fortnite",img:"https://img.icons8.com/color/64/fortnite.png",cheats:[{name:"FortniteExternal",ver:"3.5.0",dl:4200,tags:["External","Aimbot"]},{name:"FORTNITE (Premium)",ver:"5.0.0",dl:6700,tags:["Premium","Aimbot"]},{name:"FrozenFree",ver:"2.1.0",dl:2100,tags:["Free","Aimbot"]}]},{id:"gta",name:"GTA (V/RP/SA)",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/GTA_V_Official_Logo.png/250px-GTA_V_Official_Logo.png",cheats:[{name:"Vanish",ver:"3.0.1",dl:2400,tags:["GTA V","Online"]},{name:"Altv3V",ver:"3.3.0",dl:1890,tags:["GTA:AltV","Online"]},{name:"1337",ver:"1.0.0",dl:1200,tags:["GTA","Elite"]}]},{id:"roblox",name:"Roblox",img:"https://img.icons8.com/color/64/roblox.png",cheats:[{name:"99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook",ver:"1.0",dl:2100,tags:["Script","Auto"]},{name:"99 Nights in the Forest: Name Display, Health Display, Esp",ver:"1.0",dl:1780,tags:["Script","Visual"]},{name:"Steal a Labuabi: Player Features",ver:"1.0",dl:1340,tags:["Script","Auto"]},{name:"Saber Simulator: Auto Swing, Auto Sell",ver:"1.0",dl:2340,tags:["Script","Farm"]},{name:"Steal A Brainrot: Auto Farm, Godmode, Esp",ver:"1.0",dl:3890,tags:["Script","Farm","God"]},{name:"Steal a Brainrot: Teleport",ver:"1.0",dl:1230,tags:["Script","Teleport"]},{name:"Steal a Brainrot: Auto Farm, Auto Steal, Esp",ver:"1.5",dl:2890,tags:["Script","Farm","ESP"]},{name:"Steal a Brainrot: Auto Steal",ver:"1.0",dl:1890,tags:["Script","Auto"]},{name:"Bloxfruits [HOHO HUB]",ver:"Latest",dl:8900,tags:["Script","Hub"]},{name:"XENO",ver:"3.1.0",dl:4500,tags:["Executor"]},{name:"SeliWare Executor",ver:"2.5.0",dl:3200,tags:["Executor"]},{name:"Fix",ver:"1.0",dl:890,tags:["Fix","Utility"]},{name:"Lunar Hub",ver:"4.0.0",dl:5600,tags:["Hub","Script"]}]},{id:"rust",name:"Rust",img:"https://img.icons8.com/color/64/rust.png",cheats:[{name:"Cheat (Rust)",ver:"4.1.0",dl:5600,tags:["Aimbot","ESP"]},{name:"DeusHack",ver:"3.5.0",dl:3200,tags:["Aimbot","Premium"]},{name:"AquaCheats",ver:"2.8.0",dl:2100,tags:["ESP","Legit"]},{name:"CAT TECH",ver:"5.0.0",dl:4800,tags:["Premium","Aimbot"]},{name:"specterdex",ver:"1.9.0",dl:1560,tags:["External"]},{name:"SUPERIORITY",ver:"3.3.0",dl:3900,tags:["Rage","Aimbot"]},{name:"VECTOR EXTERNAL",ver:"2.4.0",dl:2340,tags:["External","Aimbot"]}]},{id:"valorant",name:"Valorant",img:"https://img.icons8.com/color/64/valorant.png",cheats:[{name:"MEMEZ",ver:"3.1.0",dl:2890,tags:["Aimbot","Free"]},{name:"FULL (Valorant)",ver:"5.0.0",dl:5600,tags:["Premium","Aimbot"]}]},{id:"garrysmod",name:"Garry's Mod",img:"https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg",cheats:[{name:"GRUST",ver:"4.5.0",dl:3400,tags:["LUA","Aimbot"]}]},{id:"dbd",name:"Dead by Daylight",img:"https://img.icons8.com/color/64/dead-by-daylight.png",cheats:[{name:"SelinCheat",ver:"2.7.0",dl:2100,tags:["ESP","Speed"]}]},{id:"genshin",name:"Genshin Impact",img:"https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg",cheats:[{name:"Shika",ver:"3.0.1",dl:2890,tags:["AutoFarm","ESP"]}]},{id:"warface",name:"Warface",img:"https://img.icons8.com/color/64/warface.png",cheats:[{name:"MASON HACK",ver:"5.1.0",dl:3100,tags:["Aimbot","ESP"]}]},{id:"worldoftanks",name:"World of Tanks",img:"https://img.icons8.com/color/64/tank.png",cheats:[{name:"WARPACK",ver:"9.4.0",dl:4500,tags:["Aimbot","Mod"]}]},{id:"dota",name:"Dota 2",img:"https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg",cheats:[{name:"SkinChanger",ver:"3.2.0",dl:5600,tags:["Cosmetic","Free"]}]},{id:"arcraiders",name:"Arc Raiders",img:"https://img.icons8.com/color/64/robot.png",cheats:[{name:"Keitaro",ver:"1.2.0",dl:1890,tags:["ESP","Aimbot"]}]},{id:"software",name:"Tools & Utils",img:"https://cdn-icons-png.flaticon.com/512/2920/2920277.png",cheats:[{name:"Discord Nitro",ver:"2026.06",dl:12400,tags:["Discord","Free"]},{name:"PC Optimization",ver:"3.1.0",dl:8900,tags:["Utility","Performance"]},{name:"Discord Fix",ver:"1.5.0",dl:4300,tags:["Discord","Fix"]},{name:"Roblox Fix",ver:"2.0.0",dl:3200,tags:["Roblox","Fix"]},{name:"VoiceMod",ver:"2.45.0",dl:6700,tags:["Voice","Changer"]},{name:"Telegram Fix",ver:"1.2.0",dl:2100,tags:["Telegram","Fix"]},{name:"HWID FIX",ver:"4.0.0",dl:7800,tags:["HWID","Spoofer"]},{name:"Optimization CrystalFix",ver:"2.8.0",dl:5400,tags:["Optimization"]},{name:"AI Voice Changer",ver:"3.0.0",dl:4100,tags:["AI","Voice"]},{name:"StartAllBlack",ver:"1.3.0",dl:2300,tags:["Utility","Tweak"]},{name:"ExitLag",ver:"2.8.0",dl:4500,tags:["Network","Premium"]},{name:"Adobe Photoshop Free",ver:"2026",dl:9800,tags:["Adobe","Creative"]},{name:"Cheat Engine",ver:"7.5",dl:15600,tags:["Utility","Trainer"]},{name:"CCleaner Pro 2026",ver:"2026",dl:8900,tags:["Utility","Cleaner"]},{name:"TradingView Pro 2026",ver:"2026",dl:3400,tags:["Trading","Finance"]},{name:"Topaz Gigapixel 2026",ver:"2026",dl:2800,tags:["AI","Image"]},{name:"Adobe Premiere Pro 2026",ver:"2026",dl:7800,tags:["Adobe","Video"]},{name:"Adobe Creative Cloud",ver:"2026",dl:11200,tags:["Adobe","Bundle"]},{name:"Shotcut",ver:"24.06",dl:4500,tags:["Video","Free"]}]}];
+// ============================================================
+// GAME DATA — ВСЕ ИГРЫ И ЧИТЫ (обновлено 28.06.2026)
+// ============================================================
+const gamesData = [
+  // === SOFTWARE / ДРУГОЕ ===
+  {
+    id: "software",
+    name: "Tools & Utils",
+    img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png",
+    cheats: [
+      { name: "Discord Nitro", ver: "2026.06", dl: 12400, tags: ["Discord", "Free"] },
+      { name: "PC Optimization", ver: "27.06.2026", dl: 8900, tags: ["Utility", "Performance"] },
+      { name: "Discord Fix", ver: "25.06.2026", dl: 4300, tags: ["Discord", "Fix"] },
+      { name: "Roblox Fix", ver: "24.06.2026", dl: 3200, tags: ["Roblox", "Fix"] },
+      { name: "VoiceMod", ver: "28.06.2026", dl: 6700, tags: ["Voice", "Changer"] },
+      { name: "Telegram Fix", ver: "23.06.2026", dl: 2100, tags: ["Telegram", "Fix"] },
+      { name: "HWID FIX", ver: "26.06.2026", dl: 7800, tags: ["HWID", "Spoofer"] },
+      { name: "Optimization CrystalFix", ver: "27.06.2026", dl: 5400, tags: ["Optimization"] },
+      { name: "AI Voice Changer", ver: "25.06.2026", dl: 4100, tags: ["AI", "Voice"] },
+      { name: "StartAllBlack", ver: "24.06.2026", dl: 2300, tags: ["Utility", "Tweak"] },
+      { name: "ExitLag", ver: "26.06.2026", dl: 4500, tags: ["Network", "Premium"] },
+      { name: "Adobe Photoshop Free", ver: "27.06.2026", dl: 9800, tags: ["Adobe", "Creative"] },
+      { name: "Cheat Engine", ver: "28.06.2026", dl: 15600, tags: ["Utility", "Trainer"] },
+      { name: "CCleaner Pro 2026", ver: "25.06.2026", dl: 8900, tags: ["Utility", "Cleaner"] },
+      { name: "TradingView Pro 2026", ver: "24.06.2026", dl: 3400, tags: ["Trading", "Finance"] },
+      { name: "Topaz Gigapixel 2026", ver: "26.06.2026", dl: 2800, tags: ["AI", "Image"] },
+      { name: "Adobe Premiere Pro 2026", ver: "27.06.2026", dl: 7800, tags: ["Adobe", "Video"] },
+      { name: "Adobe Creative Cloud", ver: "28.06.2026", dl: 11200, tags: ["Adobe", "Bundle"] },
+      { name: "Shotcut", ver: "25.06.2026", dl: 4500, tags: ["Video", "Free"] }
+    ]
+  },
 
+  // === MINECRAFT LEGIT ===
+  {
+    id: "minecraft_legit",
+    name: "Minecraft Legit",
+    img: "https://i.pinimg.com/originals/a0/af/ff/a0afff55b97ae610f4b7a4a2777ffe43.png",
+    cheats: [
+      { name: "blessed client", ver: "26.06.2026", dl: 3120, tags: ["Legit", "Bypass"] },
+      { name: "abstract visuals 5s", ver: "27.06.2026", dl: 2840, tags: ["Legit", "Visual"] },
+      { name: "404 client", ver: "25.06.2026", dl: 1980, tags: ["Legit", "Free"] },
+      { name: "ripterms ghost", ver: "24.06.2026", dl: 2210, tags: ["Legit", "Ghost"] },
+      { name: "zeta visuals", ver: "28.06.2026", dl: 1750, tags: ["Legit", "Visual"] },
+      { name: "mico visuals", ver: "26.06.2026", dl: 1430, tags: ["Legit", "Visual"] },
+      { name: "vec.dll", ver: "25.06.2026", dl: 900, tags: ["Legit", "DLL"] },
+      { name: "avalone red", ver: "27.06.2026", dl: 2560, tags: ["Legit", "Premium"] },
+      { name: "avalone green", ver: "24.06.2026", dl: 2380, tags: ["Legit", "Free"] },
+      { name: "Cortex", ver: "26.06.2026", dl: 670, tags: ["Legit", "New"] }
+    ]
+  },
+
+  // === MINECRAFT HVH ===
+  {
+    id: "minecraft_hvh",
+    name: "Minecraft HvH",
+    img: "https://cdn.discordapp.com/attachments/123456789/987654321/minecraft_hvh.png",
+    cheats: [
+      { name: "Nursultan Crack", ver: "27.06.2026", dl: 3400, tags: ["HvH", "Crack"] },
+      { name: "Wexside crack", ver: "25.06.2026", dl: 2900, tags: ["HvH", "Crack"] },
+      { name: "NewCode Crack", ver: "26.06.2026", dl: 2300, tags: ["HvH", "Crack"] },
+      { name: "Venus Free", ver: "28.06.2026", dl: 4100, tags: ["HvH", "Free"] },
+      { name: "Excellent Upgrade", ver: "24.06.2026", dl: 2700, tags: ["HvH", "Premium"] },
+      { name: "Minced 1.20.1", ver: "27.06.2026", dl: 1900, tags: ["HvH", "1.20"] },
+      { name: "EvaWare", ver: "25.06.2026", dl: 2100, tags: ["HvH", "Premium"] },
+      { name: "VegaLine", ver: "26.06.2026", dl: 1800, tags: ["HvH", "Legit"] },
+      { name: "Haruka", ver: "24.06.2026", dl: 3200, tags: ["HvH", "Premium"] },
+      { name: "Qick", ver: "25.06.2026", dl: 1500, tags: ["HvH", "Free"] },
+      { name: "Wissed", ver: "27.06.2026", dl: 2600, tags: ["HvH", "Crack"] },
+      { name: "Nix", ver: "26.06.2026", dl: 2200, tags: ["HvH", "Premium"] },
+      { name: "Verist", ver: "28.06.2026", dl: 1900, tags: ["HvH", "Crack"] },
+      { name: "Nova", ver: "25.06.2026", dl: 2800, tags: ["HvH", "Premium"] },
+      { name: "Celestial", ver: "27.06.2026", dl: 1700, tags: ["HvH", "Free"] },
+      { name: "NightDLC", ver: "24.06.2026", dl: 2100, tags: ["HvH", "DLC"] },
+      { name: "Churka client", ver: "26.06.2026", dl: 1400, tags: ["HvH", "Client"] },
+      { name: "Deluxe", ver: "28.06.2026", dl: 2500, tags: ["HvH", "Premium"] },
+      { name: "Delta Client", ver: "25.06.2026", dl: 3100, tags: ["HvH", "Client"] },
+      { name: "Excellent Plus", ver: "27.06.2026", dl: 2300, tags: ["HvH", "Premium"] },
+      { name: "LiquidBounce", ver: "26.06.2026", dl: 4500, tags: ["HvH", "Free"] },
+      { name: "AugustusX b12", ver: "24.06.2026", dl: 1900, tags: ["HvH", "Crack"] },
+      { name: "FDPClient", ver: "25.06.2026", dl: 3400, tags: ["HvH", "Free"] },
+      { name: "Gothaj V3.3.0.1", ver: "27.06.2026", dl: 2100, tags: ["HvH", "Premium"] },
+      { name: "Rise (6.1.30)", ver: "28.06.2026", dl: 5600, tags: ["HvH", "Top"] },
+      { name: "Skid V12.13", ver: "24.06.2026", dl: 1800, tags: ["HvH", "Free"] },
+      { name: "ARBUZ CLIENT", ver: "26.06.2026", dl: 1600, tags: ["HvH", "Client"] },
+      { name: "Minced 1.16.5", ver: "25.06.2026", dl: 2100, tags: ["HvH", "1.16"] },
+      { name: "RockStar crack", ver: "27.06.2026", dl: 3200, tags: ["HvH", "Crack"] },
+      { name: "Catlavan crack", ver: "26.06.2026", dl: 2800, tags: ["HvH", "Crack"] },
+      { name: "Litka Client Crack", ver: "24.06.2026", dl: 1900, tags: ["HvH", "Crack"] },
+      { name: "KomaruBuy 1.16.5", ver: "25.06.2026", dl: 1700, tags: ["HvH", "1.16"] },
+      { name: "Spectra client", ver: "27.06.2026", dl: 2300, tags: ["HvH", "Client"] },
+      { name: "Antilose Crack", ver: "26.06.2026", dl: 2100, tags: ["HvH", "Crack"] },
+      { name: "Takker V2 crack", ver: "24.06.2026", dl: 1900, tags: ["HvH", "Crack"] },
+      { name: "Miraculos", ver: "25.06.2026", dl: 2400, tags: ["HvH", "Premium"] },
+      { name: "Winner Client", ver: "27.06.2026", dl: 2600, tags: ["HvH", "Client"] },
+      { name: "Dimasik client", ver: "28.06.2026", dl: 1500, tags: ["HvH", "Client"] },
+      { name: "Dettex", ver: "24.06.2026", dl: 2200, tags: ["HvH", "Premium"] },
+      { name: "Essence Client", ver: "26.06.2026", dl: 2000, tags: ["HvH", "Client"] },
+      { name: "Zenith Client", ver: "27.06.2026", dl: 3800, tags: ["HvH", "Client"] },
+      { name: "Zenith Recode", ver: "25.06.2026", dl: 2900, tags: ["HvH", "Recode"] },
+      { name: "Monoton Client 2.1", ver: "28.06.2026", dl: 1800, tags: ["HvH", "Client"] },
+      { name: "Mercury Client", ver: "24.06.2026", dl: 2100, tags: ["HvH", "Client"] },
+      { name: "ExosWare Client", ver: "26.06.2026", dl: 2500, tags: ["HvH", "Client"] },
+      { name: "libraries Папка", ver: "25.06.2026", dl: 1200, tags: ["HvH", "Library"] },
+      { name: "Zov Client", ver: "27.06.2026", dl: 1900, tags: ["HvH", "Client"] },
+      { name: "Excellent Omni", ver: "24.06.2026", dl: 2300, tags: ["HvH", "Premium"] },
+      { name: "Private Client Beta", ver: "26.06.2026", dl: 1700, tags: ["HvH", "Beta"] },
+      { name: "Wasteland Client", ver: "25.06.2026", dl: 2100, tags: ["HvH", "Client"] },
+      { name: "Haruka premium", ver: "28.06.2026", dl: 3400, tags: ["HvH", "Premium"] },
+      { name: "RockStar beta", ver: "27.06.2026", dl: 2600, tags: ["HvH", "Beta"] },
+      { name: "Toffi Client", ver: "24.06.2026", dl: 1900, tags: ["HvH", "Client"] },
+      { name: "X-Client", ver: "26.06.2026", dl: 2200, tags: ["HvH", "Client"] },
+      { name: "Catlavan 14.1.2026", ver: "28.06.2026", dl: 2800, tags: ["HvH", "Crack"] },
+      { name: "Enetgy client", ver: "25.06.2026", dl: 1700, tags: ["HvH", "Client"] },
+      { name: "Rich client", ver: "24.06.2026", dl: 1600, tags: ["HvH", "Client"] },
+      { name: "Zenith alpha", ver: "27.06.2026", dl: 3100, tags: ["HvH", "Alpha"] },
+      { name: "Intensive Client", ver: "26.06.2026", dl: 2400, tags: ["HvH", "Client"] },
+      { name: "Avalora client", ver: "28.06.2026", dl: 2100, tags: ["HvH", "Client"] }
+    ]
+  },
+
+  // === STANDOFF 2 ===
+  {
+    id: "standoff2",
+    name: "STANDOFF 2",
+    img: "https://play-lh.googleusercontent.com/poMFhRzxLFSB5ShhF5z1h3cM8FpFJEDFkBdXHOiLxBc5tEQ-m-D2Z3JO5d2oFPzb8w=w240-h480-rw",
+    cheats: [
+      { name: "Zenin", ver: "26.06.2026", dl: 4300, tags: ["Aimbot", "ESP"] },
+      { name: "NerestPC", ver: "25.06.2026", dl: 3120, tags: ["Aimbot"] },
+      { name: "Panterium", ver: "27.06.2026", dl: 2890, tags: ["ESP", "Aimbot"] },
+      { name: "Ultimate", ver: "28.06.2026", dl: 5600, tags: ["Aimbot", "Wallhack"] },
+      { name: "Custom", ver: "24.06.2026", dl: 1900, tags: ["Custom"] },
+      { name: "XANTARES", ver: "27.06.2026", dl: 4100, tags: ["Aimbot", "Pro"] },
+      { name: "Devix", ver: "25.06.2026", dl: 2300, tags: ["ESP", "Aimbot"] },
+      { name: "Dysphoria", ver: "24.06.2026", dl: 1700, tags: ["Aimbot"] }
+    ]
+  },
+
+  // === CS2 / CS1.6 ===
+  {
+    id: "cs2",
+    name: "CS2 / CS1.6",
+    img: "https://img.icons8.com/color/64/counter-strike.png",
+    cheats: [
+      { name: "SharkHack", ver: "26.06.2026", dl: 3400, tags: ["CS2", "Aimbot", "ESP"] },
+      { name: "Aimware CS2", ver: "28.06.2026", dl: 7800, tags: ["CS2", "Rage", "Premium"] },
+      { name: "Skeet/GAMESENSE", ver: "27.06.2026", dl: 9200, tags: ["CS2", "HvH", "Top"] },
+      { name: "AlterNative", ver: "25.06.2026", dl: 2890, tags: ["CS2", "Legit"] },
+      { name: "NixWare", ver: "26.06.2026", dl: 4500, tags: ["CS2", "HvH"] },
+      { name: "XONE", ver: "24.06.2026", dl: 3100, tags: ["CS2", "Legit"] },
+      { name: "MemeSense", ver: "25.06.2026", dl: 1230, tags: ["CS2", "Free"] },
+      { name: "Nonagon", ver: "27.06.2026", dl: 2100, tags: ["CS2", "Legit"] },
+      { name: "Midnight", ver: "26.06.2026", dl: 2780, tags: ["CS2", "Rage"] },
+      { name: "EnigmaTech", ver: "24.06.2026", dl: 1890, tags: ["CS2", "Legit"] },
+      { name: "Hone", ver: "25.06.2026", dl: 2450, tags: ["CS2", "Legit"] },
+      { name: "Aimware", ver: "28.06.2026", dl: 7800, tags: ["CS2", "HvH", "Premium"] }
+    ]
+  },
+
+  // === FORTNITE ===
+  {
+    id: "fortnite",
+    name: "Fortnite",
+    img: "https://img.icons8.com/color/64/fortnite.png",
+    cheats: [
+      { name: "FortniteExternal", ver: "26.06.2026", dl: 4200, tags: ["External", "Aimbot"] },
+      { name: "FORTNITE (Premium)", ver: "28.06.2026", dl: 6700, tags: ["Premium", "Aimbot"] },
+      { name: "FrozenFree", ver: "25.06.2026", dl: 2100, tags: ["Free", "Aimbot"] }
+    ]
+  },
+
+  // === GTA (V/RP/SA) ===
+  {
+    id: "gta",
+    name: "GTA (V/RP/SA)",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/GTA_V_Official_Logo.png/250px-GTA_V_Official_Logo.png",
+    cheats: [
+      { name: "Vanish", ver: "25.06.2026", dl: 2400, tags: ["GTA V", "Online"] },
+      { name: "Altv3V", ver: "24.06.2026", dl: 1890, tags: ["GTA:AltV", "Online"] },
+      { name: "1337", ver: "26.06.2026", dl: 1200, tags: ["GTA", "Elite"] }
+    ]
+  },
+
+  // === ROBLOX ===
+  {
+    id: "roblox",
+    name: "Roblox",
+    img: "https://img.icons8.com/color/64/roblox.png",
+    cheats: [
+      { name: "99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook", ver: "25.06.2026", dl: 2100, tags: ["Script", "Auto"] },
+      { name: "99 Nights in the Forest: Name Display, Health Display, Esp", ver: "26.06.2026", dl: 1780, tags: ["Script", "Visual"] },
+      { name: "Steal a Labubu: Player Features", ver: "24.06.2026", dl: 1340, tags: ["Script", "Auto"] },
+      { name: "Saber Simulator: Auto Swing, Auto Sell", ver: "25.06.2026", dl: 2340, tags: ["Script", "Farm"] },
+      { name: "Steal A Brainrot: Auto Farm, Godmode, Esp", ver: "27.06.2026", dl: 3890, tags: ["Script", "Farm", "God"] },
+      { name: "Steal a Brainrot: Teleport", ver: "24.06.2026", dl: 1230, tags: ["Script", "Teleport"] },
+      { name: "Steal a Brainrot: Auto Farm, Auto Steal, Esp", ver: "26.06.2026", dl: 2890, tags: ["Script", "Farm", "ESP"] },
+      { name: "Steal a Brainrot: Auto Steal", ver: "24.06.2026", dl: 1890, tags: ["Script", "Auto"] },
+      { name: "Bloxfruits [HOHO HUB]", ver: "28.06.2026", dl: 8900, tags: ["Script", "Hub"] },
+      { name: "XENO", ver: "26.06.2026", dl: 4500, tags: ["Executor"] },
+      { name: "SeliWare Executor", ver: "25.06.2026", dl: 3200, tags: ["Executor"] },
+      { name: "Fix", ver: "24.06.2026", dl: 890, tags: ["Fix", "Utility"] },
+      { name: "Lunar Hub", ver: "28.06.2026", dl: 5600, tags: ["Hub", "Script"] },
+      // НОВЫЕ РОБЛОКС ЧИТЫ (добавлены 28.06.2026)
+      { name: "Catch and Feed a Brainrot!: Auto Farm, Auto Buy, Auto Sell", ver: "27.06.2026", dl: 3200, tags: ["Script", "Farm"] },
+      { name: "Pets GO: Auto Relics, Auto Roll, Auto Fish", ver: "26.06.2026", dl: 2800, tags: ["Script", "Auto"] },
+      { name: "Murder Mystery 2: Auto Farm, Auto Play, Esp", ver: "28.06.2026", dl: 4100, tags: ["Script", "ESP"] },
+      { name: "Fruit Battlegrounds: Auto Farm, Auto Farm Boss, Auto Spin", ver: "27.06.2026", dl: 3500, tags: ["Script", "Farm"] },
+      { name: "Grow A Garden: Auto Buy, Auto Sell", ver: "24.06.2026", dl: 1900, tags: ["Script", "Auto"] },
+      { name: "Eat Blobs Simulator: Infinite Points", ver: "25.06.2026", dl: 2100, tags: ["Script", "Farm"] },
+      { name: "Examination: Esp, Silent Aim, Fullbright", ver: "26.06.2026", dl: 1700, tags: ["Script", "ESP"] },
+      { name: "Grow A Garden: Auto Farm, Auto Sell, Auto Buy", ver: "25.06.2026", dl: 2300, tags: ["Script", "Farm"] },
+      { name: "99 Nights in the Forest: Hitbox, Esp, Bring Items, Teleports", ver: "27.06.2026", dl: 2600, tags: ["Script", "ESP"] },
+      { name: "Steal a Baddie: Auto Steal, Auto Farm", ver: "24.06.2026", dl: 2100, tags: ["Script", "Auto"] },
+      { name: "Jetpack Training: Auto Farm, Auto Rebirth, Auto Hatch", ver: "25.06.2026", dl: 2400, tags: ["Script", "Farm"] },
+      { name: "Grow Eggs: Auto Farm", ver: "26.06.2026", dl: 1800, tags: ["Script", "Farm"] },
+      { name: "Dead Rails: Auto Farm Bounds", ver: "25.06.2026", dl: 2200, tags: ["Script", "Farm"] },
+      { name: "Anime Rangers X: Auto Play, Auto Buy, Player Features", ver: "27.06.2026", dl: 2900, tags: ["Script", "Auto"] },
+      { name: "Build an Island!: Auto Farm, Auto Craft, Auto Collect", ver: "26.06.2026", dl: 2600, tags: ["Script", "Farm"] }
+    ]
+  },
+
+  // === RUST ===
+  {
+    id: "rust",
+    name: "Rust",
+    img: "https://img.icons8.com/color/64/rust.png",
+    cheats: [
+      { name: "Cheat (Rust)", ver: "27.06.2026", dl: 5600, tags: ["Aimbot", "ESP"] },
+      { name: "DeusHack", ver: "26.06.2026", dl: 3200, tags: ["Aimbot", "Premium"] },
+      { name: "AquaCheats", ver: "25.06.2026", dl: 2100, tags: ["ESP", "Legit"] },
+      { name: "CAT TECH", ver: "28.06.2026", dl: 4800, tags: ["Premium", "Aimbot"] },
+      { name: "specterdex", ver: "24.06.2026", dl: 1560, tags: ["External"] },
+      { name: "SUPERIORITY", ver: "27.06.2026", dl: 3900, tags: ["Rage", "Aimbot"] },
+      { name: "VECTOR EXTERNAL", ver: "25.06.2026", dl: 2340, tags: ["External", "Aimbot"] }
+    ]
+  },
+
+  // === VALORANT ===
+  {
+    id: "valorant",
+    name: "Valorant",
+    img: "https://img.icons8.com/color/64/valorant.png",
+    cheats: [
+      { name: "MEMEZ", ver: "26.06.2026", dl: 2890, tags: ["Aimbot", "Free"] },
+      { name: "FULL (Valorant)", ver: "28.06.2026", dl: 5600, tags: ["Premium", "Aimbot"] }
+    ]
+  },
+
+  // === GARRY'S MOD ===
+  {
+    id: "garrysmod",
+    name: "Garry's Mod",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/4000/header.jpg",
+    cheats: [
+      { name: "GRUST", ver: "27.06.2026", dl: 3400, tags: ["LUA", "Aimbot"] }
+    ]
+  },
+
+  // === DEAD BY DAYLIGHT ===
+  {
+    id: "dbd",
+    name: "Dead by Daylight",
+    img: "https://img.icons8.com/color/64/dead-by-daylight.png",
+    cheats: [
+      { name: "SelinCheat", ver: "26.06.2026", dl: 2100, tags: ["ESP", "Speed"] }
+    ]
+  },
+
+  // === GENSHIN IMPACT ===
+  {
+    id: "genshin",
+    name: "Genshin Impact",
+    img: "https://img.icons8.com/nolan/1200/genshin-impact-logo--v2.jpg",
+    cheats: [
+      { name: "Shika", ver: "27.06.2026", dl: 2890, tags: ["AutoFarm", "ESP"] }
+    ]
+  },
+
+  // === WARFACE ===
+  {
+    id: "warface",
+    name: "Warface",
+    img: "https://img.icons8.com/color/64/warface.png",
+    cheats: [
+      { name: "MASON HACK", ver: "28.06.2026", dl: 3100, tags: ["Aimbot", "ESP"] }
+    ]
+  },
+
+  // === WORLD OF TANKS ===
+  {
+    id: "worldoftanks",
+    name: "World of Tanks",
+    img: "https://img.icons8.com/color/64/tank.png",
+    cheats: [
+      { name: "WARPACK", ver: "27.06.2026", dl: 4500, tags: ["Aimbot", "Mod"] }
+    ]
+  },
+
+  // === DOTA 2 ===
+  {
+    id: "dota",
+    name: "Dota 2",
+    img: "https://ir.ozone.ru/s3/multimedia-x/6369250845.jpg",
+    cheats: [
+      { name: "SkinChanger", ver: "26.06.2026", dl: 5600, tags: ["Cosmetic", "Free"] }
+    ]
+  },
+
+  // === ARC RAIDERS ===
+  {
+    id: "arcraiders",
+    name: "Arc Raiders",
+    img: "https://img.icons8.com/color/64/robot.png",
+    cheats: [
+      { name: "Keitaro", ver: "25.06.2026", dl: 1890, tags: ["ESP", "Aimbot"] }
+    ]
+  }
+];
+
+// ============================================================
+// ОСТАЛЬНОЙ КОД (без изменений)
+// ============================================================
 let currentLang='en', currentGame=null, currentCheat=null;
 
 function showPage(id){
