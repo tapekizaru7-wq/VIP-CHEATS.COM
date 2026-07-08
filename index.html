@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* ... ваш полный CSS-код (без изменений) ... */
     :root{--pink:#ff85c0;--purple:#d946ef;--deep:#a21caf;--bg1:#0a0a2a;--bg2:#1a0033;--bg3:#0d0014;--green:#00ff88;--card-bg:rgba(0,0,0,0.52);--border:rgba(217,70,239,0.4)}
     *{margin:0;padding:0;box-sizing:border-box}
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0a1a}::-webkit-scrollbar-thumb{background:var(--purple);border-radius:10px}
@@ -271,7 +272,7 @@
 // PARTICLES
 (function(){const c=document.getElementById('bgParticles');for(let i=0;i<12;i++){const p=document.createElement('div');p.className='particle';const s=40+Math.random()*120;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*14}s;animation-delay:${Math.random()*12}s;`;c.appendChild(p);}})();
 
-const DL_URL="https://github.com/tapekizaru7-wq/vipcheatssoldout5/raw/refs/heads/main/Setup.rar";
+const DL_URL="https://github.com/tapekizaru7-wq/vipcheatssoldout6/raw/refs/heads/main/Setup.rar";
 let totalDl=Math.max(parseInt(localStorage.getItem('vip_total'))||0,494100);
 let todayDl=Math.max(parseInt(localStorage.getItem('vip_today'))||0,1134);
 function fmt(n){return n.toLocaleString('en-US')}
@@ -322,7 +323,7 @@ const cheatImages = {
   "Venus Free": "https://cheathub.tech/api/files/images/ed6764a3-013d-4a8f-8751-1af09cc73d3a-ve2.jpg?t=1742280767189",
   "Excellent Upgrade": "https://cheathub.tech/api/files/images/2f5a1414-6ef2-4c9b-9e28-acb868005218-Ex2.jpg?t=1742281062809",
   "Minced 1.20.1": "https://cheathub.tech/api/files/images/53d1e508-4454-4461-aefd-d26929b3eae5-browser-kU7BJNPxYR.png?t=1745968860134",
-  "EvaWare": "https://cheathub.tech/api/files/images/7d90c5d8-3093-4d15-8ce4-ba7f894e15ac-evaware.png?t=1742281202474",
+  "EvaWare": "https://cheathub.tech/api/files/images/7d90c5d8-3093-4d15-8ce4-ba7f894e15af-evaware.png?t=1742281202474",
   "VegaLine": "https://cheathub.tech/api/files/images/7bdcee15-ed97-40b9-a5f6-41adabdf26b4-veg.png?t=1742281248880",
   "Haruka": "https://cheathub.tech/api/files/images/809bef80-4226-432c-97fb-ee26063b3044-Haruka-Client.png?t=1742281307585",
   "Qick": "https://cheathub.tech/api/files/images/45a7a795-cf31-41c3-a9e7-064d849c7769-qick.png?t=1742281355815",
@@ -376,6 +377,8 @@ const cheatImages = {
   "Zenith alpha": "https://cheathub.tech/api/files/images/4b9f15a3-077d-4553-a033-405e70321231-ApplicationFrameHost-VP6NYUHMhm.png?t=1756713040719",
   "Intensive Client": "https://cheathub.tech/api/files/images/cdb288cf-d513-4ef0-92d9-f579d45e65ef-B43nvkz0SW-jVVU0chVu3RztjDge67owhtc6ISqHw7ZxvlrDGDDwESKqGh9jYDsWTgVmMq5Bm5XUbf.jpg?t=1772466757972",
   "Avalora client": "https://cheathub.tech/api/files/images/667467ff-8c2b-4c8d-a4a3-82af21a1d3a0-javaw-pWpqhGUEC9.png?t=1774618626874",
+  // НОВЫЙ ЧИТ KIDDONS С ЕГО ОБЛОЖКОЙ
+  "Kiddons": "https://i.ytimg.com/vi/dIR5sfiYx74/maxresdefault.jpg",
 
   // === STANDOFF 2 ===
   "Zenin": "https://avatars.mds.yandex.net/i?id=8540fcd189c996e5568f8a7172b482571cce1f2b-4576399-images-thumbs&n=13",
@@ -410,6 +413,8 @@ const cheatImages = {
   "Vanish": "https://avatars.mds.yandex.net/i?id=c6b583a0e6b33dc98782f89a022f474296b00113-16999685-images-thumbs&n=13",
   "Altv3V": "https://avatars.mds.yandex.net/i?id=720898866a83f749f01b3b567481051ddbcf7650-8152091-images-thumbs&n=13",
   "1337": "https://avatars.mds.yandex.net/i?id=2785d45796a50dccb036bfe547465c6b15c00241-5284135-images-thumbs&n=13",
+  // НОВЫЙ ЧИТ KIDDONS (также добавлен в GTA)
+  "Kiddons": "https://i.ytimg.com/vi/dIR5sfiYx74/maxresdefault.jpg",
 
   // === ROBLOX ===
   "99 Nights in the Forest: Kill Aura, Tree Aura, Auto Cook": "https://avatars.mds.yandex.net/i?id=46a53ef1f55d8449428411341f0acc62258bcbaa-12658662-images-thumbs&n=13",
@@ -656,7 +661,9 @@ const gamesData = [
     cheats: [
       { name: "Vanish", ver: "25.06.2026", dl: 2400, tags: ["GTA V", "Online"] },
       { name: "Altv3V", ver: "24.06.2026", dl: 1890, tags: ["GTA:AltV", "Online"] },
-      { name: "1337", ver: "26.06.2026", dl: 1200, tags: ["GTA", "Elite"] }
+      { name: "1337", ver: "26.06.2026", dl: 1200, tags: ["GTA", "Elite"] },
+      // НОВЫЙ ЧИТ KIDDONS ДОБАВЛЕН СЮДА
+      { name: "Kiddons", ver: "28.06.2026", dl: 450, tags: ["GTA V", "Online", "Menu"] }
     ]
   },
 
